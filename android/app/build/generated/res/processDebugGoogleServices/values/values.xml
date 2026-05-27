@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="gcm_defaultSenderId" translatable="false">646532651867</string>
+    <string name="google_api_key" translatable="false">AIzaSyAJ2INl8jogM9aybR3CriwpP9EJWY-iOBw</string>
+    <string name="google_app_id" translatable="false">1:646532651867:android:8692692f0c0806345c587e</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAJ2INl8jogM9aybR3CriwpP9EJWY-iOBw</string>
+    <string name="google_storage_bucket" translatable="false">rameshwaram-dry-fish.firebasestorage.app</string>
+    <string name="project_id" translatable="false">rameshwaram-dry-fish</string>
+</resources>

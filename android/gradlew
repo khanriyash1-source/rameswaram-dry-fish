@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# Gradle wrapper script
+DIR="$( cd "$( dirname "$0" )" && pwd )"
+GRADLE_VERSION=8.5
+
+# Try cached gradle
+CACHE_DIR="$HOME/.gradle/wrapper/dists"
+FOUND=$(find "$CACHE_DIR" -name "gradle-$GRADLE_VERSION" -type d 2>/dev/null | head -1)
+if [ -n "$FOUND" ]; then
+    exec "$FOUND/bin/gradle" "$@"
+fi
+
+# Fall back to PATH
+exec gradle "$@"

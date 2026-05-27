@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "646532651867",
+    "project_id": "rameshwaram-dry-fish",
+    "storage_bucket": "rameshwaram-dry-fish.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:646532651867:android:8692692f0c0806345c587e",
+        "android_client_info": {
+          "package_name": "com.rameswaram.dryfish"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJ2INl8jogM9aybR3CriwpP9EJWY-iOBw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

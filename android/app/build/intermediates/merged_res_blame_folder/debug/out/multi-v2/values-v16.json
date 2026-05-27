@@ -1,0 +1,38 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.rameswaram.dryfish.app-mergeDebugResources-78:/values-v16/values-v16.xml",
+            "map": [
+                {
+                    "source": "/Users/vetrivelan_007/.gradle/caches/transforms-3/9b0af26ca18b60c401e0171b50be256e/transformed/appcompat-1.6.1/res/values-v16/values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "5",
+                        "endColumns": "12",
+                        "endOffsets": "223"
+                    },
+                    "to": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "121",
+                        "endLines": "6",
+                        "endColumns": "12",
+                        "endOffsets": "289"
+                    }
+                },
+                {
+                    "source": "/Users/vetrivelan_007/.gradle/caches/transforms-3/1a1a936a1cf42aa6ae2a2e1b2424ddae/transformed/core-1.12.0/res/values-v16/values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "65",
+                        "endOffsets": "116"
+                    }
+                }
+            ]
+        }
+    ]
+}

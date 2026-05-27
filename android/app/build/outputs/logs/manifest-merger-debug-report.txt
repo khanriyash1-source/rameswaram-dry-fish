@@ -1,0 +1,1090 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/vetrivelan_007/Desktop/rameswaram dry fish/android/app/src/main/AndroidManifest.xml:2:1-44:12
+INJECTED from /Users/vetrivelan_007/Desktop/rameswaram dry fish/android/app/src/main/AndroidManifest.xml:2:1-44:12
+INJECTED from /Users/vetrivelan_007/Desktop/rameswaram dry fish/android/app/src/main/AndroidManifest.xml:2:1-44:12
+INJECTED from /Users/vetrivelan_007/Desktop/rameswaram dry fish/android/app/src/main/AndroidManifest.xml:2:1-44:12
+MERGED from [com.razorpay:checkout:1.6.33] /Users/vetrivelan_007/.gradle/caches/transforms-3/f02642a8c643e08e1aa2b6cd0003da54/transformed/checkout-1.6.33/AndroidManifest.xml:2:1-66:12
+MERGED from [com.google.firebase:firebase-auth-ktx:23.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/7cefa76de1e0979fe3fc0d87f8effab9/transformed/firebase-auth-ktx-23.0.0/AndroidManifest.xml:2:1-17:12
+MERGED from [com.google.firebase:firebase-auth:23.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/0eeeab101b2a8b9e90239d216948dff5/transformed/firebase-auth-23.0.0/AndroidManifest.xml:17:1-75:12
+MERGED from [androidx.credentials:credentials:1.2.0-rc01] /Users/vetrivelan_007/.gradle/caches/transforms-3/eb676bcc427da56873fe13d7c5362a19/transformed/credentials-1.2.0-rc01/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/vetrivelan_007/.gradle/caches/transforms-3/7af6a095c667d71c79d7e65ce48a23e4/transformed/credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:17:1-44:12
+MERGED from [com.google.android.gms:play-services-auth:20.7.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/219b5f64938db8b14e43d0275313a758/transformed/play-services-auth-20.7.0/AndroidManifest.xml:17:1-40:12
+MERGED from [com.google.android.gms:play-services-auth-base:18.0.4] /Users/vetrivelan_007/.gradle/caches/transforms-3/c4f916022bc3ad50c50c4b5ca901bb46/transformed/play-services-auth-base-18.0.4/AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.gms:play-services-wallet:18.1.3] /Users/vetrivelan_007/.gradle/caches/transforms-3/6b5211f4578bdc5a4cda7c1115613935/transformed/play-services-wallet-18.1.3/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.firebase:firebase-messaging-ktx:24.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/2af3749b5b625d308b4057bb381904f0/transformed/firebase-messaging-ktx-24.0.0/AndroidManifest.xml:17:1-32:12
+MERGED from [com.google.firebase:firebase-messaging:24.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d7b72a35ce810bf34e5baf4cdff06a7a/transformed/firebase-messaging-24.0.0/AndroidManifest.xml:17:1-66:12
+MERGED from [com.google.android.gms:play-services-identity:17.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/9fc917bba0c9da68e33ed8eb6c447e33/transformed/play-services-identity-17.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d8125ba1e4b110cf04af7f8cb1edf750/transformed/play-services-maps-17.0.0/AndroidManifest.xml:17:1-38:12
+MERGED from [com.google.android.gms:play-services-auth-api-phone:18.0.2] /Users/vetrivelan_007/.gradle/caches/transforms-3/ad42c7f8bdd9dffa9c335cf756945cb6/transformed/play-services-auth-api-phone-18.0.2/AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.firebase:firebase-appcheck-interop:17.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/c9c0282869f24e5df2d2300b52c7ce57/transformed/firebase-appcheck-interop-17.0.0/AndroidManifest.xml:15:1-25:12
+MERGED from [com.google.android.gms:play-services-fido:20.1.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/0b5eebc8ce05a2511647f506cbc1807d/transformed/play-services-fido-20.1.0/AndroidManifest.xml:2:1-10:12
+MERGED from [com.google.android.gms:play-services-base:18.0.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/bdee5940c527fc08835a3536cb0d938f/transformed/play-services-base-18.0.1/AndroidManifest.xml:16:1-24:12
+MERGED from [io.insert-koin:koin-androidx-compose:3.5.3] /Users/vetrivelan_007/.gradle/caches/transforms-3/7cf76fba7b32d3b4023330d64b9e2fbb/transformed/koin-androidx-compose-3.5.3/AndroidManifest.xml:2:1-9:12
+MERGED from [io.insert-koin:koin-android:3.5.3] /Users/vetrivelan_007/.gradle/caches/transforms-3/2bb181686bfa0f9b95acae15c179fbae/transformed/koin-android-3.5.3/AndroidManifest.xml:2:1-11:12
+MERGED from [io.coil-kt:coil-compose:2.5.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/5dcff68330c5f3f2bc03e4d1d7960b3b/transformed/coil-compose-2.5.0/AndroidManifest.xml:2:1-7:12
+MERGED from [io.coil-kt:coil-compose-base:2.5.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/ae92a09d66f0d815b1fc8efa25f2d58e/transformed/coil-compose-base-2.5.0/AndroidManifest.xml:2:1-7:12
+MERGED from [io.coil-kt:coil:2.5.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/fb88c483c9fafa4d8dbad91d76a9bec6/transformed/coil-2.5.0/AndroidManifest.xml:2:1-7:12
+MERGED from [io.coil-kt:coil-base:2.5.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/6e0a0280f157a8aef4a1e08ce349a404/transformed/coil-base-2.5.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.appcompat:appcompat-resources:1.6.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/93696321d7bdf86d19b61b03192c0c06/transformed/appcompat-resources-1.6.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.appcompat:appcompat:1.6.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/9b0af26ca18b60c401e0171b50be256e/transformed/appcompat-1.6.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.fragment:fragment-ktx:1.6.2] /Users/vetrivelan_007/.gradle/caches/transforms-3/8f692c1972bce1edab3245b45840aa40/transformed/fragment-ktx-1.6.2/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.firebase:firebase-crashlytics-ktx:19.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/4a34c49fa0bdf626060e9f71ed9e047e/transformed/firebase-crashlytics-ktx-19.0.0/AndroidManifest.xml:15:1-30:12
+MERGED from [com.google.firebase:firebase-crashlytics:19.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/5f918e79a00e1d11abcae75ed908291c/transformed/firebase-crashlytics-19.0.0/AndroidManifest.xml:2:1-24:12
+MERGED from [com.google.firebase:firebase-sessions:2.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/551ff94e5635bca54bcdcc36092c530c/transformed/firebase-sessions-2.0.0/AndroidManifest.xml:15:1-35:12
+MERGED from [com.google.firebase:firebase-installations:18.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/6c3bc0f133db74eea439a9173bcd50f0/transformed/firebase-installations-18.0.0/AndroidManifest.xml:2:1-24:12
+MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d1a7ad147696614309c97f582fc1b859/transformed/firebase-common-ktx-21.0.0/AndroidManifest.xml:2:1-18:12
+MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d15e9cd4c17b6468b308e034ef79f50f/transformed/firebase-auth-interop-20.0.0/AndroidManifest.xml:2:1-10:12
+MERGED from [com.google.firebase:firebase-common:21.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/bf7791ee14592f09f8e2da24f72657be/transformed/firebase-common-21.0.0/AndroidManifest.xml:15:1-41:12
+MERGED from [com.google.android.recaptcha:recaptcha:18.4.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/1c162696a4fcd80cf32d04ef81dfc5b1/transformed/recaptcha-18.4.0/AndroidManifest.xml:2:1-11:12
+MERGED from [com.google.android.play:integrity:1.2.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/38ae5485b6ac81cdb4c7db9beea29f3e/transformed/integrity-1.2.0/AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.firebase:firebase-iid-interop:17.1.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/968991ab61c27416c8d93d2c9b70ede2/transformed/firebase-iid-interop-17.1.0/AndroidManifest.xml:2:1-10:12
+MERGED from [com.google.android.gms:play-services-cloud-messaging:17.2.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/04a7138992899a8ace16c017f33d37bf/transformed/play-services-cloud-messaging-17.2.0/AndroidManifest.xml:2:1-13:12
+MERGED from [com.google.firebase:firebase-installations-interop:17.1.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/2e5267b7c70e90d51549f7c51bc38744/transformed/firebase-installations-interop-17.1.1/AndroidManifest.xml:15:1-19:12
+MERGED from [androidx.navigation:navigation-common:2.7.6] /Users/vetrivelan_007/.gradle/caches/transforms-3/de92ba1ffb56ddbe38aa2e19bf19b902/transformed/navigation-common-2.7.6/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-runtime:2.7.6] /Users/vetrivelan_007/.gradle/caches/transforms-3/ea651509ed79a28cc0dba18229487fc6/transformed/navigation-runtime-2.7.6/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-common-ktx:2.7.6] /Users/vetrivelan_007/.gradle/caches/transforms-3/4c1b0817241148b66471be830cd03087/transformed/navigation-common-ktx-2.7.6/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.7.6] /Users/vetrivelan_007/.gradle/caches/transforms-3/51ad531dd9244b051fd7487aa4d60b15/transformed/navigation-runtime-ktx-2.7.6/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.navigation:navigation-compose:2.7.6] /Users/vetrivelan_007/.gradle/caches/transforms-3/b6a07ace012c7b0e45e4fec3016f6b82/transformed/navigation-compose-2.7.6/AndroidManifest.xml:2:1-7:12
+MERGED from [com.valentinilk.shimmer:compose-shimmer:1.0.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/ba697f414e9779e10eeed9487ba0b6d3/transformed/compose-shimmer-1.0.5/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material3:material3-android:1.2.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/6d7e5a071bee4e72084face6ac55b8cf/transformed/material3-release/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.accompanist:accompanist-swiperefresh:0.32.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/c79de3707a1499bc6d5320ce9a0815cc/transformed/accompanist-swiperefresh-0.32.0/AndroidManifest.xml:17:1-23:12
+MERGED from [com.google.accompanist:accompanist-pager-indicators:0.32.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/a152229a3bdb09d8662b34f81eb4b69e/transformed/accompanist-pager-indicators-0.32.0/AndroidManifest.xml:17:1-23:12
+MERGED from [com.google.accompanist:accompanist-pager:0.32.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/ca1c8af9ed4baa8149dacf65bc01518d/transformed/accompanist-pager-0.32.0/AndroidManifest.xml:17:1-23:12
+MERGED from [dev.chrisbanes.snapper:snapper:0.2.2] /Users/vetrivelan_007/.gradle/caches/transforms-3/613b6c4aba72d385e7165cd108e8a976/transformed/snapper-0.2.2/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.compose.material:material-ripple-android:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/438ee9f215e19f246b799d3a452d389a/transformed/material-ripple-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material:material-icons-core-android:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/8930716b3cda5b19f81ba70882090f7a/transformed/material-icons-core-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material:material-icons-extended-android:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/190c4be8625f8ee9b7e3a17b62e0c0de/transformed/material-icons-extended-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material:material-android:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/16258f61a58192c0f5ec27499a84d587/transformed/material-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.animation:animation-core-android:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/72cdcf04bb04d99eba396a6c499e1f8d/transformed/animation-core-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.animation:animation-android:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/6231967a858db6cd992d061a4987ea4a/transformed/animation-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/620febb58236f7f65520ef7de1cec93c/transformed/foundation-layout-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.foundation:foundation-android:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/13987190dc4ab43f39fd416526d9ca23/transformed/foundation-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-tooling-data-android:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/ee5eebc90a27546891c5fb9581778cd6/transformed/ui-tooling-data-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-unit-android:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/9ee6ebf8c24f415c855c0506b442f8ee/transformed/ui-unit-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-geometry-android:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/de0d5624ec3f84570c689f1c10790a6d/transformed/ui-geometry-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-text-android:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/54a45618d75ec7bb5ce43f0e8bcfcde9/transformed/ui-text-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-util-android:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/a5158be17694c165a7ac02cabd45fbba/transformed/ui-util-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/5974b22a792bd02e1123461e274b4172/transformed/ui-tooling-preview-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.compose.ui:ui-tooling-android:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/12dbb2728efa0bf26711b20dc61827a6/transformed/ui-tooling-release/AndroidManifest.xml:17:1-28:12
+MERGED from [androidx.compose.ui:ui-graphics-android:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/25550e644896ce6fc853f65ce56a2b98/transformed/ui-graphics-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-test-manifest:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/bc9dda216e211075fac7fc263ba6d425/transformed/ui-test-manifest-1.6.5/AndroidManifest.xml:17:1-28:12
+MERGED from [com.google.accompanist:accompanist-drawablepainter:0.32.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d735dfb9338d061f5bce8326a6bab5ea/transformed/accompanist-drawablepainter-0.32.0/AndroidManifest.xml:17:1-23:12
+MERGED from [androidx.compose.ui:ui-android:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/344bcf5296e54f4bac6d2d5f2d744adc/transformed/ui-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.activity:activity:1.8.2] /Users/vetrivelan_007/.gradle/caches/transforms-3/f2278835153d0815c043c9b4ab3427d8/transformed/activity-1.8.2/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity-ktx:1.8.2] /Users/vetrivelan_007/.gradle/caches/transforms-3/bfb51186042a2197ab0e63e6b9f71dc6/transformed/activity-ktx-1.8.2/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.activity:activity-compose:1.8.2] /Users/vetrivelan_007/.gradle/caches/transforms-3/a18e53c9eebd374171c9567b0279fa8d/transformed/activity-compose-1.8.2/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.emoji2:emoji2-views-helper:1.3.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/836cf3b1f6eb774f60ed3ac078e591d6/transformed/emoji2-views-helper-1.3.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.emoji2:emoji2:1.3.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/0c898db7e70ee6759e3e1b27a961751c/transformed/emoji2-1.3.0/AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/f82b07a3b7e198c709bccac4c868fbf6/transformed/lifecycle-process-2.7.0/AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/71b89ac68b09593d7aa6f03d74dd2918/transformed/lifecycle-livedata-core-ktx-2.7.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.7.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/2e4cdc5656f459f51a386f65f3fbd97c/transformed/lifecycle-livedata-2.7.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.7.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/191de10efc657f1569ef30dacd2e66b5/transformed/lifecycle-livedata-core-2.7.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/077cb9938bec5fa2c0944ebddbef1d0f/transformed/savedstate-ktx-1.2.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate:1.2.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/1d3a92b4b8fbcd7f099b3fa0d88374b1/transformed/savedstate-1.2.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/ec54ca0c2ae3430d604b526a80bf3fda/transformed/lifecycle-viewmodel-savedstate-2.7.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/093760c7be8d83a24dafb6974fbcf540/transformed/lifecycle-viewmodel-ktx-2.7.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.7.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/746b88d5eb20a015a5995c15b28c63c3/transformed/lifecycle-viewmodel-2.7.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.7.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/35db99bd9b7dcaa7655cfb60435a0fc1/transformed/lifecycle-runtime-2.7.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-compose:2.7.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/fe73a59846e422a2ad59d0ee6774450c/transformed/lifecycle-runtime-compose-2.7.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/89eb2c161b9fd2f4403bd95a05c74377/transformed/lifecycle-viewmodel-compose-2.7.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.7.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/af3cc912333f24cdde6e4892e9c746c9/transformed/lifecycle-runtime-ktx-2.7.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.room:room-runtime:2.6.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/d8aac784cd17e1fc26b66b1863150990/transformed/room-runtime-2.6.1/AndroidManifest.xml:17:1-31:12
+MERGED from [androidx.room:room-ktx:2.6.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/4ea9a5ede1fed04c09d81fbdda54cc4f/transformed/room-ktx-2.6.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/f6b5c9bc08748be55a7176c010d5f4e7/transformed/runtime-saveable-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.runtime:runtime-android:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/826bf8fdc91549a6e7223c9f0d220a9d/transformed/runtime-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.datastore:datastore-preferences:1.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/dd8f3ac99133fd65a4dc2d22a58db814/transformed/datastore-preferences-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.datastore:datastore:1.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/96aa7b121ad4ff3ef4d45257071ed645/transformed/datastore-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-tasks:18.1.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/af1e227026c76b777b2516306e83b3d5/transformed/play-services-tasks-18.1.0/AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.firebase:firebase-measurement-connector:19.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/2837cc439e981307567ddd1e7b5bdb35/transformed/firebase-measurement-connector-19.0.0/AndroidManifest.xml:17:1-25:12
+MERGED from [com.google.android.gms:play-services-stats:17.0.2] /Users/vetrivelan_007/.gradle/caches/transforms-3/8b9841b4d9f4e0cb43fb4e3dadeb6df8/transformed/play-services-stats-17.0.2/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-basement:18.3.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/00d819d3337d657609dd3a4ba34a5f3c/transformed/play-services-basement-18.3.0/AndroidManifest.xml:16:1-26:12
+MERGED from [androidx.fragment:fragment:1.6.2] /Users/vetrivelan_007/.gradle/caches/transforms-3/afc596555dcff42ad7e969755e8dddb7/transformed/fragment-1.6.2/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/7e7a91d5d4dbf59a7a86e1da4e02c9f9/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/6c7a6c4b164ef3127277a8bf3762b65e/transformed/loader-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/288eeb608b2c9c684ed2667a0fadf012/transformed/drawerlayout-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.autofill:autofill:1.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/69a196d1761a7e1550df1868cb0db7e7/transformed/autofill-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.browser:browser:1.4.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/21e663e45e1157808f8ca17a1bbccb2b/transformed/browser-1.4.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/54d31e7a99f6a734c6e29cb7afdce8ce/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/07c21f17c1db09f46e4de0b19033d288/transformed/vectordrawable-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/0997cf1015cfffbfb9638c8a9d1b322c/transformed/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview:1.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/cc54c5374e5b8d43bd523819897d26ae/transformed/customview-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core:1.12.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/1a1a936a1cf42aa6ae2a2e1b2424ddae/transformed/core-1.12.0/AndroidManifest.xml:17:1-30:12
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/9f5c941e5a9c03204852991722479e4c/transformed/customview-poolingcontainer-1.0.0/AndroidManifest.xml:17:1-23:12
+MERGED from [androidx.core:core-ktx:1.12.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/2bbdefa03921a5a96a6b9241951c6f79/transformed/core-ktx-1.12.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.sqlite:sqlite-framework:2.4.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/137f76d8f6e15e7a61eb09337e67ae8c/transformed/sqlite-framework-2.4.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.sqlite:sqlite:2.4.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/a8b2fe2a791755c76115894f4591f377/transformed/sqlite-2.4.0/AndroidManifest.xml:17:1-22:12
+MERGED from [io.github.aakira:napier-android-debug:1.4.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/9a5d6baa41acaf04d53f4f1549e81b2d/transformed/napier-debug/AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.annotation:annotation-experimental:1.4.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/878fec15642ebcfaa8b5d81bfa762137/transformed/annotation-experimental-1.4.0/AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.firebase:firebase-config-interop:16.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/2730f9c9c999d53089fcdd955322d048/transformed/firebase-config-interop-16.0.0/AndroidManifest.xml:15:1-20:12
+MERGED from [com.google.firebase:firebase-datatransport:18.2.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/255b426721b1d58ccbc8f223c75efac6/transformed/firebase-datatransport-18.2.0/AndroidManifest.xml:15:1-31:12
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.9] /Users/vetrivelan_007/.gradle/caches/transforms-3/f836dad09eed53e4711f6856e7c6cc95/transformed/transport-backend-cct-3.1.9/AndroidManifest.xml:15:1-37:12
+MERGED from [com.google.firebase:firebase-encoders-json:18.0.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/ef77d4be6b34255201e2cc4544d19059/transformed/firebase-encoders-json-18.0.1/AndroidManifest.xml:15:1-22:12
+MERGED from [com.google.android.libraries.identity.googleid:googleid:1.1.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/1adcc30256b7858e24cfc7fc00671644/transformed/googleid-1.1.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/eace56661d92bb68745da04820eb2287/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/f1fd95002e3e687d6f49dc749bb57907/transformed/core-runtime-2.2.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.firebase:firebase-components:18.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/0577c0f84d7e2f5b7dceeae5f51e1c27/transformed/firebase-components-18.0.0/AndroidManifest.xml:15:1-20:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/b256d4889c58df2be7804d614eac97d0/transformed/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/1b6034bc64a8317eee7ce7651b2c9a7b/transformed/cursoradapter-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.9] /Users/vetrivelan_007/.gradle/caches/transforms-3/f776bf45d36595d1efa91c4c5a9b73a1/transformed/transport-runtime-3.1.9/AndroidManifest.xml:15:1-41:12
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/9259c95d4a9429906fa89df35f66ecd7/transformed/profileinstaller-1.3.1/AndroidManifest.xml:17:1-55:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/f8ffebdf676afa812fe25863a72266cf/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.datatransport:transport-api:3.1.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/0e13ed5412b6f4b9c39b9ee0a04b9978/transformed/transport-api-3.1.0/AndroidManifest.xml:15:1-20:12
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/b48373075488d25ff4d7fe003e50c672/transformed/startup-runtime-1.1.1/AndroidManifest.xml:17:1-33:12
+MERGED from [androidx.tracing:tracing:1.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/273060dbc1d68ab5ab71a3b681676aa2/transformed/tracing-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.exifinterface:exifinterface:1.3.6] /Users/vetrivelan_007/.gradle/caches/transforms-3/ee402f8c4a5951e4bb0a756d1537b3cc/transformed/exifinterface-1.3.6/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/2caa4ee1be45fe3938ad3438ba33bae1/transformed/documentfile-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/f6b31dcecc246732a123f7c6991fa02c/transformed/print-1.0.0/AndroidManifest.xml:17:1-22:12
+	package
+		INJECTED from /Users/vetrivelan_007/Desktop/rameswaram dry fish/android/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/vetrivelan_007/Desktop/rameswaram dry fish/android/app/src/main/AndroidManifest.xml
+	xmlns:tools
+		ADDED from /Users/vetrivelan_007/Desktop/rameswaram dry fish/android/app/src/main/AndroidManifest.xml:3:5-51
+	android:versionCode
+		INJECTED from /Users/vetrivelan_007/Desktop/rameswaram dry fish/android/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/vetrivelan_007/Desktop/rameswaram dry fish/android/app/src/main/AndroidManifest.xml:2:11-69
+uses-permission#android.permission.INTERNET
+ADDED from /Users/vetrivelan_007/Desktop/rameswaram dry fish/android/app/src/main/AndroidManifest.xml:5:5-67
+MERGED from [com.razorpay:checkout:1.6.33] /Users/vetrivelan_007/.gradle/caches/transforms-3/f02642a8c643e08e1aa2b6cd0003da54/transformed/checkout-1.6.33/AndroidManifest.xml:8:5-67
+MERGED from [com.razorpay:checkout:1.6.33] /Users/vetrivelan_007/.gradle/caches/transforms-3/f02642a8c643e08e1aa2b6cd0003da54/transformed/checkout-1.6.33/AndroidManifest.xml:8:5-67
+MERGED from [com.google.firebase:firebase-auth:23.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/0eeeab101b2a8b9e90239d216948dff5/transformed/firebase-auth-23.0.0/AndroidManifest.xml:25:5-67
+MERGED from [com.google.firebase:firebase-auth:23.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/0eeeab101b2a8b9e90239d216948dff5/transformed/firebase-auth-23.0.0/AndroidManifest.xml:25:5-67
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d8125ba1e4b110cf04af7f8cb1edf750/transformed/play-services-maps-17.0.0/AndroidManifest.xml:24:5-67
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d8125ba1e4b110cf04af7f8cb1edf750/transformed/play-services-maps-17.0.0/AndroidManifest.xml:24:5-67
+MERGED from [com.google.firebase:firebase-crashlytics:19.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/5f918e79a00e1d11abcae75ed908291c/transformed/firebase-crashlytics-19.0.0/AndroidManifest.xml:7:5-67
+MERGED from [com.google.firebase:firebase-crashlytics:19.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/5f918e79a00e1d11abcae75ed908291c/transformed/firebase-crashlytics-19.0.0/AndroidManifest.xml:7:5-67
+MERGED from [com.google.firebase:firebase-installations:18.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/6c3bc0f133db74eea439a9173bcd50f0/transformed/firebase-installations-18.0.0/AndroidManifest.xml:8:5-67
+MERGED from [com.google.firebase:firebase-installations:18.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/6c3bc0f133db74eea439a9173bcd50f0/transformed/firebase-installations-18.0.0/AndroidManifest.xml:8:5-67
+MERGED from [com.google.android.recaptcha:recaptcha:18.4.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/1c162696a4fcd80cf32d04ef81dfc5b1/transformed/recaptcha-18.4.0/AndroidManifest.xml:7:5-67
+MERGED from [com.google.android.recaptcha:recaptcha:18.4.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/1c162696a4fcd80cf32d04ef81dfc5b1/transformed/recaptcha-18.4.0/AndroidManifest.xml:7:5-67
+MERGED from [com.google.android.gms:play-services-cloud-messaging:17.2.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/04a7138992899a8ace16c017f33d37bf/transformed/play-services-cloud-messaging-17.2.0/AndroidManifest.xml:8:5-67
+MERGED from [com.google.android.gms:play-services-cloud-messaging:17.2.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/04a7138992899a8ace16c017f33d37bf/transformed/play-services-cloud-messaging-17.2.0/AndroidManifest.xml:8:5-67
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.9] /Users/vetrivelan_007/.gradle/caches/transforms-3/f836dad09eed53e4711f6856e7c6cc95/transformed/transport-backend-cct-3.1.9/AndroidManifest.xml:25:5-67
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.9] /Users/vetrivelan_007/.gradle/caches/transforms-3/f836dad09eed53e4711f6856e7c6cc95/transformed/transport-backend-cct-3.1.9/AndroidManifest.xml:25:5-67
+	android:name
+		ADDED from /Users/vetrivelan_007/Desktop/rameswaram dry fish/android/app/src/main/AndroidManifest.xml:5:22-64
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from /Users/vetrivelan_007/Desktop/rameswaram dry fish/android/app/src/main/AndroidManifest.xml:6:5-79
+MERGED from [com.google.firebase:firebase-auth:23.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/0eeeab101b2a8b9e90239d216948dff5/transformed/firebase-auth-23.0.0/AndroidManifest.xml:26:5-79
+MERGED from [com.google.firebase:firebase-auth:23.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/0eeeab101b2a8b9e90239d216948dff5/transformed/firebase-auth-23.0.0/AndroidManifest.xml:26:5-79
+MERGED from [com.google.firebase:firebase-messaging:24.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d7b72a35ce810bf34e5baf4cdff06a7a/transformed/firebase-messaging-24.0.0/AndroidManifest.xml:22:5-79
+MERGED from [com.google.firebase:firebase-messaging:24.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d7b72a35ce810bf34e5baf4cdff06a7a/transformed/firebase-messaging-24.0.0/AndroidManifest.xml:22:5-79
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d8125ba1e4b110cf04af7f8cb1edf750/transformed/play-services-maps-17.0.0/AndroidManifest.xml:23:5-79
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d8125ba1e4b110cf04af7f8cb1edf750/transformed/play-services-maps-17.0.0/AndroidManifest.xml:23:5-79
+MERGED from [com.google.firebase:firebase-installations:18.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/6c3bc0f133db74eea439a9173bcd50f0/transformed/firebase-installations-18.0.0/AndroidManifest.xml:7:5-79
+MERGED from [com.google.firebase:firebase-installations:18.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/6c3bc0f133db74eea439a9173bcd50f0/transformed/firebase-installations-18.0.0/AndroidManifest.xml:7:5-79
+MERGED from [com.google.android.recaptcha:recaptcha:18.4.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/1c162696a4fcd80cf32d04ef81dfc5b1/transformed/recaptcha-18.4.0/AndroidManifest.xml:8:5-79
+MERGED from [com.google.android.recaptcha:recaptcha:18.4.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/1c162696a4fcd80cf32d04ef81dfc5b1/transformed/recaptcha-18.4.0/AndroidManifest.xml:8:5-79
+MERGED from [com.google.android.gms:play-services-cloud-messaging:17.2.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/04a7138992899a8ace16c017f33d37bf/transformed/play-services-cloud-messaging-17.2.0/AndroidManifest.xml:7:5-79
+MERGED from [com.google.android.gms:play-services-cloud-messaging:17.2.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/04a7138992899a8ace16c017f33d37bf/transformed/play-services-cloud-messaging-17.2.0/AndroidManifest.xml:7:5-79
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.9] /Users/vetrivelan_007/.gradle/caches/transforms-3/f836dad09eed53e4711f6856e7c6cc95/transformed/transport-backend-cct-3.1.9/AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.9] /Users/vetrivelan_007/.gradle/caches/transforms-3/f836dad09eed53e4711f6856e7c6cc95/transformed/transport-backend-cct-3.1.9/AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.9] /Users/vetrivelan_007/.gradle/caches/transforms-3/f776bf45d36595d1efa91c4c5a9b73a1/transformed/transport-runtime-3.1.9/AndroidManifest.xml:22:5-79
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.9] /Users/vetrivelan_007/.gradle/caches/transforms-3/f776bf45d36595d1efa91c4c5a9b73a1/transformed/transport-runtime-3.1.9/AndroidManifest.xml:22:5-79
+	android:name
+		ADDED from /Users/vetrivelan_007/Desktop/rameswaram dry fish/android/app/src/main/AndroidManifest.xml:6:22-76
+uses-permission#android.permission.POST_NOTIFICATIONS
+ADDED from /Users/vetrivelan_007/Desktop/rameswaram dry fish/android/app/src/main/AndroidManifest.xml:7:5-77
+MERGED from [com.google.firebase:firebase-messaging:24.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d7b72a35ce810bf34e5baf4cdff06a7a/transformed/firebase-messaging-24.0.0/AndroidManifest.xml:23:5-77
+MERGED from [com.google.firebase:firebase-messaging:24.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d7b72a35ce810bf34e5baf4cdff06a7a/transformed/firebase-messaging-24.0.0/AndroidManifest.xml:23:5-77
+	android:name
+		ADDED from /Users/vetrivelan_007/Desktop/rameswaram dry fish/android/app/src/main/AndroidManifest.xml:7:22-74
+application
+ADDED from /Users/vetrivelan_007/Desktop/rameswaram dry fish/android/app/src/main/AndroidManifest.xml:9:5-42:19
+INJECTED from /Users/vetrivelan_007/Desktop/rameswaram dry fish/android/app/src/main/AndroidManifest.xml:9:5-42:19
+MERGED from [com.razorpay:checkout:1.6.33] /Users/vetrivelan_007/.gradle/caches/transforms-3/f02642a8c643e08e1aa2b6cd0003da54/transformed/checkout-1.6.33/AndroidManifest.xml:41:5-64:19
+MERGED from [com.razorpay:checkout:1.6.33] /Users/vetrivelan_007/.gradle/caches/transforms-3/f02642a8c643e08e1aa2b6cd0003da54/transformed/checkout-1.6.33/AndroidManifest.xml:41:5-64:19
+MERGED from [com.google.firebase:firebase-auth-ktx:23.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/7cefa76de1e0979fe3fc0d87f8effab9/transformed/firebase-auth-ktx-23.0.0/AndroidManifest.xml:7:5-15:19
+MERGED from [com.google.firebase:firebase-auth-ktx:23.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/7cefa76de1e0979fe3fc0d87f8effab9/transformed/firebase-auth-ktx-23.0.0/AndroidManifest.xml:7:5-15:19
+MERGED from [com.google.firebase:firebase-auth:23.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/0eeeab101b2a8b9e90239d216948dff5/transformed/firebase-auth-23.0.0/AndroidManifest.xml:28:5-73:19
+MERGED from [com.google.firebase:firebase-auth:23.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/0eeeab101b2a8b9e90239d216948dff5/transformed/firebase-auth-23.0.0/AndroidManifest.xml:28:5-73:19
+MERGED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/vetrivelan_007/.gradle/caches/transforms-3/7af6a095c667d71c79d7e65ce48a23e4/transformed/credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:23:5-42:19
+MERGED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/vetrivelan_007/.gradle/caches/transforms-3/7af6a095c667d71c79d7e65ce48a23e4/transformed/credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:23:5-42:19
+MERGED from [com.google.android.gms:play-services-auth:20.7.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/219b5f64938db8b14e43d0275313a758/transformed/play-services-auth-20.7.0/AndroidManifest.xml:22:5-38:19
+MERGED from [com.google.android.gms:play-services-auth:20.7.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/219b5f64938db8b14e43d0275313a758/transformed/play-services-auth-20.7.0/AndroidManifest.xml:22:5-38:19
+MERGED from [com.google.firebase:firebase-messaging-ktx:24.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/2af3749b5b625d308b4057bb381904f0/transformed/firebase-messaging-ktx-24.0.0/AndroidManifest.xml:22:5-30:19
+MERGED from [com.google.firebase:firebase-messaging-ktx:24.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/2af3749b5b625d308b4057bb381904f0/transformed/firebase-messaging-ktx-24.0.0/AndroidManifest.xml:22:5-30:19
+MERGED from [com.google.firebase:firebase-messaging:24.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d7b72a35ce810bf34e5baf4cdff06a7a/transformed/firebase-messaging-24.0.0/AndroidManifest.xml:28:5-64:19
+MERGED from [com.google.firebase:firebase-messaging:24.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d7b72a35ce810bf34e5baf4cdff06a7a/transformed/firebase-messaging-24.0.0/AndroidManifest.xml:28:5-64:19
+MERGED from [com.google.android.gms:play-services-identity:17.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/9fc917bba0c9da68e33ed8eb6c447e33/transformed/play-services-identity-17.0.0/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-identity:17.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/9fc917bba0c9da68e33ed8eb6c447e33/transformed/play-services-identity-17.0.0/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d8125ba1e4b110cf04af7f8cb1edf750/transformed/play-services-maps-17.0.0/AndroidManifest.xml:30:5-36:19
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d8125ba1e4b110cf04af7f8cb1edf750/transformed/play-services-maps-17.0.0/AndroidManifest.xml:30:5-36:19
+MERGED from [com.google.firebase:firebase-appcheck-interop:17.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/c9c0282869f24e5df2d2300b52c7ce57/transformed/firebase-appcheck-interop-17.0.0/AndroidManifest.xml:23:5-20
+MERGED from [com.google.firebase:firebase-appcheck-interop:17.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/c9c0282869f24e5df2d2300b52c7ce57/transformed/firebase-appcheck-interop-17.0.0/AndroidManifest.xml:23:5-20
+MERGED from [com.google.android.gms:play-services-fido:20.1.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/0b5eebc8ce05a2511647f506cbc1807d/transformed/play-services-fido-20.1.0/AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.android.gms:play-services-fido:20.1.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/0b5eebc8ce05a2511647f506cbc1807d/transformed/play-services-fido-20.1.0/AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.android.gms:play-services-base:18.0.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/bdee5940c527fc08835a3536cb0d938f/transformed/play-services-base-18.0.1/AndroidManifest.xml:19:5-23:19
+MERGED from [com.google.android.gms:play-services-base:18.0.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/bdee5940c527fc08835a3536cb0d938f/transformed/play-services-base-18.0.1/AndroidManifest.xml:19:5-23:19
+MERGED from [io.insert-koin:koin-android:3.5.3] /Users/vetrivelan_007/.gradle/caches/transforms-3/2bb181686bfa0f9b95acae15c179fbae/transformed/koin-android-3.5.3/AndroidManifest.xml:9:5-20
+MERGED from [io.insert-koin:koin-android:3.5.3] /Users/vetrivelan_007/.gradle/caches/transforms-3/2bb181686bfa0f9b95acae15c179fbae/transformed/koin-android-3.5.3/AndroidManifest.xml:9:5-20
+MERGED from [com.google.firebase:firebase-crashlytics-ktx:19.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/4a34c49fa0bdf626060e9f71ed9e047e/transformed/firebase-crashlytics-ktx-19.0.0/AndroidManifest.xml:20:5-28:19
+MERGED from [com.google.firebase:firebase-crashlytics-ktx:19.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/4a34c49fa0bdf626060e9f71ed9e047e/transformed/firebase-crashlytics-ktx-19.0.0/AndroidManifest.xml:20:5-28:19
+MERGED from [com.google.firebase:firebase-crashlytics:19.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/5f918e79a00e1d11abcae75ed908291c/transformed/firebase-crashlytics-19.0.0/AndroidManifest.xml:11:5-22:19
+MERGED from [com.google.firebase:firebase-crashlytics:19.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/5f918e79a00e1d11abcae75ed908291c/transformed/firebase-crashlytics-19.0.0/AndroidManifest.xml:11:5-22:19
+MERGED from [com.google.firebase:firebase-sessions:2.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/551ff94e5635bca54bcdcc36092c530c/transformed/firebase-sessions-2.0.0/AndroidManifest.xml:21:5-33:19
+MERGED from [com.google.firebase:firebase-sessions:2.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/551ff94e5635bca54bcdcc36092c530c/transformed/firebase-sessions-2.0.0/AndroidManifest.xml:21:5-33:19
+MERGED from [com.google.firebase:firebase-installations:18.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/6c3bc0f133db74eea439a9173bcd50f0/transformed/firebase-installations-18.0.0/AndroidManifest.xml:11:5-22:19
+MERGED from [com.google.firebase:firebase-installations:18.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/6c3bc0f133db74eea439a9173bcd50f0/transformed/firebase-installations-18.0.0/AndroidManifest.xml:11:5-22:19
+MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d1a7ad147696614309c97f582fc1b859/transformed/firebase-common-ktx-21.0.0/AndroidManifest.xml:8:5-16:19
+MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d1a7ad147696614309c97f582fc1b859/transformed/firebase-common-ktx-21.0.0/AndroidManifest.xml:8:5-16:19
+MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d15e9cd4c17b6468b308e034ef79f50f/transformed/firebase-auth-interop-20.0.0/AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d15e9cd4c17b6468b308e034ef79f50f/transformed/firebase-auth-interop-20.0.0/AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.firebase:firebase-common:21.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/bf7791ee14592f09f8e2da24f72657be/transformed/firebase-common-21.0.0/AndroidManifest.xml:22:5-39:19
+MERGED from [com.google.firebase:firebase-common:21.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/bf7791ee14592f09f8e2da24f72657be/transformed/firebase-common-21.0.0/AndroidManifest.xml:22:5-39:19
+MERGED from [com.google.android.play:integrity:1.2.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/38ae5485b6ac81cdb4c7db9beea29f3e/transformed/integrity-1.2.0/AndroidManifest.xml:5:5-6:19
+MERGED from [com.google.android.play:integrity:1.2.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/38ae5485b6ac81cdb4c7db9beea29f3e/transformed/integrity-1.2.0/AndroidManifest.xml:5:5-6:19
+MERGED from [com.google.firebase:firebase-iid-interop:17.1.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/968991ab61c27416c8d93d2c9b70ede2/transformed/firebase-iid-interop-17.1.0/AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.firebase:firebase-iid-interop:17.1.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/968991ab61c27416c8d93d2c9b70ede2/transformed/firebase-iid-interop-17.1.0/AndroidManifest.xml:7:5-8:19
+MERGED from [androidx.compose.ui:ui-tooling-android:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/12dbb2728efa0bf26711b20dc61827a6/transformed/ui-tooling-release/AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.compose.ui:ui-tooling-android:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/12dbb2728efa0bf26711b20dc61827a6/transformed/ui-tooling-release/AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.compose.ui:ui-test-manifest:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/bc9dda216e211075fac7fc263ba6d425/transformed/ui-test-manifest-1.6.5/AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.compose.ui:ui-test-manifest:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/bc9dda216e211075fac7fc263ba6d425/transformed/ui-test-manifest-1.6.5/AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.emoji2:emoji2:1.3.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/0c898db7e70ee6759e3e1b27a961751c/transformed/emoji2-1.3.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.emoji2:emoji2:1.3.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/0c898db7e70ee6759e3e1b27a961751c/transformed/emoji2-1.3.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/f82b07a3b7e198c709bccac4c868fbf6/transformed/lifecycle-process-2.7.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/f82b07a3b7e198c709bccac4c868fbf6/transformed/lifecycle-process-2.7.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.room:room-runtime:2.6.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/d8aac784cd17e1fc26b66b1863150990/transformed/room-runtime-2.6.1/AndroidManifest.xml:23:5-29:19
+MERGED from [androidx.room:room-runtime:2.6.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/d8aac784cd17e1fc26b66b1863150990/transformed/room-runtime-2.6.1/AndroidManifest.xml:23:5-29:19
+MERGED from [com.google.android.gms:play-services-tasks:18.1.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/af1e227026c76b777b2516306e83b3d5/transformed/play-services-tasks-18.1.0/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-tasks:18.1.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/af1e227026c76b777b2516306e83b3d5/transformed/play-services-tasks-18.1.0/AndroidManifest.xml:5:5-20
+MERGED from [com.google.firebase:firebase-measurement-connector:19.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/2837cc439e981307567ddd1e7b5bdb35/transformed/firebase-measurement-connector-19.0.0/AndroidManifest.xml:22:5-23:19
+MERGED from [com.google.firebase:firebase-measurement-connector:19.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/2837cc439e981307567ddd1e7b5bdb35/transformed/firebase-measurement-connector-19.0.0/AndroidManifest.xml:22:5-23:19
+MERGED from [com.google.android.gms:play-services-stats:17.0.2] /Users/vetrivelan_007/.gradle/caches/transforms-3/8b9841b4d9f4e0cb43fb4e3dadeb6df8/transformed/play-services-stats-17.0.2/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-stats:17.0.2] /Users/vetrivelan_007/.gradle/caches/transforms-3/8b9841b4d9f4e0cb43fb4e3dadeb6df8/transformed/play-services-stats-17.0.2/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-basement:18.3.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/00d819d3337d657609dd3a4ba34a5f3c/transformed/play-services-basement-18.3.0/AndroidManifest.xml:20:5-24:19
+MERGED from [com.google.android.gms:play-services-basement:18.3.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/00d819d3337d657609dd3a4ba34a5f3c/transformed/play-services-basement-18.3.0/AndroidManifest.xml:20:5-24:19
+MERGED from [androidx.core:core:1.12.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/1a1a936a1cf42aa6ae2a2e1b2424ddae/transformed/core-1.12.0/AndroidManifest.xml:28:5-89
+MERGED from [androidx.core:core:1.12.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/1a1a936a1cf42aa6ae2a2e1b2424ddae/transformed/core-1.12.0/AndroidManifest.xml:28:5-89
+MERGED from [com.google.firebase:firebase-datatransport:18.2.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/255b426721b1d58ccbc8f223c75efac6/transformed/firebase-datatransport-18.2.0/AndroidManifest.xml:21:5-29:19
+MERGED from [com.google.firebase:firebase-datatransport:18.2.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/255b426721b1d58ccbc8f223c75efac6/transformed/firebase-datatransport-18.2.0/AndroidManifest.xml:21:5-29:19
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.9] /Users/vetrivelan_007/.gradle/caches/transforms-3/f836dad09eed53e4711f6856e7c6cc95/transformed/transport-backend-cct-3.1.9/AndroidManifest.xml:27:5-35:19
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.9] /Users/vetrivelan_007/.gradle/caches/transforms-3/f836dad09eed53e4711f6856e7c6cc95/transformed/transport-backend-cct-3.1.9/AndroidManifest.xml:27:5-35:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/eace56661d92bb68745da04820eb2287/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/eace56661d92bb68745da04820eb2287/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.9] /Users/vetrivelan_007/.gradle/caches/transforms-3/f776bf45d36595d1efa91c4c5a9b73a1/transformed/transport-runtime-3.1.9/AndroidManifest.xml:25:5-39:19
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.9] /Users/vetrivelan_007/.gradle/caches/transforms-3/f776bf45d36595d1efa91c4c5a9b73a1/transformed/transport-runtime-3.1.9/AndroidManifest.xml:25:5-39:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/9259c95d4a9429906fa89df35f66ecd7/transformed/profileinstaller-1.3.1/AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/9259c95d4a9429906fa89df35f66ecd7/transformed/profileinstaller-1.3.1/AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/b48373075488d25ff4d7fe003e50c672/transformed/startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/b48373075488d25ff4d7fe003e50c672/transformed/startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
+	android:extractNativeLibs
+		INJECTED from /Users/vetrivelan_007/Desktop/rameswaram dry fish/android/app/src/main/AndroidManifest.xml
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.12.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/1a1a936a1cf42aa6ae2a2e1b2424ddae/transformed/core-1.12.0/AndroidManifest.xml:28:18-86
+	android:supportsRtl
+		ADDED from /Users/vetrivelan_007/Desktop/rameswaram dry fish/android/app/src/main/AndroidManifest.xml:16:9-35
+	android:label
+		ADDED from /Users/vetrivelan_007/Desktop/rameswaram dry fish/android/app/src/main/AndroidManifest.xml:14:9-41
+	android:roundIcon
+		ADDED from /Users/vetrivelan_007/Desktop/rameswaram dry fish/android/app/src/main/AndroidManifest.xml:15:9-61
+	tools:targetApi
+		ADDED from /Users/vetrivelan_007/Desktop/rameswaram dry fish/android/app/src/main/AndroidManifest.xml:18:9-29
+	android:icon
+		ADDED from /Users/vetrivelan_007/Desktop/rameswaram dry fish/android/app/src/main/AndroidManifest.xml:13:9-56
+	android:allowBackup
+		ADDED from /Users/vetrivelan_007/Desktop/rameswaram dry fish/android/app/src/main/AndroidManifest.xml:11:9-35
+	android:theme
+		ADDED from /Users/vetrivelan_007/Desktop/rameswaram dry fish/android/app/src/main/AndroidManifest.xml:17:9-55
+	android:networkSecurityConfig
+		ADDED from /Users/vetrivelan_007/Desktop/rameswaram dry fish/android/app/src/main/AndroidManifest.xml:12:9-69
+	android:name
+		ADDED from /Users/vetrivelan_007/Desktop/rameswaram dry fish/android/app/src/main/AndroidManifest.xml:10:9-38
+activity#com.rameswaram.dryfish.presentation.main.MainActivity
+ADDED from /Users/vetrivelan_007/Desktop/rameswaram dry fish/android/app/src/main/AndroidManifest.xml:20:9-28:20
+	android:exported
+		ADDED from /Users/vetrivelan_007/Desktop/rameswaram dry fish/android/app/src/main/AndroidManifest.xml:22:13-36
+	android:theme
+		ADDED from /Users/vetrivelan_007/Desktop/rameswaram dry fish/android/app/src/main/AndroidManifest.xml:23:13-59
+	android:name
+		ADDED from /Users/vetrivelan_007/Desktop/rameswaram dry fish/android/app/src/main/AndroidManifest.xml:21:13-59
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /Users/vetrivelan_007/Desktop/rameswaram dry fish/android/app/src/main/AndroidManifest.xml:24:13-27:29
+action#android.intent.action.MAIN
+ADDED from /Users/vetrivelan_007/Desktop/rameswaram dry fish/android/app/src/main/AndroidManifest.xml:25:17-69
+	android:name
+		ADDED from /Users/vetrivelan_007/Desktop/rameswaram dry fish/android/app/src/main/AndroidManifest.xml:25:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Users/vetrivelan_007/Desktop/rameswaram dry fish/android/app/src/main/AndroidManifest.xml:26:17-77
+	android:name
+		ADDED from /Users/vetrivelan_007/Desktop/rameswaram dry fish/android/app/src/main/AndroidManifest.xml:26:27-74
+service#com.rameswaram.dryfish.data.firebase.FCMService
+ADDED from /Users/vetrivelan_007/Desktop/rameswaram dry fish/android/app/src/main/AndroidManifest.xml:30:9-36:19
+	android:exported
+		ADDED from /Users/vetrivelan_007/Desktop/rameswaram dry fish/android/app/src/main/AndroidManifest.xml:32:13-37
+	android:name
+		ADDED from /Users/vetrivelan_007/Desktop/rameswaram dry fish/android/app/src/main/AndroidManifest.xml:31:13-53
+intent-filter#action:name:com.google.firebase.MESSAGING_EVENT
+ADDED from /Users/vetrivelan_007/Desktop/rameswaram dry fish/android/app/src/main/AndroidManifest.xml:33:13-35:29
+action#com.google.firebase.MESSAGING_EVENT
+ADDED from /Users/vetrivelan_007/Desktop/rameswaram dry fish/android/app/src/main/AndroidManifest.xml:34:17-78
+	android:name
+		ADDED from /Users/vetrivelan_007/Desktop/rameswaram dry fish/android/app/src/main/AndroidManifest.xml:34:25-75
+meta-data#com.google.firebase.messaging.default_notification_channel_id
+ADDED from /Users/vetrivelan_007/Desktop/rameswaram dry fish/android/app/src/main/AndroidManifest.xml:38:9-40:38
+	android:value
+		ADDED from /Users/vetrivelan_007/Desktop/rameswaram dry fish/android/app/src/main/AndroidManifest.xml:40:13-35
+	android:name
+		ADDED from /Users/vetrivelan_007/Desktop/rameswaram dry fish/android/app/src/main/AndroidManifest.xml:39:13-89
+uses-sdk
+INJECTED from /Users/vetrivelan_007/Desktop/rameswaram dry fish/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/vetrivelan_007/Desktop/rameswaram dry fish/android/app/src/main/AndroidManifest.xml
+INJECTED from /Users/vetrivelan_007/Desktop/rameswaram dry fish/android/app/src/main/AndroidManifest.xml
+MERGED from [com.razorpay:checkout:1.6.33] /Users/vetrivelan_007/.gradle/caches/transforms-3/f02642a8c643e08e1aa2b6cd0003da54/transformed/checkout-1.6.33/AndroidManifest.xml:6:5-44
+MERGED from [com.razorpay:checkout:1.6.33] /Users/vetrivelan_007/.gradle/caches/transforms-3/f02642a8c643e08e1aa2b6cd0003da54/transformed/checkout-1.6.33/AndroidManifest.xml:6:5-44
+MERGED from [com.google.firebase:firebase-auth-ktx:23.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/7cefa76de1e0979fe3fc0d87f8effab9/transformed/firebase-auth-ktx-23.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-auth-ktx:23.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/7cefa76de1e0979fe3fc0d87f8effab9/transformed/firebase-auth-ktx-23.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-auth:23.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/0eeeab101b2a8b9e90239d216948dff5/transformed/firebase-auth-23.0.0/AndroidManifest.xml:21:5-23:151
+MERGED from [com.google.firebase:firebase-auth:23.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/0eeeab101b2a8b9e90239d216948dff5/transformed/firebase-auth-23.0.0/AndroidManifest.xml:21:5-23:151
+MERGED from [androidx.credentials:credentials:1.2.0-rc01] /Users/vetrivelan_007/.gradle/caches/transforms-3/eb676bcc427da56873fe13d7c5362a19/transformed/credentials-1.2.0-rc01/AndroidManifest.xml:5:5-44
+MERGED from [androidx.credentials:credentials:1.2.0-rc01] /Users/vetrivelan_007/.gradle/caches/transforms-3/eb676bcc427da56873fe13d7c5362a19/transformed/credentials-1.2.0-rc01/AndroidManifest.xml:5:5-44
+MERGED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/vetrivelan_007/.gradle/caches/transforms-3/7af6a095c667d71c79d7e65ce48a23e4/transformed/credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:21:5-44
+MERGED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/vetrivelan_007/.gradle/caches/transforms-3/7af6a095c667d71c79d7e65ce48a23e4/transformed/credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:21:5-44
+MERGED from [com.google.android.gms:play-services-auth:20.7.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/219b5f64938db8b14e43d0275313a758/transformed/play-services-auth-20.7.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-auth:20.7.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/219b5f64938db8b14e43d0275313a758/transformed/play-services-auth-20.7.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-auth-base:18.0.4] /Users/vetrivelan_007/.gradle/caches/transforms-3/c4f916022bc3ad50c50c4b5ca901bb46/transformed/play-services-auth-base-18.0.4/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-auth-base:18.0.4] /Users/vetrivelan_007/.gradle/caches/transforms-3/c4f916022bc3ad50c50c4b5ca901bb46/transformed/play-services-auth-base-18.0.4/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-wallet:18.1.3] /Users/vetrivelan_007/.gradle/caches/transforms-3/6b5211f4578bdc5a4cda7c1115613935/transformed/play-services-wallet-18.1.3/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-wallet:18.1.3] /Users/vetrivelan_007/.gradle/caches/transforms-3/6b5211f4578bdc5a4cda7c1115613935/transformed/play-services-wallet-18.1.3/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-messaging-ktx:24.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/2af3749b5b625d308b4057bb381904f0/transformed/firebase-messaging-ktx-24.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-messaging-ktx:24.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/2af3749b5b625d308b4057bb381904f0/transformed/firebase-messaging-ktx-24.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-messaging:24.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d7b72a35ce810bf34e5baf4cdff06a7a/transformed/firebase-messaging-24.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-messaging:24.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d7b72a35ce810bf34e5baf4cdff06a7a/transformed/firebase-messaging-24.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-identity:17.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/9fc917bba0c9da68e33ed8eb6c447e33/transformed/play-services-identity-17.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-identity:17.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/9fc917bba0c9da68e33ed8eb6c447e33/transformed/play-services-identity-17.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d8125ba1e4b110cf04af7f8cb1edf750/transformed/play-services-maps-17.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d8125ba1e4b110cf04af7f8cb1edf750/transformed/play-services-maps-17.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-auth-api-phone:18.0.2] /Users/vetrivelan_007/.gradle/caches/transforms-3/ad42c7f8bdd9dffa9c335cf756945cb6/transformed/play-services-auth-api-phone-18.0.2/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-auth-api-phone:18.0.2] /Users/vetrivelan_007/.gradle/caches/transforms-3/ad42c7f8bdd9dffa9c335cf756945cb6/transformed/play-services-auth-api-phone-18.0.2/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-appcheck-interop:17.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/c9c0282869f24e5df2d2300b52c7ce57/transformed/firebase-appcheck-interop-17.0.0/AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.firebase:firebase-appcheck-interop:17.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/c9c0282869f24e5df2d2300b52c7ce57/transformed/firebase-appcheck-interop-17.0.0/AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.android.gms:play-services-fido:20.1.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/0b5eebc8ce05a2511647f506cbc1807d/transformed/play-services-fido-20.1.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-fido:20.1.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/0b5eebc8ce05a2511647f506cbc1807d/transformed/play-services-fido-20.1.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-base:18.0.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/bdee5940c527fc08835a3536cb0d938f/transformed/play-services-base-18.0.1/AndroidManifest.xml:18:5-43
+MERGED from [com.google.android.gms:play-services-base:18.0.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/bdee5940c527fc08835a3536cb0d938f/transformed/play-services-base-18.0.1/AndroidManifest.xml:18:5-43
+MERGED from [io.insert-koin:koin-androidx-compose:3.5.3] /Users/vetrivelan_007/.gradle/caches/transforms-3/7cf76fba7b32d3b4023330d64b9e2fbb/transformed/koin-androidx-compose-3.5.3/AndroidManifest.xml:5:5-7:41
+MERGED from [io.insert-koin:koin-androidx-compose:3.5.3] /Users/vetrivelan_007/.gradle/caches/transforms-3/7cf76fba7b32d3b4023330d64b9e2fbb/transformed/koin-androidx-compose-3.5.3/AndroidManifest.xml:5:5-7:41
+MERGED from [io.insert-koin:koin-android:3.5.3] /Users/vetrivelan_007/.gradle/caches/transforms-3/2bb181686bfa0f9b95acae15c179fbae/transformed/koin-android-3.5.3/AndroidManifest.xml:5:5-7:41
+MERGED from [io.insert-koin:koin-android:3.5.3] /Users/vetrivelan_007/.gradle/caches/transforms-3/2bb181686bfa0f9b95acae15c179fbae/transformed/koin-android-3.5.3/AndroidManifest.xml:5:5-7:41
+MERGED from [io.coil-kt:coil-compose:2.5.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/5dcff68330c5f3f2bc03e4d1d7960b3b/transformed/coil-compose-2.5.0/AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt:coil-compose:2.5.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/5dcff68330c5f3f2bc03e4d1d7960b3b/transformed/coil-compose-2.5.0/AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt:coil-compose-base:2.5.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/ae92a09d66f0d815b1fc8efa25f2d58e/transformed/coil-compose-base-2.5.0/AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt:coil-compose-base:2.5.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/ae92a09d66f0d815b1fc8efa25f2d58e/transformed/coil-compose-base-2.5.0/AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt:coil:2.5.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/fb88c483c9fafa4d8dbad91d76a9bec6/transformed/coil-2.5.0/AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt:coil:2.5.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/fb88c483c9fafa4d8dbad91d76a9bec6/transformed/coil-2.5.0/AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt:coil-base:2.5.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/6e0a0280f157a8aef4a1e08ce349a404/transformed/coil-base-2.5.0/AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt:coil-base:2.5.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/6e0a0280f157a8aef4a1e08ce349a404/transformed/coil-base-2.5.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.appcompat:appcompat-resources:1.6.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/93696321d7bdf86d19b61b03192c0c06/transformed/appcompat-resources-1.6.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat-resources:1.6.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/93696321d7bdf86d19b61b03192c0c06/transformed/appcompat-resources-1.6.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.6.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/9b0af26ca18b60c401e0171b50be256e/transformed/appcompat-1.6.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.6.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/9b0af26ca18b60c401e0171b50be256e/transformed/appcompat-1.6.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment-ktx:1.6.2] /Users/vetrivelan_007/.gradle/caches/transforms-3/8f692c1972bce1edab3245b45840aa40/transformed/fragment-ktx-1.6.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment-ktx:1.6.2] /Users/vetrivelan_007/.gradle/caches/transforms-3/8f692c1972bce1edab3245b45840aa40/transformed/fragment-ktx-1.6.2/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-crashlytics-ktx:19.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/4a34c49fa0bdf626060e9f71ed9e047e/transformed/firebase-crashlytics-ktx-19.0.0/AndroidManifest.xml:18:5-44
+MERGED from [com.google.firebase:firebase-crashlytics-ktx:19.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/4a34c49fa0bdf626060e9f71ed9e047e/transformed/firebase-crashlytics-ktx-19.0.0/AndroidManifest.xml:18:5-44
+MERGED from [com.google.firebase:firebase-crashlytics:19.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/5f918e79a00e1d11abcae75ed908291c/transformed/firebase-crashlytics-19.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-crashlytics:19.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/5f918e79a00e1d11abcae75ed908291c/transformed/firebase-crashlytics-19.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-sessions:2.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/551ff94e5635bca54bcdcc36092c530c/transformed/firebase-sessions-2.0.0/AndroidManifest.xml:18:5-44
+MERGED from [com.google.firebase:firebase-sessions:2.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/551ff94e5635bca54bcdcc36092c530c/transformed/firebase-sessions-2.0.0/AndroidManifest.xml:18:5-44
+MERGED from [com.google.firebase:firebase-installations:18.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/6c3bc0f133db74eea439a9173bcd50f0/transformed/firebase-installations-18.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-installations:18.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/6c3bc0f133db74eea439a9173bcd50f0/transformed/firebase-installations-18.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d1a7ad147696614309c97f582fc1b859/transformed/firebase-common-ktx-21.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d1a7ad147696614309c97f582fc1b859/transformed/firebase-common-ktx-21.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d15e9cd4c17b6468b308e034ef79f50f/transformed/firebase-auth-interop-20.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d15e9cd4c17b6468b308e034ef79f50f/transformed/firebase-auth-interop-20.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-common:21.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/bf7791ee14592f09f8e2da24f72657be/transformed/firebase-common-21.0.0/AndroidManifest.xml:19:5-44
+MERGED from [com.google.firebase:firebase-common:21.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/bf7791ee14592f09f8e2da24f72657be/transformed/firebase-common-21.0.0/AndroidManifest.xml:19:5-44
+MERGED from [com.google.android.recaptcha:recaptcha:18.4.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/1c162696a4fcd80cf32d04ef81dfc5b1/transformed/recaptcha-18.4.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.recaptcha:recaptcha:18.4.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/1c162696a4fcd80cf32d04ef81dfc5b1/transformed/recaptcha-18.4.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.play:integrity:1.2.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/38ae5485b6ac81cdb4c7db9beea29f3e/transformed/integrity-1.2.0/AndroidManifest.xml:4:5-44
+MERGED from [com.google.android.play:integrity:1.2.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/38ae5485b6ac81cdb4c7db9beea29f3e/transformed/integrity-1.2.0/AndroidManifest.xml:4:5-44
+MERGED from [com.google.firebase:firebase-iid-interop:17.1.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/968991ab61c27416c8d93d2c9b70ede2/transformed/firebase-iid-interop-17.1.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-iid-interop:17.1.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/968991ab61c27416c8d93d2c9b70ede2/transformed/firebase-iid-interop-17.1.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-cloud-messaging:17.2.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/04a7138992899a8ace16c017f33d37bf/transformed/play-services-cloud-messaging-17.2.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-cloud-messaging:17.2.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/04a7138992899a8ace16c017f33d37bf/transformed/play-services-cloud-messaging-17.2.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-installations-interop:17.1.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/2e5267b7c70e90d51549f7c51bc38744/transformed/firebase-installations-interop-17.1.1/AndroidManifest.xml:17:5-44
+MERGED from [com.google.firebase:firebase-installations-interop:17.1.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/2e5267b7c70e90d51549f7c51bc38744/transformed/firebase-installations-interop-17.1.1/AndroidManifest.xml:17:5-44
+MERGED from [androidx.navigation:navigation-common:2.7.6] /Users/vetrivelan_007/.gradle/caches/transforms-3/de92ba1ffb56ddbe38aa2e19bf19b902/transformed/navigation-common-2.7.6/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-common:2.7.6] /Users/vetrivelan_007/.gradle/caches/transforms-3/de92ba1ffb56ddbe38aa2e19bf19b902/transformed/navigation-common-2.7.6/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-runtime:2.7.6] /Users/vetrivelan_007/.gradle/caches/transforms-3/ea651509ed79a28cc0dba18229487fc6/transformed/navigation-runtime-2.7.6/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-runtime:2.7.6] /Users/vetrivelan_007/.gradle/caches/transforms-3/ea651509ed79a28cc0dba18229487fc6/transformed/navigation-runtime-2.7.6/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-common-ktx:2.7.6] /Users/vetrivelan_007/.gradle/caches/transforms-3/4c1b0817241148b66471be830cd03087/transformed/navigation-common-ktx-2.7.6/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-common-ktx:2.7.6] /Users/vetrivelan_007/.gradle/caches/transforms-3/4c1b0817241148b66471be830cd03087/transformed/navigation-common-ktx-2.7.6/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.7.6] /Users/vetrivelan_007/.gradle/caches/transforms-3/51ad531dd9244b051fd7487aa4d60b15/transformed/navigation-runtime-ktx-2.7.6/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.7.6] /Users/vetrivelan_007/.gradle/caches/transforms-3/51ad531dd9244b051fd7487aa4d60b15/transformed/navigation-runtime-ktx-2.7.6/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-compose:2.7.6] /Users/vetrivelan_007/.gradle/caches/transforms-3/b6a07ace012c7b0e45e4fec3016f6b82/transformed/navigation-compose-2.7.6/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-compose:2.7.6] /Users/vetrivelan_007/.gradle/caches/transforms-3/b6a07ace012c7b0e45e4fec3016f6b82/transformed/navigation-compose-2.7.6/AndroidManifest.xml:5:5-44
+MERGED from [com.valentinilk.shimmer:compose-shimmer:1.0.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/ba697f414e9779e10eeed9487ba0b6d3/transformed/compose-shimmer-1.0.5/AndroidManifest.xml:5:5-44
+MERGED from [com.valentinilk.shimmer:compose-shimmer:1.0.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/ba697f414e9779e10eeed9487ba0b6d3/transformed/compose-shimmer-1.0.5/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material3:material3-android:1.2.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/6d7e5a071bee4e72084face6ac55b8cf/transformed/material3-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.material3:material3-android:1.2.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/6d7e5a071bee4e72084face6ac55b8cf/transformed/material3-release/AndroidManifest.xml:20:5-44
+MERGED from [com.google.accompanist:accompanist-swiperefresh:0.32.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/c79de3707a1499bc6d5320ce9a0815cc/transformed/accompanist-swiperefresh-0.32.0/AndroidManifest.xml:21:5-44
+MERGED from [com.google.accompanist:accompanist-swiperefresh:0.32.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/c79de3707a1499bc6d5320ce9a0815cc/transformed/accompanist-swiperefresh-0.32.0/AndroidManifest.xml:21:5-44
+MERGED from [com.google.accompanist:accompanist-pager-indicators:0.32.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/a152229a3bdb09d8662b34f81eb4b69e/transformed/accompanist-pager-indicators-0.32.0/AndroidManifest.xml:21:5-44
+MERGED from [com.google.accompanist:accompanist-pager-indicators:0.32.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/a152229a3bdb09d8662b34f81eb4b69e/transformed/accompanist-pager-indicators-0.32.0/AndroidManifest.xml:21:5-44
+MERGED from [com.google.accompanist:accompanist-pager:0.32.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/ca1c8af9ed4baa8149dacf65bc01518d/transformed/accompanist-pager-0.32.0/AndroidManifest.xml:21:5-44
+MERGED from [com.google.accompanist:accompanist-pager:0.32.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/ca1c8af9ed4baa8149dacf65bc01518d/transformed/accompanist-pager-0.32.0/AndroidManifest.xml:21:5-44
+MERGED from [dev.chrisbanes.snapper:snapper:0.2.2] /Users/vetrivelan_007/.gradle/caches/transforms-3/613b6c4aba72d385e7165cd108e8a976/transformed/snapper-0.2.2/AndroidManifest.xml:20:5-22:41
+MERGED from [dev.chrisbanes.snapper:snapper:0.2.2] /Users/vetrivelan_007/.gradle/caches/transforms-3/613b6c4aba72d385e7165cd108e8a976/transformed/snapper-0.2.2/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.compose.material:material-ripple-android:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/438ee9f215e19f246b799d3a452d389a/transformed/material-ripple-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-ripple-android:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/438ee9f215e19f246b799d3a452d389a/transformed/material-ripple-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-icons-core-android:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/8930716b3cda5b19f81ba70882090f7a/transformed/material-icons-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-icons-core-android:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/8930716b3cda5b19f81ba70882090f7a/transformed/material-icons-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-icons-extended-android:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/190c4be8625f8ee9b7e3a17b62e0c0de/transformed/material-icons-extended-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-icons-extended-android:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/190c4be8625f8ee9b7e3a17b62e0c0de/transformed/material-icons-extended-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-android:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/16258f61a58192c0f5ec27499a84d587/transformed/material-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-android:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/16258f61a58192c0f5ec27499a84d587/transformed/material-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-core-android:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/72cdcf04bb04d99eba396a6c499e1f8d/transformed/animation-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-core-android:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/72cdcf04bb04d99eba396a6c499e1f8d/transformed/animation-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-android:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/6231967a858db6cd992d061a4987ea4a/transformed/animation-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-android:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/6231967a858db6cd992d061a4987ea4a/transformed/animation-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/620febb58236f7f65520ef7de1cec93c/transformed/foundation-layout-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/620febb58236f7f65520ef7de1cec93c/transformed/foundation-layout-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-android:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/13987190dc4ab43f39fd416526d9ca23/transformed/foundation-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-android:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/13987190dc4ab43f39fd416526d9ca23/transformed/foundation-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-data-android:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/ee5eebc90a27546891c5fb9581778cd6/transformed/ui-tooling-data-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-data-android:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/ee5eebc90a27546891c5fb9581778cd6/transformed/ui-tooling-data-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-unit-android:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/9ee6ebf8c24f415c855c0506b442f8ee/transformed/ui-unit-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-unit-android:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/9ee6ebf8c24f415c855c0506b442f8ee/transformed/ui-unit-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-geometry-android:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/de0d5624ec3f84570c689f1c10790a6d/transformed/ui-geometry-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-geometry-android:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/de0d5624ec3f84570c689f1c10790a6d/transformed/ui-geometry-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-text-android:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/54a45618d75ec7bb5ce43f0e8bcfcde9/transformed/ui-text-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-text-android:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/54a45618d75ec7bb5ce43f0e8bcfcde9/transformed/ui-text-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-util-android:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/a5158be17694c165a7ac02cabd45fbba/transformed/ui-util-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-util-android:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/a5158be17694c165a7ac02cabd45fbba/transformed/ui-util-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/5974b22a792bd02e1123461e274b4172/transformed/ui-tooling-preview-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/5974b22a792bd02e1123461e274b4172/transformed/ui-tooling-preview-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-tooling-android:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/12dbb2728efa0bf26711b20dc61827a6/transformed/ui-tooling-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-tooling-android:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/12dbb2728efa0bf26711b20dc61827a6/transformed/ui-tooling-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-graphics-android:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/25550e644896ce6fc853f65ce56a2b98/transformed/ui-graphics-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-graphics-android:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/25550e644896ce6fc853f65ce56a2b98/transformed/ui-graphics-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-test-manifest:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/bc9dda216e211075fac7fc263ba6d425/transformed/ui-test-manifest-1.6.5/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-test-manifest:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/bc9dda216e211075fac7fc263ba6d425/transformed/ui-test-manifest-1.6.5/AndroidManifest.xml:20:5-44
+MERGED from [com.google.accompanist:accompanist-drawablepainter:0.32.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d735dfb9338d061f5bce8326a6bab5ea/transformed/accompanist-drawablepainter-0.32.0/AndroidManifest.xml:21:5-44
+MERGED from [com.google.accompanist:accompanist-drawablepainter:0.32.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d735dfb9338d061f5bce8326a6bab5ea/transformed/accompanist-drawablepainter-0.32.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.compose.ui:ui-android:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/344bcf5296e54f4bac6d2d5f2d744adc/transformed/ui-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-android:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/344bcf5296e54f4bac6d2d5f2d744adc/transformed/ui-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity:1.8.2] /Users/vetrivelan_007/.gradle/caches/transforms-3/f2278835153d0815c043c9b4ab3427d8/transformed/activity-1.8.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.8.2] /Users/vetrivelan_007/.gradle/caches/transforms-3/f2278835153d0815c043c9b4ab3427d8/transformed/activity-1.8.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity-ktx:1.8.2] /Users/vetrivelan_007/.gradle/caches/transforms-3/bfb51186042a2197ab0e63e6b9f71dc6/transformed/activity-ktx-1.8.2/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-ktx:1.8.2] /Users/vetrivelan_007/.gradle/caches/transforms-3/bfb51186042a2197ab0e63e6b9f71dc6/transformed/activity-ktx-1.8.2/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-compose:1.8.2] /Users/vetrivelan_007/.gradle/caches/transforms-3/a18e53c9eebd374171c9567b0279fa8d/transformed/activity-compose-1.8.2/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-compose:1.8.2] /Users/vetrivelan_007/.gradle/caches/transforms-3/a18e53c9eebd374171c9567b0279fa8d/transformed/activity-compose-1.8.2/AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2-views-helper:1.3.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/836cf3b1f6eb774f60ed3ac078e591d6/transformed/emoji2-views-helper-1.3.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2-views-helper:1.3.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/836cf3b1f6eb774f60ed3ac078e591d6/transformed/emoji2-views-helper-1.3.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2:1.3.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/0c898db7e70ee6759e3e1b27a961751c/transformed/emoji2-1.3.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.emoji2:emoji2:1.3.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/0c898db7e70ee6759e3e1b27a961751c/transformed/emoji2-1.3.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/f82b07a3b7e198c709bccac4c868fbf6/transformed/lifecycle-process-2.7.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/f82b07a3b7e198c709bccac4c868fbf6/transformed/lifecycle-process-2.7.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/71b89ac68b09593d7aa6f03d74dd2918/transformed/lifecycle-livedata-core-ktx-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/71b89ac68b09593d7aa6f03d74dd2918/transformed/lifecycle-livedata-core-ktx-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.7.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/2e4cdc5656f459f51a386f65f3fbd97c/transformed/lifecycle-livedata-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.7.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/2e4cdc5656f459f51a386f65f3fbd97c/transformed/lifecycle-livedata-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.7.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/191de10efc657f1569ef30dacd2e66b5/transformed/lifecycle-livedata-core-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.7.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/191de10efc657f1569ef30dacd2e66b5/transformed/lifecycle-livedata-core-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/077cb9938bec5fa2c0944ebddbef1d0f/transformed/savedstate-ktx-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/077cb9938bec5fa2c0944ebddbef1d0f/transformed/savedstate-ktx-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.2.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/1d3a92b4b8fbcd7f099b3fa0d88374b1/transformed/savedstate-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.2.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/1d3a92b4b8fbcd7f099b3fa0d88374b1/transformed/savedstate-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/ec54ca0c2ae3430d604b526a80bf3fda/transformed/lifecycle-viewmodel-savedstate-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/ec54ca0c2ae3430d604b526a80bf3fda/transformed/lifecycle-viewmodel-savedstate-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/093760c7be8d83a24dafb6974fbcf540/transformed/lifecycle-viewmodel-ktx-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/093760c7be8d83a24dafb6974fbcf540/transformed/lifecycle-viewmodel-ktx-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.7.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/746b88d5eb20a015a5995c15b28c63c3/transformed/lifecycle-viewmodel-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.7.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/746b88d5eb20a015a5995c15b28c63c3/transformed/lifecycle-viewmodel-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.7.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/35db99bd9b7dcaa7655cfb60435a0fc1/transformed/lifecycle-runtime-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.7.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/35db99bd9b7dcaa7655cfb60435a0fc1/transformed/lifecycle-runtime-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-compose:2.7.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/fe73a59846e422a2ad59d0ee6774450c/transformed/lifecycle-runtime-compose-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-compose:2.7.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/fe73a59846e422a2ad59d0ee6774450c/transformed/lifecycle-runtime-compose-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/89eb2c161b9fd2f4403bd95a05c74377/transformed/lifecycle-viewmodel-compose-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/89eb2c161b9fd2f4403bd95a05c74377/transformed/lifecycle-viewmodel-compose-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.7.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/af3cc912333f24cdde6e4892e9c746c9/transformed/lifecycle-runtime-ktx-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.7.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/af3cc912333f24cdde6e4892e9c746c9/transformed/lifecycle-runtime-ktx-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.room:room-runtime:2.6.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/d8aac784cd17e1fc26b66b1863150990/transformed/room-runtime-2.6.1/AndroidManifest.xml:21:5-44
+MERGED from [androidx.room:room-runtime:2.6.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/d8aac784cd17e1fc26b66b1863150990/transformed/room-runtime-2.6.1/AndroidManifest.xml:21:5-44
+MERGED from [androidx.room:room-ktx:2.6.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/4ea9a5ede1fed04c09d81fbdda54cc4f/transformed/room-ktx-2.6.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.room:room-ktx:2.6.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/4ea9a5ede1fed04c09d81fbdda54cc4f/transformed/room-ktx-2.6.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/f6b5c9bc08748be55a7176c010d5f4e7/transformed/runtime-saveable-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/f6b5c9bc08748be55a7176c010d5f4e7/transformed/runtime-saveable-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-android:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/826bf8fdc91549a6e7223c9f0d220a9d/transformed/runtime-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-android:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/826bf8fdc91549a6e7223c9f0d220a9d/transformed/runtime-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.datastore:datastore-preferences:1.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/dd8f3ac99133fd65a4dc2d22a58db814/transformed/datastore-preferences-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.datastore:datastore-preferences:1.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/dd8f3ac99133fd65a4dc2d22a58db814/transformed/datastore-preferences-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.datastore:datastore:1.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/96aa7b121ad4ff3ef4d45257071ed645/transformed/datastore-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.datastore:datastore:1.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/96aa7b121ad4ff3ef4d45257071ed645/transformed/datastore-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.gms:play-services-tasks:18.1.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/af1e227026c76b777b2516306e83b3d5/transformed/play-services-tasks-18.1.0/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-tasks:18.1.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/af1e227026c76b777b2516306e83b3d5/transformed/play-services-tasks-18.1.0/AndroidManifest.xml:4:5-43
+MERGED from [com.google.firebase:firebase-measurement-connector:19.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/2837cc439e981307567ddd1e7b5bdb35/transformed/firebase-measurement-connector-19.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-measurement-connector:19.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/2837cc439e981307567ddd1e7b5bdb35/transformed/firebase-measurement-connector-19.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-stats:17.0.2] /Users/vetrivelan_007/.gradle/caches/transforms-3/8b9841b4d9f4e0cb43fb4e3dadeb6df8/transformed/play-services-stats-17.0.2/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-stats:17.0.2] /Users/vetrivelan_007/.gradle/caches/transforms-3/8b9841b4d9f4e0cb43fb4e3dadeb6df8/transformed/play-services-stats-17.0.2/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-basement:18.3.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/00d819d3337d657609dd3a4ba34a5f3c/transformed/play-services-basement-18.3.0/AndroidManifest.xml:18:5-43
+MERGED from [com.google.android.gms:play-services-basement:18.3.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/00d819d3337d657609dd3a4ba34a5f3c/transformed/play-services-basement-18.3.0/AndroidManifest.xml:18:5-43
+MERGED from [androidx.fragment:fragment:1.6.2] /Users/vetrivelan_007/.gradle/caches/transforms-3/afc596555dcff42ad7e969755e8dddb7/transformed/fragment-1.6.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment:1.6.2] /Users/vetrivelan_007/.gradle/caches/transforms-3/afc596555dcff42ad7e969755e8dddb7/transformed/fragment-1.6.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/7e7a91d5d4dbf59a7a86e1da4e02c9f9/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/7e7a91d5d4dbf59a7a86e1da4e02c9f9/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/6c7a6c4b164ef3127277a8bf3762b65e/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/6c7a6c4b164ef3127277a8bf3762b65e/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/288eeb608b2c9c684ed2667a0fadf012/transformed/drawerlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/288eeb608b2c9c684ed2667a0fadf012/transformed/drawerlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.autofill:autofill:1.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/69a196d1761a7e1550df1868cb0db7e7/transformed/autofill-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.autofill:autofill:1.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/69a196d1761a7e1550df1868cb0db7e7/transformed/autofill-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.browser:browser:1.4.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/21e663e45e1157808f8ca17a1bbccb2b/transformed/browser-1.4.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.browser:browser:1.4.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/21e663e45e1157808f8ca17a1bbccb2b/transformed/browser-1.4.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/54d31e7a99f6a734c6e29cb7afdce8ce/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/54d31e7a99f6a734c6e29cb7afdce8ce/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/07c21f17c1db09f46e4de0b19033d288/transformed/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/07c21f17c1db09f46e4de0b19033d288/transformed/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/0997cf1015cfffbfb9638c8a9d1b322c/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/0997cf1015cfffbfb9638c8a9d1b322c/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/cc54c5374e5b8d43bd523819897d26ae/transformed/customview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/cc54c5374e5b8d43bd523819897d26ae/transformed/customview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.12.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/1a1a936a1cf42aa6ae2a2e1b2424ddae/transformed/core-1.12.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.12.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/1a1a936a1cf42aa6ae2a2e1b2424ddae/transformed/core-1.12.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/9f5c941e5a9c03204852991722479e4c/transformed/customview-poolingcontainer-1.0.0/AndroidManifest.xml:20:5-21:38
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/9f5c941e5a9c03204852991722479e4c/transformed/customview-poolingcontainer-1.0.0/AndroidManifest.xml:20:5-21:38
+MERGED from [androidx.core:core-ktx:1.12.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/2bbdefa03921a5a96a6b9241951c6f79/transformed/core-ktx-1.12.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-ktx:1.12.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/2bbdefa03921a5a96a6b9241951c6f79/transformed/core-ktx-1.12.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.sqlite:sqlite-framework:2.4.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/137f76d8f6e15e7a61eb09337e67ae8c/transformed/sqlite-framework-2.4.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.sqlite:sqlite-framework:2.4.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/137f76d8f6e15e7a61eb09337e67ae8c/transformed/sqlite-framework-2.4.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.sqlite:sqlite:2.4.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/a8b2fe2a791755c76115894f4591f377/transformed/sqlite-2.4.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.sqlite:sqlite:2.4.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/a8b2fe2a791755c76115894f4591f377/transformed/sqlite-2.4.0/AndroidManifest.xml:20:5-44
+MERGED from [io.github.aakira:napier-android-debug:1.4.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/9a5d6baa41acaf04d53f4f1549e81b2d/transformed/napier-debug/AndroidManifest.xml:7:5-9:41
+MERGED from [io.github.aakira:napier-android-debug:1.4.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/9a5d6baa41acaf04d53f4f1549e81b2d/transformed/napier-debug/AndroidManifest.xml:7:5-9:41
+MERGED from [androidx.annotation:annotation-experimental:1.4.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/878fec15642ebcfaa8b5d81bfa762137/transformed/annotation-experimental-1.4.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/878fec15642ebcfaa8b5d81bfa762137/transformed/annotation-experimental-1.4.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-config-interop:16.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/2730f9c9c999d53089fcdd955322d048/transformed/firebase-config-interop-16.0.0/AndroidManifest.xml:18:5-44
+MERGED from [com.google.firebase:firebase-config-interop:16.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/2730f9c9c999d53089fcdd955322d048/transformed/firebase-config-interop-16.0.0/AndroidManifest.xml:18:5-44
+MERGED from [com.google.firebase:firebase-datatransport:18.2.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/255b426721b1d58ccbc8f223c75efac6/transformed/firebase-datatransport-18.2.0/AndroidManifest.xml:18:5-44
+MERGED from [com.google.firebase:firebase-datatransport:18.2.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/255b426721b1d58ccbc8f223c75efac6/transformed/firebase-datatransport-18.2.0/AndroidManifest.xml:18:5-44
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.9] /Users/vetrivelan_007/.gradle/caches/transforms-3/f836dad09eed53e4711f6856e7c6cc95/transformed/transport-backend-cct-3.1.9/AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.9] /Users/vetrivelan_007/.gradle/caches/transforms-3/f836dad09eed53e4711f6856e7c6cc95/transformed/transport-backend-cct-3.1.9/AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.firebase:firebase-encoders-json:18.0.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/ef77d4be6b34255201e2cc4544d19059/transformed/firebase-encoders-json-18.0.1/AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.firebase:firebase-encoders-json:18.0.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/ef77d4be6b34255201e2cc4544d19059/transformed/firebase-encoders-json-18.0.1/AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.android.libraries.identity.googleid:googleid:1.1.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/1adcc30256b7858e24cfc7fc00671644/transformed/googleid-1.1.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.libraries.identity.googleid:googleid:1.1.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/1adcc30256b7858e24cfc7fc00671644/transformed/googleid-1.1.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/eace56661d92bb68745da04820eb2287/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/eace56661d92bb68745da04820eb2287/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/f1fd95002e3e687d6f49dc749bb57907/transformed/core-runtime-2.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/f1fd95002e3e687d6f49dc749bb57907/transformed/core-runtime-2.2.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-components:18.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/0577c0f84d7e2f5b7dceeae5f51e1c27/transformed/firebase-components-18.0.0/AndroidManifest.xml:18:5-44
+MERGED from [com.google.firebase:firebase-components:18.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/0577c0f84d7e2f5b7dceeae5f51e1c27/transformed/firebase-components-18.0.0/AndroidManifest.xml:18:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/b256d4889c58df2be7804d614eac97d0/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/b256d4889c58df2be7804d614eac97d0/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/1b6034bc64a8317eee7ce7651b2c9a7b/transformed/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/1b6034bc64a8317eee7ce7651b2c9a7b/transformed/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.9] /Users/vetrivelan_007/.gradle/caches/transforms-3/f776bf45d36595d1efa91c4c5a9b73a1/transformed/transport-runtime-3.1.9/AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.9] /Users/vetrivelan_007/.gradle/caches/transforms-3/f776bf45d36595d1efa91c4c5a9b73a1/transformed/transport-runtime-3.1.9/AndroidManifest.xml:18:5-20:41
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/9259c95d4a9429906fa89df35f66ecd7/transformed/profileinstaller-1.3.1/AndroidManifest.xml:21:5-44
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/9259c95d4a9429906fa89df35f66ecd7/transformed/profileinstaller-1.3.1/AndroidManifest.xml:21:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/f8ffebdf676afa812fe25863a72266cf/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/f8ffebdf676afa812fe25863a72266cf/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.datatransport:transport-api:3.1.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/0e13ed5412b6f4b9c39b9ee0a04b9978/transformed/transport-api-3.1.0/AndroidManifest.xml:18:5-44
+MERGED from [com.google.android.datatransport:transport-api:3.1.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/0e13ed5412b6f4b9c39b9ee0a04b9978/transformed/transport-api-3.1.0/AndroidManifest.xml:18:5-44
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/b48373075488d25ff4d7fe003e50c672/transformed/startup-runtime-1.1.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/b48373075488d25ff4d7fe003e50c672/transformed/startup-runtime-1.1.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.tracing:tracing:1.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/273060dbc1d68ab5ab71a3b681676aa2/transformed/tracing-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.tracing:tracing:1.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/273060dbc1d68ab5ab71a3b681676aa2/transformed/tracing-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.exifinterface:exifinterface:1.3.6] /Users/vetrivelan_007/.gradle/caches/transforms-3/ee402f8c4a5951e4bb0a756d1537b3cc/transformed/exifinterface-1.3.6/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.exifinterface:exifinterface:1.3.6] /Users/vetrivelan_007/.gradle/caches/transforms-3/ee402f8c4a5951e4bb0a756d1537b3cc/transformed/exifinterface-1.3.6/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/2caa4ee1be45fe3938ad3438ba33bae1/transformed/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/2caa4ee1be45fe3938ad3438ba33bae1/transformed/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/f6b31dcecc246732a123f7c6991fa02c/transformed/print-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/f6b31dcecc246732a123f7c6991fa02c/transformed/print-1.0.0/AndroidManifest.xml:20:5-44
+	tools:overrideLibrary
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/0eeeab101b2a8b9e90239d216948dff5/transformed/firebase-auth-23.0.0/AndroidManifest.xml:23:9-148
+	android:targetSdkVersion
+		INJECTED from /Users/vetrivelan_007/Desktop/rameswaram dry fish/android/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/vetrivelan_007/Desktop/rameswaram dry fish/android/app/src/main/AndroidManifest.xml
+queries
+ADDED from [com.razorpay:checkout:1.6.33] /Users/vetrivelan_007/.gradle/caches/transforms-3/f02642a8c643e08e1aa2b6cd0003da54/transformed/checkout-1.6.33/AndroidManifest.xml:10:5-39:15
+intent#action:name:android.intent.action.VIEW+data:mimeType:*/*+data:scheme:*
+ADDED from [com.razorpay:checkout:1.6.33] /Users/vetrivelan_007/.gradle/caches/transforms-3/f02642a8c643e08e1aa2b6cd0003da54/transformed/checkout-1.6.33/AndroidManifest.xml:11:9-17:18
+action#android.intent.action.VIEW
+ADDED from [com.razorpay:checkout:1.6.33] /Users/vetrivelan_007/.gradle/caches/transforms-3/f02642a8c643e08e1aa2b6cd0003da54/transformed/checkout-1.6.33/AndroidManifest.xml:12:13-65
+	android:name
+		ADDED from [com.razorpay:checkout:1.6.33] /Users/vetrivelan_007/.gradle/caches/transforms-3/f02642a8c643e08e1aa2b6cd0003da54/transformed/checkout-1.6.33/AndroidManifest.xml:12:21-62
+data
+ADDED from [com.razorpay:checkout:1.6.33] /Users/vetrivelan_007/.gradle/caches/transforms-3/f02642a8c643e08e1aa2b6cd0003da54/transformed/checkout-1.6.33/AndroidManifest.xml:14:13-16:38
+	android:scheme
+		ADDED from [com.razorpay:checkout:1.6.33] /Users/vetrivelan_007/.gradle/caches/transforms-3/f02642a8c643e08e1aa2b6cd0003da54/transformed/checkout-1.6.33/AndroidManifest.xml:16:17-35
+	android:mimeType
+		ADDED from [com.razorpay:checkout:1.6.33] /Users/vetrivelan_007/.gradle/caches/transforms-3/f02642a8c643e08e1aa2b6cd0003da54/transformed/checkout-1.6.33/AndroidManifest.xml:15:17-39
+intent#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+data:host:pay+data:mimeType:*/*+data:scheme:upi
+ADDED from [com.razorpay:checkout:1.6.33] /Users/vetrivelan_007/.gradle/caches/transforms-3/f02642a8c643e08e1aa2b6cd0003da54/transformed/checkout-1.6.33/AndroidManifest.xml:18:9-27:18
+category#android.intent.category.BROWSABLE
+ADDED from [com.razorpay:checkout:1.6.33] /Users/vetrivelan_007/.gradle/caches/transforms-3/f02642a8c643e08e1aa2b6cd0003da54/transformed/checkout-1.6.33/AndroidManifest.xml:21:13-74
+	android:name
+		ADDED from [com.razorpay:checkout:1.6.33] /Users/vetrivelan_007/.gradle/caches/transforms-3/f02642a8c643e08e1aa2b6cd0003da54/transformed/checkout-1.6.33/AndroidManifest.xml:21:23-71
+intent#action:name:android.intent.action.MAIN
+ADDED from [com.razorpay:checkout:1.6.33] /Users/vetrivelan_007/.gradle/caches/transforms-3/f02642a8c643e08e1aa2b6cd0003da54/transformed/checkout-1.6.33/AndroidManifest.xml:28:9-30:18
+intent#action:name:android.intent.action.SEND+data:mimeType:*/*
+ADDED from [com.razorpay:checkout:1.6.33] /Users/vetrivelan_007/.gradle/caches/transforms-3/f02642a8c643e08e1aa2b6cd0003da54/transformed/checkout-1.6.33/AndroidManifest.xml:31:9-35:18
+action#android.intent.action.SEND
+ADDED from [com.razorpay:checkout:1.6.33] /Users/vetrivelan_007/.gradle/caches/transforms-3/f02642a8c643e08e1aa2b6cd0003da54/transformed/checkout-1.6.33/AndroidManifest.xml:32:13-65
+	android:name
+		ADDED from [com.razorpay:checkout:1.6.33] /Users/vetrivelan_007/.gradle/caches/transforms-3/f02642a8c643e08e1aa2b6cd0003da54/transformed/checkout-1.6.33/AndroidManifest.xml:32:21-62
+intent#action:name:rzp.device_token.share
+ADDED from [com.razorpay:checkout:1.6.33] /Users/vetrivelan_007/.gradle/caches/transforms-3/f02642a8c643e08e1aa2b6cd0003da54/transformed/checkout-1.6.33/AndroidManifest.xml:36:9-38:18
+action#rzp.device_token.share
+ADDED from [com.razorpay:checkout:1.6.33] /Users/vetrivelan_007/.gradle/caches/transforms-3/f02642a8c643e08e1aa2b6cd0003da54/transformed/checkout-1.6.33/AndroidManifest.xml:37:13-61
+	android:name
+		ADDED from [com.razorpay:checkout:1.6.33] /Users/vetrivelan_007/.gradle/caches/transforms-3/f02642a8c643e08e1aa2b6cd0003da54/transformed/checkout-1.6.33/AndroidManifest.xml:37:21-58
+receiver#com.razorpay.RzpTokenReceiver
+ADDED from [com.razorpay:checkout:1.6.33] /Users/vetrivelan_007/.gradle/caches/transforms-3/f02642a8c643e08e1aa2b6cd0003da54/transformed/checkout-1.6.33/AndroidManifest.xml:42:9-49:20
+	android:exported
+		ADDED from [com.razorpay:checkout:1.6.33] /Users/vetrivelan_007/.gradle/caches/transforms-3/f02642a8c643e08e1aa2b6cd0003da54/transformed/checkout-1.6.33/AndroidManifest.xml:44:13-36
+	tools:ignore
+		ADDED from [com.razorpay:checkout:1.6.33] /Users/vetrivelan_007/.gradle/caches/transforms-3/f02642a8c643e08e1aa2b6cd0003da54/transformed/checkout-1.6.33/AndroidManifest.xml:45:13-44
+	android:name
+		ADDED from [com.razorpay:checkout:1.6.33] /Users/vetrivelan_007/.gradle/caches/transforms-3/f02642a8c643e08e1aa2b6cd0003da54/transformed/checkout-1.6.33/AndroidManifest.xml:43:13-57
+intent-filter#action:name:rzp.device_token.share
+ADDED from [com.razorpay:checkout:1.6.33] /Users/vetrivelan_007/.gradle/caches/transforms-3/f02642a8c643e08e1aa2b6cd0003da54/transformed/checkout-1.6.33/AndroidManifest.xml:46:13-48:29
+activity#com.razorpay.CheckoutActivity
+ADDED from [com.razorpay:checkout:1.6.33] /Users/vetrivelan_007/.gradle/caches/transforms-3/f02642a8c643e08e1aa2b6cd0003da54/transformed/checkout-1.6.33/AndroidManifest.xml:51:9-59:20
+	android:exported
+		ADDED from [com.razorpay:checkout:1.6.33] /Users/vetrivelan_007/.gradle/caches/transforms-3/f02642a8c643e08e1aa2b6cd0003da54/transformed/checkout-1.6.33/AndroidManifest.xml:54:13-36
+	android:configChanges
+		ADDED from [com.razorpay:checkout:1.6.33] /Users/vetrivelan_007/.gradle/caches/transforms-3/f02642a8c643e08e1aa2b6cd0003da54/transformed/checkout-1.6.33/AndroidManifest.xml:53:13-83
+	android:theme
+		ADDED from [com.razorpay:checkout:1.6.33] /Users/vetrivelan_007/.gradle/caches/transforms-3/f02642a8c643e08e1aa2b6cd0003da54/transformed/checkout-1.6.33/AndroidManifest.xml:55:13-49
+	android:name
+		ADDED from [com.razorpay:checkout:1.6.33] /Users/vetrivelan_007/.gradle/caches/transforms-3/f02642a8c643e08e1aa2b6cd0003da54/transformed/checkout-1.6.33/AndroidManifest.xml:52:13-57
+intent-filter#action:name:android.intent.action.MAIN
+ADDED from [com.razorpay:checkout:1.6.33] /Users/vetrivelan_007/.gradle/caches/transforms-3/f02642a8c643e08e1aa2b6cd0003da54/transformed/checkout-1.6.33/AndroidManifest.xml:56:13-58:29
+meta-data#com.razorpay.plugin.googlepay_all
+ADDED from [com.razorpay:checkout:1.6.33] /Users/vetrivelan_007/.gradle/caches/transforms-3/f02642a8c643e08e1aa2b6cd0003da54/transformed/checkout-1.6.33/AndroidManifest.xml:61:9-63:58
+	android:value
+		ADDED from [com.razorpay:checkout:1.6.33] /Users/vetrivelan_007/.gradle/caches/transforms-3/f02642a8c643e08e1aa2b6cd0003da54/transformed/checkout-1.6.33/AndroidManifest.xml:63:13-55
+	android:name
+		ADDED from [com.razorpay:checkout:1.6.33] /Users/vetrivelan_007/.gradle/caches/transforms-3/f02642a8c643e08e1aa2b6cd0003da54/transformed/checkout-1.6.33/AndroidManifest.xml:62:13-61
+service#com.google.firebase.components.ComponentDiscoveryService
+ADDED from [com.google.firebase:firebase-auth-ktx:23.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/7cefa76de1e0979fe3fc0d87f8effab9/transformed/firebase-auth-ktx-23.0.0/AndroidManifest.xml:8:9-14:19
+MERGED from [com.google.firebase:firebase-auth:23.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/0eeeab101b2a8b9e90239d216948dff5/transformed/firebase-auth-23.0.0/AndroidManifest.xml:66:9-72:19
+MERGED from [com.google.firebase:firebase-auth:23.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/0eeeab101b2a8b9e90239d216948dff5/transformed/firebase-auth-23.0.0/AndroidManifest.xml:66:9-72:19
+MERGED from [com.google.firebase:firebase-messaging-ktx:24.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/2af3749b5b625d308b4057bb381904f0/transformed/firebase-messaging-ktx-24.0.0/AndroidManifest.xml:23:9-29:19
+MERGED from [com.google.firebase:firebase-messaging-ktx:24.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/2af3749b5b625d308b4057bb381904f0/transformed/firebase-messaging-ktx-24.0.0/AndroidManifest.xml:23:9-29:19
+MERGED from [com.google.firebase:firebase-messaging:24.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d7b72a35ce810bf34e5baf4cdff06a7a/transformed/firebase-messaging-24.0.0/AndroidManifest.xml:54:9-63:19
+MERGED from [com.google.firebase:firebase-messaging:24.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d7b72a35ce810bf34e5baf4cdff06a7a/transformed/firebase-messaging-24.0.0/AndroidManifest.xml:54:9-63:19
+MERGED from [com.google.firebase:firebase-crashlytics-ktx:19.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/4a34c49fa0bdf626060e9f71ed9e047e/transformed/firebase-crashlytics-ktx-19.0.0/AndroidManifest.xml:21:9-27:19
+MERGED from [com.google.firebase:firebase-crashlytics-ktx:19.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/4a34c49fa0bdf626060e9f71ed9e047e/transformed/firebase-crashlytics-ktx-19.0.0/AndroidManifest.xml:21:9-27:19
+MERGED from [com.google.firebase:firebase-crashlytics:19.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/5f918e79a00e1d11abcae75ed908291c/transformed/firebase-crashlytics-19.0.0/AndroidManifest.xml:12:9-21:19
+MERGED from [com.google.firebase:firebase-crashlytics:19.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/5f918e79a00e1d11abcae75ed908291c/transformed/firebase-crashlytics-19.0.0/AndroidManifest.xml:12:9-21:19
+MERGED from [com.google.firebase:firebase-sessions:2.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/551ff94e5635bca54bcdcc36092c530c/transformed/firebase-sessions-2.0.0/AndroidManifest.xml:26:9-32:19
+MERGED from [com.google.firebase:firebase-sessions:2.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/551ff94e5635bca54bcdcc36092c530c/transformed/firebase-sessions-2.0.0/AndroidManifest.xml:26:9-32:19
+MERGED from [com.google.firebase:firebase-installations:18.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/6c3bc0f133db74eea439a9173bcd50f0/transformed/firebase-installations-18.0.0/AndroidManifest.xml:12:9-21:19
+MERGED from [com.google.firebase:firebase-installations:18.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/6c3bc0f133db74eea439a9173bcd50f0/transformed/firebase-installations-18.0.0/AndroidManifest.xml:12:9-21:19
+MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d1a7ad147696614309c97f582fc1b859/transformed/firebase-common-ktx-21.0.0/AndroidManifest.xml:9:9-15:19
+MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d1a7ad147696614309c97f582fc1b859/transformed/firebase-common-ktx-21.0.0/AndroidManifest.xml:9:9-15:19
+MERGED from [com.google.firebase:firebase-common:21.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/bf7791ee14592f09f8e2da24f72657be/transformed/firebase-common-21.0.0/AndroidManifest.xml:30:9-38:19
+MERGED from [com.google.firebase:firebase-common:21.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/bf7791ee14592f09f8e2da24f72657be/transformed/firebase-common-21.0.0/AndroidManifest.xml:30:9-38:19
+MERGED from [com.google.firebase:firebase-datatransport:18.2.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/255b426721b1d58ccbc8f223c75efac6/transformed/firebase-datatransport-18.2.0/AndroidManifest.xml:22:9-28:19
+MERGED from [com.google.firebase:firebase-datatransport:18.2.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/255b426721b1d58ccbc8f223c75efac6/transformed/firebase-datatransport-18.2.0/AndroidManifest.xml:22:9-28:19
+	android:exported
+		ADDED from [com.google.firebase:firebase-auth-ktx:23.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/7cefa76de1e0979fe3fc0d87f8effab9/transformed/firebase-auth-ktx-23.0.0/AndroidManifest.xml:10:13-37
+	tools:targetApi
+		ADDED from [com.google.firebase:firebase-common:21.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/bf7791ee14592f09f8e2da24f72657be/transformed/firebase-common-21.0.0/AndroidManifest.xml:34:13-32
+	android:directBootAware
+		ADDED from [com.google.firebase:firebase-common:21.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/bf7791ee14592f09f8e2da24f72657be/transformed/firebase-common-21.0.0/AndroidManifest.xml:32:13-43
+	android:name
+		ADDED from [com.google.firebase:firebase-auth-ktx:23.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/7cefa76de1e0979fe3fc0d87f8effab9/transformed/firebase-auth-ktx-23.0.0/AndroidManifest.xml:9:13-84
+meta-data#com.google.firebase.components:com.google.firebase.auth.ktx.FirebaseAuthLegacyRegistrar
+ADDED from [com.google.firebase:firebase-auth-ktx:23.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/7cefa76de1e0979fe3fc0d87f8effab9/transformed/firebase-auth-ktx-23.0.0/AndroidManifest.xml:11:13-13:85
+	android:value
+		ADDED from [com.google.firebase:firebase-auth-ktx:23.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/7cefa76de1e0979fe3fc0d87f8effab9/transformed/firebase-auth-ktx-23.0.0/AndroidManifest.xml:13:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-auth-ktx:23.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/7cefa76de1e0979fe3fc0d87f8effab9/transformed/firebase-auth-ktx-23.0.0/AndroidManifest.xml:12:17-119
+activity#com.google.firebase.auth.internal.GenericIdpActivity
+ADDED from [com.google.firebase:firebase-auth:23.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/0eeeab101b2a8b9e90239d216948dff5/transformed/firebase-auth-23.0.0/AndroidManifest.xml:29:9-46:20
+	android:excludeFromRecents
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/0eeeab101b2a8b9e90239d216948dff5/transformed/firebase-auth-23.0.0/AndroidManifest.xml:31:13-46
+	android:launchMode
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/0eeeab101b2a8b9e90239d216948dff5/transformed/firebase-auth-23.0.0/AndroidManifest.xml:33:13-44
+	android:exported
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/0eeeab101b2a8b9e90239d216948dff5/transformed/firebase-auth-23.0.0/AndroidManifest.xml:32:13-36
+	android:theme
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/0eeeab101b2a8b9e90239d216948dff5/transformed/firebase-auth-23.0.0/AndroidManifest.xml:34:13-72
+	android:name
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/0eeeab101b2a8b9e90239d216948dff5/transformed/firebase-auth-23.0.0/AndroidManifest.xml:30:13-80
+intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:host:firebase.auth+data:path:/+data:scheme:genericidp
+ADDED from [com.google.firebase:firebase-auth:23.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/0eeeab101b2a8b9e90239d216948dff5/transformed/firebase-auth-23.0.0/AndroidManifest.xml:35:13-45:29
+category#android.intent.category.DEFAULT
+ADDED from [com.google.firebase:firebase-auth:23.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/0eeeab101b2a8b9e90239d216948dff5/transformed/firebase-auth-23.0.0/AndroidManifest.xml:38:17-76
+	android:name
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/0eeeab101b2a8b9e90239d216948dff5/transformed/firebase-auth-23.0.0/AndroidManifest.xml:38:27-73
+activity#com.google.firebase.auth.internal.RecaptchaActivity
+ADDED from [com.google.firebase:firebase-auth:23.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/0eeeab101b2a8b9e90239d216948dff5/transformed/firebase-auth-23.0.0/AndroidManifest.xml:47:9-64:20
+	android:excludeFromRecents
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/0eeeab101b2a8b9e90239d216948dff5/transformed/firebase-auth-23.0.0/AndroidManifest.xml:49:13-46
+	android:launchMode
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/0eeeab101b2a8b9e90239d216948dff5/transformed/firebase-auth-23.0.0/AndroidManifest.xml:51:13-44
+	android:exported
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/0eeeab101b2a8b9e90239d216948dff5/transformed/firebase-auth-23.0.0/AndroidManifest.xml:50:13-36
+	android:theme
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/0eeeab101b2a8b9e90239d216948dff5/transformed/firebase-auth-23.0.0/AndroidManifest.xml:52:13-72
+	android:name
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/0eeeab101b2a8b9e90239d216948dff5/transformed/firebase-auth-23.0.0/AndroidManifest.xml:48:13-79
+intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:host:firebase.auth+data:path:/+data:scheme:recaptcha
+ADDED from [com.google.firebase:firebase-auth:23.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/0eeeab101b2a8b9e90239d216948dff5/transformed/firebase-auth-23.0.0/AndroidManifest.xml:53:13-63:29
+meta-data#com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar
+ADDED from [com.google.firebase:firebase-auth:23.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/0eeeab101b2a8b9e90239d216948dff5/transformed/firebase-auth-23.0.0/AndroidManifest.xml:69:13-71:85
+	android:value
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/0eeeab101b2a8b9e90239d216948dff5/transformed/firebase-auth-23.0.0/AndroidManifest.xml:71:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/0eeeab101b2a8b9e90239d216948dff5/transformed/firebase-auth-23.0.0/AndroidManifest.xml:70:17-109
+service#androidx.credentials.playservices.CredentialProviderMetadataHolder
+ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/vetrivelan_007/.gradle/caches/transforms-3/7af6a095c667d71c79d7e65ce48a23e4/transformed/credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:24:9-32:19
+	android:enabled
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/vetrivelan_007/.gradle/caches/transforms-3/7af6a095c667d71c79d7e65ce48a23e4/transformed/credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:26:13-35
+	android:exported
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/vetrivelan_007/.gradle/caches/transforms-3/7af6a095c667d71c79d7e65ce48a23e4/transformed/credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:27:13-37
+	tools:ignore
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/vetrivelan_007/.gradle/caches/transforms-3/7af6a095c667d71c79d7e65ce48a23e4/transformed/credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:28:13-60
+	android:name
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/vetrivelan_007/.gradle/caches/transforms-3/7af6a095c667d71c79d7e65ce48a23e4/transformed/credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:25:13-94
+meta-data#androidx.credentials.CREDENTIAL_PROVIDER_KEY
+ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/vetrivelan_007/.gradle/caches/transforms-3/7af6a095c667d71c79d7e65ce48a23e4/transformed/credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:29:13-31:104
+	android:value
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/vetrivelan_007/.gradle/caches/transforms-3/7af6a095c667d71c79d7e65ce48a23e4/transformed/credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:31:17-101
+	android:name
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/vetrivelan_007/.gradle/caches/transforms-3/7af6a095c667d71c79d7e65ce48a23e4/transformed/credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:30:17-76
+activity#androidx.credentials.playservices.HiddenActivity
+ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/vetrivelan_007/.gradle/caches/transforms-3/7af6a095c667d71c79d7e65ce48a23e4/transformed/credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:34:9-41:20
+	android:fitsSystemWindows
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/vetrivelan_007/.gradle/caches/transforms-3/7af6a095c667d71c79d7e65ce48a23e4/transformed/credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:39:13-45
+	android:enabled
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/vetrivelan_007/.gradle/caches/transforms-3/7af6a095c667d71c79d7e65ce48a23e4/transformed/credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:37:13-35
+	android:exported
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/vetrivelan_007/.gradle/caches/transforms-3/7af6a095c667d71c79d7e65ce48a23e4/transformed/credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:38:13-37
+	android:configChanges
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/vetrivelan_007/.gradle/caches/transforms-3/7af6a095c667d71c79d7e65ce48a23e4/transformed/credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:36:13-87
+	android:theme
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/vetrivelan_007/.gradle/caches/transforms-3/7af6a095c667d71c79d7e65ce48a23e4/transformed/credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:40:13-48
+	android:name
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/vetrivelan_007/.gradle/caches/transforms-3/7af6a095c667d71c79d7e65ce48a23e4/transformed/credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:35:13-76
+activity#com.google.android.gms.auth.api.signin.internal.SignInHubActivity
+ADDED from [com.google.android.gms:play-services-auth:20.7.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/219b5f64938db8b14e43d0275313a758/transformed/play-services-auth-20.7.0/AndroidManifest.xml:23:9-27:75
+	android:excludeFromRecents
+		ADDED from [com.google.android.gms:play-services-auth:20.7.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/219b5f64938db8b14e43d0275313a758/transformed/play-services-auth-20.7.0/AndroidManifest.xml:25:13-46
+	android:exported
+		ADDED from [com.google.android.gms:play-services-auth:20.7.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/219b5f64938db8b14e43d0275313a758/transformed/play-services-auth-20.7.0/AndroidManifest.xml:26:13-37
+	android:theme
+		ADDED from [com.google.android.gms:play-services-auth:20.7.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/219b5f64938db8b14e43d0275313a758/transformed/play-services-auth-20.7.0/AndroidManifest.xml:27:13-72
+	android:name
+		ADDED from [com.google.android.gms:play-services-auth:20.7.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/219b5f64938db8b14e43d0275313a758/transformed/play-services-auth-20.7.0/AndroidManifest.xml:24:13-93
+service#com.google.android.gms.auth.api.signin.RevocationBoundService
+ADDED from [com.google.android.gms:play-services-auth:20.7.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/219b5f64938db8b14e43d0275313a758/transformed/play-services-auth-20.7.0/AndroidManifest.xml:33:9-37:51
+	android:exported
+		ADDED from [com.google.android.gms:play-services-auth:20.7.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/219b5f64938db8b14e43d0275313a758/transformed/play-services-auth-20.7.0/AndroidManifest.xml:35:13-36
+	android:visibleToInstantApps
+		ADDED from [com.google.android.gms:play-services-auth:20.7.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/219b5f64938db8b14e43d0275313a758/transformed/play-services-auth-20.7.0/AndroidManifest.xml:37:13-48
+	android:permission
+		ADDED from [com.google.android.gms:play-services-auth:20.7.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/219b5f64938db8b14e43d0275313a758/transformed/play-services-auth-20.7.0/AndroidManifest.xml:36:13-107
+	android:name
+		ADDED from [com.google.android.gms:play-services-auth:20.7.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/219b5f64938db8b14e43d0275313a758/transformed/play-services-auth-20.7.0/AndroidManifest.xml:34:13-89
+meta-data#com.google.firebase.components:com.google.firebase.messaging.ktx.FirebaseMessagingLegacyRegistrar
+ADDED from [com.google.firebase:firebase-messaging-ktx:24.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/2af3749b5b625d308b4057bb381904f0/transformed/firebase-messaging-ktx-24.0.0/AndroidManifest.xml:26:13-28:85
+	android:value
+		ADDED from [com.google.firebase:firebase-messaging-ktx:24.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/2af3749b5b625d308b4057bb381904f0/transformed/firebase-messaging-ktx-24.0.0/AndroidManifest.xml:28:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-messaging-ktx:24.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/2af3749b5b625d308b4057bb381904f0/transformed/firebase-messaging-ktx-24.0.0/AndroidManifest.xml:27:17-129
+uses-permission#android.permission.WAKE_LOCK
+ADDED from [com.google.firebase:firebase-messaging:24.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d7b72a35ce810bf34e5baf4cdff06a7a/transformed/firebase-messaging-24.0.0/AndroidManifest.xml:24:5-68
+MERGED from [com.google.android.gms:play-services-cloud-messaging:17.2.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/04a7138992899a8ace16c017f33d37bf/transformed/play-services-cloud-messaging-17.2.0/AndroidManifest.xml:9:5-68
+MERGED from [com.google.android.gms:play-services-cloud-messaging:17.2.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/04a7138992899a8ace16c017f33d37bf/transformed/play-services-cloud-messaging-17.2.0/AndroidManifest.xml:9:5-68
+	android:name
+		ADDED from [com.google.firebase:firebase-messaging:24.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d7b72a35ce810bf34e5baf4cdff06a7a/transformed/firebase-messaging-24.0.0/AndroidManifest.xml:24:22-65
+uses-permission#com.google.android.c2dm.permission.RECEIVE
+ADDED from [com.google.firebase:firebase-messaging:24.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d7b72a35ce810bf34e5baf4cdff06a7a/transformed/firebase-messaging-24.0.0/AndroidManifest.xml:26:5-82
+MERGED from [com.google.android.gms:play-services-cloud-messaging:17.2.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/04a7138992899a8ace16c017f33d37bf/transformed/play-services-cloud-messaging-17.2.0/AndroidManifest.xml:11:5-82
+MERGED from [com.google.android.gms:play-services-cloud-messaging:17.2.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/04a7138992899a8ace16c017f33d37bf/transformed/play-services-cloud-messaging-17.2.0/AndroidManifest.xml:11:5-82
+	android:name
+		ADDED from [com.google.firebase:firebase-messaging:24.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d7b72a35ce810bf34e5baf4cdff06a7a/transformed/firebase-messaging-24.0.0/AndroidManifest.xml:26:22-79
+receiver#com.google.firebase.iid.FirebaseInstanceIdReceiver
+ADDED from [com.google.firebase:firebase-messaging:24.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d7b72a35ce810bf34e5baf4cdff06a7a/transformed/firebase-messaging-24.0.0/AndroidManifest.xml:29:9-40:20
+	android:exported
+		ADDED from [com.google.firebase:firebase-messaging:24.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d7b72a35ce810bf34e5baf4cdff06a7a/transformed/firebase-messaging-24.0.0/AndroidManifest.xml:31:13-36
+	android:permission
+		ADDED from [com.google.firebase:firebase-messaging:24.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d7b72a35ce810bf34e5baf4cdff06a7a/transformed/firebase-messaging-24.0.0/AndroidManifest.xml:32:13-73
+	android:name
+		ADDED from [com.google.firebase:firebase-messaging:24.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d7b72a35ce810bf34e5baf4cdff06a7a/transformed/firebase-messaging-24.0.0/AndroidManifest.xml:30:13-78
+intent-filter#action:name:com.google.android.c2dm.intent.RECEIVE
+ADDED from [com.google.firebase:firebase-messaging:24.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d7b72a35ce810bf34e5baf4cdff06a7a/transformed/firebase-messaging-24.0.0/AndroidManifest.xml:33:13-35:29
+action#com.google.android.c2dm.intent.RECEIVE
+ADDED from [com.google.firebase:firebase-messaging:24.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d7b72a35ce810bf34e5baf4cdff06a7a/transformed/firebase-messaging-24.0.0/AndroidManifest.xml:34:17-81
+	android:name
+		ADDED from [com.google.firebase:firebase-messaging:24.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d7b72a35ce810bf34e5baf4cdff06a7a/transformed/firebase-messaging-24.0.0/AndroidManifest.xml:34:25-78
+meta-data#com.google.android.gms.cloudmessaging.FINISHED_AFTER_HANDLED
+ADDED from [com.google.firebase:firebase-messaging:24.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d7b72a35ce810bf34e5baf4cdff06a7a/transformed/firebase-messaging-24.0.0/AndroidManifest.xml:37:13-39:40
+	android:value
+		ADDED from [com.google.firebase:firebase-messaging:24.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d7b72a35ce810bf34e5baf4cdff06a7a/transformed/firebase-messaging-24.0.0/AndroidManifest.xml:39:17-37
+	android:name
+		ADDED from [com.google.firebase:firebase-messaging:24.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d7b72a35ce810bf34e5baf4cdff06a7a/transformed/firebase-messaging-24.0.0/AndroidManifest.xml:38:17-92
+service#com.google.firebase.messaging.FirebaseMessagingService
+ADDED from [com.google.firebase:firebase-messaging:24.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d7b72a35ce810bf34e5baf4cdff06a7a/transformed/firebase-messaging-24.0.0/AndroidManifest.xml:46:9-53:19
+	android:exported
+		ADDED from [com.google.firebase:firebase-messaging:24.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d7b72a35ce810bf34e5baf4cdff06a7a/transformed/firebase-messaging-24.0.0/AndroidManifest.xml:49:13-37
+	android:directBootAware
+		ADDED from [com.google.firebase:firebase-messaging:24.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d7b72a35ce810bf34e5baf4cdff06a7a/transformed/firebase-messaging-24.0.0/AndroidManifest.xml:48:13-43
+	android:name
+		ADDED from [com.google.firebase:firebase-messaging:24.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d7b72a35ce810bf34e5baf4cdff06a7a/transformed/firebase-messaging-24.0.0/AndroidManifest.xml:47:13-82
+meta-data#com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingKtxRegistrar
+ADDED from [com.google.firebase:firebase-messaging:24.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d7b72a35ce810bf34e5baf4cdff06a7a/transformed/firebase-messaging-24.0.0/AndroidManifest.xml:57:13-59:85
+	android:value
+		ADDED from [com.google.firebase:firebase-messaging:24.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d7b72a35ce810bf34e5baf4cdff06a7a/transformed/firebase-messaging-24.0.0/AndroidManifest.xml:59:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-messaging:24.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d7b72a35ce810bf34e5baf4cdff06a7a/transformed/firebase-messaging-24.0.0/AndroidManifest.xml:58:17-122
+meta-data#com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar
+ADDED from [com.google.firebase:firebase-messaging:24.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d7b72a35ce810bf34e5baf4cdff06a7a/transformed/firebase-messaging-24.0.0/AndroidManifest.xml:60:13-62:85
+	android:value
+		ADDED from [com.google.firebase:firebase-messaging:24.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d7b72a35ce810bf34e5baf4cdff06a7a/transformed/firebase-messaging-24.0.0/AndroidManifest.xml:62:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-messaging:24.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d7b72a35ce810bf34e5baf4cdff06a7a/transformed/firebase-messaging-24.0.0/AndroidManifest.xml:61:17-119
+uses-feature#0x00020000
+ADDED from [com.google.android.gms:play-services-maps:17.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d8125ba1e4b110cf04af7f8cb1edf750/transformed/play-services-maps-17.0.0/AndroidManifest.xml:26:5-28:35
+	android:glEsVersion
+		ADDED from [com.google.android.gms:play-services-maps:17.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d8125ba1e4b110cf04af7f8cb1edf750/transformed/play-services-maps-17.0.0/AndroidManifest.xml:27:9-41
+	android:required
+		ADDED from [com.google.android.gms:play-services-maps:17.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d8125ba1e4b110cf04af7f8cb1edf750/transformed/play-services-maps-17.0.0/AndroidManifest.xml:28:9-32
+uses-library#org.apache.http.legacy
+ADDED from [com.google.android.gms:play-services-maps:17.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d8125ba1e4b110cf04af7f8cb1edf750/transformed/play-services-maps-17.0.0/AndroidManifest.xml:33:9-35:40
+	android:required
+		ADDED from [com.google.android.gms:play-services-maps:17.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d8125ba1e4b110cf04af7f8cb1edf750/transformed/play-services-maps-17.0.0/AndroidManifest.xml:35:13-37
+	android:name
+		ADDED from [com.google.android.gms:play-services-maps:17.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d8125ba1e4b110cf04af7f8cb1edf750/transformed/play-services-maps-17.0.0/AndroidManifest.xml:34:13-50
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:18.0.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/bdee5940c527fc08835a3536cb0d938f/transformed/play-services-base-18.0.1/AndroidManifest.xml:20:9-22:45
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:18.0.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/bdee5940c527fc08835a3536cb0d938f/transformed/play-services-base-18.0.1/AndroidManifest.xml:22:19-43
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:18.0.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/bdee5940c527fc08835a3536cb0d938f/transformed/play-services-base-18.0.1/AndroidManifest.xml:21:19-78
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:18.0.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/bdee5940c527fc08835a3536cb0d938f/transformed/play-services-base-18.0.1/AndroidManifest.xml:20:19-85
+meta-data#com.google.firebase.components:com.google.firebase.crashlytics.ktx.FirebaseCrashlyticsKtxRegistrar
+ADDED from [com.google.firebase:firebase-crashlytics-ktx:19.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/4a34c49fa0bdf626060e9f71ed9e047e/transformed/firebase-crashlytics-ktx-19.0.0/AndroidManifest.xml:24:13-26:85
+	android:value
+		ADDED from [com.google.firebase:firebase-crashlytics-ktx:19.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/4a34c49fa0bdf626060e9f71ed9e047e/transformed/firebase-crashlytics-ktx-19.0.0/AndroidManifest.xml:26:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-crashlytics-ktx:19.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/4a34c49fa0bdf626060e9f71ed9e047e/transformed/firebase-crashlytics-ktx-19.0.0/AndroidManifest.xml:25:17-130
+meta-data#com.google.firebase.components:com.google.firebase.crashlytics.FirebaseCrashlyticsKtxRegistrar
+ADDED from [com.google.firebase:firebase-crashlytics:19.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/5f918e79a00e1d11abcae75ed908291c/transformed/firebase-crashlytics-19.0.0/AndroidManifest.xml:15:13-17:85
+	android:value
+		ADDED from [com.google.firebase:firebase-crashlytics:19.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/5f918e79a00e1d11abcae75ed908291c/transformed/firebase-crashlytics-19.0.0/AndroidManifest.xml:17:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-crashlytics:19.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/5f918e79a00e1d11abcae75ed908291c/transformed/firebase-crashlytics-19.0.0/AndroidManifest.xml:16:17-126
+meta-data#com.google.firebase.components:com.google.firebase.crashlytics.CrashlyticsRegistrar
+ADDED from [com.google.firebase:firebase-crashlytics:19.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/5f918e79a00e1d11abcae75ed908291c/transformed/firebase-crashlytics-19.0.0/AndroidManifest.xml:18:13-20:85
+	android:value
+		ADDED from [com.google.firebase:firebase-crashlytics:19.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/5f918e79a00e1d11abcae75ed908291c/transformed/firebase-crashlytics-19.0.0/AndroidManifest.xml:20:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-crashlytics:19.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/5f918e79a00e1d11abcae75ed908291c/transformed/firebase-crashlytics-19.0.0/AndroidManifest.xml:19:17-115
+service#com.google.firebase.sessions.SessionLifecycleService
+ADDED from [com.google.firebase:firebase-sessions:2.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/551ff94e5635bca54bcdcc36092c530c/transformed/firebase-sessions-2.0.0/AndroidManifest.xml:22:9-25:40
+	android:enabled
+		ADDED from [com.google.firebase:firebase-sessions:2.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/551ff94e5635bca54bcdcc36092c530c/transformed/firebase-sessions-2.0.0/AndroidManifest.xml:24:13-35
+	android:exported
+		ADDED from [com.google.firebase:firebase-sessions:2.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/551ff94e5635bca54bcdcc36092c530c/transformed/firebase-sessions-2.0.0/AndroidManifest.xml:25:13-37
+	android:name
+		ADDED from [com.google.firebase:firebase-sessions:2.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/551ff94e5635bca54bcdcc36092c530c/transformed/firebase-sessions-2.0.0/AndroidManifest.xml:23:13-80
+meta-data#com.google.firebase.components:com.google.firebase.sessions.FirebaseSessionsRegistrar
+ADDED from [com.google.firebase:firebase-sessions:2.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/551ff94e5635bca54bcdcc36092c530c/transformed/firebase-sessions-2.0.0/AndroidManifest.xml:29:13-31:85
+	android:value
+		ADDED from [com.google.firebase:firebase-sessions:2.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/551ff94e5635bca54bcdcc36092c530c/transformed/firebase-sessions-2.0.0/AndroidManifest.xml:31:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-sessions:2.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/551ff94e5635bca54bcdcc36092c530c/transformed/firebase-sessions-2.0.0/AndroidManifest.xml:30:17-117
+meta-data#com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsKtxRegistrar
+ADDED from [com.google.firebase:firebase-installations:18.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/6c3bc0f133db74eea439a9173bcd50f0/transformed/firebase-installations-18.0.0/AndroidManifest.xml:15:13-17:85
+	android:value
+		ADDED from [com.google.firebase:firebase-installations:18.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/6c3bc0f133db74eea439a9173bcd50f0/transformed/firebase-installations-18.0.0/AndroidManifest.xml:17:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-installations:18.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/6c3bc0f133db74eea439a9173bcd50f0/transformed/firebase-installations-18.0.0/AndroidManifest.xml:16:17-130
+meta-data#com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar
+ADDED from [com.google.firebase:firebase-installations:18.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/6c3bc0f133db74eea439a9173bcd50f0/transformed/firebase-installations-18.0.0/AndroidManifest.xml:18:13-20:85
+	android:value
+		ADDED from [com.google.firebase:firebase-installations:18.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/6c3bc0f133db74eea439a9173bcd50f0/transformed/firebase-installations-18.0.0/AndroidManifest.xml:20:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-installations:18.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/6c3bc0f133db74eea439a9173bcd50f0/transformed/firebase-installations-18.0.0/AndroidManifest.xml:19:17-127
+meta-data#com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonLegacyRegistrar
+ADDED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d1a7ad147696614309c97f582fc1b859/transformed/firebase-common-ktx-21.0.0/AndroidManifest.xml:12:13-14:85
+	android:value
+		ADDED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d1a7ad147696614309c97f582fc1b859/transformed/firebase-common-ktx-21.0.0/AndroidManifest.xml:14:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/d1a7ad147696614309c97f582fc1b859/transformed/firebase-common-ktx-21.0.0/AndroidManifest.xml:13:17-116
+provider#com.google.firebase.provider.FirebaseInitProvider
+ADDED from [com.google.firebase:firebase-common:21.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/bf7791ee14592f09f8e2da24f72657be/transformed/firebase-common-21.0.0/AndroidManifest.xml:23:9-28:39
+	android:authorities
+		ADDED from [com.google.firebase:firebase-common:21.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/bf7791ee14592f09f8e2da24f72657be/transformed/firebase-common-21.0.0/AndroidManifest.xml:25:13-72
+	android:exported
+		ADDED from [com.google.firebase:firebase-common:21.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/bf7791ee14592f09f8e2da24f72657be/transformed/firebase-common-21.0.0/AndroidManifest.xml:27:13-37
+	android:directBootAware
+		ADDED from [com.google.firebase:firebase-common:21.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/bf7791ee14592f09f8e2da24f72657be/transformed/firebase-common-21.0.0/AndroidManifest.xml:26:13-43
+	android:initOrder
+		ADDED from [com.google.firebase:firebase-common:21.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/bf7791ee14592f09f8e2da24f72657be/transformed/firebase-common-21.0.0/AndroidManifest.xml:28:13-36
+	android:name
+		ADDED from [com.google.firebase:firebase-common:21.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/bf7791ee14592f09f8e2da24f72657be/transformed/firebase-common-21.0.0/AndroidManifest.xml:24:13-77
+meta-data#com.google.firebase.components:com.google.firebase.FirebaseCommonKtxRegistrar
+ADDED from [com.google.firebase:firebase-common:21.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/bf7791ee14592f09f8e2da24f72657be/transformed/firebase-common-21.0.0/AndroidManifest.xml:35:13-37:85
+	android:value
+		ADDED from [com.google.firebase:firebase-common:21.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/bf7791ee14592f09f8e2da24f72657be/transformed/firebase-common-21.0.0/AndroidManifest.xml:37:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-common:21.0.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/bf7791ee14592f09f8e2da24f72657be/transformed/firebase-common-21.0.0/AndroidManifest.xml:36:17-109
+uses-permission#com.google.android.providers.gsf.permission.READ_GSERVICES
+ADDED from [com.google.android.recaptcha:recaptcha:18.4.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/1c162696a4fcd80cf32d04ef81dfc5b1/transformed/recaptcha-18.4.0/AndroidManifest.xml:9:5-98
+	android:name
+		ADDED from [com.google.android.recaptcha:recaptcha:18.4.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/1c162696a4fcd80cf32d04ef81dfc5b1/transformed/recaptcha-18.4.0/AndroidManifest.xml:9:22-95
+activity#androidx.compose.ui.tooling.PreviewActivity
+ADDED from [androidx.compose.ui:ui-tooling-android:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/12dbb2728efa0bf26711b20dc61827a6/transformed/ui-tooling-release/AndroidManifest.xml:23:9-25:39
+	android:exported
+		ADDED from [androidx.compose.ui:ui-tooling-android:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/12dbb2728efa0bf26711b20dc61827a6/transformed/ui-tooling-release/AndroidManifest.xml:25:13-36
+	android:name
+		ADDED from [androidx.compose.ui:ui-tooling-android:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/12dbb2728efa0bf26711b20dc61827a6/transformed/ui-tooling-release/AndroidManifest.xml:24:13-71
+activity#androidx.activity.ComponentActivity
+ADDED from [androidx.compose.ui:ui-test-manifest:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/bc9dda216e211075fac7fc263ba6d425/transformed/ui-test-manifest-1.6.5/AndroidManifest.xml:23:9-25:39
+	android:exported
+		ADDED from [androidx.compose.ui:ui-test-manifest:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/bc9dda216e211075fac7fc263ba6d425/transformed/ui-test-manifest-1.6.5/AndroidManifest.xml:25:13-36
+	android:name
+		ADDED from [androidx.compose.ui:ui-test-manifest:1.6.5] /Users/vetrivelan_007/.gradle/caches/transforms-3/bc9dda216e211075fac7fc263ba6d425/transformed/ui-test-manifest-1.6.5/AndroidManifest.xml:24:13-63
+provider#androidx.startup.InitializationProvider
+ADDED from [androidx.emoji2:emoji2:1.3.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/0c898db7e70ee6759e3e1b27a961751c/transformed/emoji2-1.3.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/f82b07a3b7e198c709bccac4c868fbf6/transformed/lifecycle-process-2.7.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/f82b07a3b7e198c709bccac4c868fbf6/transformed/lifecycle-process-2.7.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/9259c95d4a9429906fa89df35f66ecd7/transformed/profileinstaller-1.3.1/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/9259c95d4a9429906fa89df35f66ecd7/transformed/profileinstaller-1.3.1/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/b48373075488d25ff4d7fe003e50c672/transformed/startup-runtime-1.1.1/AndroidManifest.xml:26:9-30:34
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/b48373075488d25ff4d7fe003e50c672/transformed/startup-runtime-1.1.1/AndroidManifest.xml:26:9-30:34
+	tools:node
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/0c898db7e70ee6759e3e1b27a961751c/transformed/emoji2-1.3.0/AndroidManifest.xml:28:13-31
+	android:authorities
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/0c898db7e70ee6759e3e1b27a961751c/transformed/emoji2-1.3.0/AndroidManifest.xml:26:13-68
+	android:exported
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/0c898db7e70ee6759e3e1b27a961751c/transformed/emoji2-1.3.0/AndroidManifest.xml:27:13-37
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/0c898db7e70ee6759e3e1b27a961751c/transformed/emoji2-1.3.0/AndroidManifest.xml:25:13-67
+meta-data#androidx.emoji2.text.EmojiCompatInitializer
+ADDED from [androidx.emoji2:emoji2:1.3.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/0c898db7e70ee6759e3e1b27a961751c/transformed/emoji2-1.3.0/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/0c898db7e70ee6759e3e1b27a961751c/transformed/emoji2-1.3.0/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/0c898db7e70ee6759e3e1b27a961751c/transformed/emoji2-1.3.0/AndroidManifest.xml:30:17-75
+meta-data#androidx.lifecycle.ProcessLifecycleInitializer
+ADDED from [androidx.lifecycle:lifecycle-process:2.7.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/f82b07a3b7e198c709bccac4c868fbf6/transformed/lifecycle-process-2.7.0/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.lifecycle:lifecycle-process:2.7.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/f82b07a3b7e198c709bccac4c868fbf6/transformed/lifecycle-process-2.7.0/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.lifecycle:lifecycle-process:2.7.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/f82b07a3b7e198c709bccac4c868fbf6/transformed/lifecycle-process-2.7.0/AndroidManifest.xml:30:17-78
+service#androidx.room.MultiInstanceInvalidationService
+ADDED from [androidx.room:room-runtime:2.6.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/d8aac784cd17e1fc26b66b1863150990/transformed/room-runtime-2.6.1/AndroidManifest.xml:24:9-28:63
+	android:exported
+		ADDED from [androidx.room:room-runtime:2.6.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/d8aac784cd17e1fc26b66b1863150990/transformed/room-runtime-2.6.1/AndroidManifest.xml:27:13-37
+	tools:ignore
+		ADDED from [androidx.room:room-runtime:2.6.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/d8aac784cd17e1fc26b66b1863150990/transformed/room-runtime-2.6.1/AndroidManifest.xml:28:13-60
+	android:directBootAware
+		ADDED from [androidx.room:room-runtime:2.6.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/d8aac784cd17e1fc26b66b1863150990/transformed/room-runtime-2.6.1/AndroidManifest.xml:26:13-43
+	android:name
+		ADDED from [androidx.room:room-runtime:2.6.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/d8aac784cd17e1fc26b66b1863150990/transformed/room-runtime-2.6.1/AndroidManifest.xml:25:13-74
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:18.3.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/00d819d3337d657609dd3a4ba34a5f3c/transformed/play-services-basement-18.3.0/AndroidManifest.xml:21:9-23:69
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:18.3.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/00d819d3337d657609dd3a4ba34a5f3c/transformed/play-services-basement-18.3.0/AndroidManifest.xml:23:13-66
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:18.3.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/00d819d3337d657609dd3a4ba34a5f3c/transformed/play-services-basement-18.3.0/AndroidManifest.xml:22:13-58
+permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.12.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/1a1a936a1cf42aa6ae2a2e1b2424ddae/transformed/core-1.12.0/AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.12.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/1a1a936a1cf42aa6ae2a2e1b2424ddae/transformed/core-1.12.0/AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.12.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/1a1a936a1cf42aa6ae2a2e1b2424ddae/transformed/core-1.12.0/AndroidManifest.xml:23:9-81
+permission#com.rameswaram.dryfish.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.12.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/1a1a936a1cf42aa6ae2a2e1b2424ddae/transformed/core-1.12.0/AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.12.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/1a1a936a1cf42aa6ae2a2e1b2424ddae/transformed/core-1.12.0/AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.12.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/1a1a936a1cf42aa6ae2a2e1b2424ddae/transformed/core-1.12.0/AndroidManifest.xml:23:9-81
+uses-permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.12.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/1a1a936a1cf42aa6ae2a2e1b2424ddae/transformed/core-1.12.0/AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.12.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/1a1a936a1cf42aa6ae2a2e1b2424ddae/transformed/core-1.12.0/AndroidManifest.xml:26:22-94
+uses-permission#com.rameswaram.dryfish.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.12.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/1a1a936a1cf42aa6ae2a2e1b2424ddae/transformed/core-1.12.0/AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.12.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/1a1a936a1cf42aa6ae2a2e1b2424ddae/transformed/core-1.12.0/AndroidManifest.xml:26:22-94
+meta-data#com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar
+ADDED from [com.google.firebase:firebase-datatransport:18.2.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/255b426721b1d58ccbc8f223c75efac6/transformed/firebase-datatransport-18.2.0/AndroidManifest.xml:25:13-27:85
+	android:value
+		ADDED from [com.google.firebase:firebase-datatransport:18.2.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/255b426721b1d58ccbc8f223c75efac6/transformed/firebase-datatransport-18.2.0/AndroidManifest.xml:27:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-datatransport:18.2.0] /Users/vetrivelan_007/.gradle/caches/transforms-3/255b426721b1d58ccbc8f223c75efac6/transformed/firebase-datatransport-18.2.0/AndroidManifest.xml:26:17-115
+service#com.google.android.datatransport.runtime.backends.TransportBackendDiscovery
+ADDED from [com.google.android.datatransport:transport-backend-cct:3.1.9] /Users/vetrivelan_007/.gradle/caches/transforms-3/f836dad09eed53e4711f6856e7c6cc95/transformed/transport-backend-cct-3.1.9/AndroidManifest.xml:28:9-34:19
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.9] /Users/vetrivelan_007/.gradle/caches/transforms-3/f776bf45d36595d1efa91c4c5a9b73a1/transformed/transport-runtime-3.1.9/AndroidManifest.xml:36:9-38:40
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.9] /Users/vetrivelan_007/.gradle/caches/transforms-3/f776bf45d36595d1efa91c4c5a9b73a1/transformed/transport-runtime-3.1.9/AndroidManifest.xml:36:9-38:40
+	android:exported
+		ADDED from [com.google.android.datatransport:transport-backend-cct:3.1.9] /Users/vetrivelan_007/.gradle/caches/transforms-3/f836dad09eed53e4711f6856e7c6cc95/transformed/transport-backend-cct-3.1.9/AndroidManifest.xml:30:13-37
+	android:name
+		ADDED from [com.google.android.datatransport:transport-backend-cct:3.1.9] /Users/vetrivelan_007/.gradle/caches/transforms-3/f836dad09eed53e4711f6856e7c6cc95/transformed/transport-backend-cct-3.1.9/AndroidManifest.xml:29:13-103
+meta-data#backend:com.google.android.datatransport.cct.CctBackendFactory
+ADDED from [com.google.android.datatransport:transport-backend-cct:3.1.9] /Users/vetrivelan_007/.gradle/caches/transforms-3/f836dad09eed53e4711f6856e7c6cc95/transformed/transport-backend-cct-3.1.9/AndroidManifest.xml:31:13-33:39
+	android:value
+		ADDED from [com.google.android.datatransport:transport-backend-cct:3.1.9] /Users/vetrivelan_007/.gradle/caches/transforms-3/f836dad09eed53e4711f6856e7c6cc95/transformed/transport-backend-cct-3.1.9/AndroidManifest.xml:33:17-36
+	android:name
+		ADDED from [com.google.android.datatransport:transport-backend-cct:3.1.9] /Users/vetrivelan_007/.gradle/caches/transforms-3/f836dad09eed53e4711f6856e7c6cc95/transformed/transport-backend-cct-3.1.9/AndroidManifest.xml:32:17-94
+service#com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService
+ADDED from [com.google.android.datatransport:transport-runtime:3.1.9] /Users/vetrivelan_007/.gradle/caches/transforms-3/f776bf45d36595d1efa91c4c5a9b73a1/transformed/transport-runtime-3.1.9/AndroidManifest.xml:26:9-30:19
+	android:exported
+		ADDED from [com.google.android.datatransport:transport-runtime:3.1.9] /Users/vetrivelan_007/.gradle/caches/transforms-3/f776bf45d36595d1efa91c4c5a9b73a1/transformed/transport-runtime-3.1.9/AndroidManifest.xml:28:13-37
+	android:permission
+		ADDED from [com.google.android.datatransport:transport-runtime:3.1.9] /Users/vetrivelan_007/.gradle/caches/transforms-3/f776bf45d36595d1efa91c4c5a9b73a1/transformed/transport-runtime-3.1.9/AndroidManifest.xml:29:13-69
+	android:name
+		ADDED from [com.google.android.datatransport:transport-runtime:3.1.9] /Users/vetrivelan_007/.gradle/caches/transforms-3/f776bf45d36595d1efa91c4c5a9b73a1/transformed/transport-runtime-3.1.9/AndroidManifest.xml:27:13-117
+receiver#com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver
+ADDED from [com.google.android.datatransport:transport-runtime:3.1.9] /Users/vetrivelan_007/.gradle/caches/transforms-3/f776bf45d36595d1efa91c4c5a9b73a1/transformed/transport-runtime-3.1.9/AndroidManifest.xml:32:9-34:40
+	android:exported
+		ADDED from [com.google.android.datatransport:transport-runtime:3.1.9] /Users/vetrivelan_007/.gradle/caches/transforms-3/f776bf45d36595d1efa91c4c5a9b73a1/transformed/transport-runtime-3.1.9/AndroidManifest.xml:34:13-37
+	android:name
+		ADDED from [com.google.android.datatransport:transport-runtime:3.1.9] /Users/vetrivelan_007/.gradle/caches/transforms-3/f776bf45d36595d1efa91c4c5a9b73a1/transformed/transport-runtime-3.1.9/AndroidManifest.xml:33:13-132
+meta-data#androidx.profileinstaller.ProfileInstallerInitializer
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/9259c95d4a9429906fa89df35f66ecd7/transformed/profileinstaller-1.3.1/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/9259c95d4a9429906fa89df35f66ecd7/transformed/profileinstaller-1.3.1/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/9259c95d4a9429906fa89df35f66ecd7/transformed/profileinstaller-1.3.1/AndroidManifest.xml:30:17-85
+receiver#androidx.profileinstaller.ProfileInstallReceiver
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/9259c95d4a9429906fa89df35f66ecd7/transformed/profileinstaller-1.3.1/AndroidManifest.xml:34:9-52:20
+	android:enabled
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/9259c95d4a9429906fa89df35f66ecd7/transformed/profileinstaller-1.3.1/AndroidManifest.xml:37:13-35
+	android:exported
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/9259c95d4a9429906fa89df35f66ecd7/transformed/profileinstaller-1.3.1/AndroidManifest.xml:38:13-36
+	android:permission
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/9259c95d4a9429906fa89df35f66ecd7/transformed/profileinstaller-1.3.1/AndroidManifest.xml:39:13-57
+	android:directBootAware
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/9259c95d4a9429906fa89df35f66ecd7/transformed/profileinstaller-1.3.1/AndroidManifest.xml:36:13-44
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/9259c95d4a9429906fa89df35f66ecd7/transformed/profileinstaller-1.3.1/AndroidManifest.xml:35:13-76
+intent-filter#action:name:androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/9259c95d4a9429906fa89df35f66ecd7/transformed/profileinstaller-1.3.1/AndroidManifest.xml:40:13-42:29
+action#androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/9259c95d4a9429906fa89df35f66ecd7/transformed/profileinstaller-1.3.1/AndroidManifest.xml:41:17-91
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/9259c95d4a9429906fa89df35f66ecd7/transformed/profileinstaller-1.3.1/AndroidManifest.xml:41:25-88
+intent-filter#action:name:androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/9259c95d4a9429906fa89df35f66ecd7/transformed/profileinstaller-1.3.1/AndroidManifest.xml:43:13-45:29
+action#androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/9259c95d4a9429906fa89df35f66ecd7/transformed/profileinstaller-1.3.1/AndroidManifest.xml:44:17-85
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/9259c95d4a9429906fa89df35f66ecd7/transformed/profileinstaller-1.3.1/AndroidManifest.xml:44:25-82
+intent-filter#action:name:androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/9259c95d4a9429906fa89df35f66ecd7/transformed/profileinstaller-1.3.1/AndroidManifest.xml:46:13-48:29
+action#androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/9259c95d4a9429906fa89df35f66ecd7/transformed/profileinstaller-1.3.1/AndroidManifest.xml:47:17-88
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/9259c95d4a9429906fa89df35f66ecd7/transformed/profileinstaller-1.3.1/AndroidManifest.xml:47:25-85
+intent-filter#action:name:androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/9259c95d4a9429906fa89df35f66ecd7/transformed/profileinstaller-1.3.1/AndroidManifest.xml:49:13-51:29
+action#androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/9259c95d4a9429906fa89df35f66ecd7/transformed/profileinstaller-1.3.1/AndroidManifest.xml:50:17-95
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/vetrivelan_007/.gradle/caches/transforms-3/9259c95d4a9429906fa89df35f66ecd7/transformed/profileinstaller-1.3.1/AndroidManifest.xml:50:25-92

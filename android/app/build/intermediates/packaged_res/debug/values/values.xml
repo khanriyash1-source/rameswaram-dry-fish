@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="http://schemas.android.com/tools">
+    <color name="black">#000000</color>
+    <color name="deep_navy">#2D2A6C</color>
+    <color name="deep_navy_dark">#23205A</color>
+    <color name="error">#F44336</color>
+    <color name="gray_100">#F5F5F5</color>
+    <color name="gray_200">#EEEEEE</color>
+    <color name="gray_300">#E0E0E0</color>
+    <color name="gray_400">#BDBDBD</color>
+    <color name="gray_50">#FAFAFA</color>
+    <color name="gray_500">#9E9E9E</color>
+    <color name="gray_600">#757575</color>
+    <color name="gray_700">#616161</color>
+    <color name="gray_800">#424242</color>
+    <color name="gray_900">#212121</color>
+    <color name="info">#2196F3</color>
+    <color name="ocean_blue">#0EA5C7</color>
+    <color name="ocean_blue_dark">#0B8CA8</color>
+    <color name="success">#4CAF50</color>
+    <color name="sunset_orange">#F97316</color>
+    <color name="sunset_orange_dark">#D95F10</color>
+    <color name="warning">#FF9800</color>
+    <color name="white">#FFFFFF</color>
+    <string name="add_address">Add Address</string>
+    <string name="add_to_cart">Add to Cart</string>
+    <string name="app_name">Rameswaram Dry Fish</string>
+    <string name="apply">Apply</string>
+    <string name="best_sellers">Best Sellers</string>
+    <string name="buy_now">Buy Now</string>
+    <string name="cancel">Cancel</string>
+    <string name="cart">Cart</string>
+    <string name="categories">Categories</string>
+    <string name="cod">Cash on Delivery</string>
+    <string name="com.google.firebase.crashlytics.mapping_file_id" ns1:ignore="UnusedResources,TypographyDashes" translatable="false">00000000000000000000000000000000</string>
+    <string name="coupon_code">Coupon Code</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="default_web_client_id" translatable="false">509908703450-r88ejnoiqq5k49dun4vgvh9u922fo53l.apps.googleusercontent.com</string>
+    <string name="delivery_charge">Delivery Charge</string>
+    <string name="description">Description</string>
+    <string name="empty_cart">Your cart is empty</string>
+    <string name="empty_cart_desc">Add some dry fish to get started!</string>
+    <string name="empty_orders">No orders yet</string>
+    <string name="empty_wishlist">Your wishlist is empty</string>
+    <string name="english">English</string>
+    <string name="error_generic">Something went wrong</string>
+    <string name="featured">Featured</string>
+    <string name="gcm_defaultSenderId" translatable="false">646532651867</string>
+    <string name="google_api_key" translatable="false">AIzaSyAJ2INl8jogM9aybR3CriwpP9EJWY-iOBw</string>
+    <string name="google_app_id" translatable="false">1:646532651867:android:8692692f0c0806345c587e</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAJ2INl8jogM9aybR3CriwpP9EJWY-iOBw</string>
+    <string name="google_storage_bucket" translatable="false">rameshwaram-dry-fish.firebasestorage.app</string>
+    <string name="home">Home</string>
+    <string name="language">Language</string>
+    <string name="loading">Loading…</string>
+    <string name="logout">Logout</string>
+    <string name="order_status_cancelled">Cancelled</string>
+    <string name="order_status_delivered">Delivered</string>
+    <string name="order_status_pending">Pending</string>
+    <string name="order_status_processing">Processing</string>
+    <string name="order_status_shipped">Shipped</string>
+    <string name="orders">Orders</string>
+    <string name="payment_method">Payment Method</string>
+    <string name="place_order">Place Order</string>
+    <string name="profile">Profile</string>
+    <string name="project_id" translatable="false">rameshwaram-dry-fish</string>
+    <string name="quantity">Qty</string>
+    <string name="razorpay">Razorpay</string>
+    <string name="remove">Remove</string>
+    <string name="retry">Retry</string>
+    <string name="reviews">Reviews</string>
+    <string name="save">Save</string>
+    <string name="search_products">Search products…</string>
+    <string name="shop">Shop</string>
+    <string name="sign_in_with_google">Sign in with Google</string>
+    <string name="subtotal">Subtotal</string>
+    <string name="tagline">Authentic Taste of the Coast</string>
+    <string name="tamil">தமிழ்</string>
+    <string name="total">Total</string>
+    <string name="wishlist">Wishlist</string>
+    <style name="Theme.RameswaramDryFish" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:statusBarColor">@color/deep_navy</item>
+        <item name="android:navigationBarColor">@color/white</item>
+    </style>
+</resources>
