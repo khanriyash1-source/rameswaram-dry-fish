@@ -63,4 +63,26 @@ class OrdersViewModel(
             expandedOrderId = if (_uiState.value.expandedOrderId == orderId) null else orderId
         )
     }
+
+    fun syncFromCloud() {
+        viewModelScope.launch {
+            when (val result = orderRepository.getOrders()) {
+                is Resource.Success -> {
+                    if (result.data.isNotEmpty()) {
+                        _uiState.value = _uiState.value.copy(
+                            orders = result.data,
+                            isLoading = false,
+                            error = null
+                        )
+                    }
+                }
+                is Resource.Error -> {
+                    if (_uiState.value.orders.isEmpty()) {
+                        _uiState.value = _uiState.value.copy(error = result.message)
+                    }
+                }
+                else -> {}
+            }
+        }
+    }
 }

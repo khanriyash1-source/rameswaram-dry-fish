@@ -10,4 +10,6 @@ data class WishlistItem(
     val mrp: Double,
     val weight: String,
     val addedAt: String
-)
+) {
+    constructor() : this("", "", "", "", "", 0.0, 0.0, "", "")
+}

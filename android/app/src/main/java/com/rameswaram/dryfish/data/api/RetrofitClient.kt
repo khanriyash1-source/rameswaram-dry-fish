@@ -61,6 +61,6 @@ object RetrofitClient {
         if (apiService == null) {
             apiService = retrofit.create(ApiService::class.java)
         }
-        return apiService!!
+        return apiService ?: retrofit.create(ApiService::class.java)
     }
 }

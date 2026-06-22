@@ -12,6 +12,9 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.compose.LocalLifecycleOwner
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -37,15 +40,30 @@ import org.koin.androidx.compose.koinViewModel
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun OrdersScreen(
+    onOrderClick: (String) -> Unit = {},
+    onBack: () -> Unit = {},
+    onMenuClick: () -> Unit = {},
     viewModel: OrdersViewModel = koinViewModel()
 ) {
     val uiState by viewModel.uiState.collectAsState()
     val swipeRefreshState = rememberSwipeRefreshState(isRefreshing = uiState.isRefreshing)
 
+    val lifecycleOwner = LocalLifecycleOwner.current
+    LaunchedEffect(lifecycleOwner) {
+        lifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.RESUMED) {
+            viewModel.syncFromCloud()
+        }
+    }
+
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("My Orders", fontWeight = FontWeight.Bold) }
+                title = { Text("My Orders", fontWeight = FontWeight.Bold) },
+                navigationIcon = {
+                    IconButton(onClick = onMenuClick) {
+                        Icon(Icons.Default.Menu, contentDescription = "Menu")
+                    }
+                }
             )
         }
     ) { padding ->

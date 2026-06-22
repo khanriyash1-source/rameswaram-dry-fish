@@ -12,7 +12,20 @@
           "package_name": "com.rameswaram.dryfish"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "646532651867-5hu6modrg0vf45ic3j39drivvg5ao0kl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rameswaram.dryfish",
+            "certificate_hash": "3815ebcad65b07aac2a35a489f4a78ed38eba5d7"
+          }
+        },
+        {
+          "client_id": "646532651867-5se97kjtrqj2r3kfc38n7nfgoihp7lkk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyAJ2INl8jogM9aybR3CriwpP9EJWY-iOBw"
@@ -20,7 +33,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "646532651867-5se97kjtrqj2r3kfc38n7nfgoihp7lkk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

@@ -21,11 +21,24 @@ data class ProductDetailUiState(
     val quantity: Int = 1,
     val isAddedToCart: Boolean = false,
     val isInWishlist: Boolean = false,
+    val relatedProducts: List<Product> = emptyList(),
+    val reviews: List<ProductReview> = emptyList(),
     val error: String? = null
 )
 
+data class ProductReview(
+    val id: String,
+    val userName: String,
+    val rating: Int,
+    val comment: String,
+    val date: String,
+    val verified: Boolean = false
+)
+
 class ProductDetailViewModel(
-    private val productRepository: ProductRepository
+    private val productRepository: ProductRepository,
+    private val wishlistRepository: WishlistRepository,
+    private val cartRepository: CartRepository
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(ProductDetailUiState())
@@ -38,10 +51,31 @@ class ProductDetailViewModel(
             when (val result = productRepository.getProductBySlug(slug)) {
                 is Resource.Success -> {
                     val product = result.data
+                    // Load related products (products from same category, excluding current)
+                    val related = productRepository.getProducts().let { productsResult ->
+                        when (productsResult) {
+                            is Resource.Success -> {
+                    productsResult.data
+                        .filter { it.id != product.id && it.category == product.category }
+                        .take(5)
+                            }
+                            else -> emptyList()
+                        }
+                    }
+
+                    // Check if product is in wishlist
+                    var inWishlist = false
+                    when (val wl = wishlistRepository.getWishlist()) {
+                        is Resource.Success -> inWishlist = wl.data.any { it.productId == product.id }
+                        else -> {}
+                    }
+                    
                     _uiState.value = _uiState.value.copy(
                         isLoading = false,
                         product = product,
-                        selectedSku = product.skus.firstOrNull { it.isAvailable } ?: product.skus.firstOrNull()
+                        selectedSku = product.skus.firstOrNull { it.isAvailable } ?: product.skus.firstOrNull(),
+                        relatedProducts = related,
+                        isInWishlist = inWishlist
                     )
                 }
                 is Resource.Error -> {
@@ -76,7 +110,7 @@ class ProductDetailViewModel(
         }
     }
 
-    fun addToCart(cartRepository: CartRepository) {
+    fun addToCart() {
         val state = _uiState.value
         val product = state.product ?: return
         val sku = state.selectedSku ?: return
@@ -96,13 +130,69 @@ class ProductDetailViewModel(
                 productSlug = product.slug
             )
 
-            when (cartRepository.addToCart(cartItem)) {
+            when (val addResult = cartRepository.addToCart(cartItem)) {
                 is Resource.Success -> {
                     _uiState.value = _uiState.value.copy(isAddedToCart = true)
                 }
-                is Resource.Error -> {}
+                is Resource.Error -> {
+                    _uiState.value = _uiState.value.copy(error = addResult.message)
+                }
                 is Resource.Loading -> {}
             }
         }
+    }
+
+    fun toggleWishlist() {
+        val product = _uiState.value.product ?: return
+        val sku = _uiState.value.selectedSku ?: product.skus.firstOrNull() ?: return
+
+        viewModelScope.launch {
+            val current = _uiState.value.isInWishlist
+            _uiState.value = _uiState.value.copy(isInWishlist = !current)
+            val result = if (current) {
+                wishlistRepository.removeFromWishlist(product.id)
+            } else {
+                wishlistRepository.addToWishlist(
+                    productId = product.id,
+                    productName = product.name,
+                    productImage = product.images.firstOrNull() ?: "",
+                    productSlug = product.slug,
+                    price = sku.price,
+                    mrp = sku.mrp,
+                    weight = sku.weight
+                )
+            }
+            if (result is Resource.Error) {
+                _uiState.value = _uiState.value.copy(isInWishlist = current)
+            }
+        }
+    }
+    
+    fun submitReview(rating: Int, comment: String) {
+        val product = _uiState.value.product ?: return
+        
+        viewModelScope.launch {
+            // TODO: Implement actual API call to submit review
+            val newReview = ProductReview(
+                id = System.currentTimeMillis().toString(),
+                userName = "You",
+                rating = rating,
+                comment = comment,
+                date = "Just now",
+                verified = true
+            )
+            
+            _uiState.value = _uiState.value.copy(
+                reviews = listOf(newReview) + _uiState.value.reviews
+            )
+        }
+    }
+    
+    fun resetAddedToCart() {
+        _uiState.value = _uiState.value.copy(isAddedToCart = false)
+    }
+
+    fun clearError() {
+        _uiState.value = _uiState.value.copy(error = null)
     }
 }

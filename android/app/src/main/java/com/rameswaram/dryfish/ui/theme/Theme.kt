@@ -2,15 +2,56 @@ package com.rameswaram.dryfish.ui.theme
 
 import android.app.Activity
 import android.os.Build
+import androidx.compose.animation.core.*
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.*
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.SideEffect
+import androidx.compose.runtime.*
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
+import androidx.datastore.preferences.core.booleanPreferencesKey
+import androidx.datastore.preferences.core.edit
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 
+// Animation Specs
+object AnimationSpecs {
+    // Spring animations for bouncy feel
+    val springFast = spring<Float>(
+        dampingRatio = Spring.DampingRatioMediumBouncy,
+        stiffness = Spring.StiffnessMedium
+    )
+    
+    val springSlow = spring<Float>(
+        dampingRatio = Spring.DampingRatioLowBouncy,
+        stiffness = Spring.StiffnessLow
+    )
+    
+    // Tween for smooth transitions
+    val tweenFast = tween<Float>(
+        durationMillis = 200,
+        easing = FastOutSlowInEasing
+    )
+    
+    val tweenMedium = tween<Float>(
+        durationMillis = 300,
+        easing = FastOutSlowInEasing
+    )
+    
+    val tweenSlow = tween<Float>(
+        durationMillis = 500,
+        easing = LinearOutSlowInEasing
+    )
+    
+    // Stagger delays for lists
+    const val staggerDelay = 50L
+    
+    // Shimmer duration
+    const val shimmerDuration = 1500
+}
+
+// Extended Color Scheme with our brand colors
 private val LightColorScheme = lightColorScheme(
     primary = OceanBlue,
     onPrimary = Color.White,
@@ -28,12 +69,14 @@ private val LightColorScheme = lightColorScheme(
     onBackground = LightOnSurface,
     surface = Color.White,
     onSurface = LightOnSurface,
-    surfaceVariant = LightSurface,
+    surfaceVariant = LightSurfaceVariant,
     onSurfaceVariant = LightOnSurfaceVariant,
     outline = LightOutline,
     outlineVariant = Color(0xFFCAC4D0),
     error = Error,
-    onError = Color.White
+    onError = Color.White,
+    errorContainer = ErrorLight,
+    onErrorContainer = Error
 )
 
 private val DarkColorScheme = darkColorScheme(
@@ -41,7 +84,7 @@ private val DarkColorScheme = darkColorScheme(
     onPrimary = Color.White,
     primaryContainer = OceanBlueDark,
     onPrimaryContainer = OceanBlueLight,
-    secondary = DeepNavy,
+    secondary = DeepNavyLight,
     onSecondary = Color.White,
     secondaryContainer = DeepNavyDark,
     onSecondaryContainer = Color(0xFFE8EAF6),
@@ -53,13 +96,21 @@ private val DarkColorScheme = darkColorScheme(
     onBackground = DarkOnSurface,
     surface = DarkSurface,
     onSurface = DarkOnSurface,
-    surfaceVariant = Color(0xFF2D2D2D),
+    surfaceVariant = DarkSurfaceVariant,
     onSurfaceVariant = DarkOnSurfaceVariant,
     outline = DarkOutline,
     outlineVariant = Color(0xFF49454F),
     error = Error,
-    onError = Color.White
+    onError = Color.White,
+    errorContainer = Color(0xFF5C1818),
+    onErrorContainer = Color(0xFFFFCDD2)
 )
+
+// Theme State Holder
+object ThemeState {
+    val isDarkMode = booleanPreferencesKey("is_dark_mode")
+    val useSystemTheme = booleanPreferencesKey("use_system_theme")
+}
 
 @Composable
 fun RameswaramTheme(
@@ -80,14 +131,21 @@ fun RameswaramTheme(
     if (!view.isInEditMode) {
         SideEffect {
             val window = (view.context as Activity).window
-            window.statusBarColor = DeepNavy.toArgb()
+            window.statusBarColor = if (darkTheme) DarkSurface.toArgb() else DeepNavy.toArgb()
             WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = !darkTheme
         }
     }
 
-    MaterialTheme(
-        colorScheme = colorScheme,
-        typography = Typography,
-        content = content
-    )
+    CompositionLocalProvider(
+        LocalAnimationSpec provides AnimationSpecs
+    ) {
+        MaterialTheme(
+            colorScheme = colorScheme,
+            typography = Typography,
+            content = content
+        )
+    }
 }
+
+// Composition Local for animation specs
+val LocalAnimationSpec = compositionLocalOf { AnimationSpecs }

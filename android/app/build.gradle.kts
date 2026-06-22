@@ -52,7 +52,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.8"
+        kotlinCompilerExtensionVersion = "1.5.14"
     }
 
     packaging {
@@ -63,14 +63,14 @@ android {
 }
 
 dependencies {
-    val composeBom = platform("androidx.compose:compose-bom:2024.04.00")
+    val composeBom = platform("androidx.compose:compose-bom:2024.09.00")
     implementation(composeBom)
     androidTestImplementation(composeBom)
 
     // Core
-    implementation("androidx.core:core-ktx:1.12.0")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
-    implementation("androidx.activity:activity-compose:1.8.2")
+    implementation("androidx.core:core-ktx:1.13.1")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.5")
+    implementation("androidx.activity:activity-compose:1.9.3")
 
     // Compose UI
     implementation("androidx.compose.ui:ui")
@@ -81,11 +81,11 @@ dependencies {
     implementation("androidx.compose.foundation:foundation")
 
     // Navigation
-    implementation("androidx.navigation:navigation-compose:2.7.6")
+    implementation("androidx.navigation:navigation-compose:2.8.5")
 
     // Lifecycle
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
-    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.7.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.5")
+    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.8.5")
 
     // Retrofit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
@@ -101,6 +101,7 @@ dependencies {
     // Firebase
     implementation(platform("com.google.firebase:firebase-bom:33.0.0"))
     implementation("com.google.firebase:firebase-auth-ktx")
+    implementation("com.google.firebase:firebase-firestore-ktx")
     implementation("com.google.firebase:firebase-messaging-ktx")
     implementation("com.google.firebase:firebase-crashlytics-ktx")
     implementation("com.google.android.gms:play-services-auth:20.7.0")
@@ -113,7 +114,7 @@ dependencies {
     implementation("io.coil-kt:coil-compose:2.5.0")
 
     // Razorpay
-    implementation("com.razorpay:checkout:1.6.33")
+    implementation("com.razorpay:checkout:1.6.41")
 
     // Accompanist
     implementation("com.google.accompanist:accompanist-pager:0.32.0")
@@ -122,6 +123,12 @@ dependencies {
 
     // Shimmer
     implementation("com.valentinilk.shimmer:compose-shimmer:1.0.5")
+
+    // Motion Layout for Compose
+    implementation("androidx.constraintlayout:constraintlayout-compose:1.0.1")
+
+    // Lottie for complex animations
+    implementation("com.airbnb.android:lottie-compose:6.4.1")
 
     // DataStore
     implementation("androidx.datastore:datastore-preferences:1.0.0")

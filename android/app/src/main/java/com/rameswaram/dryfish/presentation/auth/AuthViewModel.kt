@@ -33,34 +33,17 @@ class AuthViewModel(
         )
     }
 
-    fun handleGoogleSignInResult(idToken: String) {
+    fun handleGoogleSignInResult(
+        idToken: String,
+        googleUserId: String? = null,
+        displayName: String? = null,
+        email: String? = null,
+        photoUrl: String? = null
+    ) {
         viewModelScope.launch {
             _uiState.value = _uiState.value.copy(isLoading = true, error = null)
 
-            when (val result = authRepository.signInWithGoogle(idToken)) {
-                is Resource.Success -> {
-                    _uiState.value = _uiState.value.copy(
-                        isLoading = false,
-                        isLoggedIn = true,
-                        user = result.data
-                    )
-                }
-                is Resource.Error -> {
-                    _uiState.value = _uiState.value.copy(
-                        isLoading = false,
-                        error = result.message
-                    )
-                }
-                is Resource.Loading -> {}
-            }
-        }
-    }
-
-    fun login(email: String, password: String) {
-        viewModelScope.launch {
-            _uiState.value = _uiState.value.copy(isLoading = true, error = null)
-
-            when (val result = authRepository.login(email, password)) {
+            when (val result = authRepository.signInWithGoogle(idToken, googleUserId, displayName, email, photoUrl)) {
                 is Resource.Success -> {
                     _uiState.value = _uiState.value.copy(
                         isLoading = false,

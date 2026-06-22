@@ -1,0 +1,1261 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Rameswaram Premium Nethili Karuvadu",
+      "nameTamil": "நெத்திலி கருவட",
+      "slug": "nethili-karuvadu",
+      "description": "Experience the authentic taste of the coast with Rameswaram Dry Fish's Premium Nethili Karuvadu. Our dried anchovies are handpicked and processed using traditional sun-drying methods, ensuring they retain their natural flavor and nutritional value. The 'Nethili' variety is beloved in Tamil cuisine for its small size and intense, savory flavor, making it a perfect addition to many classic South Indian recipes.\n\nOur product is processed under stringent quality standards. We use only fresh fish and natural sea salt, with absolutely no added chemicals or colorings.\n\nAUTHENTIC RAMESWARAM CATCH: Sourced directly from the clean coastal waters of Rameswaram, ensuring authentic flavor and premium quality.\n100% NATURAL & SUN-DRIED: Our Nethili Karuvadu is cleaned thoroughly and dried under strict hygienic conditions. No chemicals or artificial preservatives are added.\nRESEALABLE FRESHNESS: Comes in an easy-open, resealable standing pouch to maintain quality and aroma after opening.\nNUTRITIOUS & FLAVORFUL: A rich source of protein and essential minerals. These dried anchovies add a profound umami flavor to traditional dishes.\nVERSATILE KITCHEN STAPLE: Perfect for making crispy Nethili fry, spicy Thokku (dried fish masala), or traditional Meen Kuzhambu (fish curry).",
+      "shortDesc": "Sun-dried anchovies - 100% natural & hygienic",
+      "category": "Fish",
+      "images": [
+        "nethili-1.jpg",
+        "nethili-2.jpg",
+        "nethili-3.jpg",
+        "nethili-4.jpg"
+      ],
+      "skus": [
+        {
+          "id": "1-100g",
+          "weight": "100g",
+          "price": 6500,
+          "stock": 50,
+          "weightInGrams": 100,
+          "isAvailable": true,
+          "mrp": 6500
+        },
+        {
+          "id": "1-250g",
+          "weight": "250g",
+          "price": 21000,
+          "stock": 40,
+          "weightInGrams": 250,
+          "isAvailable": true,
+          "mrp": 21000
+        },
+        {
+          "id": "1-500g",
+          "weight": "500g",
+          "price": 36000,
+          "stock": 30,
+          "weightInGrams": 500,
+          "isAvailable": true,
+          "mrp": 36000
+        },
+        {
+          "id": "1-750g",
+          "weight": "750g",
+          "price": 53000,
+          "stock": 20,
+          "weightInGrams": 750,
+          "isAvailable": true,
+          "mrp": 53000
+        },
+        {
+          "id": "1-1kg",
+          "weight": "1kg",
+          "price": 69000,
+          "stock": 15,
+          "weightInGrams": 1000,
+          "isAvailable": true,
+          "mrp": 69000
+        }
+      ],
+      "tags": [
+        "bestseller"
+      ],
+      "isFeatured": true,
+      "isBestseller": true,
+      "rating": 4.8,
+      "reviewCount": 124
+    },
+    {
+      "id": "2",
+      "name": "Premium Podi Nethili Karuvadu",
+      "nameTamil": "பொடி நெத்திலி கருவட",
+      "slug": "podi-nethili-karuvadu",
+      "description": "Bring the authentic taste of the coast straight to your kitchen with Rameswaram Dry Fish - Podi Nethili Karuvadu. Sourced directly from small boats to guarantee the freshest catch, our small anchovies are cleaned and sun-dried under strict hygienic conditions. Whether you are making a spicy Nethili Karuvadu Thokku, a crispy fry, or a rich traditional kuzhambu, these bite-sized dried fish deliver a punch of rich, savory umami flavor to every meal.\n\nWhy Choose Our Podi Nethili?\n100% Natural: Just premium fish and sea salt. Absolutely no added chemicals or artificial preservatives.\n\nReady to Cook: Carefully cleaned and prepared. Just wash with lukewarm water and it is ready for your pan.\n\nPremium Quality Packaging: Packed in an easy-open, resealable pouch with a transparent window so you can see the quality for yourself.\n\nIncredible Value: Authentic coastal taste at affordable prices.\n\nIngredients: Fresh Fish, Sea Salt.\nStorage Instructions: Store in a cool, dry place. Keep in an airtight container once opened. Keep in the refrigerator to maintain ultimate freshness.",
+      "shortDesc": "Sun-dried small anchovies - 100% natural",
+      "category": "Fish",
+      "images": [
+        "podi-nethili-1.png",
+        "podi-nethili-2.png",
+        "podi-nethili-3.png",
+        "podi-nethili-4.jpg"
+      ],
+      "skus": [
+        {
+          "id": "2-100g",
+          "weight": "100g",
+          "price": 6500,
+          "stock": 40,
+          "weightInGrams": 100,
+          "isAvailable": true,
+          "mrp": 6500
+        },
+        {
+          "id": "2-250g",
+          "weight": "250g",
+          "price": 21000,
+          "stock": 35,
+          "weightInGrams": 250,
+          "isAvailable": true,
+          "mrp": 21000
+        },
+        {
+          "id": "2-500g",
+          "weight": "500g",
+          "price": 36000,
+          "stock": 25,
+          "weightInGrams": 500,
+          "isAvailable": true,
+          "mrp": 36000
+        },
+        {
+          "id": "2-750g",
+          "weight": "750g",
+          "price": 53000,
+          "stock": 18,
+          "weightInGrams": 750,
+          "isAvailable": true,
+          "mrp": 53000
+        },
+        {
+          "id": "2-1kg",
+          "weight": "1kg",
+          "price": 69000,
+          "stock": 12,
+          "weightInGrams": 1000,
+          "isAvailable": true,
+          "mrp": 69000
+        }
+      ],
+      "tags": [
+        "bestseller"
+      ],
+      "isFeatured": true,
+      "isBestseller": true,
+      "rating": 4.9,
+      "reviewCount": 156
+    },
+    {
+      "id": "3",
+      "name": "Kilicha Fish Karuvadu",
+      "nameTamil": "கிழிச்ச மீன் கருவட",
+      "slug": "kilicha-fish-karuvadu",
+      "description": "Rameswaram Kilicha Karuvadu – Simply Fresh, Purely Dried. Craving the authentic taste of the coast? Our Kilicha Karuvadu is 100% natural, hygienic, and packed with traditional flavor.\n\nFreshly Sourced: Brought in daily by local small boats.\nPurely Sun-Dried: No chemicals, no additives, just pure fish and sea salt.\nReady-to-Cook: Cleaned with care so you can cook with confidence.\nSustainable: Supporting traditional fishing communities with every pack.",
+      "shortDesc": "Cleaned dried fish chunks",
+      "category": "Fish",
+      "images": [
+        "kilicha-6.png",
+        "kilicha-1.jpg",
+        "kilicha-2.jpg",
+        "kilicha-3.jpg",
+        "kilicha-4.jpg",
+        "kilicha-5.jpg"
+      ],
+      "skus": [
+        {
+          "id": "3-100g",
+          "weight": "100g",
+          "price": 6500,
+          "stock": 50,
+          "weightInGrams": 100,
+          "isAvailable": true,
+          "mrp": 6500
+        },
+        {
+          "id": "3-250g",
+          "weight": "250g",
+          "price": 13000,
+          "stock": 40,
+          "weightInGrams": 250,
+          "isAvailable": true,
+          "mrp": 13000
+        },
+        {
+          "id": "3-500g",
+          "weight": "500g",
+          "price": 20000,
+          "stock": 30,
+          "weightInGrams": 500,
+          "isAvailable": true,
+          "mrp": 20000
+        },
+        {
+          "id": "3-750g",
+          "weight": "750g",
+          "price": 27500,
+          "stock": 20,
+          "weightInGrams": 750,
+          "isAvailable": true,
+          "mrp": 27500
+        },
+        {
+          "id": "3-1kg",
+          "weight": "1kg",
+          "price": 35000,
+          "stock": 15,
+          "weightInGrams": 1000,
+          "isAvailable": true,
+          "mrp": 35000
+        }
+      ],
+      "tags": [
+        "bestseller"
+      ],
+      "isFeatured": true,
+      "isBestseller": true,
+      "rating": 4.7,
+      "reviewCount": 89
+    },
+    {
+      "id": "4",
+      "name": "Premium Sennakuni Karuvadu",
+      "nameTamil": "சென்னா குனி கருவட",
+      "slug": "senna-kuni-karuvadu",
+      "description": "Premium Sennakuni - authentic coastal delight. Intense, savory crunch perfect for thokku, fry, or adding to vegetable curries.",
+      "shortDesc": "Dried shrimp - authentic coastal",
+      "category": "Prawns",
+      "images": [
+        "senna-kuni-1.png",
+        "senna-kuni-2.jpg",
+        "senna-kuni-3.jpg",
+        "senna-kuni-4.jpg"
+      ],
+      "skus": [
+        {
+          "id": "4-100g",
+          "weight": "100g",
+          "price": 6500,
+          "stock": 35,
+          "weightInGrams": 100,
+          "isAvailable": true,
+          "mrp": 6500
+        },
+        {
+          "id": "4-250g",
+          "weight": "250g",
+          "price": 19000,
+          "stock": 30,
+          "weightInGrams": 250,
+          "isAvailable": true,
+          "mrp": 19000
+        },
+        {
+          "id": "4-500g",
+          "weight": "500g",
+          "price": 35000,
+          "stock": 25,
+          "weightInGrams": 500,
+          "isAvailable": true,
+          "mrp": 35000
+        },
+        {
+          "id": "4-750g",
+          "weight": "750g",
+          "price": 50000,
+          "stock": 18,
+          "weightInGrams": 750,
+          "isAvailable": true,
+          "mrp": 50000
+        },
+        {
+          "id": "4-1kg",
+          "weight": "1kg",
+          "price": 65000,
+          "stock": 12,
+          "weightInGrams": 1000,
+          "isAvailable": true,
+          "mrp": 65000
+        }
+      ],
+      "tags": [
+        "bestseller"
+      ],
+      "isFeatured": false,
+      "isBestseller": true,
+      "rating": 4.8,
+      "reviewCount": 78
+    },
+    {
+      "id": "5",
+      "name": "Premium Vaalai Karuvadu",
+      "nameTamil": "வாலை கருவட",
+      "slug": "vaalai-karuvadu",
+      "description": "Experience the authentic, traditional taste of coastal Tamil Nadu with our premium Vaalai Karuvadu (Ribbon Fish). Sourced directly from local small-boat fishermen, our Ribbon Fish is processed under strict hygienic conditions to ensure you receive only the finest quality.\n\nEvery batch is meticulously cleaned and sun-dried to lock in that deep, savory umami flavor that food lovers cherish. Whether you are planning to prepare a spicy, aromatic Karuvadu Kuzhambu (dried fish curry) or a crispy Karuvadu Varuval (fry), our premium Vaalai Karuvadu provides the perfect texture and bold taste to elevate your home-cooked meals.\n\nWhy choose our Vaalai Karuvadu?\n100% Natural: No added chemicals or preservatives. Just pure, sun-dried goodness.\nSustainably Sourced: We support local small-scale fishers for the freshest catch.\nHygienically Processed: Cleaned and dried in a controlled environment to ensure food safety.\nConvenient Packaging: Our easy-open, resealable pouch keeps your fish fresh for longer and makes storage effortless.",
+      "shortDesc": "Sun-dried ribbon fish - 100% natural",
+      "category": "Fish",
+      "images": [
+        "vaalai-2.png",
+        "vaalai-1.png",
+        "vaalai-3.jpg",
+        "vaalai-4.jpg"
+      ],
+      "skus": [
+        {
+          "id": "5-100g",
+          "weight": "100g",
+          "price": 6500,
+          "stock": 45,
+          "weightInGrams": 100,
+          "isAvailable": true,
+          "mrp": 6500
+        },
+        {
+          "id": "5-250g",
+          "weight": "250g",
+          "price": 15000,
+          "stock": 35,
+          "weightInGrams": 250,
+          "isAvailable": true,
+          "mrp": 15000
+        },
+        {
+          "id": "5-500g",
+          "weight": "500g",
+          "price": 25000,
+          "stock": 25,
+          "weightInGrams": 500,
+          "isAvailable": true,
+          "mrp": 25000
+        },
+        {
+          "id": "5-750g",
+          "weight": "750g",
+          "price": 36000,
+          "stock": 20,
+          "weightInGrams": 750,
+          "isAvailable": true,
+          "mrp": 36000
+        },
+        {
+          "id": "5-1kg",
+          "weight": "1kg",
+          "price": 46000,
+          "stock": 15,
+          "weightInGrams": 1000,
+          "isAvailable": true,
+          "mrp": 46000
+        }
+      ],
+      "tags": [
+        "bestseller"
+      ],
+      "isFeatured": false,
+      "isBestseller": true,
+      "rating": 4.8,
+      "reviewCount": 92
+    },
+    {
+      "id": "6",
+      "name": "Rameswaram Premium Masi Thool Karuvadu",
+      "nameTamil": "மாசி தூள் கருவட",
+      "slug": "masi-thool-karuvadu",
+      "description": "Elevate your coastal cooking with the intense, savory depth of our premium Masi Thool. Sourced from the finest catch and prepared using traditional methods, our Masi Thool (dry fish powder/mix) is the secret ingredient that transforms everyday meals into gourmet experiences. Whether you are crafting authentic seafood dishes, flavoring a spicy meen kulambu, or adding a rich, umami punch to your stir-fries and chutneys, this is the essential pantry staple for every seafood lover.\n\nWhy You'll Love It:\nAuthentic Traditional Flavor: Perfectly dried to lock in that deep, smoky, and concentrated fish essence that defines authentic coastal cuisine.\nPremium Quality: We take pride in our sourcing and hygiene, ensuring you receive only the cleanest, highest-grade dry fish.\nHighly Versatile: A tiny sprinkle goes a long way.\nRich in Protein: A nutrient-dense, shelf-stable ingredient that adds a healthy protein boost to your diet.",
+      "shortDesc": "Premium dry fish - authentic & traditional",
+      "category": "Fish",
+      "images": [
+        "thuol-masi-1.jpg",
+        "thuol-masi-2.jpg",
+        "thuol-masi-3.jpg",
+        "thuol-masi-4.jpg"
+      ],
+      "skus": [
+        {
+          "id": "6-100g",
+          "weight": "100g",
+          "price": 6500,
+          "stock": 40,
+          "weightInGrams": 100,
+          "isAvailable": true,
+          "mrp": 6500
+        },
+        {
+          "id": "6-250g",
+          "weight": "250g",
+          "price": 27500,
+          "stock": 30,
+          "weightInGrams": 250,
+          "isAvailable": true,
+          "mrp": 27500
+        },
+        {
+          "id": "6-500g",
+          "weight": "500g",
+          "price": 50000,
+          "stock": 25,
+          "weightInGrams": 500,
+          "isAvailable": true,
+          "mrp": 50000
+        },
+        {
+          "id": "6-750g",
+          "weight": "750g",
+          "price": 62500,
+          "stock": 18,
+          "weightInGrams": 750,
+          "isAvailable": true,
+          "mrp": 62500
+        },
+        {
+          "id": "6-1kg",
+          "weight": "1kg",
+          "price": 95000,
+          "stock": 12,
+          "weightInGrams": 1000,
+          "isAvailable": true,
+          "mrp": 95000
+        }
+      ],
+      "tags": [
+        "premium"
+      ],
+      "isFeatured": true,
+      "isBestseller": true,
+      "rating": 4.6,
+      "reviewCount": 67
+    },
+    {
+      "id": "7",
+      "name": "Rameswaram Premium Kaintha Iraal Karuvadu",
+      "nameTamil": "கைந்த இறால் கருவட",
+      "slug": "kaintha-iraal-karuvadu",
+      "description": "Bring the rich, savory essence of the sea straight to your kitchen with our premium Kaintha Iraal Karuvadu. Sourced directly from small-boat fishers and sun-dried under strict hygienic conditions, our dried prawns retain the natural, robust flavor that defines traditional coastal cuisine.\n\nPacked with protein and free from artificial preservatives, our dried prawns are the perfect pantry staple for elevating your everyday cooking. Whether you are crafting a spicy Karuvaadu Thokku, adding depth to a fragrant sambar, or creating a crunchy stir-fry, these premium prawns offer unmatched quality in every bite.",
+      "shortDesc": "Premium sun-dried prawns - authentic coastal flavor",
+      "category": "Prawns",
+      "images": [
+        "kaintha-iraal-1.png",
+        "kaintha-iraal-2.png",
+        "kaintha-iraal-3.png"
+      ],
+      "skus": [
+        {
+          "id": "7-100g",
+          "weight": "100g",
+          "price": 6500,
+          "stock": 35,
+          "weightInGrams": 100,
+          "isAvailable": true,
+          "mrp": 6500
+        },
+        {
+          "id": "7-250g",
+          "weight": "250g",
+          "price": 24000,
+          "stock": 30,
+          "weightInGrams": 250,
+          "isAvailable": true,
+          "mrp": 24000
+        },
+        {
+          "id": "7-500g",
+          "weight": "500g",
+          "price": 45000,
+          "stock": 20,
+          "weightInGrams": 500,
+          "isAvailable": true,
+          "mrp": 45000
+        },
+        {
+          "id": "7-750g",
+          "weight": "750g",
+          "price": 65000,
+          "stock": 15,
+          "weightInGrams": 750,
+          "isAvailable": true,
+          "mrp": 65000
+        },
+        {
+          "id": "7-1kg",
+          "weight": "1kg",
+          "price": 85000,
+          "stock": 10,
+          "weightInGrams": 1000,
+          "isAvailable": true,
+          "mrp": 85000
+        }
+      ],
+      "tags": [
+        "bestseller"
+      ],
+      "isFeatured": false,
+      "isBestseller": true,
+      "rating": 4.7,
+      "reviewCount": 83
+    },
+    {
+      "id": "8",
+      "name": "The Ultimate Vanjiram Karuvadu",
+      "nameTamil": "வஞ்சிரம் கருவட",
+      "slug": "vanjiram-karuvadu",
+      "description": "Craving the perfect bite of Vanjiram? Our sun-dried, 100% natural Vanjiram Karuvadu is cleaned, processed, and packed with care to bring you the best of the ocean.\n\nWhy Choose Our Vanjiram?\n100% Natural: No chemicals, just fish and sea salt.\nSustainably Sourced: Fresh catch from small-scale coastal fishers.\nHygienically Packed: Sun-dried in a clean environment for superior flavor.\nPerfect for: Spicy fries, rich gravies, or a traditional coastal feast.\n\nProduct Highlights:\nFish Variety: Vanjiram (Seer Fish)\nProcessing: Sun-dried & hygienically cleaned\nIngredients: Fresh Fish, Sea Salt\nAdditives: None (100% Natural)",
+      "shortDesc": "Premium sun-dried seer fish - 100% natural",
+      "category": "Fish",
+      "images": [
+        "vanjiram-1.png",
+        "vanjiram-2.png"
+      ],
+      "skus": [
+        {
+          "id": "8-100g",
+          "weight": "100g",
+          "price": 6500,
+          "stock": 35,
+          "weightInGrams": 100,
+          "isAvailable": true,
+          "mrp": 6500
+        },
+        {
+          "id": "8-250g",
+          "weight": "250g",
+          "price": 29000,
+          "stock": 28,
+          "weightInGrams": 250,
+          "isAvailable": true,
+          "mrp": 29000
+        },
+        {
+          "id": "8-500g",
+          "weight": "500g",
+          "price": 55000,
+          "stock": 20,
+          "weightInGrams": 500,
+          "isAvailable": true,
+          "mrp": 55000
+        },
+        {
+          "id": "8-750g",
+          "weight": "750g",
+          "price": 78000,
+          "stock": 15,
+          "weightInGrams": 750,
+          "isAvailable": true,
+          "mrp": 78000
+        },
+        {
+          "id": "8-1kg",
+          "weight": "1kg",
+          "price": 105000,
+          "stock": 10,
+          "weightInGrams": 1000,
+          "isAvailable": true,
+          "mrp": 105000
+        }
+      ],
+      "tags": [
+        "premium"
+      ],
+      "isFeatured": false,
+      "isBestseller": false,
+      "rating": 4.8,
+      "reviewCount": 56
+    },
+    {
+      "id": "9",
+      "name": "Premium Thundu Karuvadu",
+      "nameTamil": "துண்டு கருவட",
+      "slug": "thundu-karuvadu",
+      "description": "Bring the authentic, rustic flavors of the coast to your kitchen. Our Thundu Karuvadu is crafted for those who love the deep, savory, and umami-rich taste of traditional sun-dried fish but want the convenience of ready-to-cook pieces. Sourced directly from small-scale traditional boats, each piece is expertly cleaned and sun-dried under strict hygienic conditions to ensure you receive only the best quality.\n\nWhy You'll Love It:\nAuthentic Coastal Taste: We use a time-tested, 100% natural sun-drying process that locks in the rich, deep flavors that only real karuvadu can provide.\nZero Chemicals: Absolutely no additives or preservatives. Just pure, wholesome, dried fish cured with high-quality sea salt.\nReady-to-Cook Convenience: Say goodbye to the hassle of cleaning and cutting. Our 'Thundu' (chunk) cuts are perfectly portioned so you can drop them straight into your spicy karuvadu kuzhambu or fry them up for a crispy, flavorful side dish.",
+      "shortDesc": "Salted dried fish chunks - ready to cook",
+      "category": "Fish",
+      "images": [
+        "thundu-1.png",
+        "thundu-2.png",
+        "thundu-3.png"
+      ],
+      "skus": [
+        {
+          "id": "9-100g",
+          "weight": "100g",
+          "price": 6500,
+          "stock": 45,
+          "weightInGrams": 100,
+          "isAvailable": true,
+          "mrp": 6500
+        },
+        {
+          "id": "9-250g",
+          "weight": "250g",
+          "price": 19000,
+          "stock": 35,
+          "weightInGrams": 250,
+          "isAvailable": true,
+          "mrp": 19000
+        },
+        {
+          "id": "9-500g",
+          "weight": "500g",
+          "price": 35000,
+          "stock": 25,
+          "weightInGrams": 500,
+          "isAvailable": true,
+          "mrp": 35000
+        },
+        {
+          "id": "9-750g",
+          "weight": "750g",
+          "price": 50000,
+          "stock": 20,
+          "weightInGrams": 750,
+          "isAvailable": true,
+          "mrp": 50000
+        },
+        {
+          "id": "9-1kg",
+          "weight": "1kg",
+          "price": 65000,
+          "stock": 15,
+          "weightInGrams": 1000,
+          "isAvailable": true,
+          "mrp": 65000
+        }
+      ],
+      "tags": [
+        "bestseller"
+      ],
+      "isFeatured": false,
+      "isBestseller": true,
+      "rating": 4.7,
+      "reviewCount": 71
+    },
+    {
+      "id": "10",
+      "name": "Rameswaram Premium Paal Sura Karuvadu",
+      "nameTamil": "பால் சுரா கருவட",
+      "slug": "paal-sura-karuvadu",
+      "description": "Experience the authentic taste of the sea with Rameswaram Premium Paal Sura Karuvadu. Carefully selected from fresh Paal Sura (Milk Shark) and traditionally sun-dried to preserve its natural flavor and nutrition, this premium dry fish delivers a rich aroma and delicious taste loved by seafood enthusiasts.\n\nPrepared using hygienic processing methods and packed in a premium resealable pouch, our Paal Sura Karuvadu maintains freshness, quality, and authentic coastal flavor in every bite.\n\nPerfect for preparing:\n\nTraditional South Indian Karuvadu Curry\nSpicy Dry Fish Fry\nVillage-Style Seafood Gravy\nAuthentic Tamil Nadu Recipes\n\nEnjoy the rich taste of Rameswaram's coastal heritage with every meal.",
+      "shortDesc": "Premium milk shark dry fish - traditional sun-dried",
+      "category": "Fish",
+      "images": [
+        "paal-sura-1.jpg",
+        "paal-sura-2.jpg",
+        "paal-sura-3.jpg",
+        "paal-sura-4.jpg",
+        "paal-sura-5.jpg",
+        "paal-sura-6.jpg"
+      ],
+      "skus": [
+        {
+          "id": "10-100g",
+          "weight": "100g",
+          "price": 6500,
+          "stock": 40,
+          "weightInGrams": 100,
+          "isAvailable": true,
+          "mrp": 6500
+        },
+        {
+          "id": "10-250g",
+          "weight": "250g",
+          "price": 24000,
+          "stock": 30,
+          "weightInGrams": 250,
+          "isAvailable": true,
+          "mrp": 24000
+        },
+        {
+          "id": "10-500g",
+          "weight": "500g",
+          "price": 45000,
+          "stock": 25,
+          "weightInGrams": 500,
+          "isAvailable": true,
+          "mrp": 45000
+        },
+        {
+          "id": "10-750g",
+          "weight": "750g",
+          "price": 65000,
+          "stock": 18,
+          "weightInGrams": 750,
+          "isAvailable": true,
+          "mrp": 65000
+        },
+        {
+          "id": "10-1kg",
+          "weight": "1kg",
+          "price": 85000,
+          "stock": 12,
+          "weightInGrams": 1000,
+          "isAvailable": true,
+          "mrp": 85000
+        }
+      ],
+      "tags": [
+        "premium"
+      ],
+      "isFeatured": true,
+      "isBestseller": false,
+      "rating": 4.5,
+      "reviewCount": 0
+    },
+    {
+      "id": "11",
+      "name": "Rameswaram Premium Thirukkai Karuvadu",
+      "nameTamil": "திருக்கை கருவட",
+      "slug": "thirukkai-karuvadu",
+      "description": "Bring home the authentic coastal taste of Tamil Nadu with Rameswaram Premium Thirukkai Karuvadu. Carefully selected from high-quality Thirukkai (Ray Fish) and naturally sun-dried using traditional methods, this dry fish delivers a rich flavor, firm texture, and irresistible aroma.\n\nOur Thirukkai Karuvadu is hygienically processed and packed in a premium resealable pouch to preserve freshness and quality. Perfect for preparing traditional South Indian seafood dishes that your family will love.\n\nWhether used in spicy curries, village-style gravies, or crispy dry fish fry recipes, this premium dry fish adds a delicious seafood flavor to every meal.",
+      "shortDesc": "Premium ray fish dry fish - traditional sun-dried",
+      "category": "Fish",
+      "images": [
+        "thirukkai-1.jpg",
+        "thirukkai-2.jpg",
+        "thirukkai-3.jpg",
+        "thirukkai-4.jpg",
+        "thirukkai-5.jpg"
+      ],
+      "skus": [
+        {
+          "id": "11-100g",
+          "weight": "100g",
+          "price": 6500,
+          "stock": 35,
+          "weightInGrams": 100,
+          "isAvailable": true,
+          "mrp": 6500
+        },
+        {
+          "id": "11-250g",
+          "weight": "250g",
+          "price": 19000,
+          "stock": 28,
+          "weightInGrams": 250,
+          "isAvailable": true,
+          "mrp": 19000
+        },
+        {
+          "id": "11-500g",
+          "weight": "500g",
+          "price": 35000,
+          "stock": 20,
+          "weightInGrams": 500,
+          "isAvailable": true,
+          "mrp": 35000
+        },
+        {
+          "id": "11-750g",
+          "weight": "750g",
+          "price": 50000,
+          "stock": 15,
+          "weightInGrams": 750,
+          "isAvailable": true,
+          "mrp": 50000
+        },
+        {
+          "id": "11-1kg",
+          "weight": "1kg",
+          "price": 65000,
+          "stock": 10,
+          "weightInGrams": 1000,
+          "isAvailable": true,
+          "mrp": 65000
+        }
+      ],
+      "tags": [
+        "premium"
+      ],
+      "isFeatured": false,
+      "isBestseller": false,
+      "rating": 4.5,
+      "reviewCount": 0
+    },
+    {
+      "id": "12",
+      "name": "Rameswaram Premium Ayirai Karuvadu",
+      "nameTamil": "ஆயிரை கருவட",
+      "slug": "ayirai-karuvadu",
+      "description": "Premium Ayirai Karuvadu - Authentic Coastal Taste in Every Bite.\n\nExperience the rich tradition of Rameswaram with our Premium Ayirai Karuvadu, carefully selected from fresh coastal catch and naturally sun-dried to preserve its authentic flavor and nutritional value.\n\nPrepared using traditional methods and hygienically packed in a freshness-lock resealable pouch, our Ayirai Karuvadu delivers a delicious aroma, superior taste, and premium quality that seafood lovers cherish.\n\nPerfect for preparing spicy Ayirai Karuvadu Curry, traditional Tamil Nadu gravies, dry fish fry, and village-style seafood dishes.\n\nWhy Choose Our Ayirai Karuvadu?\nPremium Quality Coastal Fish\nTraditional Sun-Dried Process\nRich in Protein & Natural Nutrients\nAuthentic Rameswaram Taste\nHygienically Packed for Freshness\nNo Artificial Preservatives\nPerfect for Traditional South Indian Recipes\n\nTaste the Heritage of Rameswaram: From the pristine coastal waters of Rameswaram to your dining table, every pack is crafted to bring you the true flavor of traditional Tamil seafood cuisine.",
+      "shortDesc": "Premium anchovy dry fish - authentic coastal taste",
+      "category": "Fish",
+      "images": [
+        "ayirai-1.jpg",
+        "ayirai-2.jpg",
+        "ayirai-3.jpg"
+      ],
+      "skus": [
+        {
+          "id": "12-100g",
+          "weight": "100g",
+          "price": 6500,
+          "stock": 40,
+          "weightInGrams": 100,
+          "isAvailable": true,
+          "mrp": 6500
+        },
+        {
+          "id": "12-250g",
+          "weight": "250g",
+          "price": 19000,
+          "stock": 30,
+          "weightInGrams": 250,
+          "isAvailable": true,
+          "mrp": 19000
+        },
+        {
+          "id": "12-500g",
+          "weight": "500g",
+          "price": 35000,
+          "stock": 25,
+          "weightInGrams": 500,
+          "isAvailable": true,
+          "mrp": 35000
+        },
+        {
+          "id": "12-750g",
+          "weight": "750g",
+          "price": 50000,
+          "stock": 18,
+          "weightInGrams": 750,
+          "isAvailable": true,
+          "mrp": 50000
+        },
+        {
+          "id": "12-1kg",
+          "weight": "1kg",
+          "price": 65000,
+          "stock": 12,
+          "weightInGrams": 1000,
+          "isAvailable": true,
+          "mrp": 65000
+        }
+      ],
+      "tags": [
+        "new"
+      ],
+      "isFeatured": false,
+      "isBestseller": false,
+      "rating": 4.5,
+      "reviewCount": 0
+    },
+    {
+      "id": "13",
+      "name": "Rameswaram Premium Katchai Karuvadu",
+      "nameTamil": "கச்சை கருவட",
+      "slug": "katchai-karuvadu",
+      "description": "Premium Katchai Karuvadu - Authentic Coastal Flavor.\n\nDiscover the traditional taste of Rameswaram with our Premium Katchai Karuvadu, carefully selected from fresh coastal fish and naturally sun-dried to perfection.\n\nPacked with rich flavor, natural aroma, and essential nutrients, this traditional dry fish is processed hygienically and packed in a freshness-lock resealable pouch to maintain superior quality and taste.\n\nWhether you're preparing spicy fish curry, crispy dry fish fry, or authentic village-style seafood dishes, our Katchai Karuvadu delivers the true taste of the Tamil Nadu coastline.\n\nProduct Highlights:\nPremium Grade Katchai Fish\nTraditional Sun-Dried Method\nRich in Protein & Minerals\nHygienically Processed & Packed\nNo Artificial Preservatives\nFreshness-Lock Resealable Packaging\nAuthentic Rameswaram Coastal Taste\n\nWhy Customers Love It:\nDelicious Traditional Flavor\nPremium Quality Selection\nPerfect for Home-Cooked Seafood Recipes\nFresh, Clean & Natural\n\nTaste the Heritage of Rameswaram: From the pristine coastal waters of Rameswaram to your family's dining table, every pack brings authentic seafood flavor and unmatched quality.",
+      "shortDesc": "Premium dried anchovy fish - traditional sun-dried",
+      "category": "Fish",
+      "images": [
+        "katchai-1.jpg",
+        "katchai-2.jpg",
+        "katchai-3.jpg",
+        "katchai-4.jpg"
+      ],
+      "skus": [
+        {
+          "id": "13-100g",
+          "weight": "100g",
+          "price": 6500,
+          "stock": 35,
+          "weightInGrams": 100,
+          "isAvailable": true,
+          "mrp": 6500
+        },
+        {
+          "id": "13-250g",
+          "weight": "250g",
+          "price": 19000,
+          "stock": 28,
+          "weightInGrams": 250,
+          "isAvailable": true,
+          "mrp": 19000
+        },
+        {
+          "id": "13-500g",
+          "weight": "500g",
+          "price": 35000,
+          "stock": 20,
+          "weightInGrams": 500,
+          "isAvailable": true,
+          "mrp": 35000
+        },
+        {
+          "id": "13-750g",
+          "weight": "750g",
+          "price": 50000,
+          "stock": 15,
+          "weightInGrams": 750,
+          "isAvailable": true,
+          "mrp": 50000
+        },
+        {
+          "id": "13-1kg",
+          "weight": "1kg",
+          "price": 65000,
+          "stock": 10,
+          "weightInGrams": 1000,
+          "isAvailable": true,
+          "mrp": 65000
+        }
+      ],
+      "tags": [
+        "new"
+      ],
+      "isFeatured": false,
+      "isBestseller": false,
+      "rating": 4.5,
+      "reviewCount": 0
+    },
+    {
+      "id": "14",
+      "name": "Rameswaram Premium Periya Vanjiram Karuvadu",
+      "nameTamil": "பெரிய வஞ்சிரம் கருவட",
+      "slug": "periya-vanjiram-karuvadu",
+      "description": "The King of Dry Fish – Rich Taste, Premium Quality.\n\nExperience the authentic coastal flavor of Rameswaram with our Premium Periya Vanjiram Karuvadu. Sourced from carefully selected King Mackerel fish and traditionally sun-dried, this premium dry fish is known for its thick meaty texture, rich taste, and exceptional quality.\n\nPrepared using traditional methods and hygienically packed in a premium freshness-lock pouch, our Periya Vanjiram Karuvadu delivers the perfect balance of flavor, nutrition, and freshness.\n\nIdeal for preparing delicious dry fish curry, spicy fry, traditional village-style gravies, and special seafood recipes loved by families across Tamil Nadu.\n\nProduct Highlights:\nPremium Grade King Mackerel (Vanjiram)\nThick & Meaty Fish Pieces\nTraditional Sun-Dried Process\nRich in Protein & Natural Nutrients\nHygienically Processed & Packed\nNo Artificial Preservatives\nFreshness-Lock Packaging\nAuthentic Rameswaram Coastal Taste\n\nWhy Customers Love It:\nPremium Export Quality\nRich Flavor & Aroma\nLarge Meaty Pieces\nTraditional Homemade Taste\nPerfect for Curry & Fry Recipes\n\nFrom Rameswaram Coast to Your Kitchen: Every pack is carefully prepared to deliver authentic seafood flavor, premium quality, and the traditional taste that seafood lovers cherish.",
+      "shortDesc": "Premium king mackerel dry fish - thick & meaty",
+      "category": "Fish",
+      "images": [
+        "periya-vanjiram-1.jpg",
+        "periya-vanjiram-2.jpg",
+        "periya-vanjiram-3.jpg"
+      ],
+      "skus": [
+        {
+          "id": "14-100g",
+          "weight": "100g",
+          "price": 6500,
+          "stock": 30,
+          "weightInGrams": 100,
+          "isAvailable": true,
+          "mrp": 6500
+        },
+        {
+          "id": "14-250g",
+          "weight": "250g",
+          "price": 39000,
+          "stock": 25,
+          "weightInGrams": 250,
+          "isAvailable": true,
+          "mrp": 39000
+        },
+        {
+          "id": "14-500g",
+          "weight": "500g",
+          "price": 75000,
+          "stock": 18,
+          "weightInGrams": 500,
+          "isAvailable": true,
+          "mrp": 75000
+        },
+        {
+          "id": "14-750g",
+          "weight": "750g",
+          "price": 110000,
+          "stock": 12,
+          "weightInGrams": 750,
+          "isAvailable": true,
+          "mrp": 110000
+        },
+        {
+          "id": "14-1kg",
+          "weight": "1kg",
+          "price": 145000,
+          "stock": 8,
+          "weightInGrams": 1000,
+          "isAvailable": true,
+          "mrp": 145000
+        }
+      ],
+      "tags": [
+        "premium",
+        "new"
+      ],
+      "isFeatured": true,
+      "isBestseller": false,
+      "rating": 4.5,
+      "reviewCount": 0
+    },
+    {
+      "id": "15",
+      "name": "Rameswaram Premium Kola Karuvadu",
+      "nameTamil": "கோலா கருவட",
+      "slug": "kola-karuvadu",
+      "description": "Small Fish, Big Flavor – Authentic Rameswaram Taste.\n\nEnjoy the traditional coastal taste of Rameswaram with our Premium Kola Karuvadu. Carefully selected from fresh Kola fish and naturally sun-dried using traditional methods, this dry fish is known for its unique flavor, delicious aroma, and rich nutritional value.\n\nHygienically processed and packed in a premium freshness-lock pouch, our Kola Karuvadu delivers authentic seafood goodness straight from the Rameswaram coast to your kitchen.\n\nPerfect for preparing spicy dry fish curry, crispy fish fry, sambal, and traditional village-style recipes that bring back the taste of home.\n\nProduct Highlights:\nPremium Quality Kola Fish\nTraditional Sun-Dried Process\nRich in Protein & Essential Nutrients\nAuthentic Coastal Flavor\nHygienically Packed\nNo Artificial Preservatives\nFreshness-Lock Resealable Packaging\n\nAuthentic Taste from Rameswaram: Every pack is prepared with care to deliver the true flavor of Tamil Nadu's coastal cuisine.",
+      "shortDesc": "Salted flying fish dry fish - small fish big flavor",
+      "category": "Fish",
+      "images": [
+        "kola-1.jpg",
+        "kola-2.jpg",
+        "kola-3.jpg"
+      ],
+      "skus": [
+        {
+          "id": "15-100g",
+          "weight": "100g",
+          "price": 6500,
+          "stock": 40,
+          "weightInGrams": 100,
+          "isAvailable": true,
+          "mrp": 6500
+        },
+        {
+          "id": "15-250g",
+          "weight": "250g",
+          "price": 19000,
+          "stock": 30,
+          "weightInGrams": 250,
+          "isAvailable": true,
+          "mrp": 19000
+        },
+        {
+          "id": "15-500g",
+          "weight": "500g",
+          "price": 35000,
+          "stock": 25,
+          "weightInGrams": 500,
+          "isAvailable": true,
+          "mrp": 35000
+        },
+        {
+          "id": "15-750g",
+          "weight": "750g",
+          "price": 50000,
+          "stock": 18,
+          "weightInGrams": 750,
+          "isAvailable": true,
+          "mrp": 50000
+        },
+        {
+          "id": "15-1kg",
+          "weight": "1kg",
+          "price": 65000,
+          "stock": 12,
+          "weightInGrams": 1000,
+          "isAvailable": true,
+          "mrp": 65000
+        }
+      ],
+      "tags": [
+        "new"
+      ],
+      "isFeatured": false,
+      "isBestseller": false,
+      "rating": 4.5,
+      "reviewCount": 0
+    },
+    {
+      "id": "16",
+      "name": "Rameswaram Premium Koduva Karuvadu",
+      "nameTamil": "கொடுவா கருவட",
+      "slug": "koduva-karuvadu",
+      "description": "Royal Taste from the Coast of Rameswaram.\n\nExperience the rich and authentic flavor of traditional Koduva Karuvadu, carefully prepared from premium-quality Sea Bass fish. Naturally sun-dried using traditional coastal methods, this dry fish offers a delicious taste, firm texture, and irresistible aroma that seafood lovers cherish.\n\nSourced from the pristine waters around Rameswaram and hygienically packed to preserve freshness, our Koduva Karuvadu is perfect for preparing spicy fish curry, traditional village-style gravies, and crispy fish fry recipes.\n\nProduct Highlights:\nPremium Quality Koduva Fish\nTraditional Sun-Dried Process\nRich in Protein & Essential Nutrients\nAuthentic Rameswaram Coastal Taste\nHygienically Processed & Packed\nNo Artificial Preservatives\nFreshness-Lock Resealable Packaging\nPremium Export Quality\n\nWhy Choose Our Koduva Karuvadu?\nThick & Meaty Fish Pieces\nRich Traditional Flavor\nPerfect for Curry & Fry\nHandpicked Premium Quality\nFreshly Packed for Maximum Freshness\n\nTaste the Heritage of Rameswaram: Bring home the authentic coastal flavors of Tamil Nadu with our premium Koduva Karuvadu. Every bite delivers traditional taste, superior quality, and the true essence of Rameswaram seafood.",
+      "shortDesc": "Premium sea bass dry fish - royal coastal taste",
+      "category": "Fish",
+      "images": [
+        "koduva-1.jpg",
+        "koduva-2.jpg",
+        "koduva-3.jpg"
+      ],
+      "skus": [
+        {
+          "id": "16-100g",
+          "weight": "100g",
+          "price": 6500,
+          "stock": 30,
+          "weightInGrams": 100,
+          "isAvailable": true,
+          "mrp": 6500
+        },
+        {
+          "id": "16-250g",
+          "weight": "250g",
+          "price": 39000,
+          "stock": 25,
+          "weightInGrams": 250,
+          "isAvailable": true,
+          "mrp": 39000
+        },
+        {
+          "id": "16-500g",
+          "weight": "500g",
+          "price": 75000,
+          "stock": 18,
+          "weightInGrams": 500,
+          "isAvailable": true,
+          "mrp": 75000
+        },
+        {
+          "id": "16-750g",
+          "weight": "750g",
+          "price": 110000,
+          "stock": 12,
+          "weightInGrams": 750,
+          "isAvailable": true,
+          "mrp": 110000
+        },
+        {
+          "id": "16-1kg",
+          "weight": "1kg",
+          "price": 145000,
+          "stock": 8,
+          "weightInGrams": 1000,
+          "isAvailable": true,
+          "mrp": 145000
+        }
+      ],
+      "tags": [
+        "premium",
+        "new"
+      ],
+      "isFeatured": true,
+      "isBestseller": false,
+      "rating": 4.5,
+      "reviewCount": 0
+    },
+    {
+      "id": "17",
+      "name": "Rameswaram Premium Karapodi Karuvadu",
+      "nameTamil": "கரப்பொடி கருவட",
+      "slug": "karapodi-karuvadu",
+      "description": "The Authentic Spicy Coastal Delight of Rameswaram.\n\nExperience the bold and unforgettable taste of traditional Karapodi Karuvadu, expertly prepared using premium-quality dry fish and a special blend of authentic coastal spices. Carefully seasoned and traditionally processed, every bite delivers the perfect combination of crispy texture, rich flavor, and aromatic spices.\n\nCrafted using time-honored Rameswaram recipes and hygienically packed for maximum freshness, our Karapodi Karuvadu is the perfect accompaniment to hot rice, rasam, curd rice, or as a delicious spicy snack for seafood lovers.\n\nProduct Highlights:\nPremium Quality Dry Fish\nAuthentic Rameswaram Spice Blend\nCrispy, Spicy & Flavorful\nRich in Protein & Essential Nutrients\nTraditional Coastal Recipe\nHygienically Processed & Packed\nNo Artificial Preservatives\nFreshness-Lock Resealable Packaging\n\nWhy Choose Our Karapodi Karuvadu?\nAuthentic Rameswaram Coastal Taste\nPerfectly Seasoned with Traditional Spices\nCrispy Texture in Every Bite\nHandpicked Premium Quality Fish\nIdeal Side Dish for Rice & Meals\nFreshly Packed for Long-Lasting Freshness\n\nTaste the Heritage of Rameswaram: Bring home the legendary coastal flavors of Tamil Nadu with our premium Karapodi Karuvadu. Every pack is filled with authentic taste, traditional craftsmanship, and the rich seafood heritage of Rameswaram.",
+      "shortDesc": "Spicy coastal dry fish - perfectly seasoned",
+      "category": "Fish",
+      "images": [
+        "karapodi-1.jpg",
+        "karapodi-2.jpg",
+        "karapodi-3.jpg"
+      ],
+      "skus": [
+        {
+          "id": "17-100g",
+          "weight": "100g",
+          "price": 6500,
+          "stock": 45,
+          "weightInGrams": 100,
+          "isAvailable": true,
+          "mrp": 6500
+        },
+        {
+          "id": "17-250g",
+          "weight": "250g",
+          "price": 14000,
+          "stock": 35,
+          "weightInGrams": 250,
+          "isAvailable": true,
+          "mrp": 14000
+        },
+        {
+          "id": "17-500g",
+          "weight": "500g",
+          "price": 25000,
+          "stock": 28,
+          "weightInGrams": 500,
+          "isAvailable": true,
+          "mrp": 25000
+        },
+        {
+          "id": "17-750g",
+          "weight": "750g",
+          "price": 35000,
+          "stock": 20,
+          "weightInGrams": 750,
+          "isAvailable": true,
+          "mrp": 35000
+        },
+        {
+          "id": "17-1kg",
+          "weight": "1kg",
+          "price": 45000,
+          "stock": 15,
+          "weightInGrams": 1000,
+          "isAvailable": true,
+          "mrp": 45000
+        }
+      ],
+      "tags": [
+        "new"
+      ],
+      "isFeatured": false,
+      "isBestseller": false,
+      "rating": 4.5,
+      "reviewCount": 0
+    },
+    {
+      "id": "18",
+      "name": "Rameswaram Premium Masi Kattai Karuvadu",
+      "nameTamil": "மாசி கட்டை கருவட",
+      "slug": "masi-kattai-karuvadu",
+      "description": "The Traditional Coastal Treasure of Rameswaram.\n\nExperience the rich heritage and authentic taste of traditional Masi Kattai Karuvadu, carefully prepared using premium-quality fish and naturally sun-dried using time-honored coastal methods. Known for its distinctive flavor, firm texture, and rich aroma, Masi Kattai Karuvadu is a cherished delicacy among seafood lovers.\n\nSourced from the coastal waters of Rameswaram and hygienically packed to preserve freshness, our Masi Kattai Karuvadu is perfect for preparing traditional Tamil Nadu recipes, spicy gravies, fish curries, chutneys, and flavorful side dishes.\n\nProduct Highlights:\nPremium Quality Masi Kattai Fish\nTraditional Sun-Dried Process\nRich in Protein & Essential Nutrients\nAuthentic Rameswaram Coastal Taste\nHygienically Processed & Packed\nNo Artificial Preservatives\nFreshness-Lock Resealable Packaging\n\nWhy Choose Our Masi Kattai Karuvadu?\nThick & Meaty Fish Pieces\nRich Traditional Flavor & Aroma\nPerfect for Curry, Chutney & Fry\nHandpicked Premium Quality Fish\nNaturally Sun-Dried for Authentic Taste\nFreshly Packed for Maximum Freshness\n\nTaste the Heritage of Rameswaram: Bring home the authentic coastal flavors of Tamil Nadu with our premium Masi Kattai Karuvadu. Every pack reflects traditional craftsmanship, superior quality, and the rich seafood heritage of Rameswaram, delivering a truly unforgettable taste experience.",
+      "shortDesc": "Traditional coastal dry fish - rich heritage taste",
+      "category": "Fish",
+      "images": [
+        "masi-kattai-1.jpg",
+        "masi-kattai-2.jpg",
+        "masi-kattai-3.jpg"
+      ],
+      "skus": [
+        {
+          "id": "18-100g",
+          "weight": "100g",
+          "price": 6500,
+          "stock": 35,
+          "weightInGrams": 100,
+          "isAvailable": true,
+          "mrp": 6500
+        },
+        {
+          "id": "18-250g",
+          "weight": "250g",
+          "price": 24000,
+          "stock": 28,
+          "weightInGrams": 250,
+          "isAvailable": true,
+          "mrp": 24000
+        },
+        {
+          "id": "18-500g",
+          "weight": "500g",
+          "price": 45000,
+          "stock": 22,
+          "weightInGrams": 500,
+          "isAvailable": true,
+          "mrp": 45000
+        },
+        {
+          "id": "18-750g",
+          "weight": "750g",
+          "price": 65000,
+          "stock": 15,
+          "weightInGrams": 750,
+          "isAvailable": true,
+          "mrp": 65000
+        },
+        {
+          "id": "18-1kg",
+          "weight": "1kg",
+          "price": 85000,
+          "stock": 10,
+          "weightInGrams": 1000,
+          "isAvailable": true,
+          "mrp": 85000
+        }
+      ],
+      "tags": [
+        "new"
+      ],
+      "isFeatured": false,
+      "isBestseller": false,
+      "rating": 4.5,
+      "reviewCount": 0
+    }
+  ],
+  "categories": [
+    {
+      "id": "fish",
+      "name": "Fish",
+      "nameTamil": "மீன்",
+      "slug": "fish",
+      "image": null,
+      "productCount": 16
+    },
+    {
+      "id": "prawns",
+      "name": "Prawns",
+      "nameTamil": "இறால்",
+      "slug": "prawns",
+      "image": null,
+      "productCount": 2
+    }
+  ]
+}

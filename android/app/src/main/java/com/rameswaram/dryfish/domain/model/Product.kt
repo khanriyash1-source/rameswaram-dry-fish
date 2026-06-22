@@ -15,4 +15,11 @@ data class Product(
     val isBestseller: Boolean,
     val rating: Double,
     val reviewCount: Int
-)
+) {
+    // Convenience properties for bilingual display
+    val nameEn: String get() = name
+    val nameTa: String get() = nameTamil ?: name
+    
+    // Get first available price for display
+    val price: Double get() = skus.firstOrNull()?.price ?: 0.0
+}

@@ -1,34 +1,47 @@
 package com.rameswaram.dryfish.presentation.product
 
+import androidx.compose.animation.*
+import androidx.compose.animation.core.*
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
+import androidx.compose.material.icons.outlined.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.*
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalHapticFeedback
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import coil.compose.AsyncImage
-import androidx.compose.foundation.pager.*
+import coil.compose.SubcomposeAsyncImage
+import com.rameswaram.dryfish.domain.model.Product
 import com.rameswaram.dryfish.domain.model.SKU
-import com.rameswaram.dryfish.presentation.common.*
+import com.rameswaram.dryfish.presentation.common.StarRating
+import com.rameswaram.dryfish.presentation.common.shimmerLoadingAnimation
 import com.rameswaram.dryfish.ui.theme.*
 import com.rameswaram.dryfish.utils.toRupees
+import kotlinx.coroutines.delay
 import org.koin.androidx.compose.koinViewModel
-import org.koin.java.KoinJavaComponent.get
 
-@OptIn(ExperimentalMaterial3Api::class, ExperimentalFoundationApi::class)
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalFoundationApi::class, ExperimentalAnimationApi::class)
 @Composable
 fun ProductDetailScreen(
     slug: String,
@@ -38,6 +51,8 @@ fun ProductDetailScreen(
 ) {
     val uiState by viewModel.uiState.collectAsState()
     val snackbarHostState = remember { SnackbarHostState() }
+    val haptic = LocalHapticFeedback.current
+    val scrollState = rememberScrollState()
 
     LaunchedEffect(slug) {
         viewModel.loadProduct(slug)
@@ -52,279 +67,281 @@ fun ProductDetailScreen(
         }
     }
 
+    LaunchedEffect(uiState.error) {
+        uiState.error?.let {
+            snackbarHostState.showSnackbar(
+                message = it,
+                duration = SnackbarDuration.Short
+            )
+            viewModel.clearError()
+        }
+    }
+
     Scaffold(
         snackbarHost = { SnackbarHost(snackbarHostState) },
         topBar = {
-            TopAppBar(
-                title = { Text(uiState.product?.name ?: "") },
+            CenterAlignedTopAppBar(
+                title = {
+                    if (scrollState.value > 300) {
+                        Text(
+                            text = uiState.product?.name ?: "",
+                            fontWeight = FontWeight.Medium,
+                            maxLines = 1
+                        )
+                    }
+                },
                 navigationIcon = {
-                    IconButton(onClick = onBack) {
-                        Icon(Icons.Default.ArrowBack, contentDescription = "Back")
+                    FilledIconButton(
+                        onClick = onBack,
+                        modifier = Modifier.padding(start = 8.dp),
+                        colors = IconButtonDefaults.filledIconButtonColors(
+                            containerColor = GlassBlack
+                        )
+                    ) {
+                        Icon(Icons.Default.ArrowBack, contentDescription = "Back", tint = Color.White)
                     }
                 },
                 actions = {
-                    IconButton(onClick = { }) {
+                    IconButton(
+                        onClick = { viewModel.toggleWishlist() },
+                        modifier = Modifier.padding(end = 8.dp)
+                    ) {
                         Icon(
-                            Icons.Default.FavoriteBorder,
+                            imageVector = if (uiState.isInWishlist) Icons.Filled.Favorite else Icons.Outlined.FavoriteBorder,
                             contentDescription = "Wishlist",
                             tint = if (uiState.isInWishlist) SunsetOrange else MaterialTheme.colorScheme.onSurface
                         )
                     }
                 },
-                colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.surface
+                colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
+                    containerColor = Color.Transparent
                 )
             )
         },
         bottomBar = {
             if (uiState.product != null) {
-                Surface(
-                    shadowElevation = 8.dp,
-                    color = MaterialTheme.colorScheme.surface
-                ) {
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(16.dp),
-                        horizontalArrangement = Arrangement.spacedBy(12.dp)
-                    ) {
-                        OutlinedButton(
-                            onClick = {
-                                viewModel.addToCart(get(com.rameswaram.dryfish.data.repository.CartRepository::class.java))
-                            },
-                            modifier = Modifier.weight(1f),
-                            shape = RoundedCornerShape(12.dp),
-                            border = BorderStroke(1.5.dp, OceanBlue)
-                        ) {
-                            Icon(Icons.Default.ShoppingCart, contentDescription = null, tint = OceanBlue)
-                            Spacer(Modifier.width(8.dp))
-                            Text("Add to Cart", color = OceanBlue)
-                        }
-
-                        Button(
-                            onClick = {
-                                viewModel.addToCart(get(com.rameswaram.dryfish.data.repository.CartRepository::class.java))
-                                onAddToCart()
-                            },
-                            modifier = Modifier.weight(1f),
-                            shape = RoundedCornerShape(12.dp),
-                            colors = ButtonDefaults.buttonColors(containerColor = SunsetOrange)
-                        ) {
-                            Icon(Icons.Default.Bolt, contentDescription = null)
-                            Spacer(Modifier.width(8.dp))
-                            Text("Buy Now")
-                        }
+                ModernBottomBar(
+                    selectedSku = uiState.selectedSku,
+                    quantity = uiState.quantity,
+                    onAddToCart = {
+                        haptic.performHapticFeedback(HapticFeedbackType.LongPress)
+                        viewModel.addToCart()
+                    },
+                    onBuyNow = {
+                        haptic.performHapticFeedback(HapticFeedbackType.LongPress)
+                        viewModel.addToCart()
+                        onAddToCart()
                     }
-                }
+                )
             }
         }
     ) { padding ->
         when {
-            uiState.isLoading -> LoadingScreen(modifier = Modifier.padding(padding))
-            uiState.error != null -> ErrorScreen(
+            uiState.isLoading -> ShimmerProductDetail()
+            uiState.error != null -> ErrorProductDetail(
                 message = uiState.error ?: "",
-                onRetry = { viewModel.loadProduct(slug) },
-                modifier = Modifier.padding(padding)
+                onRetry = { viewModel.loadProduct(slug) }
             )
             uiState.product != null -> {
                 val product = uiState.product!!
-
+                
                 Column(
                     modifier = Modifier
                         .fillMaxSize()
                         .padding(padding)
-                        .verticalScroll(rememberScrollState())
+                        .verticalScroll(scrollState)
                 ) {
-                    // Image Pager
-                    if (product.images.isNotEmpty()) {
-                        val pagerState = rememberPagerState(
-                            pageCount = { product.images.size }
-                        )
-
-                        Box(modifier = Modifier.fillMaxWidth()) {
-                            HorizontalPager(
-                                state = pagerState,
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .height(300.dp)
-                            ) { page ->
-                                AsyncImage(
-                                    model = product.images[page],
-                                    contentDescription = null,
-                                    modifier = Modifier.fillMaxSize(),
-                                    contentScale = ContentScale.Fit
-                                )
-                            }
-
-                            Row(
-                                Modifier
-                                    .align(Alignment.BottomCenter)
-                                    .padding(12.dp),
-                                horizontalArrangement = Arrangement.spacedBy(6.dp)
-                            ) {
-                                repeat(pagerState.pageCount) { index ->
-                                    Box(
-                                        modifier = Modifier
-                                            .size(8.dp)
-                                            .clip(CircleShape)
-                                            .background(if (pagerState.currentPage == index) OceanBlue else Color.Gray.copy(alpha = 0.5f))
-                                    )
-                                }
-                            }
-                        }
-                    }
-
-                    Column(modifier = Modifier.padding(16.dp)) {
-                        // Name
-                        Text(
-                            text = product.name,
-                            style = MaterialTheme.typography.headlineSmall,
-                            fontWeight = FontWeight.Bold
-                        )
-
-                        if (!product.nameTamil.isNullOrEmpty()) {
-                            Text(
-                                text = product.nameTamil,
-                                style = MaterialTheme.typography.titleMedium,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant
-                            )
-                        }
-
-                        Spacer(modifier = Modifier.height(8.dp))
-
-                        // Rating
-                        Row(verticalAlignment = Alignment.CenterVertically) {
-                            StarRating(rating = product.rating, reviewCount = product.reviewCount)
-                        }
-
-                        Spacer(modifier = Modifier.height(16.dp))
-
-                        // Weight Selector
-                        Text(
-                            text = "Select Weight",
-                            style = MaterialTheme.typography.titleSmall,
-                            fontWeight = FontWeight.SemiBold
-                        )
-                        Spacer(modifier = Modifier.height(8.dp))
-
-                        LazyRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                            items(product.skus) { sku ->
-                                WeightChip(
-                                    sku = sku,
-                                    isSelected = uiState.selectedSku?.id == sku.id,
-                                    onClick = { viewModel.selectSku(sku) }
-                                )
-                            }
-                        }
-
-                        Spacer(modifier = Modifier.height(16.dp))
-
-                        // Price
-                        val selectedSku = uiState.selectedSku
-                        if (selectedSku != null) {
-                            Row(
-                                verticalAlignment = Alignment.Bottom,
-                                horizontalArrangement = Arrangement.spacedBy(8.dp)
-                            ) {
-                                Text(
-                                    text = selectedSku.price.toRupees(),
-                                    style = MaterialTheme.typography.headlineMedium,
-                                    fontWeight = FontWeight.Bold,
-                                    color = OceanBlue
-                                )
-
-                                if (selectedSku.mrp > selectedSku.price) {
-                                    Text(
-                                        text = selectedSku.mrp.toRupees(),
-                                        style = MaterialTheme.typography.titleMedium,
-                                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                                        textDecoration = TextDecoration.LineThrough
-                                    )
-
-                                    Text(
-                                        text = "${selectedSku.discountPercent}% off",
-                                        style = MaterialTheme.typography.labelMedium,
-                                        color = SunsetOrange,
-                                        fontWeight = FontWeight.Bold
-                                    )
-                                }
-                            }
-                        }
-
-                        Spacer(modifier = Modifier.height(12.dp))
-
-                        // Quantity Selector
-                        Row(
-                            verticalAlignment = Alignment.CenterVertically,
-                            horizontalArrangement = Arrangement.spacedBy(12.dp)
+                    // Ken Burns Hero Image
+                    KenBurnsHero(
+                        images = product.images,
+                        productName = product.name
+                    )
+                    
+                    // Content Card overlapping image
+                    Surface(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .offset(y = (-30).dp),
+                        shape = RoundedCornerShape(topStart = 30.dp, topEnd = 30.dp),
+                        color = MaterialTheme.colorScheme.background
+                    ) {
+                        Column(
+                            modifier = Modifier.padding(horizontal = 20.dp, vertical = 24.dp)
                         ) {
+                            // Product Names
+                            AnimatedContent(
+                                targetState = product,
+                                transitionSpec = { fadeIn(tween(400)) with fadeOut(tween(200)) }
+                            ) { prod ->
+                                Column {
+                                    // Tamil name (large)
+                                    Text(
+                                        text = prod.nameTa,
+                                        fontSize = 24.sp,
+                                        fontWeight = FontWeight.Bold,
+                                        color = MaterialTheme.colorScheme.onSurface
+                                    )
+                                    
+                                    // English name (smaller, muted)
+                                    Text(
+                                        text = prod.nameEn,
+                                        fontSize = 16.sp,
+                                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                        modifier = Modifier.padding(top = 4.dp)
+                                    )
+                                }
+                            }
+                            
+                            Spacer(modifier = Modifier.height(12.dp))
+                            
+                            // Rating & Reviews
+                            Row(
+                                verticalAlignment = Alignment.CenterVertically,
+                                modifier = Modifier.clickable { 
+                                    // Scroll to reviews section
+                                }
+                            ) {
+                                Surface(
+                                    shape = RoundedCornerShape(8.dp),
+                                    color = Amber.copy(alpha = 0.15f)
+                                ) {
+                                    Row(
+                                        verticalAlignment = Alignment.CenterVertically,
+                                        modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+                                    ) {
+                                        Icon(
+                                            imageVector = Icons.Default.Star,
+                                            contentDescription = null,
+                                            tint = Amber,
+                                            modifier = Modifier.size(16.dp)
+                                        )
+                                        Spacer(modifier = Modifier.width(4.dp))
+                                        Text(
+                                            text = "${product.rating ?: 4.5}",
+                                            fontSize = 14.sp,
+                                            fontWeight = FontWeight.Bold,
+                                            color = DeepOcean
+                                        )
+                                    }
+                                }
+                                
+                                Spacer(modifier = Modifier.width(8.dp))
+                                
+                                Text(
+                                    text = "(${product.reviewCount ?: 0} reviews)",
+                                    fontSize = 14.sp,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                                )
+                                
+                                Spacer(modifier = Modifier.width(4.dp))
+                                
+                                Icon(
+                                    imageVector = Icons.Default.ChevronRight,
+                                    contentDescription = null,
+                                    modifier = Modifier.size(16.dp),
+                                    tint = MaterialTheme.colorScheme.onSurfaceVariant
+                                )
+                            }
+                            
+                            Spacer(modifier = Modifier.height(20.dp))
+                            
+                            // Weight Selector
                             Text(
-                                text = "Quantity",
-                                style = MaterialTheme.typography.titleSmall,
+                                text = "Select Size",
+                                fontSize = 16.sp,
                                 fontWeight = FontWeight.SemiBold
                             )
-                            QuantityStepper(
-                                quantity = uiState.quantity,
-                                onIncrement = { viewModel.incrementQuantity() },
-                                onDecrement = { viewModel.decrementQuantity() }
-                            )
-                        }
-
-                        Spacer(modifier = Modifier.height(20.dp))
-
-                        // Description
-                        if (!product.shortDesc.isNullOrBlank() || !product.description.isNullOrBlank()) {
-                            Text(
-                                text = "Description",
-                                style = MaterialTheme.typography.titleMedium,
-                                fontWeight = FontWeight.Bold
-                            )
-                            Spacer(modifier = Modifier.height(8.dp))
-                            Text(
-                                text = product.description ?: product.shortDesc ?: "",
-                                style = MaterialTheme.typography.bodyMedium,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant
-                            )
-                        }
-
-                        Spacer(modifier = Modifier.height(20.dp))
-
-                        // Reviews Section
-                        if (product.reviewCount > 0) {
-                            Text(
-                                text = "Reviews (${product.reviewCount})",
-                                style = MaterialTheme.typography.titleMedium,
-                                fontWeight = FontWeight.Bold
-                            )
-                            Spacer(modifier = Modifier.height(8.dp))
-                            Card(
-                                modifier = Modifier.fillMaxWidth(),
-                                shape = RoundedCornerShape(12.dp),
-                                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant)
-                            ) {
-                                Row(
-                                    modifier = Modifier.padding(16.dp),
-                                    verticalAlignment = Alignment.CenterVertically
-                                ) {
-                                    Text(
-                                        text = product.rating.toString(),
-                                        style = MaterialTheme.typography.displaySmall,
-                                        fontWeight = FontWeight.Bold,
-                                        color = SunsetOrange
-                                    )
-                                    Spacer(modifier = Modifier.width(12.dp))
-                                    StarRating(rating = product.rating, showCount = false)
-                                    Spacer(modifier = Modifier.width(8.dp))
-                                    Text(
-                                        text = "${product.reviewCount} reviews",
-                                        style = MaterialTheme.typography.bodySmall,
-                                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                            
+                            Spacer(modifier = Modifier.height(12.dp))
+                            
+                            LazyRow(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                                items(product.skus) { sku ->
+                                    ModernWeightChip(
+                                        sku = sku,
+                                        isSelected = uiState.selectedSku?.id == sku.id,
+                                        onClick = {
+                                            haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove)
+                                            viewModel.selectSku(sku)
+                                        }
                                     )
                                 }
                             }
+                            
+                            Spacer(modifier = Modifier.height(24.dp))
+                            
+                            // Price Section
+                            uiState.selectedSku?.let { sku ->
+                                PriceSection(sku = sku)
+                            }
+                            
+                            Spacer(modifier = Modifier.height(24.dp))
+                            
+                            // Quantity
+                            Row(
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Text(
+                                    text = "Quantity",
+                                    fontSize = 16.sp,
+                                    fontWeight = FontWeight.SemiBold,
+                                    modifier = Modifier.weight(1f)
+                                )
+                                
+                                ModernQuantityStepper(
+                                    quantity = uiState.quantity,
+                                    onIncrement = {
+                                        haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove)
+                                        viewModel.incrementQuantity()
+                                    },
+                                    onDecrement = {
+                                        haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove)
+                                        viewModel.decrementQuantity()
+                                    }
+                                )
+                            }
+                            
+                            Spacer(modifier = Modifier.height(24.dp))
+                            
+                            // Description
+                            ExpandableDescription(
+                                shortDesc = product.shortDesc,
+                                description = product.description
+                            )
+                            
+                            Spacer(modifier = Modifier.height(32.dp))
+                            
+                            // Review Section
+                            ReviewSection(
+                                product = product,
+                                onSubmitReview = { rating, review ->
+                                    viewModel.submitReview(rating, review)
+                                }
+                            )
+                            
+                            Spacer(modifier = Modifier.height(32.dp))
+                            
+                            // Related Products
+                            if (uiState.relatedProducts.isNotEmpty()) {
+                                Text(
+                                    text = "You may also like",
+                                    fontSize = 18.sp,
+                                    fontWeight = FontWeight.Bold
+                                )
+                                
+                                Spacer(modifier = Modifier.height(16.dp))
+                                
+                                LazyRow(
+                                    horizontalArrangement = Arrangement.spacedBy(12.dp),
+                                    contentPadding = PaddingValues(end = 20.dp)
+                                ) {
+                                    items(uiState.relatedProducts) { relatedProduct ->
+                                        RelatedProductCard(product = relatedProduct)
+                                    }
+                                }
+                            }
+                            
+                            Spacer(modifier = Modifier.height(100.dp))
                         }
-
-                        Spacer(modifier = Modifier.height(80.dp))
                     }
                 }
             }
@@ -332,37 +349,660 @@ fun ProductDetailScreen(
     }
 }
 
+// Ken Burns Effect Hero
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun WeightChip(
+private fun KenBurnsHero(
+    images: List<String>,
+    productName: String
+) {
+    val pagerState = rememberPagerState(pageCount = { images.size.coerceAtLeast(1) })
+    
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(380.dp)
+    ) {
+        if (images.isNotEmpty()) {
+            HorizontalPager(
+                state = pagerState,
+                modifier = Modifier.fillMaxSize()
+            ) { page ->
+                KenBurnsImage(
+                    imageUrl = images[page],
+                    contentDescription = "$productName - Image ${page + 1}"
+                )
+            }
+        } else {
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(MaterialTheme.colorScheme.surfaceVariant),
+                contentAlignment = Alignment.Center
+            ) {
+                Icon(
+                    imageVector = Icons.Default.Image,
+                    contentDescription = null,
+                    modifier = Modifier.size(64.dp),
+                    tint = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.5f)
+                )
+            }
+        }
+        
+        // Gradient overlay at bottom
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(100.dp)
+                .align(Alignment.BottomCenter)
+                .background(
+                    brush = Brush.verticalGradient(
+                        colors = listOf(
+                            Color.Transparent,
+                            MaterialTheme.colorScheme.background
+                        )
+                    )
+                )
+        )
+        
+        // Page indicators
+        if (images.size > 1) {
+            Row(
+                modifier = Modifier
+                    .align(Alignment.BottomCenter)
+                    .padding(bottom = 40.dp),
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                repeat(images.size) { index ->
+                    val isSelected = pagerState.currentPage == index
+                    val width by animateDpAsState(
+                        targetValue = if (isSelected) 24.dp else 8.dp,
+                        animationSpec = spring(
+                            dampingRatio = Spring.DampingRatioMediumBouncy,
+                            stiffness = Spring.StiffnessLow
+                        ),
+                        label = "indicator"
+                    )
+                    
+                    Box(
+                        modifier = Modifier
+                            .width(width)
+                            .height(8.dp)
+                            .background(
+                                color = if (isSelected) OceanBlue else Color.White.copy(alpha = 0.5f),
+                                shape = CircleShape
+                            )
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun KenBurnsImage(
+    imageUrl: String,
+    contentDescription: String
+) {
+    val infiniteTransition = rememberInfiniteTransition(label = "kenburns")
+    
+    // Subtle zoom animation
+    val scale by infiniteTransition.animateFloat(
+        initialValue = 1f,
+        targetValue = 1.1f,
+        animationSpec = infiniteRepeatable(
+            animation = tween(10000, easing = LinearEasing),
+            repeatMode = RepeatMode.Reverse
+        ),
+        label = "scale"
+    )
+    
+    // Subtle pan animation
+    val offsetX by infiniteTransition.animateFloat(
+        initialValue = -20f,
+        targetValue = 20f,
+        animationSpec = infiniteRepeatable(
+            animation = tween(15000, easing = LinearEasing),
+            repeatMode = RepeatMode.Reverse
+        ),
+        label = "pan"
+    )
+    
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(MaterialTheme.colorScheme.surfaceVariant),
+        contentAlignment = Alignment.Center
+    ) {
+        SubcomposeAsyncImage(
+            model = imageUrl.replace("http://10.0.2.2:4000/images/", "file:///android_asset/images/"),
+            contentDescription = contentDescription,
+            contentScale = ContentScale.Fit,
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(8.dp)
+                .graphicsLayer {
+                    scaleX = scale
+                    scaleY = scale
+                    translationX = offsetX
+                }
+        )
+    }
+}
+
+@Composable
+private fun ModernWeightChip(
     sku: SKU,
     isSelected: Boolean,
     onClick: () -> Unit
 ) {
+    val hasDiscount = sku.mrp > sku.price
+
     Card(
-        modifier = Modifier
-            .widthIn(min = 80.dp)
-            .clickable(onClick = onClick),
-        shape = RoundedCornerShape(10.dp),
-        border = if (isSelected) BorderStroke(2.dp, OceanBlue) else BorderStroke(1.dp, MaterialTheme.colorScheme.outline),
+        onClick = onClick,
+        modifier = Modifier.widthIn(min = 90.dp),
+        shape = RoundedCornerShape(14.dp),
+        border = if (isSelected) {
+            BorderStroke(3.dp, OceanBlue)
+        } else {
+            BorderStroke(1.dp, MaterialTheme.colorScheme.outline.copy(alpha = 0.3f))
+        },
         colors = CardDefaults.cardColors(
             containerColor = if (isSelected) OceanBlueLight else MaterialTheme.colorScheme.surface
+        ),
+        elevation = CardDefaults.cardElevation(
+            defaultElevation = if (isSelected) 4.dp else 1.dp
         )
     ) {
         Column(
-            modifier = Modifier.padding(12.dp),
+            modifier = Modifier.padding(horizontal = 16.dp, vertical = 12.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
                 text = sku.weight,
-                style = MaterialTheme.typography.titleSmall,
-                fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Normal,
+                fontSize = 14.sp,
+                fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Medium,
                 color = if (isSelected) OceanBlue else MaterialTheme.colorScheme.onSurface
             )
+            Spacer(modifier = Modifier.height(2.dp))
+            if (hasDiscount) {
+                Text(
+                    text = sku.mrp.toRupees(),
+                    fontSize = 10.sp,
+                    color = if (isSelected) OceanBlue.copy(alpha = 0.5f) else MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.5f),
+                    textDecoration = TextDecoration.LineThrough
+                )
+                Text(
+                    text = sku.price.toRupees(),
+                    fontSize = 12.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = if (isSelected) OceanBlue else SunsetOrange
+                )
+            } else {
+                Text(
+                    text = sku.price.toRupees(),
+                    fontSize = 12.sp,
+                    color = if (isSelected) OceanBlue else MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun PriceSection(sku: SKU) {
+    Row(
+        verticalAlignment = Alignment.Bottom,
+        horizontalArrangement = Arrangement.spacedBy(12.dp)
+    ) {
+        Text(
+            text = sku.price.toRupees(),
+            fontSize = 32.sp,
+            fontWeight = FontWeight.ExtraBold,
+            color = OceanBlue
+        )
+        
+        if (sku.mrp > sku.price) {
             Text(
-                text = sku.price.toRupees(),
-                style = MaterialTheme.typography.bodySmall,
-                color = if (isSelected) OceanBlue else MaterialTheme.colorScheme.onSurfaceVariant
+                text = sku.mrp.toRupees(),
+                fontSize = 18.sp,
+                color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.6f),
+                textDecoration = TextDecoration.LineThrough
             )
+            
+            Surface(
+                shape = RoundedCornerShape(6.dp),
+                color = SunsetOrange.copy(alpha = 0.15f)
+            ) {
+                Text(
+                    text = "${sku.discountPercent}% OFF",
+                    fontSize = 12.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = SunsetOrange,
+                    modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun ModernQuantityStepper(
+    quantity: Int,
+    onIncrement: () -> Unit,
+    onDecrement: () -> Unit
+) {
+    Surface(
+        shape = RoundedCornerShape(12.dp),
+        color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f)
+    ) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.padding(4.dp)
+        ) {
+            IconButton(
+                onClick = onDecrement,
+                enabled = quantity > 1,
+                modifier = Modifier.size(36.dp)
+            ) {
+                Icon(
+                    imageVector = Icons.Default.Remove,
+                    contentDescription = "Decrease"
+                )
+            }
+            
+            Text(
+                text = quantity.toString(),
+                fontSize = 18.sp,
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier.padding(horizontal = 16.dp),
+                textAlign = TextAlign.Center
+            )
+            
+            IconButton(
+                onClick = onIncrement,
+                modifier = Modifier.size(36.dp)
+            ) {
+                Icon(
+                    imageVector = Icons.Default.Add,
+                    contentDescription = "Increase"
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun ModernBottomBar(
+    selectedSku: SKU?,
+    quantity: Int,
+    onAddToCart: () -> Unit,
+    onBuyNow: () -> Unit
+) {
+    Surface(
+        shadowElevation = 8.dp,
+        tonalElevation = 2.dp,
+        color = MaterialTheme.colorScheme.surface
+    ) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
+            horizontalArrangement = Arrangement.spacedBy(12.dp)
+        ) {
+            OutlinedButton(
+                onClick = onAddToCart,
+                modifier = Modifier.weight(1f),
+                shape = RoundedCornerShape(14.dp),
+                border = BorderStroke(1.5.dp, OceanBlue),
+                colors = ButtonDefaults.outlinedButtonColors(
+                    contentColor = OceanBlue
+                )
+            ) {
+                Icon(Icons.Default.ShoppingBag, contentDescription = null, modifier = Modifier.size(20.dp))
+                Spacer(Modifier.width(8.dp))
+                Text("Add to Cart", fontWeight = FontWeight.SemiBold)
+            }
+
+            Button(
+                onClick = onBuyNow,
+                modifier = Modifier.weight(1f),
+                shape = RoundedCornerShape(14.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = SunsetOrange)
+            ) {
+                Icon(Icons.Default.Bolt, contentDescription = null, modifier = Modifier.size(20.dp))
+                Spacer(Modifier.width(8.dp))
+                Text("Buy Now", fontWeight = FontWeight.SemiBold)
+            }
+        }
+    }
+}
+
+@Composable
+private fun ExpandableDescription(
+    shortDesc: String?,
+    description: String?
+) {
+    var isExpanded by remember { mutableStateOf(false) }
+    val text = description ?: shortDesc ?: ""
+    
+    if (text.isNotBlank()) {
+        Column {
+            Text(
+                text = "Description",
+                fontSize = 16.sp,
+                fontWeight = FontWeight.SemiBold
+            )
+            
+            Spacer(modifier = Modifier.height(8.dp))
+            
+            Text(
+                text = text,
+                fontSize = 14.sp,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                maxLines = if (isExpanded) Int.MAX_VALUE else 3,
+                overflow = if (isExpanded) TextOverflow.Clip else TextOverflow.Ellipsis
+            )
+            
+            if (text.length > 100) {
+                TextButton(
+                    onClick = { isExpanded = !isExpanded },
+                    modifier = Modifier.align(Alignment.Start)
+                ) {
+                    Text(
+                        text = if (isExpanded) "Show Less" else "Read More",
+                        color = OceanBlue,
+                        fontWeight = FontWeight.Medium
+                    )
+                }
+            }
+        }
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun ReviewSection(
+    product: Product,
+    onSubmitReview: (Int, String) -> Unit
+) {
+    var showReviewDialog by remember { mutableStateOf(false) }
+    var rating by remember { mutableIntStateOf(0) }
+    var reviewText by remember { mutableStateOf("") }
+    
+    Column {
+        Row(
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text(
+                text = "Customer Reviews",
+                fontSize = 18.sp,
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier.weight(1f)
+            )
+            
+            TextButton(
+                onClick = { showReviewDialog = true }
+            ) {
+                Icon(
+                    imageVector = Icons.Default.Edit,
+                    contentDescription = null,
+                    modifier = Modifier.size(16.dp)
+                )
+                Spacer(Modifier.width(4.dp))
+                Text("Write a Review")
+            }
+        }
+        
+        Spacer(modifier = Modifier.height(16.dp))
+        
+        // Rating Summary Card
+        Card(
+            shape = RoundedCornerShape(16.dp),
+            colors = CardDefaults.cardColors(
+                containerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f)
+            )
+        ) {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(20.dp),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceAround
+            ) {
+                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                    Text(
+                        text = "${product.rating ?: 4.5}",
+                        fontSize = 48.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = OceanBlue
+                    )
+                    StarRating(rating = (product.rating ?: 4.5), starSize = 20)
+                    Text(
+                        text = "${product.reviewCount ?: 0} reviews",
+                        fontSize = 12.sp,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                }
+                
+                Box(
+                    modifier = Modifier
+                        .width(1.dp)
+                        .height(60.dp)
+                        .background(MaterialTheme.colorScheme.outline.copy(alpha = 0.3f))
+                )
+                
+                // Rating bars
+                Column {
+                    listOf(5, 4, 3, 2, 1).forEach { star ->
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            modifier = Modifier.padding(vertical = 2.dp)
+                        ) {
+                            Text(
+                                text = "$star",
+                                fontSize = 12.sp,
+                                modifier = Modifier.width(16.dp)
+                            )
+                            Spacer(modifier = Modifier.width(4.dp))
+                            Box(
+                                modifier = Modifier
+                                    .width(100.dp)
+                                    .height(4.dp)
+                                    .background(
+                                        MaterialTheme.colorScheme.outline.copy(alpha = 0.2f),
+                                        RoundedCornerShape(2.dp)
+                                    )
+                            ) {
+                                Box(
+                                    modifier = Modifier
+                                        .fillMaxHeight()
+                                        .width((100 * when(star) {
+                                            5 -> 0.6f
+                                            4 -> 0.3f
+                                            else -> 0.1f
+                                        }).dp)
+                                        .background(Amber, RoundedCornerShape(2.dp))
+                                )
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    // Review Dialog
+    if (showReviewDialog) {
+        AlertDialog(
+            onDismissRequest = { showReviewDialog = false },
+            title = { Text("Write a Review") },
+            text = {
+                Column {
+                    Text(
+                        text = "Rate this product",
+                        fontSize = 14.sp,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                    
+                    Spacer(modifier = Modifier.height(8.dp))
+                    
+                    // Star rating selector
+                    Row {
+                        repeat(5) { index ->
+                            IconButton(
+                                onClick = { rating = index + 1 }
+                            ) {
+                                Icon(
+                                    imageVector = if (index < rating) Icons.Filled.Star else Icons.Outlined.Star,
+                                    contentDescription = null,
+                                    tint = if (index < rating) Amber else MaterialTheme.colorScheme.outline,
+                                    modifier = Modifier.size(32.dp)
+                                )
+                            }
+                        }
+                    }
+                    
+                    Spacer(modifier = Modifier.height(16.dp))
+                    
+                    OutlinedTextField(
+                        value = reviewText,
+                        onValueChange = { reviewText = it },
+                        label = { Text("Your Review") },
+                        placeholder = { Text("Share your experience...") },
+                        modifier = Modifier.fillMaxWidth(),
+                        minLines = 3,
+                        maxLines = 5,
+                        shape = RoundedCornerShape(12.dp)
+                    )
+                }
+            },
+            confirmButton = {
+                TextButton(
+                    onClick = {
+                        if (rating > 0) {
+                            onSubmitReview(rating, reviewText)
+                            showReviewDialog = false
+                            rating = 0
+                            reviewText = ""
+                        }
+                    },
+                    enabled = rating > 0
+                ) {
+                    Text("Submit")
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { showReviewDialog = false }) {
+                    Text("Cancel")
+                }
+            }
+        )
+    }
+}
+
+@Composable
+private fun RelatedProductCard(product: Product) {
+    Card(
+        onClick = { /* Navigate to product */ },
+        modifier = Modifier.width(160.dp),
+        shape = RoundedCornerShape(16.dp),
+        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
+    ) {
+        Column {
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(120.dp)
+            ) {
+                if (product.images.isNotEmpty()) {
+                    SubcomposeAsyncImage(
+                        model = product.images.first().replace("http://10.0.2.2:4000/images/", "file:///android_asset/images/"),
+                        contentDescription = product.nameEn,
+                        contentScale = ContentScale.Crop,
+                        modifier = Modifier.fillMaxSize()
+                    )
+                }
+            }
+            
+            Column(modifier = Modifier.padding(12.dp)) {
+                Text(
+                    text = product.nameTa,
+                    fontSize = 13.sp,
+                    fontWeight = FontWeight.Medium,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis
+                )
+                Text(
+                    text = product.price.toRupees(),
+                    fontSize = 14.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = OceanBlue
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun ShimmerProductDetail() {
+    Column {
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(380.dp)
+                .shimmerLoadingAnimation()
+        )
+        
+        Spacer(modifier = Modifier.height(20.dp))
+        
+        repeat(4) {
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(80.dp)
+                    .padding(horizontal = 20.dp)
+                    .shimmerLoadingAnimation()
+            )
+            Spacer(modifier = Modifier.height(16.dp))
+        }
+    }
+}
+
+@Composable
+private fun ErrorProductDetail(
+    message: String,
+    onRetry: () -> Unit
+) {
+    Box(
+        modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center
+    ) {
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Icon(
+                imageVector = Icons.Default.Error,
+                contentDescription = null,
+                modifier = Modifier.size(64.dp),
+                tint = SunsetOrange
+            )
+            Spacer(modifier = Modifier.height(16.dp))
+            Text(
+                text = message,
+                fontSize = 16.sp,
+                textAlign = TextAlign.Center,
+                modifier = Modifier.padding(horizontal = 32.dp)
+            )
+            Spacer(modifier = Modifier.height(24.dp))
+            Button(
+                onClick = onRetry,
+                shape = RoundedCornerShape(12.dp)
+            ) {
+                Icon(Icons.Default.Refresh, contentDescription = null)
+                Spacer(modifier = Modifier.width(8.dp))
+                Text("Retry")
+            }
         }
     }
 }

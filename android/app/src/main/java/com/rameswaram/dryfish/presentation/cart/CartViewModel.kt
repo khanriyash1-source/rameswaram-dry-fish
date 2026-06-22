@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.rameswaram.dryfish.data.repository.CartRepository
 import com.rameswaram.dryfish.domain.model.CartItem
+import com.rameswaram.dryfish.utils.Constants
 import com.rameswaram.dryfish.utils.Resource
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -14,7 +15,7 @@ data class CartUiState(
     val items: List<CartItem> = emptyList(),
     val subtotal: Double = 0.0,
     val itemCount: Int = 0,
-    val deliveryCharge: Double = 40.0,
+    val deliveryCharge: Double = Constants.DELIVERY_CHARGE,
     val isFreeDelivery: Boolean = false,
     val couponCode: String = "",
     val discount: Double = 0.0,
@@ -40,13 +41,13 @@ class CartViewModel(
         viewModelScope.launch {
             cartRepository.getCartItems().collect { items ->
                 val subtotal = items.sumOf { it.subtotal }
-                val isFreeDelivery = subtotal >= 499.0
+                val isFreeDelivery = subtotal >= Constants.FREE_DELIVERY_MIN
                 _uiState.value = _uiState.value.copy(
                     items = items,
                     subtotal = subtotal,
                     itemCount = items.size,
                     isFreeDelivery = isFreeDelivery,
-                    deliveryCharge = if (isFreeDelivery) 0.0 else 40.0
+                    deliveryCharge = if (isFreeDelivery) 0.0 else Constants.DELIVERY_CHARGE
                 )
             }
         }
@@ -95,6 +96,17 @@ class CartViewModel(
     fun applyCoupon() {
         if (_uiState.value.couponCode.isNotBlank()) {
             _uiState.value = _uiState.value.copy(discount = 50.0)
+        }
+    }
+
+    fun syncFromCloud() {
+        viewModelScope.launch {
+            when (val result = cartRepository.loadFromFirestore()) {
+                is Resource.Error -> {
+                    _uiState.value = _uiState.value.copy(error = result.message)
+                }
+                else -> {}
+            }
         }
     }
 

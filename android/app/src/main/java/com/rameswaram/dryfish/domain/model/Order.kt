@@ -18,7 +18,9 @@ data class Order(
     val createdAt: String,
     val updatedAt: String,
     val estimatedDelivery: String?
-)
+) {
+    constructor() : this("", "", emptyList(), OrderStatus.PENDING, emptyList(), Address(), PaymentMethod.COD, "", 0.0, 0.0, 0.0, 0.0, null, null, "", "", null)
+}
 
 data class OrderItem(
     val productId: String,
@@ -27,13 +29,17 @@ data class OrderItem(
     val weight: String,
     val quantity: Int,
     val price: Double
-)
+) {
+    constructor() : this("", "", "", "", 0, 0.0)
+}
 
 data class OrderTimeline(
     val status: OrderStatus,
     val timestamp: String,
     val description: String
-)
+) {
+    constructor() : this(OrderStatus.PENDING, "", "")
+}
 
 enum class OrderStatus {
     PENDING, CONFIRMED, PROCESSING, SHIPPED, DELIVERED, CANCELLED, RETURNED;

@@ -123,6 +123,7 @@ fun FeaturedCarousel(
     )
 
     LaunchedEffect(products) {
+        if (products.isEmpty()) return@LaunchedEffect
         while (true) {
             delay(3000)
             val nextPage = (pagerState.currentPage + 1) % products.size

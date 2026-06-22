@@ -22,7 +22,8 @@ fun StarRating(
     rating: Double,
     reviewCount: Int = 0,
     modifier: Modifier = Modifier,
-    showCount: Boolean = true
+    showCount: Boolean = true,
+    starSize: Int = 14
 ) {
     Row(
         modifier = modifier,
@@ -37,7 +38,7 @@ fun StarRating(
                 imageVector = Icons.Default.Star,
                 contentDescription = "Star",
                 tint = SunsetOrange,
-                modifier = Modifier.size(14.dp)
+                modifier = Modifier.size(starSize.dp)
             )
         }
 
@@ -46,7 +47,7 @@ fun StarRating(
                 imageVector = Icons.Default.StarHalf,
                 contentDescription = "Half Star",
                 tint = SunsetOrange,
-                modifier = Modifier.size(14.dp)
+                modifier = Modifier.size(starSize.dp)
             )
         }
 
@@ -55,7 +56,7 @@ fun StarRating(
                 imageVector = Icons.Default.StarOutline,
                 contentDescription = "Empty Star",
                 tint = SunsetOrange,
-                modifier = Modifier.size(14.dp)
+                modifier = Modifier.size(starSize.dp)
             )
         }
 

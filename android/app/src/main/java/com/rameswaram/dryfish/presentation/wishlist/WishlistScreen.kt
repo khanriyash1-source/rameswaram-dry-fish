@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
@@ -31,6 +32,7 @@ import org.koin.androidx.compose.koinViewModel
 @Composable
 fun WishlistScreen(
     onProductClick: (String) -> Unit,
+    onMenuClick: () -> Unit = {},
     viewModel: WishlistViewModel = koinViewModel()
 ) {
     val uiState by viewModel.uiState.collectAsState()
@@ -38,7 +40,17 @@ fun WishlistScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Wishlist", fontWeight = FontWeight.Bold) }
+                title = { Text("Wishlist", fontWeight = FontWeight.Bold) },
+                navigationIcon = {
+                    IconButton(onClick = onMenuClick) {
+                        Icon(Icons.Default.Menu, contentDescription = "Menu")
+                    }
+                },
+                colors = TopAppBarDefaults.topAppBarColors(
+                    containerColor = CoastalTeal,
+                    titleContentColor = Color.White,
+                    navigationIconContentColor = Color.White
+                )
             )
         }
     ) { padding ->
@@ -174,5 +186,3 @@ fun WishlistItemCard(
         }
     }
 }
-
-private val CircleShape = RoundedCornerShape(50)

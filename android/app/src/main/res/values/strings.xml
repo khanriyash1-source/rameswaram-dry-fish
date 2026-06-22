@@ -43,10 +43,18 @@
     <string name="language">Language</string>
     <string name="english">English</string>
     <string name="tamil">தமிழ்</string>
+    <string name="settings">Settings</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="spent">Spent</string>
+    <string name="user">User</string>
+    <string name="menu">Menu</string>
+    <string name="search_dry_fish_products">Search dry fish products...</string>
+    <string name="deliver_to_chennai">Deliver to Chennai</string>
+    <string name="no_products_found">No products found</string>
     <string name="order_status_pending">Pending</string>
     <string name="order_status_processing">Processing</string>
     <string name="order_status_shipped">Shipped</string>
     <string name="order_status_delivered">Delivered</string>
     <string name="order_status_cancelled">Cancelled</string>
-    <string name="default_web_client_id" translatable="false">509908703450-r88ejnoiqq5k49dun4vgvh9u922fo53l.apps.googleusercontent.com</string>
+    <string name="default_web_client_id" translatable="false">646532651867-5se97kjtrqj2r3kfc38n7nfgoihp7lkk.apps.googleusercontent.com</string>
 </resources>

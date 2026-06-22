@@ -13,6 +13,8 @@ data class CartItem(
     val maxQuantity: Int = 10,
     val productSlug: String = ""
 ) {
+    constructor() : this("", "", "", "", "", "", 0.0, 0.0, 0)
+
     val subtotal: Double get() = price * quantity
     val totalMrp: Double get() = mrp * quantity
     val savings: Double get() = totalMrp - subtotal

@@ -1,6 +1,8 @@
 package com.rameswaram.dryfish
 
 import android.app.Application
+import android.content.Context
+import android.content.res.Configuration
 import coil.ImageLoader
 import coil.ImageLoaderFactory
 import coil.disk.DiskCache
@@ -10,8 +12,11 @@ import com.rameswaram.dryfish.data.api.RetrofitClient
 import com.rameswaram.dryfish.di.appModule
 import com.rameswaram.dryfish.di.databaseModule
 import com.rameswaram.dryfish.di.networkModule
+import com.rameswaram.dryfish.utils.Constants
+import com.razorpay.Checkout
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
+import java.util.Locale
 
 class RameswaramApp : Application(), ImageLoaderFactory {
 
@@ -20,6 +25,10 @@ class RameswaramApp : Application(), ImageLoaderFactory {
         FirebaseApp.initializeApp(this)
         RetrofitClient.init(this)
 
+        applySavedLocale()
+
+        Checkout.preload(this)
+
         startKoin {
             androidContext(this@RameswaramApp)
             modules(
@@ -27,6 +36,18 @@ class RameswaramApp : Application(), ImageLoaderFactory {
                 databaseModule,
                 appModule
             )
+        }
+    }
+
+    private fun applySavedLocale() {
+        val isTamil = getSharedPreferences(Constants.PREFS_NAME, Context.MODE_PRIVATE)
+            .getBoolean("isTamilLanguage", false)
+        if (isTamil) {
+            val locale = Locale("ta")
+            Locale.setDefault(locale)
+            val config = Configuration(resources.configuration)
+            config.setLocale(locale)
+            resources.updateConfiguration(config, resources.displayMetrics)
         }
     }
 

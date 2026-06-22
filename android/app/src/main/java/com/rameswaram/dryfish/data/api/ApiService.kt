@@ -1,6 +1,8 @@
 package com.rameswaram.dryfish.data.api
 
 import com.rameswaram.dryfish.domain.model.*
+import com.rameswaram.dryfish.domain.model.PaymentVerificationRequest
+import com.rameswaram.dryfish.domain.model.RazorpayOrderResponse
 import retrofit2.Response
 import retrofit2.http.*
 
@@ -48,10 +50,13 @@ interface ApiService {
     suspend fun createOrder(@Body order: Map<String, @JvmSuppressWildcards Any>): Response<ApiResponse<Order>>
 
     @GET("orders")
-    suspend fun getOrders(): Response<ApiResponse<List<Order>>>
+    suspend fun getOrders(@Query("userId") userId: String): Response<ApiResponse<List<Order>>>
 
     @GET("orders/{id}")
-    suspend fun getOrderDetails(@Path("id") id: String): Response<ApiResponse<Order>>
+    suspend fun getOrderDetails(
+        @Path("id") id: String,
+        @Query("userId") userId: String
+    ): Response<ApiResponse<Order>>
 
     @POST("auth/login")
     suspend fun login(@Body body: Map<String, String>): Response<ApiResponse<User>>
@@ -85,4 +90,11 @@ interface ApiService {
 
     @DELETE("addresses/{id}")
     suspend fun deleteAddress(@Path("id") id: String): Response<ApiResponse<Unit>>
+
+    // Razorpay
+    @POST("razorpay/create-order")
+    suspend fun createRazorpayOrder(@Body body: Map<String, @JvmSuppressWildcards Any>): Response<ApiResponse<RazorpayOrderResponse>>
+
+    @POST("razorpay/verify-payment")
+    suspend fun verifyPayment(@Body body: PaymentVerificationRequest): Response<ApiResponse<Unit>>
 }

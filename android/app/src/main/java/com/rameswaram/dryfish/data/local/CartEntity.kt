@@ -5,11 +5,13 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.rameswaram.dryfish.domain.model.CartItem
 
-@Entity(tableName = "cart_items")
+@Entity(tableName = "cart_items", primaryKeys = ["user_id", "id"])
 data class CartEntity(
-    @PrimaryKey
     @ColumnInfo(name = "id")
     val id: String,
+
+    @ColumnInfo(name = "user_id")
+    val userId: String,
 
     @ColumnInfo(name = "product_id")
     val productId: String,
@@ -56,8 +58,9 @@ data class CartEntity(
     )
 
     companion object {
-        fun fromCartItem(item: CartItem): CartEntity = CartEntity(
+        fun fromCartItem(item: CartItem, userId: String): CartEntity = CartEntity(
             id = item.id,
+            userId = userId,
             productId = item.productId,
             productName = item.productName,
             productImage = item.productImage,

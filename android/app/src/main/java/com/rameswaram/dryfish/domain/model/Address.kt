@@ -11,6 +11,7 @@ data class Address(
     val isDefault: Boolean = false,
     val label: String? = null
 ) {
+    constructor() : this("", "", "", "", "", "", "")
     val fullAddress: String
         get() = "$street, $city, $state - $pincode"
 

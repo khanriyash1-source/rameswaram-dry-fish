@@ -6,17 +6,20 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface CartDao {
 
-    @Query("SELECT * FROM cart_items")
-    fun getAllItems(): Flow<List<CartEntity>>
+    @Query("SELECT * FROM cart_items WHERE user_id = :userId")
+    fun getAllItems(userId: String): Flow<List<CartEntity>>
 
-    @Query("SELECT * FROM cart_items WHERE id = :id")
-    suspend fun getItemById(id: String): CartEntity?
+    @Query("SELECT * FROM cart_items WHERE user_id = :userId")
+    suspend fun getAllItemsOnce(userId: String): List<CartEntity>
 
-    @Query("SELECT COUNT(*) FROM cart_items")
-    fun getItemCount(): Flow<Int>
+    @Query("SELECT * FROM cart_items WHERE user_id = :userId AND id = :id")
+    suspend fun getItemById(userId: String, id: String): CartEntity?
 
-    @Query("SELECT SUM(price * quantity) FROM cart_items")
-    fun getCartTotal(): Flow<Double?>
+    @Query("SELECT COUNT(*) FROM cart_items WHERE user_id = :userId")
+    fun getItemCount(userId: String): Flow<Int>
+
+    @Query("SELECT SUM(price * quantity) FROM cart_items WHERE user_id = :userId")
+    fun getCartTotal(userId: String): Flow<Double?>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertItem(item: CartEntity)
@@ -27,18 +30,18 @@ interface CartDao {
     @Update
     suspend fun updateItem(item: CartEntity)
 
-    @Query("UPDATE cart_items SET quantity = :quantity WHERE id = :id")
-    suspend fun updateQuantity(id: String, quantity: Int)
+    @Query("UPDATE cart_items SET quantity = :quantity WHERE user_id = :userId AND id = :id")
+    suspend fun updateQuantity(userId: String, id: String, quantity: Int)
 
     @Delete
     suspend fun deleteItem(item: CartEntity)
 
-    @Query("DELETE FROM cart_items WHERE id = :id")
-    suspend fun deleteItemById(id: String)
+    @Query("DELETE FROM cart_items WHERE user_id = :userId AND id = :id")
+    suspend fun deleteItemById(userId: String, id: String)
 
-    @Query("DELETE FROM cart_items")
-    suspend fun clearCart()
+    @Query("DELETE FROM cart_items WHERE user_id = :userId")
+    suspend fun clearCart(userId: String)
 
-    @Query("SELECT EXISTS(SELECT 1 FROM cart_items WHERE id = :id)")
-    suspend fun itemExists(id: String): Boolean
+    @Query("SELECT EXISTS(SELECT 1 FROM cart_items WHERE user_id = :userId AND id = :id)")
+    suspend fun itemExists(userId: String, id: String): Boolean
 }
