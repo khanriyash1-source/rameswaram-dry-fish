@@ -1,7 +1,7 @@
 package com.rameswaram.dryfish.utils
 
 object Constants {
-    const val BASE_URL = "https://rameswaramdryfish.com/api/v1/"
+    const val BASE_URL = "https://api.rameswaramdryfish.com/api/v1/"
     const val WEB_CLIENT_ID = "646532651867-5se97kjtrqj2r3kfc38n7nfgoihp7lkk.apps.googleusercontent.com"
 
     const val PREFS_NAME = "rameswaram_dry_fish_prefs"
