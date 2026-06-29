@@ -20,6 +20,23 @@ let orders = [];
 // Track Razorpay orders for server-side verification
 const razorpayOrders = {};
 
+// Homepage for Razorpay verification
+app.get('/', (req, res) => {
+  res.send(`<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rameswaram Dry Fish</title>
+  <meta name="description" content="Premium quality dry fish from Rameswaram">
+</head>
+<body>
+  <h1>Rameswaram Dry Fish</h1>
+  <p>Premium quality dry fish delivered to your doorstep.</p>
+</body>
+</html>`);
+});
+
 app.post('/api/v1/auth/google', (req, res) => {
   const { token } = req.body;
   if (!token) return res.status(400).json({ success: false, message: 'Token required' });
