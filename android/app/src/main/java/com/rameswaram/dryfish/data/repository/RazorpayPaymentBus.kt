@@ -16,4 +16,8 @@ object RazorpayPaymentBus {
     fun emit(event: RazorpayEvent) {
         _events.trySend(event)
     }
+
+    fun clear() {
+        _events.tryReceive()
+    }
 }

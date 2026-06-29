@@ -6,6 +6,7 @@ import com.google.firebase.firestore.SetOptions
 import com.rameswaram.dryfish.domain.model.Address
 import com.rameswaram.dryfish.domain.model.CartItem
 import com.rameswaram.dryfish.domain.model.Order
+import com.rameswaram.dryfish.domain.model.OrderStatus
 import com.rameswaram.dryfish.domain.model.User
 import com.rameswaram.dryfish.domain.model.WishlistItem
 import com.rameswaram.dryfish.utils.Resource
@@ -134,8 +135,10 @@ class FirestoreRepository(
     suspend fun saveOrder(uid: String, order: Order): Resource<Unit> {
         return try {
             Log.d(TAG, "saveOrder: uid=$uid, orderId=${order.id}")
-            userRef(uid).collection("orders").document(order.id).set(order).await()
-            Log.d(TAG, "saveOrder: SUCCESS")
+            val orderWithUserId = order.copy(userId = uid)
+            userRef(uid).collection("orders").document(order.id).set(orderWithUserId).await()
+            firestore.collection("all_orders").document(order.id).set(orderWithUserId).await()
+            Log.d(TAG, "saveOrder: SUCCESS (user + all_orders)")
             Resource.Success(Unit)
         } catch (e: Exception) {
             Log.e(TAG, "saveOrder: FAILED: ${e.message}", e)
@@ -268,6 +271,60 @@ class FirestoreRepository(
         } catch (e: Exception) {
             Log.e(TAG, "updateSpending: FAILED: ${e.message}", e)
             Resource.Error(e.message ?: "Failed to update spending")
+        }
+    }
+
+    suspend fun getAllOrders(): Resource<List<Order>> {
+        return try {
+            Log.d(TAG, "getAllOrders: fetching all orders")
+            val docs = firestore.collection("all_orders")
+                .orderBy("createdAt", com.google.firebase.firestore.Query.Direction.DESCENDING)
+                .get().await()
+            val orders = docs.mapNotNull { it.toObject(Order::class.java) }
+            Log.d(TAG, "getAllOrders: count=${orders.size}")
+            Resource.Success(orders)
+        } catch (e: Exception) {
+            Log.e(TAG, "getAllOrders: FAILED: ${e.message}", e)
+            Resource.Error(e.message ?: "Failed to load all orders")
+        }
+    }
+
+    suspend fun updateOrderStatus(orderId: String, status: OrderStatus): Resource<Unit> {
+        return try {
+            Log.d(TAG, "updateOrderStatus: orderId=$orderId, status=$status")
+            firestore.collection("all_orders").document(orderId)
+                .update("status", status.name).await()
+            Log.d(TAG, "updateOrderStatus: SUCCESS")
+            Resource.Success(Unit)
+        } catch (e: Exception) {
+            Log.e(TAG, "updateOrderStatus: FAILED: ${e.message}", e)
+            Resource.Error(e.message ?: "Failed to update order status")
+        }
+    }
+
+    suspend fun getAllUsers(): Resource<List<User>> {
+        return try {
+            Log.d(TAG, "getAllUsers: fetching all users")
+            val docs = firestore.collection("users").get().await()
+            val users = docs.mapNotNull { doc ->
+                val data = doc.data
+                User(
+                    id = data["id"] as? String ?: doc.id,
+                    name = data["name"] as? String ?: "",
+                    email = data["email"] as? String ?: "",
+                    phone = data["phone"] as? String,
+                    avatar = data["avatar"] as? String,
+                    totalSpent = data["totalSpent"] as? Double ?: 0.0,
+                    orderCount = (data["orderCount"] as? Long)?.toInt() ?: 0,
+                    isTamilLanguage = data["isTamilLanguage"] as? Boolean ?: false,
+                    createdAt = data["createdAt"] as? String ?: ""
+                )
+            }
+            Log.d(TAG, "getAllUsers: count=${users.size}")
+            Resource.Success(users)
+        } catch (e: Exception) {
+            Log.e(TAG, "getAllUsers: FAILED: ${e.message}", e)
+            Resource.Error(e.message ?: "Failed to load users")
         }
     }
 }

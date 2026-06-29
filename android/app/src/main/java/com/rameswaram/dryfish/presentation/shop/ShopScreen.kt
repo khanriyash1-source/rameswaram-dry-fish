@@ -54,7 +54,9 @@ fun ShopScreen(
                 color = CoastalTeal,
                 shadowElevation = 4.dp
             ) {
-                Column {
+                Column(
+                    modifier = Modifier.windowInsetsPadding(WindowInsets.statusBars)
+                ) {
                     // Main header row - Logo centered
                     Box(
                         modifier = Modifier

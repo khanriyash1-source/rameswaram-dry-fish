@@ -47,6 +47,7 @@ class ProductDetailViewModel(
     fun loadProduct(slug: String) {
         viewModelScope.launch {
             _uiState.value = _uiState.value.copy(isLoading = true, error = null)
+            productRepository.refreshFromFirestore()
 
             when (val result = productRepository.getProductBySlug(slug)) {
                 is Resource.Success -> {

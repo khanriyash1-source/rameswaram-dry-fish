@@ -14,7 +14,8 @@ data class Product(
     val isFeatured: Boolean,
     val isBestseller: Boolean,
     val rating: Double,
-    val reviewCount: Int
+    val reviewCount: Int,
+    val isEnabled: Boolean = true
 ) {
     // Convenience properties for bilingual display
     val nameEn: String get() = name

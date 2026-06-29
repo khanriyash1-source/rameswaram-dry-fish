@@ -19,14 +19,22 @@ class OrderRepository(
             val body = response.body()
             if (response.isSuccessful && body?.success == true) {
                 val order = body.data ?: return Resource.Error("Empty order data")
-                firestoreRepository.saveOrder(currentUserId(), order)
-                firestoreRepository.updateSpending(currentUserId(), order.total)
                 Resource.Success(order)
             } else {
                 Resource.Error(body?.message ?: "Failed to create order")
             }
         } catch (e: Exception) {
             Resource.Error(e.message ?: "Network error")
+        }
+    }
+
+    suspend fun finalizeOrder(order: Order): Resource<Unit> {
+        return try {
+            firestoreRepository.saveOrder(currentUserId(), order)
+            firestoreRepository.updateSpending(currentUserId(), order.total)
+            Resource.Success(Unit)
+        } catch (e: Exception) {
+            Resource.Error(e.message ?: "Failed to finalize order")
         }
     }
 
@@ -39,7 +47,7 @@ class OrderRepository(
             val response = apiService.getOrders(currentUserId())
             val body = response.body()
             if (response.isSuccessful && body?.success == true) {
-                val orders = body.data ?: emptyList()
+                val orders = (body.data ?: emptyList()).filter { it.paymentStatus == "PAID" }
                 orders.forEach { firestoreRepository.saveOrder(currentUserId(), it) }
                 Resource.Success(orders)
             } else {
@@ -87,13 +95,15 @@ class OrderRepository(
         }
     }
 
-    suspend fun verifyPayment(request: PaymentVerificationRequest): Resource<Unit> {
+    suspend fun verifyPayment(request: PaymentVerificationRequest): Resource<String> {
         return try {
             val response = apiService.verifyPayment(request)
-            if (response.isSuccessful && response.body()?.success == true) {
-                Resource.Success(Unit)
+            val body = response.body()
+            if (response.isSuccessful && body?.success == true) {
+                val paymentId = body.data ?: request.razorpay_payment_id
+                Resource.Success(paymentId)
             } else {
-                Resource.Error(response.body()?.message ?: "Payment verification failed")
+                Resource.Error(body?.message ?: "Payment verification failed")
             }
         } catch (e: Exception) {
             Resource.Error(e.message ?: "Network error")

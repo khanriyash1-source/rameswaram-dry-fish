@@ -2,6 +2,7 @@ package com.rameswaram.dryfish.domain.model
 
 data class Order(
     val id: String,
+    val userId: String = "",
     val orderNumber: String,
     val items: List<OrderItem>,
     val status: OrderStatus,
@@ -17,9 +18,10 @@ data class Order(
     val notes: String?,
     val createdAt: String,
     val updatedAt: String,
-    val estimatedDelivery: String?
+    val estimatedDelivery: String?,
+    val paymentId: String? = null
 ) {
-    constructor() : this("", "", emptyList(), OrderStatus.PENDING, emptyList(), Address(), PaymentMethod.COD, "", 0.0, 0.0, 0.0, 0.0, null, null, "", "", null)
+    constructor() : this("", "", "", emptyList(), OrderStatus.PENDING, emptyList(), Address(), PaymentMethod.COD, "", 0.0, 0.0, 0.0, 0.0, null, null, "", "", null)
 }
 
 data class OrderItem(

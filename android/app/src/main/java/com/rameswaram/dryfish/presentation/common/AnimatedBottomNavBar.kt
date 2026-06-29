@@ -43,54 +43,23 @@ fun AnimatedBottomNavBar(
     navController: NavController,
     cartItemCount: Int = 0,
     isTamil: Boolean = false,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    items: List<AnimatedNavItem> = defaultNavItems(cartItemCount)
 ) {
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = navBackStackEntry?.destination?.route
     val haptic = LocalHapticFeedback.current
 
-    val items = listOf(
-        AnimatedNavItem(
-            labelEn = "Home",
-            labelTa = "முகப்பு",
-            route = "shop",
-            selectedIcon = Icons.Filled.Home,
-            unselectedIcon = Icons.Outlined.Home
-        ),
-        AnimatedNavItem(
-            labelEn = "Cart",
-            labelTa = "கூடை",
-            route = "cart",
-            selectedIcon = Icons.Filled.ShoppingCart,
-            unselectedIcon = Icons.Outlined.ShoppingCart,
-            badgeCount = cartItemCount
-        ),
-        AnimatedNavItem(
-            labelEn = "Orders",
-            labelTa = "ஆர்டர்கள்",
-            route = "orders",
-            selectedIcon = Icons.Filled.Inventory,
-            unselectedIcon = Icons.Outlined.Inventory
-        ),
-        AnimatedNavItem(
-            labelEn = "Profile",
-            labelTa = "சுயவிவரம்",
-            route = "profile",
-            selectedIcon = Icons.Filled.Person,
-            unselectedIcon = Icons.Outlined.Person
-        )
-    )
-
     Surface(
         color = MaterialTheme.colorScheme.surface,
         tonalElevation = 8.dp,
-        shape = RoundedCornerShape(topStart = 24.dp, topEnd = 24.dp),
+        shape = RoundedCornerShape(topStart = 12.dp, topEnd = 12.dp, bottomStart = 12.dp, bottomEnd = 12.dp),
         modifier = modifier.fillMaxWidth()
     ) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 8.dp, vertical = 12.dp),
+                .padding(horizontal = 12.dp, vertical = 12.dp),
             horizontalArrangement = Arrangement.SpaceEvenly,
             verticalAlignment = Alignment.CenterVertically
         ) {
@@ -114,6 +83,38 @@ fun AnimatedBottomNavBar(
         }
     }
 }
+
+fun defaultNavItems(cartItemCount: Int = 0): List<AnimatedNavItem> = listOf(
+    AnimatedNavItem(
+        labelEn = "Home",
+        labelTa = "முகப்பு",
+        route = "shop",
+        selectedIcon = Icons.Filled.Home,
+        unselectedIcon = Icons.Outlined.Home
+    ),
+    AnimatedNavItem(
+        labelEn = "Cart",
+        labelTa = "கூடை",
+        route = "cart",
+        selectedIcon = Icons.Filled.ShoppingCart,
+        unselectedIcon = Icons.Outlined.ShoppingCart,
+        badgeCount = cartItemCount
+    ),
+    AnimatedNavItem(
+        labelEn = "Orders",
+        labelTa = "ஆர்டர்கள்",
+        route = "orders",
+        selectedIcon = Icons.Filled.Inventory,
+        unselectedIcon = Icons.Outlined.Inventory
+    ),
+    AnimatedNavItem(
+        labelEn = "Profile",
+        labelTa = "சுயவிவரம்",
+        route = "profile",
+        selectedIcon = Icons.Filled.Person,
+        unselectedIcon = Icons.Outlined.Person
+    )
+)
 
 @OptIn(ExperimentalAnimationApi::class)
 @Composable

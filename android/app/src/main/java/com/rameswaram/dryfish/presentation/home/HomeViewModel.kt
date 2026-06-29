@@ -27,12 +27,14 @@ class HomeViewModel(
     val uiState: StateFlow<HomeUiState> = _uiState.asStateFlow()
 
     init {
+        viewModelScope.launch { productRepository.refreshFromFirestore() }
         loadHomeData()
     }
 
     fun loadHomeData() {
         viewModelScope.launch {
             _uiState.value = _uiState.value.copy(isLoading = true, error = null)
+            productRepository.refreshFromFirestore()
 
             loadFeatured()
             loadBestsellers()

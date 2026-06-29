@@ -96,5 +96,5 @@ interface ApiService {
     suspend fun createRazorpayOrder(@Body body: Map<String, @JvmSuppressWildcards Any>): Response<ApiResponse<RazorpayOrderResponse>>
 
     @POST("razorpay/verify-payment")
-    suspend fun verifyPayment(@Body body: PaymentVerificationRequest): Response<ApiResponse<Unit>>
+    suspend fun verifyPayment(@Body body: PaymentVerificationRequest): Response<ApiResponse<String>>
 }

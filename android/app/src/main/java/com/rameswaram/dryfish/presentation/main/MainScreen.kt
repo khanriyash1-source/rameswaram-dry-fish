@@ -20,6 +20,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.IntOffset
@@ -35,10 +36,17 @@ import androidx.navigation.navArgument
 import coil.compose.SubcomposeAsyncImage
 import com.rameswaram.dryfish.data.repository.AuthRepository
 import com.rameswaram.dryfish.data.repository.CartRepository
+import com.rameswaram.dryfish.presentation.admin.AdminDashboardScreen
+import com.rameswaram.dryfish.presentation.admin.AdminOrdersScreen
+import com.rameswaram.dryfish.presentation.admin.AdminProductsScreen
+import com.rameswaram.dryfish.presentation.admin.AdminUsersScreen
+import com.rameswaram.dryfish.presentation.admin.AdminViewModel
 import com.rameswaram.dryfish.presentation.auth.LoginScreen
 import com.rameswaram.dryfish.presentation.cart.CartScreen
 import com.rameswaram.dryfish.presentation.checkout.CheckoutScreen
 import com.rameswaram.dryfish.presentation.common.AnimatedBottomNavBar
+import com.rameswaram.dryfish.presentation.common.AnimatedNavItem
+import com.rameswaram.dryfish.presentation.common.defaultNavItems
 import com.rameswaram.dryfish.presentation.orders.OrderDetailScreen
 import com.rameswaram.dryfish.presentation.orders.OrdersScreen
 import com.rameswaram.dryfish.presentation.product.ProductDetailScreen
@@ -47,6 +55,8 @@ import com.rameswaram.dryfish.presentation.profile.EditProfileScreen
 import com.rameswaram.dryfish.presentation.profile.ProfileScreen
 import com.rameswaram.dryfish.presentation.shop.ShopScreen
 import com.rameswaram.dryfish.ui.theme.*
+import com.rameswaram.dryfish.utils.Constants
+import org.koin.androidx.compose.koinViewModel
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.flow.StateFlow
 import kotlin.math.sign
@@ -97,7 +107,13 @@ object NavRoutes {
     const val ORDER_DETAIL = "order/{orderId}"
     const val EDIT_PROFILE = "edit_profile"
 
+    const val ADMIN_DASHBOARD = "admin_dashboard"
+    const val ADMIN_PRODUCTS = "admin_products"
+    const val ADMIN_ORDERS = "admin_orders"
+    const val ADMIN_USERS = "admin_users"
+
     const val TAB_ROUTES = "$SHOP|$CART|$ORDERS|$PROFILE"
+    const val ADMIN_TAB_ROUTES = "$ADMIN_DASHBOARD|$ADMIN_PRODUCTS|$ADMIN_ORDERS|$ADMIN_USERS"
 
     fun productRoute(slug: String) = "product/$slug"
     fun orderDetailRoute(orderId: String) = "order/$orderId"
@@ -109,27 +125,52 @@ fun MainScreen(
     authRepository: AuthRepository,
     cartRepository: CartRepository
 ) {
+    val isLoggedIn by authRepository.isLoggedIn.collectAsState()
+
+    if (!isLoggedIn) {
+        LoginScreen(
+            onLoginSuccess = { /* isLoggedIn state change handles transition */ }
+        )
+    } else {
+        MainAppContent(authRepository, cartRepository)
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun MainAppContent(
+    authRepository: AuthRepository,
+    cartRepository: CartRepository
+) {
     val navController = rememberNavController()
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = navBackStackEntry?.destination?.route
 
-    val isLoggedIn by authRepository.isLoggedIn.collectAsState()
     val cartItemCount by cartRepository.getCartItemCount().collectAsState(initial = 0)
 
-    LaunchedEffect(isLoggedIn) {
-        if (isLoggedIn) {
-            cartRepository.loadFromFirestore()
-        }
+    LaunchedEffect(Unit) {
+        cartRepository.loadFromFirestore()
     }
 
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val scope = rememberCoroutineScope()
 
-    val showBottomBar = currentRoute in listOf(
-        NavRoutes.SHOP, NavRoutes.CART, NavRoutes.ORDERS, NavRoutes.PROFILE, NavRoutes.WISHLIST
-    )
-
     val user by authRepository.currentUser.collectAsState()
+    val isAdmin = user?.email == Constants.ADMIN_EMAIL
+
+    val adminViewModel: AdminViewModel = koinViewModel()
+
+    val showBottomBar = if (isAdmin) {
+        currentRoute in listOf(
+            NavRoutes.ADMIN_DASHBOARD, NavRoutes.ADMIN_PRODUCTS,
+            NavRoutes.ADMIN_ORDERS, NavRoutes.ADMIN_USERS
+        )
+    } else {
+        currentRoute in listOf(
+            NavRoutes.SHOP, NavRoutes.CART, NavRoutes.ORDERS, NavRoutes.PROFILE, NavRoutes.WISHLIST
+        )
+    }
+
     val context = LocalContext.current
     val isTamil = remember { mutableStateOf(false) }
 
@@ -137,6 +178,17 @@ fun MainScreen(
         isTamil.value = context.getSharedPreferences("rameswaram_dry_fish_prefs", 0)
             .getBoolean("isTamilLanguage", false)
     }
+
+    val adminNavItems = listOf(
+        AnimatedNavItem("Dashboard", "டாஷ்போர்டு", NavRoutes.ADMIN_DASHBOARD,
+            Icons.Filled.Dashboard, Icons.Outlined.Dashboard),
+        AnimatedNavItem("Products", "பொருட்கள்", NavRoutes.ADMIN_PRODUCTS,
+            Icons.Filled.Inventory, Icons.Outlined.Inventory),
+        AnimatedNavItem("Orders", "ஆர்டர்கள்", NavRoutes.ADMIN_ORDERS,
+            Icons.Filled.ShoppingBag, Icons.Outlined.ShoppingBag),
+        AnimatedNavItem("Users", "பயனர்கள்", NavRoutes.ADMIN_USERS,
+            Icons.Filled.People, Icons.Outlined.People)
+    )
 
     ModalNavigationDrawer(
         drawerState = drawerState,
@@ -176,9 +228,6 @@ fun MainScreen(
                 DrawerItem(Icons.Outlined.Logout, stringResource(com.rameswaram.dryfish.R.string.logout), null, false, tint = Color.Red.copy(alpha = 0.7f)) {
                     scope.launch { drawerState.close() }
                     authRepository.logout()
-                    navController.navigate(NavRoutes.LOGIN) {
-                        popUpTo(0) { inclusive = true }
-                    }
                 }
                 Spacer(Modifier.height(16.dp))
             }
@@ -194,33 +243,39 @@ fun MainScreen(
                     ) + fadeIn(animationSpec = tween(200)),
                     exit = slideOutVertically(animationSpec = tween(200), targetOffsetY = { it }) + fadeOut(animationSpec = tween(150))
                 ) {
-                    AnimatedBottomNavBar(
-                        navController = navController,
-                        cartItemCount = cartItemCount,
-                        isTamil = isTamil.value
-                    )
+                    if (isAdmin) {
+                        AnimatedBottomNavBar(
+                            navController = navController,
+                            isTamil = isTamil.value,
+                            items = adminNavItems
+                        )
+                    } else {
+                        AnimatedBottomNavBar(
+                            navController = navController,
+                            cartItemCount = cartItemCount,
+                            isTamil = isTamil.value,
+                            items = defaultNavItems(cartItemCount)
+                        )
+                    }
                 }
             }
-        ) { innerPadding ->
-            @OptIn(ExperimentalAnimationApi::class)
-            NavHost(
+        ) { padding ->
+            val density = LocalDensity.current
+            val navBarBottom = with(density) { WindowInsets.navigationBars.getBottom(this).toDp() }
+            val bottom = (padding.calculateBottomPadding() - navBarBottom).coerceAtLeast(0.dp)
+
+                @OptIn(ExperimentalAnimationApi::class)
+                NavHost(
                 navController = navController,
-                startDestination = if (isLoggedIn) NavRoutes.SHOP else NavRoutes.LOGIN,
-                modifier = Modifier.padding(innerPadding),
+                startDestination = if (isAdmin) NavRoutes.ADMIN_DASHBOARD else NavRoutes.SHOP,
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(bottom = bottom),
                 enterTransition = { cinematicForwardEnter<NavBackStackEntry>() },
                 exitTransition = { cinematicForwardExit<NavBackStackEntry>() },
                 popEnterTransition = { cinematicPopEnter<NavBackStackEntry>() },
                 popExitTransition = { cinematicPopExit<NavBackStackEntry>() }
-            ) {
-                composable(NavRoutes.LOGIN) {
-                    LoginScreen(
-                        onLoginSuccess = {
-                            navController.navigate(NavRoutes.SHOP) {
-                                popUpTo(NavRoutes.LOGIN) { inclusive = true }
-                            }
-                        }
-                    )
-                }
+                ) {
 
                 composable(NavRoutes.SHOP) {
                     ShopScreen(
@@ -322,9 +377,7 @@ fun MainScreen(
                             navController.navigate(NavRoutes.orderDetailRoute(orderId))
                         },
                         onLogout = {
-                            navController.navigate(NavRoutes.LOGIN) {
-                                popUpTo(0) { inclusive = true }
-                            }
+                            authRepository.logout()
                         },
                         onMenuClick = {
                             scope.launch { drawerState.open() }
@@ -342,7 +395,42 @@ fun MainScreen(
                         onSaved = { navController.popBackStack() }
                     )
                 }
-            }
+
+                // Admin routes
+                composable(NavRoutes.ADMIN_DASHBOARD) {
+                    AdminDashboardScreen(
+                        viewModel = adminViewModel,
+                        onNavigateToProducts = { navController.navigate(NavRoutes.ADMIN_PRODUCTS) },
+                        onNavigateToOrders = { navController.navigate(NavRoutes.ADMIN_ORDERS) },
+                        onNavigateToUsers = { navController.navigate(NavRoutes.ADMIN_USERS) },
+                        onLogout = {
+                            authRepository.logout()
+                        },
+                        onResetData = { adminViewModel.resetAllData() }
+                    )
+                }
+
+                composable(NavRoutes.ADMIN_PRODUCTS) {
+                    AdminProductsScreen(
+                        viewModel = adminViewModel,
+                        onBack = { navController.popBackStack() }
+                    )
+                }
+
+                composable(NavRoutes.ADMIN_ORDERS) {
+                    AdminOrdersScreen(
+                        viewModel = adminViewModel,
+                        onBack = { navController.popBackStack() }
+                    )
+                }
+
+                composable(NavRoutes.ADMIN_USERS) {
+                    AdminUsersScreen(
+                        viewModel = adminViewModel,
+                        onBack = { navController.popBackStack() }
+                    )
+                }
+                }
         }
     }
 }

@@ -1,7 +1,7 @@
 package com.rameswaram.dryfish.utils
 
 object Constants {
-    const val BASE_URL = "http://10.0.2.2:4000/api/v1/"
+    const val BASE_URL = "https://rameswaramdryfish.com/api/v1/"
     const val WEB_CLIENT_ID = "646532651867-5se97kjtrqj2r3kfc38n7nfgoihp7lkk.apps.googleusercontent.com"
 
     const val PREFS_NAME = "rameswaram_dry_fish_prefs"
@@ -30,4 +30,6 @@ object Constants {
     const val FREE_DELIVERY_MIN = 20000.0
 
     const val RAZORPAY_KEY_ID = "rzp_test_T1T698ULE4ONyy"
+
+    const val ADMIN_EMAIL = "godofwarvetri999@gmail.com"
 }

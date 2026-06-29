@@ -6,6 +6,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -46,23 +47,34 @@ fun LoginScreen(
             val task = GoogleSignIn.getSignedInAccountFromIntent(result.data)
             try {
                 val account = task.getResult(ApiException::class.java)
-                    account?.let { acct ->
-                        acct.idToken?.let { token ->
-                            viewModel.handleGoogleSignInResult(
-                                idToken = token,
-                                googleUserId = acct.id,
-                                displayName = acct.displayName,
-                                email = acct.email,
-                                photoUrl = acct.photoUrl?.toString()
-                            )
-                        }
+                account?.let { acct ->
+                    acct.idToken?.let { token ->
+                        viewModel.handleGoogleSignInResult(
+                            idToken = token,
+                            googleUserId = acct.id,
+                            displayName = acct.displayName,
+                            email = acct.email,
+                            photoUrl = acct.photoUrl?.toString()
+                        )
                     }
-            } catch (_: ApiException) { }
+                }
+            } catch (e: ApiException) {
+                val msg = when (e.statusCode) {
+                    12501 -> "Sign-in cancelled"
+                    12500 -> "Sign-in failed. Check that a Google account is added in Settings > Accounts"
+                    else -> "Google Sign-In error: ${e.localizedMessage ?: "Unknown error (${e.statusCode})"}"
+                }
+                viewModel.setError(msg)
+            }
         }
     }
 
+    val bgColor = androidx.compose.ui.graphics.Color(0xFF00B4D8)
+
     Box(
-        modifier = Modifier.fillMaxSize()
+        modifier = Modifier
+            .fillMaxSize()
+            .background(bgColor)
     ) {
         Image(
             painter = painterResource(id = R.drawable.login_screen),

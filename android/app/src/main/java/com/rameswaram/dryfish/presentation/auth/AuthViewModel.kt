@@ -62,6 +62,10 @@ class AuthViewModel(
         }
     }
 
+    fun setError(message: String) {
+        _uiState.value = _uiState.value.copy(error = message, isLoading = false)
+    }
+
     fun clearError() {
         _uiState.value = _uiState.value.copy(error = null)
     }

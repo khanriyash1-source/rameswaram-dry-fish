@@ -4,6 +4,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.rameswaram.dryfish.data.local.LocalProductDataSource
 import com.rameswaram.dryfish.data.repository.*
+import com.rameswaram.dryfish.presentation.admin.AdminViewModel
 import com.rameswaram.dryfish.presentation.auth.AuthViewModel
 import com.rameswaram.dryfish.presentation.cart.CartViewModel
 import com.rameswaram.dryfish.presentation.checkout.CheckoutViewModel
@@ -24,11 +25,13 @@ val appModule = module {
     single { LocalProductDataSource(androidContext()) }
     single { FirestoreRepository(get()) }
     single { AuthRepository(androidContext(), get(), get(), get()) }
-    single { ProductRepository(get()) }
+    single { ProductRepository(get(), get()) }
     single { CartRepository(get(), get(), get()) }
     single { OrderRepository(get(), get(), get()) }
     single { WishlistRepository(get(), get()) }
+    single { AdminRepository(get(), androidContext()) }
 
+    viewModel { AdminViewModel(get()) }
     viewModel { AuthViewModel(get()) }
     viewModel { HomeViewModel(get()) }
     viewModel { ShopViewModel(get(), get()) }

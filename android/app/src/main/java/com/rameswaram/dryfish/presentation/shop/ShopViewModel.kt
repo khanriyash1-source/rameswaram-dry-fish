@@ -27,6 +27,7 @@ class ShopViewModel(
     val uiState: StateFlow<ShopUiState> = _uiState.asStateFlow()
 
     init {
+        viewModelScope.launch { productRepository.refreshFromFirestore() }
         loadProducts()
         refreshWishlist()
     }
@@ -34,6 +35,7 @@ class ShopViewModel(
     fun loadProducts() {
         viewModelScope.launch {
             _uiState.value = _uiState.value.copy(isLoading = true, error = null)
+            productRepository.refreshFromFirestore()
 
             when (val result = productRepository.getProducts()) {
                 is Resource.Success -> {

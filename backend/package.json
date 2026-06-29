@@ -1,1 +1,15 @@
-{"name":"rameshwaram-backend","dependencies":{"cors":"^2.8.5","dotenv":"^17.4.2","express":"^4.18.2","razorpay":"^2.9.6"}}
+{
+  "name": "rameswaramdryfish-backend",
+  "version": "1.0.0",
+  "description": "Backend for Rameswaram Dry Fish store",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.4.2",
+    "express": "^4.18.2",
+    "razorpay": "^2.9.6"
+  }
+}

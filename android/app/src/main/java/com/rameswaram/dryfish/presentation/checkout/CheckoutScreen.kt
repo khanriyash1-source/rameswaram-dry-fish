@@ -15,6 +15,7 @@ import androidx.compose.material.icons.filled.*
 import androidx.compose.material.icons.outlined.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.*
@@ -56,6 +57,14 @@ fun CheckoutScreen(
     val uiState by viewModel.uiState.collectAsState()
     val haptic = LocalHapticFeedback.current
     val context = LocalContext.current
+
+    // Guard against opening Razorpay twice (e.g. after config change / rotation)
+    var razorpayOpened by rememberSaveable { mutableStateOf(false) }
+
+    // Reset flag when a new payment flow begins (dialog shown)
+    LaunchedEffect(uiState.showPaymentDialog) {
+        if (uiState.showPaymentDialog) razorpayOpened = false
+    }
 
     LaunchedEffect(uiState.orderPlaced) {
         uiState.orderPlaced?.let { order ->
@@ -177,13 +186,19 @@ fun CheckoutScreen(
         PaymentConfirmationDialog(
             total = uiState.total,
             onConfirm = {
-                val order = viewModel.confirmPayment()
-                if (order != null) {
-                    openRazorpayCheckout(context, order)
-                }
+                viewModel.confirmPayment()
             },
             onDismiss = { viewModel.dismissPaymentDialog() }
         )
+    }
+
+    // Open Razorpay AFTER dialog dismiss animation completes (only once)
+    LaunchedEffect(uiState.showPaymentDialog, uiState.isPlacingOrder) {
+        if (!uiState.showPaymentDialog && uiState.isPlacingOrder && uiState.pendingRazorpayOrder != null && !razorpayOpened) {
+            razorpayOpened = true
+            delay(200)
+            openRazorpayCheckout(context, uiState.pendingRazorpayOrder!!)
+        }
     }
 
     // Error Dialog
