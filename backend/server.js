@@ -26,6 +26,37 @@ cloudinary.config({
 // Multer config for file uploads
 const upload = multer({ dest: '/tmp/uploads/' });
 
+// Product catalog for website
+let products = [];
+let imageMap = {};
+
+function loadJSON(filename) {
+  const paths = [
+    path.join(__dirname, filename),
+    path.join(process.cwd(), filename),
+    path.join(__dirname, '..', filename),
+    '/' + filename,
+  ];
+  for (const p of paths) {
+    try {
+      return JSON.parse(fs.readFileSync(p, 'utf-8'));
+    } catch (e) { /* try next */ }
+  }
+  console.error('Could not load', filename, '(tried', paths.length, 'paths)');
+  return null;
+}
+
+const prodsData = loadJSON('products.json');
+if (prodsData) products = prodsData.products || [];
+else products = [];
+
+const imgData = loadJSON('image-map.json');
+if (imgData) imageMap = imgData;
+
+function toRupees(paise) {
+  return '₹' + (paise / 100).toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
+
 app.use('/images', express.static(path.join(__dirname, 'public/images')));
 
 // Upload endpoint — receives image, uploads to Cloudinary, returns URL
@@ -76,6 +107,20 @@ function layout(title, body) {
     nav { margin-top: 8px; }
     nav a { color: #90caf9; text-decoration: none; margin-right: 16px; font-size: 14px; }
     nav a:hover { text-decoration: underline; }
+    .prod-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+    .prod-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.08); border: 1px solid #eee; transition: transform 0.15s, box-shadow 0.15s; }
+    .prod-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.12); }
+    .prod-card img { width: 100%; height: 180px; object-fit: cover; background: #f5f7fa; }
+    .prod-card .body { padding: 16px; }
+    .prod-card .name-ta { font-size: 18px; font-weight: 700; margin-bottom: 2px; }
+    .prod-card .name-en { font-size: 13px; color: #888; margin-bottom: 8px; }
+    .prod-card .cat { display: inline-block; background: #e3f2fd; color: #1565c0; font-size: 11px; font-weight: 600; padding: 2px 10px; border-radius: 12px; margin-bottom: 10px; }
+    .prod-card .desc { font-size: 13px; color: #666; margin-bottom: 12px; line-height: 1.4; }
+    .prod-card .skus { border-top: 1px solid #eee; padding-top: 10px; }
+    .prod-card .sku-row { display: flex; justify-content: space-between; font-size: 14px; padding: 4px 0; }
+    .prod-card .sku-row .weight { color: #555; }
+    .prod-card .sku-row .price { font-weight: 700; color: #e65100; }
+    .prod-card .sku-row .mrp { text-decoration: line-through; color: #999; font-size: 12px; margin-right: 6px; }
     .hero { background: linear-gradient(135deg, #0a1628, #1a3a5c); color: #fff; padding: 60px 0; text-align: center; }
     .hero h2 { font-size: 36px; margin-bottom: 16px; }
     .hero p { font-size: 18px; color: #b0bec5; max-width: 600px; margin: 0 auto; }
@@ -99,6 +144,7 @@ function layout(title, body) {
       <h1>${BUSINESS.name}</h1>
       <nav>
         <a href="/">Home</a>
+        <a href="/products">Products</a>
         <a href="/privacy">Privacy Policy</a>
         <a href="/terms">Terms of Service</a>
       </nav>
@@ -135,6 +181,9 @@ app.get('/', (req, res) => {
         <div class="card"><h4>Lobster</h4><p>Fresh dried lobster from Gulf of Mannar</p></div>
         <div class="card"><h4>Combos</h4><p>Value combo packs for families</p></div>
       </div>
+      <div style="text-align:center;margin-top:20px">
+        <a href="/products" style="display:inline-block;background:#1565c0;color:#fff;padding:12px 32px;border-radius:8px;text-decoration:none;font-weight:600;font-size:16px">View All Products with Prices</a>
+      </div>
     </div>
   </section>
   <section class="section" style="background:#f5f7fa;">
@@ -150,6 +199,52 @@ app.get('/', (req, res) => {
       <p>Email: <a href="mailto:${BUSINESS.email}">${BUSINESS.email}</a></p>
       <p>Phone: ${BUSINESS.phone}</p>
       <p>Location: ${BUSINESS.address}</p>
+    </div>
+  </section>`));
+});
+
+app.get('/products', (req, res) => {
+  const cat = req.query.category;
+  let filtered = cat ? products.filter(p => p.category.toLowerCase() === cat.toLowerCase()) : products;
+
+  const cats = [...new Set(products.map(p => p.category))];
+
+  const cards = filtered.map(p => {
+    const img = p.images?.[0] ? (imageMap[p.images[0]] || '') : '';
+    const skuRows = p.skus.filter(s => s.isAvailable !== false).map(s => {
+      const hasDiscount = s.mrp && s.mrp > s.price;
+      return `<div class="sku-row">
+        <span class="weight">${s.weight}</span>
+        <span class="price">${hasDiscount ? `<span class="mrp">${toRupees(s.mrp)}</span>` : ''}${toRupees(s.price)}</span>
+      </div>`;
+    }).join('');
+
+    return `<div class="prod-card">
+      <img src="${img}" alt="${p.name}" loading="lazy" onerror="this.style.display='none'">
+      <div class="body">
+        <div class="name-ta">${p.nameTamil || p.name}</div>
+        <div class="name-en">${p.name}</div>
+        <span class="cat">${p.category}</span>
+        ${p.shortDesc ? `<div class="desc">${p.shortDesc}</div>` : ''}
+        <div class="skus">${skuRows}</div>
+      </div>
+    </div>`;
+  }).join('');
+
+  const catLinks = cats.map(c =>
+    `<a href="/products?category=${encodeURIComponent(c)}" style="display:inline-block;background:#e3f2fd;color:#1565c0;padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;text-decoration:none;margin:4px">${c}</a>`
+  ).join('');
+
+  res.send(layout('Products', `
+  <section class="section">
+    <div class="container">
+      <h3>Our Products ${cat ? `— ${cat}` : ''}</h3>
+      <div style="margin-bottom:24px;text-align:center">
+        <a href="/products" style="display:inline-block;background:${cat ? '#e0e0e0' : '#1565c0'};color:${cat ? '#333' : '#fff'};padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;text-decoration:none;margin:4px">All</a>
+        ${catLinks}
+      </div>
+      <p style="text-align:center;color:#888;margin-bottom:24px">${filtered.length} product${filtered.length !== 1 ? 's' : ''} available</p>
+      <div class="prod-grid">${cards}</div>
     </div>
   </section>`));
 });

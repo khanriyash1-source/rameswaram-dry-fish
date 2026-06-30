@@ -7,6 +7,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import com.rameswaram.dryfish.presentation.common.CustomDrawerLayout
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material.icons.outlined.*
@@ -154,7 +155,7 @@ private fun MainAppContent(
         cartRepository.loadFromFirestore()
     }
 
-    val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
+    var isDrawerOpen by remember { mutableStateOf(false) }
     val scope = rememberCoroutineScope()
 
     val user by authRepository.currentUser.collectAsState()
@@ -242,7 +243,7 @@ private fun MainAppContent(
                             navController.navigate(NavRoutes.CART)
                         },
                         onMenuClick = {
-                            scope.launch { drawerState.open() }
+                            scope.launch { isDrawerOpen = true }
                         },
                         cartItemCount = cartItemCount
                     )
@@ -258,7 +259,7 @@ private fun MainAppContent(
                             }
                         },
                         onMenuClick = {
-                            scope.launch { drawerState.open() }
+                            scope.launch { isDrawerOpen = true }
                         }
                     )
                 }
@@ -275,6 +276,9 @@ private fun MainAppContent(
                             navController.navigate(NavRoutes.CART) {
                                 popUpTo(0) { inclusive = true }
                             }
+                        },
+                        onProductClick = { productSlug ->
+                            navController.navigate(NavRoutes.productRoute(productSlug))
                         }
                     )
                 }
@@ -296,7 +300,7 @@ private fun MainAppContent(
                             navController.navigate(NavRoutes.productRoute(slug))
                         },
                         onMenuClick = {
-                            scope.launch { drawerState.open() }
+                            scope.launch { isDrawerOpen = true }
                         }
                     )
                 }
@@ -308,7 +312,7 @@ private fun MainAppContent(
                         },
                         onBack = { navController.popBackStack() },
                         onMenuClick = {
-                            scope.launch { drawerState.open() }
+                            scope.launch { isDrawerOpen = true }
                         }
                     )
                 }
@@ -336,7 +340,7 @@ private fun MainAppContent(
                             authRepository.logout()
                         },
                         onMenuClick = {
-                            scope.launch { drawerState.open() }
+                            scope.launch { isDrawerOpen = true }
                         }
                     )
                 }
@@ -390,46 +394,50 @@ private fun MainAppContent(
     } // Scaffold
 } // scaffoldContent
 
-    ModalNavigationDrawer(
-        drawerState = drawerState,
+    CustomDrawerLayout(
+        isOpen = isDrawerOpen,
+        onOpenChanged = { isDrawerOpen = it },
         gesturesEnabled = true,
         drawerContent = {
-            ModalDrawerSheet(
-                modifier = Modifier.width(280.dp),
-                drawerShape = RoundedCornerShape(topEnd = 24.dp, bottomEnd = 24.dp)
+            Box(
+                Modifier
+                    .fillMaxSize()
+                    .background(Color.White)
             ) {
-                DrawerHeader(user?.name ?: "", user?.email ?: "", user?.avatar ?: "")
-                DrawerItem(Icons.Default.Home, stringResource(com.rameswaram.dryfish.R.string.home), NavRoutes.SHOP, currentRoute == NavRoutes.SHOP) {
-                    scope.launch { drawerState.close() }
-                    navController.navigate(NavRoutes.SHOP) {
-                        popUpTo(NavRoutes.SHOP) { inclusive = true }
+                Column(Modifier.fillMaxSize()) {
+                    DrawerHeader(user?.name ?: "", user?.email ?: "", user?.avatar ?: "")
+                    DrawerItem(Icons.Default.Home, stringResource(com.rameswaram.dryfish.R.string.home), NavRoutes.SHOP, currentRoute == NavRoutes.SHOP) {
+                        isDrawerOpen = false
+                        navController.navigate(NavRoutes.SHOP) {
+                            popUpTo(NavRoutes.SHOP) { inclusive = true }
+                        }
                     }
-                }
-                DrawerItem(Icons.Outlined.ShoppingCart, stringResource(com.rameswaram.dryfish.R.string.cart), NavRoutes.CART, currentRoute == NavRoutes.CART) {
-                    scope.launch { drawerState.close() }
-                    navController.navigate(NavRoutes.CART)
-                }
-                DrawerItem(Icons.Outlined.Inventory, stringResource(com.rameswaram.dryfish.R.string.orders), NavRoutes.ORDERS, currentRoute == NavRoutes.ORDERS) {
-                    scope.launch { drawerState.close() }
-                    navController.navigate(NavRoutes.ORDERS)
-                }
-                DrawerItem(Icons.Outlined.Person, stringResource(com.rameswaram.dryfish.R.string.profile), NavRoutes.PROFILE, currentRoute == NavRoutes.PROFILE) {
-                    scope.launch { drawerState.close() }
-                    navController.navigate(NavRoutes.PROFILE)
-                }
-                DrawerItem(Icons.Outlined.FavoriteBorder, stringResource(com.rameswaram.dryfish.R.string.wishlist), NavRoutes.WISHLIST, currentRoute == NavRoutes.WISHLIST) {
-                    scope.launch { drawerState.close() }
-                    navController.navigate(NavRoutes.WISHLIST) {
-                        launchSingleTop = true
+                    DrawerItem(Icons.Outlined.ShoppingCart, stringResource(com.rameswaram.dryfish.R.string.cart), NavRoutes.CART, currentRoute == NavRoutes.CART) {
+                        isDrawerOpen = false
+                        navController.navigate(NavRoutes.CART)
                     }
+                    DrawerItem(Icons.Outlined.Inventory, stringResource(com.rameswaram.dryfish.R.string.orders), NavRoutes.ORDERS, currentRoute == NavRoutes.ORDERS) {
+                        isDrawerOpen = false
+                        navController.navigate(NavRoutes.ORDERS)
+                    }
+                    DrawerItem(Icons.Outlined.Person, stringResource(com.rameswaram.dryfish.R.string.profile), NavRoutes.PROFILE, currentRoute == NavRoutes.PROFILE) {
+                        isDrawerOpen = false
+                        navController.navigate(NavRoutes.PROFILE)
+                    }
+                    DrawerItem(Icons.Outlined.FavoriteBorder, stringResource(com.rameswaram.dryfish.R.string.wishlist), NavRoutes.WISHLIST, currentRoute == NavRoutes.WISHLIST) {
+                        isDrawerOpen = false
+                        navController.navigate(NavRoutes.WISHLIST) {
+                            launchSingleTop = true
+                        }
+                    }
+                    Spacer(Modifier.weight(1f))
+                    HorizontalDivider(modifier = Modifier.padding(horizontal = 20.dp))
+                    DrawerItem(Icons.Outlined.Logout, stringResource(com.rameswaram.dryfish.R.string.logout), null, false, tint = Color.Red.copy(alpha = 0.7f)) {
+                        isDrawerOpen = false
+                        authRepository.logout()
+                    }
+                    Spacer(Modifier.height(16.dp))
                 }
-                Spacer(Modifier.weight(1f))
-                HorizontalDivider(modifier = Modifier.padding(horizontal = 20.dp))
-                DrawerItem(Icons.Outlined.Logout, stringResource(com.rameswaram.dryfish.R.string.logout), null, false, tint = Color.Red.copy(alpha = 0.7f)) {
-                    scope.launch { drawerState.close() }
-                    authRepository.logout()
-                }
-                Spacer(Modifier.height(16.dp))
             }
         }
     ) {

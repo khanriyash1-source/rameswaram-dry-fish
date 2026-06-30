@@ -47,6 +47,7 @@ fun ProductDetailScreen(
     slug: String,
     onBack: () -> Unit,
     onAddToCart: () -> Unit,
+    onProductClick: (String) -> Unit,
     viewModel: ProductDetailViewModel = koinViewModel()
 ) {
     val uiState by viewModel.uiState.collectAsState()
@@ -335,7 +336,10 @@ fun ProductDetailScreen(
                                     contentPadding = PaddingValues(end = 20.dp)
                                 ) {
                                     items(uiState.relatedProducts) { relatedProduct ->
-                                        RelatedProductCard(product = relatedProduct)
+                                        RelatedProductCard(
+                                            product = relatedProduct,
+                                            onClick = { onProductClick(relatedProduct.slug) }
+                                        )
                                     }
                                 }
                             }
@@ -902,9 +906,9 @@ private fun ReviewSection(
 }
 
 @Composable
-private fun RelatedProductCard(product: Product) {
+private fun RelatedProductCard(product: Product, onClick: () -> Unit) {
     Card(
-        onClick = { /* Navigate to product */ },
+        onClick = onClick,
         modifier = Modifier.width(160.dp),
         shape = RoundedCornerShape(16.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
