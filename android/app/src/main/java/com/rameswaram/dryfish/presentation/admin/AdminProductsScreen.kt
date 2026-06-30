@@ -277,15 +277,33 @@ private fun ProductFormDialog(
                 ) {
                     images.forEachIndexed { index, url ->
                         Box(modifier = Modifier.size(80.dp)) {
-                            AsyncImage(
-                                model = url,
-                                contentDescription = null,
-                                modifier = Modifier
-                                    .fillMaxSize()
-                                    .clip(RoundedCornerShape(8.dp))
-                                    .border(1.dp, Color.Gray.copy(alpha = 0.3f), RoundedCornerShape(8.dp)),
-                                contentScale = ContentScale.Crop
-                            )
+                            if (url.startsWith("http")) {
+                                AsyncImage(
+                                    model = url,
+                                    contentDescription = null,
+                                    modifier = Modifier
+                                        .fillMaxSize()
+                                        .clip(RoundedCornerShape(8.dp))
+                                        .border(1.dp, Color.Gray.copy(alpha = 0.3f), RoundedCornerShape(8.dp)),
+                                    contentScale = ContentScale.Crop
+                                )
+                            } else {
+                                Box(
+                                    modifier = Modifier
+                                        .fillMaxSize()
+                                        .clip(RoundedCornerShape(8.dp))
+                                        .background(Color.LightGray.copy(alpha = 0.3f))
+                                        .border(1.dp, Color.Gray.copy(alpha = 0.3f), RoundedCornerShape(8.dp)),
+                                    contentAlignment = Alignment.Center
+                                ) {
+                                    Text(
+                                        text = url.substringAfterLast("/"),
+                                        fontSize = 8.sp,
+                                        color = Color.Gray,
+                                        maxLines = 2
+                                    )
+                                }
+                            }
                             Box(
                                 modifier = Modifier
                                     .align(Alignment.TopEnd)
