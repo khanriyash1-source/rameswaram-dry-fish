@@ -1,8 +1,10 @@
 package com.rameswaram.dryfish.presentation.admin
 
+import android.graphics.BitmapFactory
 import android.net.Uri
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -23,7 +25,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -277,33 +281,7 @@ private fun ProductFormDialog(
                 ) {
                     images.forEachIndexed { index, url ->
                         Box(modifier = Modifier.size(80.dp)) {
-                            if (url.startsWith("http")) {
-                                AsyncImage(
-                                    model = url,
-                                    contentDescription = null,
-                                    modifier = Modifier
-                                        .fillMaxSize()
-                                        .clip(RoundedCornerShape(8.dp))
-                                        .border(1.dp, Color.Gray.copy(alpha = 0.3f), RoundedCornerShape(8.dp)),
-                                    contentScale = ContentScale.Crop
-                                )
-                            } else {
-                                Box(
-                                    modifier = Modifier
-                                        .fillMaxSize()
-                                        .clip(RoundedCornerShape(8.dp))
-                                        .background(Color.LightGray.copy(alpha = 0.3f))
-                                        .border(1.dp, Color.Gray.copy(alpha = 0.3f), RoundedCornerShape(8.dp)),
-                                    contentAlignment = Alignment.Center
-                                ) {
-                                    Text(
-                                        text = url.substringAfterLast("/"),
-                                        fontSize = 8.sp,
-                                        color = Color.Gray,
-                                        maxLines = 2
-                                    )
-                                }
-                            }
+                            ImageThumbnail(url = url)
                             Box(
                                 modifier = Modifier
                                     .align(Alignment.TopEnd)
@@ -437,4 +415,49 @@ private fun ProductFormDialog(
             }
         }
     )
+}
+
+@Composable
+private fun ImageThumbnail(url: String) {
+    if (url.startsWith("http")) {
+        AsyncImage(
+            model = url,
+            contentDescription = null,
+            modifier = Modifier
+                .fillMaxSize()
+                .clip(RoundedCornerShape(8.dp))
+                .border(1.dp, Color.Gray.copy(alpha = 0.3f), RoundedCornerShape(8.dp)),
+            contentScale = ContentScale.Crop
+        )
+    } else {
+        val context = LocalContext.current
+        val bitmap = remember(url) {
+            try {
+                val path = url.removePrefix("file:///android_asset/")
+                BitmapFactory.decodeStream(context.assets.open(path))
+            } catch (_: Exception) { null }
+        }
+        if (bitmap != null) {
+            Image(
+                bitmap = bitmap.asImageBitmap(),
+                contentDescription = null,
+                modifier = Modifier
+                    .fillMaxSize()
+                    .clip(RoundedCornerShape(8.dp))
+                    .border(1.dp, Color.Gray.copy(alpha = 0.3f), RoundedCornerShape(8.dp)),
+                contentScale = ContentScale.Crop
+            )
+        } else {
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .clip(RoundedCornerShape(8.dp))
+                    .background(Color.LightGray.copy(alpha = 0.3f))
+                    .border(1.dp, Color.Gray.copy(alpha = 0.3f), RoundedCornerShape(8.dp)),
+                contentAlignment = Alignment.Center
+            ) {
+                Text(url.substringAfterLast("/"), fontSize = 8.sp, color = Color.Gray, maxLines = 2)
+            }
+        }
+    }
 }

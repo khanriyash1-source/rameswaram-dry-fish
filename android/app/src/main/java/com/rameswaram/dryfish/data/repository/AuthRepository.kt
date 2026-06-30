@@ -12,8 +12,11 @@ import com.rameswaram.dryfish.data.api.ApiService
 import com.rameswaram.dryfish.domain.model.User
 import com.rameswaram.dryfish.utils.Constants
 import com.rameswaram.dryfish.utils.Resource
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 
 class AuthRepository(
@@ -85,18 +88,20 @@ class AuthRepository(
             saveLocalCache(user)
             _currentUser.value = user
             _isLoggedIn.value = true
-            try {
-                val credential = GoogleAuthProvider.getCredential(idToken, null)
-                firebaseAuth.signInWithCredential(credential).await()
-                Log.d("DryFishAuth", "Firebase Auth sign-in: SUCCESS")
-            } catch (e: Exception) {
-                Log.e("DryFishAuth", "Firebase Auth sign-in: FAILED: ${e.message}", e)
-            }
-            val firestoreResult = firestoreRepository.saveUser(user)
-            if (firestoreResult is Resource.Error) {
-                Log.e("DryFishAuth", "Firestore saveUser: FAILED: ${firestoreResult.message}")
-            } else {
-                Log.d("DryFishAuth", "Firestore saveUser: SUCCESS")
+            CoroutineScope(Dispatchers.IO).launch {
+                try {
+                    val credential = GoogleAuthProvider.getCredential(idToken, null)
+                    firebaseAuth.signInWithCredential(credential).await()
+                    Log.d("DryFishAuth", "Firebase Auth sign-in: SUCCESS")
+                } catch (e: Exception) {
+                    Log.e("DryFishAuth", "Firebase Auth sign-in: FAILED: ${e.message}", e)
+                }
+                val firestoreResult = firestoreRepository.saveUser(user)
+                if (firestoreResult is Resource.Error) {
+                    Log.e("DryFishAuth", "Firestore saveUser: FAILED: ${firestoreResult.message}")
+                } else {
+                    Log.d("DryFishAuth", "Firestore saveUser: SUCCESS")
+                }
             }
             Resource.Success(user)
         } catch (e: Exception) {

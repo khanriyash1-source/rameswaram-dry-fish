@@ -36,15 +36,16 @@ object RetrofitClient {
     }
 
     private val loggingInterceptor = HttpLoggingInterceptor().apply {
-        level = HttpLoggingInterceptor.Level.BODY
+        level = if (android.util.Log.isLoggable("OkHttp", android.util.Log.DEBUG))
+            HttpLoggingInterceptor.Level.HEADERS else HttpLoggingInterceptor.Level.NONE
     }
 
     val okHttpClient: OkHttpClient by lazy {
         OkHttpClient.Builder()
             .addInterceptor(authInterceptor)
             .addInterceptor(loggingInterceptor)
-            .connectTimeout(30, TimeUnit.SECONDS)
-            .readTimeout(30, TimeUnit.SECONDS)
+            .connectTimeout(10, TimeUnit.SECONDS)
+            .readTimeout(15, TimeUnit.SECONDS)
             .writeTimeout(30, TimeUnit.SECONDS)
             .build()
     }
