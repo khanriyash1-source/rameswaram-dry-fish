@@ -173,7 +173,6 @@ private fun MainAppContent(
         )
     }
     val showBottomBar = currentRoute in tabRoutes
-    val isDrawerScreen = showBottomBar
 
     val context = LocalContext.current
     val isTamil = remember { mutableStateOf(false) }
@@ -181,7 +180,6 @@ private fun MainAppContent(
     LaunchedEffect(currentRoute) {
         isTamil.value = context.getSharedPreferences("rameswaram_dry_fish_prefs", 0)
             .getBoolean("isTamilLanguage", false)
-        drawerState.close()
     }
 
     val adminNavItems = listOf(
@@ -198,7 +196,7 @@ private fun MainAppContent(
     val scaffoldContent = @Composable {
         Scaffold(
             bottomBar = {
-                Box(Modifier.height(64.dp)) {
+                Box(Modifier.defaultMinSize(minHeight = 56.dp)) {
                     if (showBottomBar) {
                         if (isAdmin) {
                             AnimatedBottomNavBar(
@@ -392,53 +390,49 @@ private fun MainAppContent(
     } // Scaffold
 } // scaffoldContent
 
-    if (isDrawerScreen || currentRoute == null) {
-        ModalNavigationDrawer(
-            drawerState = drawerState,
-            gesturesEnabled = true,
-            drawerContent = {
-                ModalDrawerSheet(
-                    modifier = Modifier.width(280.dp),
-                    drawerShape = RoundedCornerShape(topEnd = 24.dp, bottomEnd = 24.dp)
-                ) {
-                    DrawerHeader(user?.name ?: "", user?.email ?: "", user?.avatar ?: "")
-                    DrawerItem(Icons.Default.Home, stringResource(com.rameswaram.dryfish.R.string.home), NavRoutes.SHOP, currentRoute == NavRoutes.SHOP) {
-                        scope.launch { drawerState.close() }
-                        navController.navigate(NavRoutes.SHOP) {
-                            popUpTo(NavRoutes.SHOP) { inclusive = true }
-                        }
+    ModalNavigationDrawer(
+        drawerState = drawerState,
+        gesturesEnabled = true,
+        drawerContent = {
+            ModalDrawerSheet(
+                modifier = Modifier.width(280.dp),
+                drawerShape = RoundedCornerShape(topEnd = 24.dp, bottomEnd = 24.dp)
+            ) {
+                DrawerHeader(user?.name ?: "", user?.email ?: "", user?.avatar ?: "")
+                DrawerItem(Icons.Default.Home, stringResource(com.rameswaram.dryfish.R.string.home), NavRoutes.SHOP, currentRoute == NavRoutes.SHOP) {
+                    scope.launch { drawerState.close() }
+                    navController.navigate(NavRoutes.SHOP) {
+                        popUpTo(NavRoutes.SHOP) { inclusive = true }
                     }
-                    DrawerItem(Icons.Outlined.ShoppingCart, stringResource(com.rameswaram.dryfish.R.string.cart), NavRoutes.CART, currentRoute == NavRoutes.CART) {
-                        scope.launch { drawerState.close() }
-                        navController.navigate(NavRoutes.CART)
-                    }
-                    DrawerItem(Icons.Outlined.Inventory, stringResource(com.rameswaram.dryfish.R.string.orders), NavRoutes.ORDERS, currentRoute == NavRoutes.ORDERS) {
-                        scope.launch { drawerState.close() }
-                        navController.navigate(NavRoutes.ORDERS)
-                    }
-                    DrawerItem(Icons.Outlined.Person, stringResource(com.rameswaram.dryfish.R.string.profile), NavRoutes.PROFILE, currentRoute == NavRoutes.PROFILE) {
-                        scope.launch { drawerState.close() }
-                        navController.navigate(NavRoutes.PROFILE)
-                    }
-                    DrawerItem(Icons.Outlined.FavoriteBorder, stringResource(com.rameswaram.dryfish.R.string.wishlist), NavRoutes.WISHLIST, currentRoute == NavRoutes.WISHLIST) {
-                        scope.launch { drawerState.close() }
-                        navController.navigate(NavRoutes.WISHLIST) {
-                            launchSingleTop = true
-                        }
-                    }
-                    Spacer(Modifier.weight(1f))
-                    HorizontalDivider(modifier = Modifier.padding(horizontal = 20.dp))
-                    DrawerItem(Icons.Outlined.Logout, stringResource(com.rameswaram.dryfish.R.string.logout), null, false, tint = Color.Red.copy(alpha = 0.7f)) {
-                        scope.launch { drawerState.close() }
-                        authRepository.logout()
-                    }
-                    Spacer(Modifier.height(16.dp))
                 }
+                DrawerItem(Icons.Outlined.ShoppingCart, stringResource(com.rameswaram.dryfish.R.string.cart), NavRoutes.CART, currentRoute == NavRoutes.CART) {
+                    scope.launch { drawerState.close() }
+                    navController.navigate(NavRoutes.CART)
+                }
+                DrawerItem(Icons.Outlined.Inventory, stringResource(com.rameswaram.dryfish.R.string.orders), NavRoutes.ORDERS, currentRoute == NavRoutes.ORDERS) {
+                    scope.launch { drawerState.close() }
+                    navController.navigate(NavRoutes.ORDERS)
+                }
+                DrawerItem(Icons.Outlined.Person, stringResource(com.rameswaram.dryfish.R.string.profile), NavRoutes.PROFILE, currentRoute == NavRoutes.PROFILE) {
+                    scope.launch { drawerState.close() }
+                    navController.navigate(NavRoutes.PROFILE)
+                }
+                DrawerItem(Icons.Outlined.FavoriteBorder, stringResource(com.rameswaram.dryfish.R.string.wishlist), NavRoutes.WISHLIST, currentRoute == NavRoutes.WISHLIST) {
+                    scope.launch { drawerState.close() }
+                    navController.navigate(NavRoutes.WISHLIST) {
+                        launchSingleTop = true
+                    }
+                }
+                Spacer(Modifier.weight(1f))
+                HorizontalDivider(modifier = Modifier.padding(horizontal = 20.dp))
+                DrawerItem(Icons.Outlined.Logout, stringResource(com.rameswaram.dryfish.R.string.logout), null, false, tint = Color.Red.copy(alpha = 0.7f)) {
+                    scope.launch { drawerState.close() }
+                    authRepository.logout()
+                }
+                Spacer(Modifier.height(16.dp))
             }
-        ) {
-            scaffoldContent()
         }
-    } else {
+    ) {
         scaffoldContent()
     }
 }
