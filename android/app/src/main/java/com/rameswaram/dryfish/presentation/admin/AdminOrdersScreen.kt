@@ -33,9 +33,21 @@ fun AdminOrdersScreen(
     }
 
     var selectedFilter by remember { mutableStateOf<OrderStatus?>(null) }
+    var searchQuery by remember { mutableStateOf("") }
 
     val filteredOrders = if (selectedFilter == null) uiState.orders
     else uiState.orders.filter { it.status == selectedFilter }
+
+    val searchedOrders = remember(filteredOrders, searchQuery) {
+        if (searchQuery.isBlank()) filteredOrders
+        else filteredOrders.filter { order ->
+            order.shippingAddress.name.contains(searchQuery, ignoreCase = true) ||
+            order.shippingAddress.phone.contains(searchQuery, ignoreCase = true) ||
+            order.orderNumber.contains(searchQuery, ignoreCase = true) ||
+            order.shippingAddress.city.contains(searchQuery, ignoreCase = true) ||
+            order.items.any { it.productName.contains(searchQuery, ignoreCase = true) }
+        }
+    }
 
     Scaffold(
         topBar = {
@@ -83,6 +95,24 @@ fun AdminOrdersScreen(
                 }
             }
 
+            OutlinedTextField(
+                value = searchQuery,
+                onValueChange = { searchQuery = it },
+                placeholder = { Text("Search by name, phone, order#...") },
+                leadingIcon = { Icon(Icons.Default.Search, contentDescription = null) },
+                trailingIcon = {
+                    if (searchQuery.isNotEmpty())
+                        IconButton(onClick = { searchQuery = "" }) {
+                            Icon(Icons.Default.Clear, contentDescription = "Clear")
+                        }
+                },
+                modifier = Modifier.fillMaxWidth().padding(horizontal = 12.dp, vertical = 4.dp),
+                singleLine = true,
+                colors = OutlinedTextFieldDefaults.colors(
+                    unfocusedBorderColor = MaterialTheme.colorScheme.outline.copy(alpha = 0.5f)
+                )
+            )
+
             if (uiState.isLoading && uiState.orders.isEmpty()) {
                 Box(
                     modifier = Modifier.fillMaxSize(),
@@ -90,7 +120,7 @@ fun AdminOrdersScreen(
                 ) {
                     CircularProgressIndicator()
                 }
-            } else if (filteredOrders.isEmpty()) {
+            } else if (searchedOrders.isEmpty()) {
                 Box(
                     modifier = Modifier.fillMaxSize(),
                     contentAlignment = Alignment.Center
@@ -108,7 +138,7 @@ fun AdminOrdersScreen(
                     contentPadding = PaddingValues(16.dp),
                     verticalArrangement = Arrangement.spacedBy(12.dp)
                 ) {
-                    items(filteredOrders, key = { it.id }) { order ->
+                    items(searchedOrders, key = { it.id }) { order ->
                         OrderCard(
                             order = order,
                             onStatusChange = { status ->

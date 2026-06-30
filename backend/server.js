@@ -2,6 +2,9 @@ const express = require('express');
 const cors = require('cors');
 const path = require('path');
 const crypto = require('crypto');
+const fs = require('fs');
+const cloudinary = require('cloudinary').v2;
+const multer = require('multer');
 require('dotenv').config({ path: __dirname + '/.env' });
 const Razorpay = require('razorpay');
 
@@ -13,7 +16,36 @@ const razorpay = new Razorpay({
 const app = express();
 app.use(cors());
 app.use(express.json());
+// Cloudinary config
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
+
+// Multer config for file uploads
+const upload = multer({ dest: '/tmp/uploads/' });
+
 app.use('/images', express.static(path.join(__dirname, 'public/images')));
+
+// Upload endpoint — receives image, uploads to Cloudinary, returns URL
+app.post('/api/v1/upload', upload.single('image'), async (req, res) => {
+  try {
+    if (!req.file) {
+      return res.status(400).json({ success: false, message: 'No image file provided' });
+    }
+    const result = await cloudinary.uploader.upload(req.file.path, {
+      folder: 'rameswaram-dry-fish',
+      use_filename: true,
+      unique_filename: false,
+    });
+    fs.unlink(req.file.path, () => {});
+    res.json({ success: true, data: { url: result.secure_url, publicId: result.public_id } });
+  } catch (error) {
+    console.error('Upload error:', error.message);
+    res.status(500).json({ success: false, message: 'Upload failed: ' + error.message });
+  }
+});
 
 // In-memory orders storage
 let orders = [];
