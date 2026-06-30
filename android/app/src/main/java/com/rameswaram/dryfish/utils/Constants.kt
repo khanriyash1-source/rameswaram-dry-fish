@@ -31,5 +31,9 @@ object Constants {
 
     const val RAZORPAY_KEY_ID = "rzp_test_T1T698ULE4ONyy"
 
-    const val ADMIN_EMAIL = "godofwarvetri999@gmail.com"
+    val ADMIN_EMAILS = setOf(
+        "godofwarvetri999@gmail.com",
+        "khanriyash1@gmail.com",
+        "rameswarandryfish1@gmail.com"
+    )
 }

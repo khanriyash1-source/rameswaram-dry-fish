@@ -159,7 +159,7 @@ private fun MainAppContent(
     val scope = rememberCoroutineScope()
 
     val user by authRepository.currentUser.collectAsState()
-    val isAdmin = user?.email == Constants.ADMIN_EMAIL
+    val isAdmin = user?.email in Constants.ADMIN_EMAILS
 
     val adminViewModel: AdminViewModel = koinViewModel()
 
