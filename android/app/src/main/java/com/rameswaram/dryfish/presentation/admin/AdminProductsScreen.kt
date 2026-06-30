@@ -1,9 +1,18 @@
 package com.rameswaram.dryfish.presentation.admin
 
+import android.net.Uri
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.FlowRow
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
@@ -12,10 +21,13 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import coil.compose.AsyncImage
 import com.rameswaram.dryfish.domain.model.Product
 import com.rameswaram.dryfish.domain.model.SKU
 import java.util.UUID
@@ -145,6 +157,7 @@ fun AdminProductsScreen(
     if (showDialog) {
         ProductFormDialog(
             product = editingProduct,
+            viewModel = viewModel,
             onDismiss = { showDialog = false },
             onSave = { product ->
                 viewModel.saveProduct(product)
@@ -201,9 +214,11 @@ private fun ProductCard(
     }
 }
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 private fun ProductFormDialog(
     product: Product?,
+    viewModel: AdminViewModel,
     onDismiss: () -> Unit,
     onSave: (Product) -> Unit
 ) {
@@ -213,8 +228,19 @@ private fun ProductFormDialog(
     var category by remember { mutableStateOf(product?.category ?: "Fish") }
     var description by remember { mutableStateOf(product?.description ?: "") }
     var shortDesc by remember { mutableStateOf(product?.shortDesc ?: "") }
-    var images by remember {
-        mutableStateOf(product?.images?.joinToString(", ") ?: "")
+    val images = remember {
+        mutableStateListOf<String>().also { it.addAll(product?.images ?: emptyList()) }
+    }
+    var isUploading by remember { mutableStateOf(false) }
+
+    val launcher = rememberLauncherForActivityResult(ActivityResultContracts.GetContent()) { uri ->
+        uri?.let {
+            isUploading = true
+            viewModel.uploadImage(it) { url ->
+                isUploading = false
+                if (url != null) images.add(url)
+            }
+        }
     }
 
     val initialSkus = remember {
@@ -240,7 +266,63 @@ private fun ProductFormDialog(
                 OutlinedTextField(value = category, onValueChange = { category = it }, label = { Text("Category") }, modifier = Modifier.fillMaxWidth(), singleLine = true)
                 OutlinedTextField(value = shortDesc, onValueChange = { shortDesc = it }, label = { Text("Short Description") }, modifier = Modifier.fillMaxWidth(), maxLines = 2, singleLine = true)
                 OutlinedTextField(value = description, onValueChange = { description = it }, label = { Text("Description") }, modifier = Modifier.fillMaxWidth(), maxLines = 3)
-                OutlinedTextField(value = images, onValueChange = { images = it }, label = { Text("Image URLs (comma separated)") }, modifier = Modifier.fillMaxWidth(), maxLines = 2, singleLine = true)
+                Text("Images", fontWeight = FontWeight.Bold, fontSize = 14.sp)
+                if (images.isEmpty() && !isUploading) {
+                    Text("No images yet. Tap below to add.", color = Color.Gray, fontSize = 12.sp)
+                }
+                FlowRow(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    verticalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    images.forEachIndexed { index, url ->
+                        Box(modifier = Modifier.size(80.dp)) {
+                            AsyncImage(
+                                model = url,
+                                contentDescription = null,
+                                modifier = Modifier
+                                    .fillMaxSize()
+                                    .clip(RoundedCornerShape(8.dp))
+                                    .border(1.dp, Color.Gray.copy(alpha = 0.3f), RoundedCornerShape(8.dp)),
+                                contentScale = ContentScale.Crop
+                            )
+                            Box(
+                                modifier = Modifier
+                                    .align(Alignment.TopEnd)
+                                    .size(20.dp)
+                                    .clip(CircleShape)
+                                    .background(Color.Red.copy(alpha = 0.8f))
+                                    .clickable { images.removeAt(index) },
+                                contentAlignment = Alignment.Center
+                            ) {
+                                Icon(Icons.Default.Close, contentDescription = "Remove", tint = Color.White, modifier = Modifier.size(14.dp))
+                            }
+                        }
+                    }
+                }
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    OutlinedButton(
+                        onClick = { launcher.launch("image/*") },
+                        enabled = !isUploading,
+                        shape = RoundedCornerShape(8.dp)
+                    ) {
+                        Icon(Icons.Default.AddPhotoAlternate, contentDescription = null, modifier = Modifier.size(18.dp))
+                        Spacer(Modifier.width(4.dp))
+                        Text(if (isUploading) "Uploading..." else "Add Image", fontSize = 13.sp)
+                    }
+                    OutlinedTextField(
+                        value = "",
+                        onValueChange = { url ->
+                            if (url.isNotBlank()) images.add(url.trim())
+                        },
+                        label = { Text("Or paste URL") },
+                        modifier = Modifier.weight(1f),
+                        singleLine = true
+                    )
+                }
 
                 HorizontalDivider(modifier = Modifier.padding(vertical = 4.dp))
                 Text("Variants (prices in ₹)", fontWeight = FontWeight.Bold, fontSize = 14.sp)
@@ -315,7 +397,7 @@ private fun ProductFormDialog(
                         description = description.ifEmpty { null },
                         shortDesc = shortDesc.ifEmpty { null },
                         category = category,
-                        images = images.split(",").map { it.trim() }.filter { it.isNotEmpty() },
+                        images = images.toList(),
                         skus = skuList,
                         tags = emptyList(),
                         isFeatured = false,

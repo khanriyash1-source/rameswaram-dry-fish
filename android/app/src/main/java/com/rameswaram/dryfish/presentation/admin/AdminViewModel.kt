@@ -1,5 +1,6 @@
 package com.rameswaram.dryfish.presentation.admin
 
+import android.net.Uri
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -99,6 +100,20 @@ class AdminViewModel(
                     error = result.message, isLoading = false
                 )
                 else -> {}
+            }
+        }
+    }
+
+    fun uploadImage(uri: Uri, onResult: (String?) -> Unit) {
+        viewModelScope.launch {
+            _uiState.value = _uiState.value.copy(error = null)
+            when (val result = adminRepository.uploadImage(uri)) {
+                is Resource.Success -> onResult(result.data)
+                is Resource.Error -> {
+                    _uiState.value = _uiState.value.copy(error = result.message)
+                    onResult(null)
+                }
+                else -> onResult(null)
             }
         }
     }

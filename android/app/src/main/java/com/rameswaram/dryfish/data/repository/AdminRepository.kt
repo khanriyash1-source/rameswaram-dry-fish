@@ -1,6 +1,7 @@
 package com.rameswaram.dryfish.data.repository
 
 import android.content.Context
+import android.net.Uri
 import android.util.Log
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.gson.Gson
@@ -12,7 +13,16 @@ import com.rameswaram.dryfish.domain.model.SKU
 import com.rameswaram.dryfish.domain.model.User
 import com.rameswaram.dryfish.utils.Constants
 import com.rameswaram.dryfish.utils.Resource
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.tasks.await
+import kotlinx.coroutines.withContext
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.MultipartBody
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import okhttp3.RequestBody.Companion.toRequestBody
+import org.json.JSONObject
+import java.util.concurrent.TimeUnit
 
 class AdminRepository(
     private val firestore: FirebaseFirestore,
@@ -94,6 +104,55 @@ class AdminRepository(
         } catch (e: Exception) {
             Log.e(TAG, "saveProduct: FAILED: ${e.message}", e)
             Resource.Error(e.message ?: "Failed to save product")
+        }
+    }
+
+    suspend fun uploadImage(uri: Uri): Resource<String> {
+        return try {
+            Log.d(TAG, "uploadImage: uri=$uri")
+            val inputStream = context.contentResolver.openInputStream(uri)
+                ?: return Resource.Error("Cannot open image")
+            val bytes = inputStream.readBytes()
+            inputStream.close()
+
+            val requestBody = bytes.toRequestBody("image/*".toMediaTypeOrNull())
+            val multipart = MultipartBody.Part.createFormData("image", "upload.jpg", requestBody)
+
+            val client = OkHttpClient.Builder()
+                .connectTimeout(30, TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
+                .writeTimeout(60, TimeUnit.SECONDS)
+                .build()
+
+            val body = MultipartBody.Builder()
+                .setType(MultipartBody.FORM)
+                .addPart(multipart)
+                .build()
+
+            val request = Request.Builder()
+                .url("${Constants.BASE_URL}upload")
+                .post(body)
+                .build()
+
+            val response = withContext(Dispatchers.IO) { client.newCall(request).execute() }
+            val responseBody = response.body?.string()
+
+            if (response.isSuccessful && responseBody != null) {
+                val json = JSONObject(responseBody)
+                if (json.getBoolean("success")) {
+                    val data = json.getJSONObject("data")
+                    val url = data.getString("url")
+                    Log.d(TAG, "uploadImage: SUCCESS url=$url")
+                    Resource.Success(url)
+                } else {
+                    Resource.Error(json.optString("message", "Upload failed"))
+                }
+            } else {
+                Resource.Error("Upload failed: HTTP ${response.code}")
+            }
+        } catch (e: Exception) {
+            Log.e(TAG, "uploadImage: FAILED: ${e.message}", e)
+            Resource.Error("Upload error: ${e.message}")
         }
     }
 
