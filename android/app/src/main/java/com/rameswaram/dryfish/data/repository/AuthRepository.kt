@@ -69,44 +69,54 @@ class AuthRepository(
         email: String? = null,
         photoUrl: String? = null
     ): Resource<User> {
-        return try {
-            val response = apiService.googleLogin(mapOf("token" to idToken))
-            if (!response.isSuccessful || response.body()?.success != true) {
-                return Resource.Error(response.body()?.message ?: "Server login failed")
-            }
+        val localUserId = googleUserId ?: idToken.hashCode().toString()
+        val user = User(
+            id = localUserId,
+            name = displayName ?: "User",
+            email = email ?: "",
+            phone = null,
+            avatar = photoUrl
+        )
 
-            val body = response.body() ?: return Resource.Error("Empty response from server")
-            val backendUser = body.data ?: return Resource.Error("Empty user data from server")
-            val localUserId = googleUserId ?: email ?: backendUser.email ?: backendUser.id
-            val user = backendUser.copy(
-                id = localUserId,
-                name = displayName ?: backendUser.name,
-                email = email ?: backendUser.email,
-                avatar = photoUrl ?: backendUser.avatar
-            )
+        saveLocalCache(user)
+        _currentUser.value = user
+        _isLoggedIn.value = true
 
-            saveLocalCache(user)
-            _currentUser.value = user
-            _isLoggedIn.value = true
-            CoroutineScope(Dispatchers.IO).launch {
-                try {
-                    val credential = GoogleAuthProvider.getCredential(idToken, null)
-                    firebaseAuth.signInWithCredential(credential).await()
-                    Log.d("DryFishAuth", "Firebase Auth sign-in: SUCCESS")
-                } catch (e: Exception) {
-                    Log.e("DryFishAuth", "Firebase Auth sign-in: FAILED: ${e.message}", e)
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val response = apiService.googleLogin(mapOf("token" to idToken))
+                if (response.isSuccessful && response.body()?.success == true) {
+                    val backendUser = response.body()?.data
+                    if (backendUser != null) {
+                        val merged = user.copy(
+                            name = user.name.ifEmpty { backendUser.name },
+                            email = user.email.ifEmpty { backendUser.email },
+                            phone = backendUser.phone,
+                            avatar = user.avatar ?: backendUser.avatar
+                        )
+                        saveLocalCache(merged)
+                        _currentUser.value = merged
+                    }
                 }
-                val firestoreResult = firestoreRepository.saveUser(user)
-                if (firestoreResult is Resource.Error) {
-                    Log.e("DryFishAuth", "Firestore saveUser: FAILED: ${firestoreResult.message}")
-                } else {
-                    Log.d("DryFishAuth", "Firestore saveUser: SUCCESS")
-                }
+            } catch (e: Exception) {
+                Log.e("DryFishAuth", "Backend login failed: ${e.message}", e)
             }
-            Resource.Success(user)
-        } catch (e: Exception) {
-            Resource.Error(e.message ?: "Google sign-in failed")
+            try {
+                val credential = GoogleAuthProvider.getCredential(idToken, null)
+                firebaseAuth.signInWithCredential(credential).await()
+                Log.d("DryFishAuth", "Firebase Auth sign-in: SUCCESS")
+            } catch (e: Exception) {
+                Log.e("DryFishAuth", "Firebase Auth sign-in: FAILED: ${e.message}", e)
+            }
+            val firestoreResult = firestoreRepository.saveUser(user)
+            if (firestoreResult is Resource.Error) {
+                Log.e("DryFishAuth", "Firestore saveUser: FAILED: ${firestoreResult.message}")
+            } else {
+                Log.d("DryFishAuth", "Firestore saveUser: SUCCESS")
+            }
         }
+
+        return Resource.Success(user)
     }
 
     fun logout() {

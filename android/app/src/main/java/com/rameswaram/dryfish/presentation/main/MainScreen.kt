@@ -198,20 +198,22 @@ private fun MainAppContent(
     val scaffoldContent = @Composable {
         Scaffold(
             bottomBar = {
-                if (showBottomBar) {
-                    if (isAdmin) {
-                        AnimatedBottomNavBar(
-                            navController = navController,
-                            isTamil = isTamil.value,
-                            items = adminNavItems
-                        )
-                    } else {
-                        AnimatedBottomNavBar(
-                            navController = navController,
-                            cartItemCount = cartItemCount,
-                            isTamil = isTamil.value,
-                            items = defaultNavItems(cartItemCount)
-                        )
+                Box(Modifier.height(64.dp)) {
+                    if (showBottomBar) {
+                        if (isAdmin) {
+                            AnimatedBottomNavBar(
+                                navController = navController,
+                                isTamil = isTamil.value,
+                                items = adminNavItems
+                            )
+                        } else {
+                            AnimatedBottomNavBar(
+                                navController = navController,
+                                cartItemCount = cartItemCount,
+                                isTamil = isTamil.value,
+                                items = defaultNavItems(cartItemCount)
+                            )
+                        }
                     }
                 }
             }
