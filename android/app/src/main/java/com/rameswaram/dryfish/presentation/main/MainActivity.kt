@@ -42,7 +42,7 @@ class MainActivity : ComponentActivity(), PaymentResultListener {
         val cartRepository: CartRepository = get(CartRepository::class.java)
 
         setContent {
-            RameswaramTheme {
+            RameswaramTheme(darkTheme = false) {
                 Surface(modifier = Modifier.fillMaxSize()) {
                     MainScreen(
                         authRepository = authRepository,
