@@ -163,6 +163,25 @@ function layout(title, body) {
 }
 
 app.get('/', (req, res) => {
+  const featured = products.slice(0, 8);
+
+  const featuredCards = featured.map(p => {
+    const img = p.images?.[0] ? (imageMap[p.images[0]] || '') : '';
+    const cheapest = [...p.skus].filter(s => s.isAvailable !== false).sort((a, b) => a.price - b.price)[0];
+    const price = cheapest ? toRupees(cheapest.price) : '';
+    return `<div class="prod-card">
+      <img src="${img}" alt="${p.name}" loading="lazy" onerror="this.style.display='none'">
+      <div class="body">
+        <div class="name-ta">${p.nameTamil || p.name}</div>
+        <div class="name-en">${p.name}</div>
+        <span class="cat">${p.category}</span>
+        <div class="skus" style="padding-top:8px;border:none">
+          <div class="sku-row"><span class="weight">Starting from</span><span class="price">${price}</span></div>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+
   res.send(layout('Home', `
   <section class="hero">
     <div class="container">
@@ -172,17 +191,23 @@ app.get('/', (req, res) => {
   </section>
   <section class="section">
     <div class="container">
-      <h3>Our Products</h3>
+      <h3>Shop by Category</h3>
       <div class="grid">
-        <div class="card"><h4>Fish</h4><p>Nethili, Koduva, Vanjiram, Kola, Ayirai & more</p></div>
-        <div class="card"><h4>Prawns</h4><p>Kaintha Iraal — cleaned & sun-dried</p></div>
-        <div class="card"><h4>Squid</h4><p>Kanava / Squid — premium quality</p></div>
-        <div class="card"><h4>Crab</h4><p>Nandu — naturally dried</p></div>
-        <div class="card"><h4>Lobster</h4><p>Fresh dried lobster from Gulf of Mannar</p></div>
-        <div class="card"><h4>Combos</h4><p>Value combo packs for families</p></div>
+        <div class="card"><h4>🐟 Fish</h4><p>Nethili, Koduva, Vanjiram, Kola, Ayirai & more</p></div>
+        <div class="card"><h4>🦐 Prawns</h4><p>Kaintha Iraal — cleaned & sun-dried</p></div>
+        <div class="card"><h4>🦑 Squid</h4><p>Kanava / Squid — premium quality</p></div>
+        <div class="card"><h4>🦀 Crab</h4><p>Nandu — naturally dried</p></div>
+        <div class="card"><h4>🦞 Lobster</h4><p>Fresh dried lobster from Gulf of Mannar</p></div>
+        <div class="card"><h4>📦 Combos</h4><p>Value combo packs for families</p></div>
       </div>
-      <div style="text-align:center;margin-top:20px">
-        <a href="/products" style="display:inline-block;background:#1565c0;color:#fff;padding:12px 32px;border-radius:8px;text-decoration:none;font-weight:600;font-size:16px">View All Products with Prices</a>
+    </div>
+  </section>
+  <section class="section" style="background:#f5f7fa;">
+    <div class="container">
+      <h3>Featured Products with Prices</h3>
+      <div class="prod-grid">${featuredCards}</div>
+      <div style="text-align:center;margin-top:28px">
+        <a href="/products" style="display:inline-block;background:#1565c0;color:#fff;padding:14px 40px;border-radius:8px;text-decoration:none;font-weight:700;font-size:16px">View All ${products.length} Products with Prices →</a>
       </div>
     </div>
   </section>
