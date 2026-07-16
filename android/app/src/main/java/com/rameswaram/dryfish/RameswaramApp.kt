@@ -65,7 +65,7 @@ class RameswaramApp : Application(), ImageLoaderFactory {
                     .maxSizeBytes(50 * 1024 * 1024)
                     .build()
             }
-            .crossfade(true)
+            .crossfade(false)
             .build()
     }
 }

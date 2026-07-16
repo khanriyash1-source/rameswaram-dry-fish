@@ -1,6 +1,7 @@
 package com.rameswaram.dryfish.presentation.shop
 
 import androidx.compose.foundation.*
+import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.GridCells
@@ -24,10 +25,12 @@ import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.unit.IntOffset
 import coil.compose.SubcomposeAsyncImage
 import com.rameswaram.dryfish.R
 import com.rameswaram.dryfish.domain.model.Product
@@ -47,12 +50,20 @@ fun ShopScreen(
 ) {
     val uiState by viewModel.uiState.collectAsState()
     val isLoading = uiState.isLoading && uiState.products.isEmpty()
+    var searchQuery by remember { mutableStateOf("") }
+    val filteredProducts = remember(searchQuery, uiState.products) {
+        if (searchQuery.isBlank()) uiState.products
+        else uiState.products.filter {
+            it.nameEn.contains(searchQuery, ignoreCase = true) ||
+            it.nameTa.contains(searchQuery, ignoreCase = true)
+        }
+    }
 
     Scaffold(
         topBar = {
             Surface(
                 color = CoastalTeal,
-                shadowElevation = 4.dp
+                shadowElevation = 0.dp
             ) {
                 Column(
                     modifier = Modifier.windowInsetsPadding(WindowInsets.statusBars)
@@ -61,7 +72,7 @@ fun ShopScreen(
                     Box(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .height(56.dp)
+                            .height(100.dp)
                     ) {
                         // Menu icon - left
                         IconButton(
@@ -82,9 +93,9 @@ fun ShopScreen(
                             contentDescription = "Logo",
                             contentScale = ContentScale.Fit,
                             modifier = Modifier
-                                .height(44.dp)
-                                .width(120.dp)
-                                .align(Alignment.Center)
+                                .height(100.dp)
+                                .width(258.dp)
+                                .align(Alignment.TopCenter)
                         )
 
                         // Cart icon - right
@@ -125,7 +136,8 @@ fun ShopScreen(
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(horizontal = 16.dp, vertical = 8.dp),
+                            .padding(horizontal = 16.dp, vertical = 0.dp)
+                            .offset { IntOffset(0, (-12).dp.roundToPx()) },
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         Surface(
@@ -137,22 +149,36 @@ fun ShopScreen(
                             Row(
                                 modifier = Modifier
                                     .fillMaxWidth()
-                                    .height(44.dp)
-                                    .padding(horizontal = 12.dp),
+                                    .height(36.dp)
+                                    .padding(horizontal = 8.dp),
                                 verticalAlignment = Alignment.CenterVertically
                             ) {
                                 Icon(
                                     imageVector = Icons.Default.Search,
                                     contentDescription = "Search",
                                     tint = Color.Gray,
-                                    modifier = Modifier.size(22.dp)
+                                    modifier = Modifier.size(18.dp)
                                 )
-                                Spacer(modifier = Modifier.width(8.dp))
-                                        Text(
-                                            text = stringResource(R.string.search_dry_fish_products),
-                                            fontSize = 14.sp,
-                                            color = Color.Gray
-                                        )
+                                Spacer(modifier = Modifier.width(4.dp))
+                                BasicTextField(
+                                    value = searchQuery,
+                                    onValueChange = { searchQuery = it },
+                                    modifier = Modifier.fillMaxWidth(),
+                                    singleLine = true,
+                                    textStyle = TextStyle(fontSize = 13.sp, color = Color.Black),
+                                    decorationBox = @Composable { innerTextField ->
+                                        Box(modifier = Modifier.fillMaxWidth()) {
+                                            if (searchQuery.isEmpty()) {
+                                                Text(
+                                                    text = stringResource(R.string.search_dry_fish_products),
+                                                    fontSize = 13.sp,
+                                                    color = Color.Gray
+                                                )
+                                            }
+                                            innerTextField()
+                                        }
+                                    }
+                                )
                             }
                         }
                     }
@@ -173,7 +199,7 @@ fun ShopScreen(
                         )
                         Spacer(modifier = Modifier.width(4.dp))
                         Text(
-                            text = stringResource(R.string.deliver_to_chennai),
+                            text = stringResource(R.string.deliver_to_tamilnadu),
                             fontSize = 12.sp,
                             color = Color.White,
                             fontWeight = FontWeight.Medium
@@ -194,7 +220,7 @@ fun ShopScreen(
                 isLoading -> {
                     ShimmerGrid()
                 }
-                uiState.products.isEmpty() -> {
+                filteredProducts.isEmpty() -> {
                     Box(
                         modifier = Modifier.fillMaxSize(),
                         contentAlignment = Alignment.Center
@@ -211,7 +237,7 @@ fun ShopScreen(
                         verticalArrangement = Arrangement.spacedBy(12.dp)
                     ) {
                         itemsIndexed(
-                            items = uiState.products,
+                            items = filteredProducts,
                             key = { _, p -> p.id }
                         ) { index, product ->
                             ProductCard(
@@ -226,6 +252,7 @@ fun ShopScreen(
             }
         }
     }
+
 }
 
 @Composable

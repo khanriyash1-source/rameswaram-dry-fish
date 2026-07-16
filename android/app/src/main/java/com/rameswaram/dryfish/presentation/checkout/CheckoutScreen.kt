@@ -930,7 +930,6 @@ private fun openRazorpayCheckout(context: android.content.Context, order: Razorp
     val activity = context as? androidx.activity.ComponentActivity ?: return
     try {
         val options = JSONObject().apply {
-            put("key_id", order.keyId)
             put("amount", order.amount)
             put("currency", order.currency)
             put("order_id", order.orderId)

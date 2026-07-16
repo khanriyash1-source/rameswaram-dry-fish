@@ -27,7 +27,6 @@ class ShopViewModel(
     val uiState: StateFlow<ShopUiState> = _uiState.asStateFlow()
 
     init {
-        viewModelScope.launch { productRepository.refreshFromFirestore() }
         loadProducts()
         refreshWishlist()
     }

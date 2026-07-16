@@ -50,6 +50,7 @@
     <string name="menu">மெனு</string>
     <string name="search_dry_fish_products">உலர் மீன் தயாரிப்புகளை தேடு...</string>
     <string name="deliver_to_chennai">சென்னைக்கு டெலிவரி</string>
+    <string name="deliver_to_tamilnadu">தமிழ்நாட்டிற்கு டெலிவரி</string>
     <string name="no_products_found">தயாரிப்புகள் எதுவும் இல்லை</string>
     <string name="order_status_pending">நிலுவையில்</string>
     <string name="order_status_processing">செயலாக்கம்</string>

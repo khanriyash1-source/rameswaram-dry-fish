@@ -437,6 +437,7 @@ private fun MainAppContent(
                         authRepository.logout()
                     }
                     Spacer(Modifier.height(16.dp))
+                    Spacer(Modifier.windowInsetsBottomHeight(WindowInsets.navigationBars))
                 }
             }
         }
@@ -451,9 +452,9 @@ private fun DrawerHeader(name: String, email: String, avatar: String) {
         modifier = Modifier
             .fillMaxWidth()
             .background(
-                Brush.verticalGradient(colors = listOf(CoastalTeal, Seafoam)),
-                shape = RoundedCornerShape(topEnd = 24.dp)
+                Brush.verticalGradient(colors = listOf(CoastalTeal, Seafoam))
             )
+            .statusBarsPadding()
             .padding(24.dp)
     ) {
         Column {

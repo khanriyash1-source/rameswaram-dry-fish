@@ -29,8 +29,6 @@ object Constants {
     const val DELIVERY_CHARGE = 5000.0
     const val FREE_DELIVERY_MIN = 20000.0
 
-    const val RAZORPAY_KEY_ID = "rzp_test_T1T698ULE4ONyy"
-
     val ADMIN_EMAILS = setOf(
         "godofwarvetri999@gmail.com",
         "khanriyash1@gmail.com",

@@ -247,75 +247,113 @@ class CheckoutViewModel(
     }
 
     private fun onPaymentSuccess(orderId: String, paymentId: String, backendOrder: Order?) {
+        Log.d("DryFishCheckout", "onPaymentSuccess: orderId=$orderId paymentId=$paymentId")
+        if (paymentId.isBlank()) {
+            Log.e("DryFishCheckout", "onPaymentSuccess: EMPTY paymentId — rejecting")
+            _uiState.value = _uiState.value.copy(
+                isPlacingOrder = false,
+                paymentStep = "",
+                pendingBackendOrder = null,
+                pendingRazorpayOrder = null,
+                error = "Payment callback missing payment ID. Please try again."
+            )
+            return
+        }
         viewModelScope.launch {
-            Log.d("DryFishCheckout", "onPaymentSuccess: orderId=$orderId paymentId=$paymentId backendOrder=${backendOrder?.id}")
-            _uiState.value = _uiState.value.copy(paymentStep = "Verifying payment...")
             doVerifyAndFinalize(orderId, paymentId, backendOrder)
         }
     }
 
     private suspend fun doVerifyAndFinalize(orderId: String, paymentId: String, backendOrder: Order?) {
-        val verificationRequest = PaymentVerificationRequest(
-            razorpay_order_id = orderId,
-            razorpay_payment_id = paymentId,
-            razorpay_signature = ""
+        // Retry with delay — Razorpay UPI status can be 'pending' immediately after
+        // the UPI app shows a result. Wait up to 15 seconds for the status to settle.
+        var attempt = 0
+        val maxAttempts = 5
+        var verifiedPaymentId: String? = null
+
+        while (attempt < maxAttempts && verifiedPaymentId == null) {
+            attempt++
+            Log.d("DryFishCheckout", "verify attempt $attempt/$maxAttempts")
+            val verificationRequest = PaymentVerificationRequest(
+                razorpay_order_id = orderId,
+                razorpay_payment_id = paymentId,
+                razorpay_signature = ""
+            )
+
+            when (val result = orderRepository.verifyPayment(verificationRequest)) {
+                is Resource.Success -> {
+                    verifiedPaymentId = result.data
+                    Log.d("DryFishCheckout", "verifyPayment SUCCESS on attempt $attempt")
+                }
+                is Resource.Error -> {
+                    if (result.message.contains("pending", ignoreCase = true)) {
+                        Log.d("DryFishCheckout", "verifyPayment pending — retrying in 3s")
+                        kotlinx.coroutines.delay(3000L)
+                    } else {
+                        Log.e("DryFishCheckout", "verifyPayment FAILED: ${result.message}")
+                        _uiState.value = _uiState.value.copy(
+                            isPlacingOrder = false,
+                            paymentStep = "",
+                            error = "Payment verification failed: ${result.message}"
+                        )
+                        return
+                    }
+                }
+                is Resource.Loading -> {}
+            }
+        }
+
+        if (verifiedPaymentId == null) {
+            _uiState.value = _uiState.value.copy(
+                isPlacingOrder = false,
+                paymentStep = "",
+                error = "Payment could not be verified after multiple attempts. Please try again."
+            )
+            return
+        }
+
+        val enrichedOrder = backendOrder?.copy(
+            items = uiState.value.cartItems.map { cartItem ->
+                OrderItem(
+                    productId = cartItem.productId,
+                    productName = cartItem.productName,
+                    productImage = cartItem.productImage,
+                    weight = cartItem.weight,
+                    quantity = cartItem.quantity,
+                    price = cartItem.price
+                )
+            },
+            shippingAddress = uiState.value.selectedAddress ?: backendOrder.shippingAddress,
+            paymentStatus = "PAID",
+            paymentId = verifiedPaymentId
         )
 
-        when (val result = orderRepository.verifyPayment(verificationRequest)) {
+        if (enrichedOrder == null) {
+            _uiState.value = _uiState.value.copy(
+                isPlacingOrder = false,
+                paymentStep = "",
+                error = "Order data missing. Please try again."
+            )
+            return
+        }
+
+        when (orderRepository.finalizeOrder(enrichedOrder)) {
             is Resource.Success -> {
-                val verifiedPaymentId = result.data
-                Log.d("DryFishCheckout", "verifyPayment SUCCESS, paymentId=$verifiedPaymentId")
-                val enrichedOrder = backendOrder?.copy(
-                    items = uiState.value.cartItems.map { cartItem ->
-                        OrderItem(
-                            productId = cartItem.productId,
-                            productName = cartItem.productName,
-                            productImage = cartItem.productImage,
-                            weight = cartItem.weight,
-                            quantity = cartItem.quantity,
-                            price = cartItem.price
-                        )
-                    },
-                    shippingAddress = uiState.value.selectedAddress ?: backendOrder.shippingAddress,
-                    paymentStatus = "PAID",
-                    paymentId = verifiedPaymentId
-                )
-                if (enrichedOrder != null) {
-                    when (orderRepository.finalizeOrder(enrichedOrder)) {
-                        is Resource.Success -> {
-                            cartRepository.clearCart()
-                            _uiState.value = _uiState.value.copy(
-                                isPlacingOrder = false,
-                                paymentStep = "",
-                                pendingBackendOrder = null,
-                                pendingRazorpayOrder = null,
-                                orderPlaced = enrichedOrder
-                            )
-                        }
-                        is Resource.Error -> {
-                            Log.e("DryFishCheckout", "finalizeOrder FAILED")
-                            _uiState.value = _uiState.value.copy(
-                                isPlacingOrder = false,
-                                paymentStep = "",
-                                error = "Failed to save order. Please contact support."
-                            )
-                        }
-                        is Resource.Loading -> {}
-                    }
-                } else {
-                    _uiState.value = _uiState.value.copy(
-                        isPlacingOrder = false,
-                        paymentStep = "",
-                        error = "Order data missing. Please try again."
-                    )
-                }
-            }
-            is Resource.Error -> {
-                Log.e("DryFishCheckout", "verifyPayment FAILED: ${result.message}")
+                cartRepository.clearCart()
                 _uiState.value = _uiState.value.copy(
                     isPlacingOrder = false,
                     paymentStep = "",
-                    error = "Payment verification failed. Please try again."
+                    pendingBackendOrder = null,
+                    pendingRazorpayOrder = null,
+                    orderPlaced = enrichedOrder
+                )
+            }
+            is Resource.Error -> {
+                Log.e("DryFishCheckout", "finalizeOrder FAILED")
+                _uiState.value = _uiState.value.copy(
+                    isPlacingOrder = false,
+                    paymentStep = "",
+                    error = "Failed to save order. Please contact support."
                 )
             }
             is Resource.Loading -> {}
@@ -324,36 +362,9 @@ class CheckoutViewModel(
 
     private fun onPaymentError(event: RazorpayEvent.Error) {
         Log.e("DryFishCheckout", "onPaymentError: code=${event.code} response=${event.response}")
-        // Razorpay SDK sometimes fires onPaymentError even when payment was captured.
-        // Try server-side verification with just the order_id before giving up.
-        val state = _uiState.value
-        val razorpayOrder = state.pendingRazorpayOrder
-        if (razorpayOrder != null) {
-            // Try to extract payment_id from error response (Razorpay sometimes includes it)
-            var recoveryPaymentId = ""
-            try {
-                val json = org.json.JSONObject(event.response)
-                val metadata = json.optJSONObject("metadata")
-                if (metadata != null) {
-                    recoveryPaymentId = metadata.optString("payment_id", "")
-                }
-            } catch (_: Exception) {}
-            // Also try matching a pay_ pattern in the response string
-            if (recoveryPaymentId.isBlank()) {
-                val match = """pay_[A-Za-z0-9]+""".toRegex().find(event.response)
-                if (match != null) recoveryPaymentId = match.value
-            }
-
-            viewModelScope.launch {
-                _uiState.value = _uiState.value.copy(paymentStep = "Verifying payment...")
-                doVerifyAndFinalize(razorpayOrder.orderId, recoveryPaymentId, state.pendingBackendOrder)
-                if (_uiState.value.orderPlaced == null && _uiState.value.error == null) {
-                    showPaymentError(event)
-                }
-            }
-        } else {
-            showPaymentError(event)
-        }
+        // NEVER try to recover from an error — Razorpay SDK callbacks are unreliable.
+        // If the payment was actually successful, Razorpay would have fired onPaymentSuccess.
+        showPaymentError(event)
     }
 
     private fun showPaymentError(event: RazorpayEvent.Error) {
@@ -385,7 +396,11 @@ class CheckoutViewModel(
     }
 
     fun clearError() {
-        _uiState.value = _uiState.value.copy(error = null)
+        _uiState.value = _uiState.value.copy(
+            error = null,
+            pendingBackendOrder = null,
+            pendingRazorpayOrder = null
+        )
     }
 
     override fun onCleared() {

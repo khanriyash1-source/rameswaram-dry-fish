@@ -7,6 +7,7 @@ import com.rameswaram.dryfish.domain.model.SKU
 import com.rameswaram.dryfish.utils.Resource
 import android.util.Log
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.gson.Gson
 import kotlinx.coroutines.tasks.await
 
 class ProductRepository(
@@ -15,6 +16,7 @@ class ProductRepository(
 ) {
     companion object {
         private const val TAG = "DryFishProductRepo"
+        private val gson = Gson()
     }
 
     private var firestoreProducts: List<Product>? = null

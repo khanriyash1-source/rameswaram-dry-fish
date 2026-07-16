@@ -1,10 +1,8 @@
 package com.rameswaram.dryfish.presentation.admin
 
-import android.graphics.BitmapFactory
 import android.net.Uri
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -25,15 +23,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import coil.compose.AsyncImage
+import coil.compose.SubcomposeAsyncImage
 import com.rameswaram.dryfish.domain.model.Product
 import com.rameswaram.dryfish.domain.model.SKU
+import com.rameswaram.dryfish.presentation.common.shimmerLoadingAnimation
 import java.util.UUID
 
 private data class SkuEntry(val weight: String, val price: String, val stock: String, val id: String)
@@ -419,45 +416,36 @@ private fun ProductFormDialog(
 
 @Composable
 private fun ImageThumbnail(url: String) {
-    if (url.startsWith("http")) {
-        AsyncImage(
-            model = url,
-            contentDescription = null,
-            modifier = Modifier
-                .fillMaxSize()
-                .clip(RoundedCornerShape(8.dp))
-                .border(1.dp, Color.Gray.copy(alpha = 0.3f), RoundedCornerShape(8.dp)),
-            contentScale = ContentScale.Crop
-        )
-    } else {
-        val context = LocalContext.current
-        val bitmap = remember(url) {
-            try {
-                val path = url.removePrefix("file:///android_asset/")
-                BitmapFactory.decodeStream(context.assets.open(path))
-            } catch (_: Exception) { null }
-        }
-        if (bitmap != null) {
-            Image(
-                bitmap = bitmap.asImageBitmap(),
-                contentDescription = null,
-                modifier = Modifier
+    val model = url.replace("http://10.0.2.2:4000/images/", "file:///android_asset/images/")
+    SubcomposeAsyncImage(
+        model = model,
+        contentDescription = null,
+        modifier = Modifier
+            .fillMaxSize()
+            .clip(RoundedCornerShape(8.dp))
+            .border(1.dp, Color.Gray.copy(alpha = 0.3f), RoundedCornerShape(8.dp)),
+        contentScale = ContentScale.Crop,
+        loading = {
+            Box(
+                Modifier
                     .fillMaxSize()
-                    .clip(RoundedCornerShape(8.dp))
-                    .border(1.dp, Color.Gray.copy(alpha = 0.3f), RoundedCornerShape(8.dp)),
-                contentScale = ContentScale.Crop
+                    .shimmerLoadingAnimation()
             )
-        } else {
+        },
+        error = {
             Box(
                 modifier = Modifier
                     .fillMaxSize()
-                    .clip(RoundedCornerShape(8.dp))
-                    .background(Color.LightGray.copy(alpha = 0.3f))
-                    .border(1.dp, Color.Gray.copy(alpha = 0.3f), RoundedCornerShape(8.dp)),
+                    .background(Color.LightGray.copy(alpha = 0.3f)),
                 contentAlignment = Alignment.Center
             ) {
-                Text(url.substringAfterLast("/"), fontSize = 8.sp, color = Color.Gray, maxLines = 2)
+                Icon(
+                    Icons.Default.BrokenImage,
+                    contentDescription = null,
+                    tint = Color.Gray,
+                    modifier = Modifier.size(24.dp)
+                )
             }
         }
-    }
+    )
 }

@@ -62,10 +62,38 @@ fun CustomDrawerLayout(
             )
         }
 
-        if (gesturesEnabled && progress <= 0f) {
+        // Drawer content with swipe-to-close
+        Box(
+            Modifier
+                .width(280.dp)
+                .fillMaxHeight()
+                .offset { IntOffset(((progress - 1f) * drawerWidthPx).roundToInt(), 0) }
+                .pointerInput(gesturesEnabled) {
+                    if (gesturesEnabled) {
+                        detectHorizontalDragGestures(
+                            onDragEnd = {
+                                if (anim.value > 0.4f) {
+                                    scope.launch { anim.animateTo(1f); onOpenChanged(true) }
+                                } else {
+                                    scope.launch { anim.animateTo(0f); onOpenChanged(false) }
+                                }
+                            },
+                            onHorizontalDrag = { _, dragAmount ->
+                                val newPos = (anim.value + dragAmount / drawerWidthPx).coerceIn(0f, 1f)
+                                scope.launch { anim.snapTo(newPos) }
+                            }
+                        )
+                    }
+                }
+        ) {
+            drawerContent()
+        }
+
+        // Left edge swipe zone — wider, always active for opening/continuing drag
+        if (gesturesEnabled) {
             Box(
                 Modifier
-                    .width(20.dp)
+                    .width(40.dp)
                     .fillMaxHeight()
                     .pointerInput(Unit) {
                         detectHorizontalDragGestures(
@@ -82,17 +110,7 @@ fun CustomDrawerLayout(
                             }
                         )
                     }
-                    .fillMaxHeight()
             )
-        }
-
-        Box(
-            Modifier
-                .width(280.dp)
-                .fillMaxHeight()
-                .offset { IntOffset(((progress - 1f) * drawerWidthPx).roundToInt(), 0) }
-        ) {
-            drawerContent()
         }
     }
 }

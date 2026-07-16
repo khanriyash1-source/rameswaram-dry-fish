@@ -56,30 +56,33 @@ fun AnimatedBottomNavBar(
         shape = RoundedCornerShape(topStart = 12.dp, topEnd = 12.dp, bottomStart = 12.dp, bottomEnd = 12.dp),
         modifier = modifier.fillMaxWidth()
     ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 12.dp, vertical = 12.dp),
-            horizontalArrangement = Arrangement.SpaceEvenly,
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            items.forEach { item ->
-                val selected = currentRoute == item.route
-                AnimatedNavItem(
-                    item = item,
-                    selected = selected,
-                    isTamil = isTamil,
-                    onClick = {
-                        if (currentRoute != item.route) {
-                            haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove)
-                            navController.navigate(item.route) {
-                                launchSingleTop = true
-                                restoreState = true
+        Column {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 12.dp, vertical = 12.dp),
+                horizontalArrangement = Arrangement.SpaceEvenly,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                items.forEach { item ->
+                    val selected = currentRoute == item.route
+                    AnimatedNavItem(
+                        item = item,
+                        selected = selected,
+                        isTamil = isTamil,
+                        onClick = {
+                            if (currentRoute != item.route) {
+                                haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove)
+                                navController.navigate(item.route) {
+                                    launchSingleTop = true
+                                    restoreState = true
+                                }
                             }
                         }
-                    }
-                )
+                    )
+                }
             }
+            Spacer(Modifier.windowInsetsBottomHeight(WindowInsets.navigationBars))
         }
     }
 }

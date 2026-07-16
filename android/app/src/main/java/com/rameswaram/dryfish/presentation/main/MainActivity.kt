@@ -37,6 +37,7 @@ class MainActivity : ComponentActivity(), PaymentResultListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        window.navigationBarColor = android.graphics.Color.TRANSPARENT
 
         val authRepository: AuthRepository = get(AuthRepository::class.java)
         val cartRepository: CartRepository = get(CartRepository::class.java)

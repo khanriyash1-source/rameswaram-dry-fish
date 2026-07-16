@@ -50,6 +50,7 @@
     <string name="menu">Menu</string>
     <string name="search_dry_fish_products">Search dry fish products...</string>
     <string name="deliver_to_chennai">Deliver to Chennai</string>
+    <string name="deliver_to_tamilnadu">Deliver to Tamilnadu</string>
     <string name="no_products_found">No products found</string>
     <string name="order_status_pending">Pending</string>
     <string name="order_status_processing">Processing</string>

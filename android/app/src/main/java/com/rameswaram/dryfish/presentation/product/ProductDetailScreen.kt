@@ -1,5 +1,11 @@
 package com.rameswaram.dryfish.presentation.product
 
+import android.content.Context
+import android.provider.Settings
+import android.util.DisplayMetrics
+import android.util.Log
+import android.view.WindowManager
+import android.widget.Toast
 import androidx.compose.animation.*
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.*
@@ -23,6 +29,8 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.text.font.FontWeight
@@ -78,278 +86,287 @@ fun ProductDetailScreen(
         }
     }
 
-    Scaffold(
-        snackbarHost = { SnackbarHost(snackbarHostState) },
-        topBar = {
-            CenterAlignedTopAppBar(
-                title = {
-                    if (scrollState.value > 300) {
-                        Text(
-                            text = uiState.product?.name ?: "",
-                            fontWeight = FontWeight.Medium,
-                            maxLines = 1
-                        )
-                    }
-                },
-                navigationIcon = {
-                    FilledIconButton(
-                        onClick = onBack,
-                        modifier = Modifier.padding(start = 8.dp),
-                        colors = IconButtonDefaults.filledIconButtonColors(
-                            containerColor = GlassBlack
-                        )
-                    ) {
-                        Icon(Icons.Default.ArrowBack, contentDescription = "Back", tint = Color.White)
-                    }
-                },
-                actions = {
-                    IconButton(
-                        onClick = { viewModel.toggleWishlist() },
-                        modifier = Modifier.padding(end = 8.dp)
-                    ) {
-                        Icon(
-                            imageVector = if (uiState.isInWishlist) Icons.Filled.Favorite else Icons.Outlined.FavoriteBorder,
-                            contentDescription = "Wishlist",
-                            tint = if (uiState.isInWishlist) SunsetOrange else MaterialTheme.colorScheme.onSurface
-                        )
-                    }
-                },
-                colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-                    containerColor = Color.Transparent
-                )
-            )
-        },
-        bottomBar = {
-            if (uiState.product != null) {
-                ModernBottomBar(
-                    selectedSku = uiState.selectedSku,
-                    quantity = uiState.quantity,
-                    onAddToCart = {
-                        haptic.performHapticFeedback(HapticFeedbackType.LongPress)
-                        viewModel.addToCart()
+    Box(modifier = Modifier.fillMaxSize()) {
+        Scaffold(
+            snackbarHost = { SnackbarHost(snackbarHostState) },
+            topBar = {
+                CenterAlignedTopAppBar(
+                    title = {
+                        if (scrollState.value > 300) {
+                            Text(
+                                text = uiState.product?.name ?: "",
+                                fontWeight = FontWeight.Medium,
+                                maxLines = 1
+                            )
+                        }
                     },
-                    onBuyNow = {
-                        haptic.performHapticFeedback(HapticFeedbackType.LongPress)
-                        viewModel.addToCart()
-                        onAddToCart()
-                    }
-                )
-            }
-        }
-    ) { padding ->
-        when {
-            uiState.isLoading -> ShimmerProductDetail()
-            uiState.error != null -> ErrorProductDetail(
-                message = uiState.error ?: "",
-                onRetry = { viewModel.loadProduct(slug) }
-            )
-            uiState.product != null -> {
-                val product = uiState.product!!
-                
-                Column(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .padding(padding)
-                        .verticalScroll(scrollState)
-                ) {
-                    // Ken Burns Hero Image
-                    KenBurnsHero(
-                        images = product.images,
-                        productName = product.name
-                    )
-                    
-                    // Content Card overlapping image
-                    Surface(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .offset(y = (-30).dp),
-                        shape = RoundedCornerShape(topStart = 30.dp, topEnd = 30.dp),
-                        color = MaterialTheme.colorScheme.background
-                    ) {
-                        Column(
-                            modifier = Modifier.padding(horizontal = 20.dp, vertical = 24.dp)
+                    navigationIcon = {
+                        FilledIconButton(
+                            onClick = onBack,
+                            modifier = Modifier.padding(start = 8.dp),
+                            colors = IconButtonDefaults.filledIconButtonColors(
+                                containerColor = GlassBlack
+                            )
                         ) {
-                            // Product Names
-                            AnimatedContent(
-                                targetState = product,
-                                transitionSpec = { fadeIn(tween(400)) with fadeOut(tween(200)) }
-                            ) { prod ->
-                                Column {
-                                    // Tamil name (large)
-                                    Text(
-                                        text = prod.nameTa,
-                                        fontSize = 24.sp,
-                                        fontWeight = FontWeight.Bold,
-                                        color = MaterialTheme.colorScheme.onSurface
-                                    )
-                                    
-                                    // English name (smaller, muted)
-                                    Text(
-                                        text = prod.nameEn,
-                                        fontSize = 16.sp,
-                                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                                        modifier = Modifier.padding(top = 4.dp)
-                                    )
-                                }
-                            }
-                            
-                            Spacer(modifier = Modifier.height(12.dp))
-                            
-                            // Rating & Reviews
-                            Row(
-                                verticalAlignment = Alignment.CenterVertically,
-                                modifier = Modifier.clickable { 
-                                    // Scroll to reviews section
-                                }
+                            Icon(Icons.Default.ArrowBack, contentDescription = "Back", tint = Color.White)
+                        }
+                    },
+                    actions = {
+                        IconButton(
+                            onClick = { viewModel.toggleWishlist() },
+                            modifier = Modifier.padding(end = 8.dp)
+                        ) {
+                            Icon(
+                                imageVector = if (uiState.isInWishlist) Icons.Filled.Favorite else Icons.Outlined.FavoriteBorder,
+                                contentDescription = "Wishlist",
+                                tint = if (uiState.isInWishlist) SunsetOrange else MaterialTheme.colorScheme.onSurface
+                            )
+                        }
+                    },
+                    colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
+                        containerColor = Color.Transparent
+                    )
+                )
+            },
+            bottomBar = {
+                // Removed
+            }
+        ) { padding ->
+            when {
+                uiState.isLoading -> ShimmerProductDetail()
+                uiState.error != null -> ErrorProductDetail(
+                    message = uiState.error ?: "",
+                    onRetry = { viewModel.loadProduct(slug) }
+                )
+                uiState.product != null -> {
+                    val product = uiState.product!!
+                
+                    Column(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(padding)
+                            .verticalScroll(scrollState)
+                    ) {
+                        // Ken Burns Hero Image
+                        KenBurnsHero(
+                            images = product.images,
+                            productName = product.name
+                        )
+                    
+                        // Content Card overlapping image
+                        Surface(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .offset(y = (-30).dp),
+                            shape = RoundedCornerShape(topStart = 30.dp, topEnd = 30.dp),
+                            color = MaterialTheme.colorScheme.background
+                        ) {
+                            Column(
+                                modifier = Modifier.padding(horizontal = 20.dp, vertical = 24.dp)
                             ) {
-                                Surface(
-                                    shape = RoundedCornerShape(8.dp),
-                                    color = Amber.copy(alpha = 0.15f)
-                                ) {
-                                    Row(
-                                        verticalAlignment = Alignment.CenterVertically,
-                                        modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
-                                    ) {
-                                        Icon(
-                                            imageVector = Icons.Default.Star,
-                                            contentDescription = null,
-                                            tint = Amber,
-                                            modifier = Modifier.size(16.dp)
-                                        )
-                                        Spacer(modifier = Modifier.width(4.dp))
+                                // Product Names
+                                AnimatedContent(
+                                    targetState = product,
+                                    transitionSpec = { fadeIn(tween(400)) with fadeOut(tween(200)) }
+                                ) { prod ->
+                                    Column {
+                                        // Tamil name (large)
                                         Text(
-                                            text = "${product.rating ?: 4.5}",
-                                            fontSize = 14.sp,
+                                            text = prod.nameTa,
+                                            fontSize = 24.sp,
                                             fontWeight = FontWeight.Bold,
-                                            color = DeepOcean
+                                            color = MaterialTheme.colorScheme.onSurface
+                                        )
+                                    
+                                        // English name (smaller, muted)
+                                        Text(
+                                            text = prod.nameEn,
+                                            fontSize = 16.sp,
+                                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                            modifier = Modifier.padding(top = 4.dp)
                                         )
                                     }
                                 }
+                            
+                                Spacer(modifier = Modifier.height(12.dp))
+                            
+                                // Rating & Reviews
+                                Row(
+                                    verticalAlignment = Alignment.CenterVertically,
+                                    modifier = Modifier.clickable { 
+                                        // Scroll to reviews section
+                                    }
+                                ) {
+                                    Surface(
+                                        shape = RoundedCornerShape(8.dp),
+                                        color = Amber.copy(alpha = 0.15f)
+                                    ) {
+                                        Row(
+                                            verticalAlignment = Alignment.CenterVertically,
+                                            modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+                                        ) {
+                                            Icon(
+                                                imageVector = Icons.Default.Star,
+                                                contentDescription = null,
+                                                tint = Amber,
+                                                modifier = Modifier.size(16.dp)
+                                            )
+                                            Spacer(modifier = Modifier.width(4.dp))
+                                            Text(
+                                                text = "${product.rating ?: 4.5}",
+                                                fontSize = 14.sp,
+                                                fontWeight = FontWeight.Bold,
+                                                color = DeepOcean
+                                            )
+                                        }
+                                    }
                                 
-                                Spacer(modifier = Modifier.width(8.dp))
+                                    Spacer(modifier = Modifier.width(8.dp))
                                 
+                                    Text(
+                                        text = "(${product.reviewCount ?: 0} reviews)",
+                                        fontSize = 14.sp,
+                                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                                    )
+                                
+                                    Spacer(modifier = Modifier.width(4.dp))
+                                
+                                    Icon(
+                                        imageVector = Icons.Default.ChevronRight,
+                                        contentDescription = null,
+                                        modifier = Modifier.size(16.dp),
+                                        tint = MaterialTheme.colorScheme.onSurfaceVariant
+                                    )
+                                }
+                            
+                                Spacer(modifier = Modifier.height(20.dp))
+                            
+                                // Weight Selector
                                 Text(
-                                    text = "(${product.reviewCount ?: 0} reviews)",
-                                    fontSize = 14.sp,
-                                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                                    text = "Select Size",
+                                    fontSize = 16.sp,
+                                    fontWeight = FontWeight.SemiBold
                                 )
+                            
+                                Spacer(modifier = Modifier.height(12.dp))
+                            
+                                LazyRow(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                                    items(product.skus) { sku ->
+                                        ModernWeightChip(
+                                            sku = sku,
+                                            isSelected = uiState.selectedSku?.id == sku.id,
+                                            onClick = {
+                                                haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove)
+                                                viewModel.selectSku(sku)
+                                            }
+                                        )
+                                    }
+                                }
+                            
+                                Spacer(modifier = Modifier.height(24.dp))
+                            
+                                // Price Section
+                                uiState.selectedSku?.let { sku ->
+                                    PriceSection(sku = sku)
+                                }
+                            
+                                Spacer(modifier = Modifier.height(24.dp))
+                            
+                                // Quantity
+                                Row(
+                                    verticalAlignment = Alignment.CenterVertically
+                                ) {
+                                    Text(
+                                        text = "Quantity",
+                                        fontSize = 16.sp,
+                                        fontWeight = FontWeight.SemiBold,
+                                        modifier = Modifier.weight(1f)
+                                    )
                                 
-                                Spacer(modifier = Modifier.width(4.dp))
-                                
-                                Icon(
-                                    imageVector = Icons.Default.ChevronRight,
-                                    contentDescription = null,
-                                    modifier = Modifier.size(16.dp),
-                                    tint = MaterialTheme.colorScheme.onSurfaceVariant
-                                )
-                            }
-                            
-                            Spacer(modifier = Modifier.height(20.dp))
-                            
-                            // Weight Selector
-                            Text(
-                                text = "Select Size",
-                                fontSize = 16.sp,
-                                fontWeight = FontWeight.SemiBold
-                            )
-                            
-                            Spacer(modifier = Modifier.height(12.dp))
-                            
-                            LazyRow(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-                                items(product.skus) { sku ->
-                                    ModernWeightChip(
-                                        sku = sku,
-                                        isSelected = uiState.selectedSku?.id == sku.id,
-                                        onClick = {
+                                    ModernQuantityStepper(
+                                        quantity = uiState.quantity,
+                                        onIncrement = {
                                             haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove)
-                                            viewModel.selectSku(sku)
+                                            viewModel.incrementQuantity()
+                                        },
+                                        onDecrement = {
+                                            haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove)
+                                            viewModel.decrementQuantity()
                                         }
                                     )
                                 }
-                            }
                             
-                            Spacer(modifier = Modifier.height(24.dp))
+                                Spacer(modifier = Modifier.height(24.dp))
                             
-                            // Price Section
-                            uiState.selectedSku?.let { sku ->
-                                PriceSection(sku = sku)
-                            }
-                            
-                            Spacer(modifier = Modifier.height(24.dp))
-                            
-                            // Quantity
-                            Row(
-                                verticalAlignment = Alignment.CenterVertically
-                            ) {
-                                Text(
-                                    text = "Quantity",
-                                    fontSize = 16.sp,
-                                    fontWeight = FontWeight.SemiBold,
-                                    modifier = Modifier.weight(1f)
+                                // Description
+                                ExpandableDescription(
+                                    shortDesc = product.shortDesc,
+                                    description = product.description
                                 )
-                                
-                                ModernQuantityStepper(
-                                    quantity = uiState.quantity,
-                                    onIncrement = {
-                                        haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove)
-                                        viewModel.incrementQuantity()
-                                    },
-                                    onDecrement = {
-                                        haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove)
-                                        viewModel.decrementQuantity()
+                            
+                                Spacer(modifier = Modifier.height(32.dp))
+                            
+                                // Review Section
+                                ReviewSection(
+                                    product = product,
+                                    onSubmitReview = { rating, review ->
+                                        viewModel.submitReview(rating, review)
                                     }
                                 )
-                            }
                             
-                            Spacer(modifier = Modifier.height(24.dp))
+                                Spacer(modifier = Modifier.height(32.dp))
                             
-                            // Description
-                            ExpandableDescription(
-                                shortDesc = product.shortDesc,
-                                description = product.description
-                            )
-                            
-                            Spacer(modifier = Modifier.height(32.dp))
-                            
-                            // Review Section
-                            ReviewSection(
-                                product = product,
-                                onSubmitReview = { rating, review ->
-                                    viewModel.submitReview(rating, review)
-                                }
-                            )
-                            
-                            Spacer(modifier = Modifier.height(32.dp))
-                            
-                            // Related Products
-                            if (uiState.relatedProducts.isNotEmpty()) {
-                                Text(
-                                    text = "You may also like",
-                                    fontSize = 18.sp,
-                                    fontWeight = FontWeight.Bold
-                                )
+                                // Related Products
+                                if (uiState.relatedProducts.isNotEmpty()) {
+                                    Text(
+                                        text = "You may also like",
+                                        fontSize = 18.sp,
+                                        fontWeight = FontWeight.Bold
+                                    )
                                 
-                                Spacer(modifier = Modifier.height(16.dp))
+                                    Spacer(modifier = Modifier.height(16.dp))
                                 
-                                LazyRow(
-                                    horizontalArrangement = Arrangement.spacedBy(12.dp),
-                                    contentPadding = PaddingValues(end = 20.dp)
-                                ) {
-                                    items(uiState.relatedProducts) { relatedProduct ->
-                                        RelatedProductCard(
-                                            product = relatedProduct,
-                                            onClick = { onProductClick(relatedProduct.slug) }
-                                        )
+                                    LazyRow(
+                                        horizontalArrangement = Arrangement.spacedBy(12.dp),
+                                        contentPadding = PaddingValues(end = 20.dp)
+                                    ) {
+                                        items(uiState.relatedProducts) { relatedProduct ->
+                                            RelatedProductCard(
+                                                product = relatedProduct,
+                                                onClick = { onProductClick(relatedProduct.slug) }
+                                            )
+                                        }
                                     }
                                 }
-                            }
                             
-                            Spacer(modifier = Modifier.height(100.dp))
+                                Spacer(modifier = Modifier.height(100.dp))
+                            }
                         }
                     }
                 }
             }
         }
+    if (uiState.product != null) {
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .align(Alignment.BottomCenter)
+        ) {
+            ModernBottomBar(
+                selectedSku = uiState.selectedSku,
+                quantity = uiState.quantity,
+                onAddToCart = {
+                    haptic.performHapticFeedback(HapticFeedbackType.LongPress)
+                    viewModel.addToCart()
+                },
+                onBuyNow = {
+                    haptic.performHapticFeedback(HapticFeedbackType.LongPress)
+                    viewModel.addToCart()
+                    onAddToCart()
+                }
+            )
+        }
+    }
     }
 }
 
@@ -643,40 +660,58 @@ private fun ModernBottomBar(
     onAddToCart: () -> Unit,
     onBuyNow: () -> Unit
 ) {
-    Surface(
-        shadowElevation = 8.dp,
-        tonalElevation = 2.dp,
-        color = MaterialTheme.colorScheme.surface
-    ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp),
-            horizontalArrangement = Arrangement.spacedBy(12.dp)
-        ) {
-            OutlinedButton(
-                onClick = onAddToCart,
-                modifier = Modifier.weight(1f),
-                shape = RoundedCornerShape(14.dp),
-                border = BorderStroke(1.5.dp, OceanBlue),
-                colors = ButtonDefaults.outlinedButtonColors(
-                    contentColor = OceanBlue
-                )
-            ) {
-                Icon(Icons.Default.ShoppingBag, contentDescription = null, modifier = Modifier.size(20.dp))
-                Spacer(Modifier.width(8.dp))
-                Text("Add to Cart", fontWeight = FontWeight.SemiBold)
-            }
+    val context = LocalContext.current
+    val navMode = Settings.Secure.getString(context.contentResolver, "navigation_mode")
+    val density = LocalDensity.current
+    val bottomPadding = when (navMode) {
+        "2" -> (-18).dp
+        else -> 15.dp
+    }
 
-            Button(
-                onClick = onBuyNow,
-                modifier = Modifier.weight(1f),
-                shape = RoundedCornerShape(14.dp),
-                colors = ButtonDefaults.buttonColors(containerColor = SunsetOrange)
+    val offsetY = with(density) { -bottomPadding.toPx().toInt() }
+
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .background(MaterialTheme.colorScheme.surface)
+            .offset(x = 0.dp, y = offsetY.dp)
+    ) {
+        Surface(
+            shadowElevation = 8.dp,
+            tonalElevation = 2.dp,
+            color = MaterialTheme.colorScheme.surface
+        ) {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp)
+                    .padding(bottom = 8.dp),
+                horizontalArrangement = Arrangement.spacedBy(12.dp)
             ) {
-                Icon(Icons.Default.Bolt, contentDescription = null, modifier = Modifier.size(20.dp))
-                Spacer(Modifier.width(8.dp))
-                Text("Buy Now", fontWeight = FontWeight.SemiBold)
+                OutlinedButton(
+                    onClick = onAddToCart,
+                    modifier = Modifier.weight(1f),
+                    shape = RoundedCornerShape(14.dp),
+                    border = BorderStroke(1.5.dp, OceanBlue),
+                    colors = ButtonDefaults.outlinedButtonColors(
+                        contentColor = OceanBlue
+                    )
+                ) {
+                    Icon(Icons.Default.ShoppingBag, contentDescription = null, modifier = Modifier.size(20.dp))
+                    Spacer(Modifier.width(8.dp))
+                    Text("Add to Cart", fontWeight = FontWeight.SemiBold)
+                }
+
+                Button(
+                    onClick = onBuyNow,
+                    modifier = Modifier.weight(1f),
+                    shape = RoundedCornerShape(14.dp),
+                    colors = ButtonDefaults.buttonColors(containerColor = SunsetOrange)
+                ) {
+                    Icon(Icons.Default.Bolt, contentDescription = null, modifier = Modifier.size(20.dp))
+                    Spacer(Modifier.width(8.dp))
+                    Text("Buy Now", fontWeight = FontWeight.SemiBold)
+                }
             }
         }
     }
