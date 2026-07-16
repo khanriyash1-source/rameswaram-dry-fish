@@ -9,8 +9,7 @@ import android.widget.Toast
 import androidx.compose.animation.*
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.*
-import androidx.compose.foundation.gestures.detectTapGestures
-import androidx.compose.foundation.gestures.detectTransformGestures
+import androidx.compose.foundation.gestures.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
@@ -35,7 +34,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.ui.graphics.graphicsLayer
-import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.input.pointer.*
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
@@ -50,6 +49,7 @@ import com.rameswaram.dryfish.presentation.common.shimmerLoadingAnimation
 import com.rameswaram.dryfish.ui.theme.*
 import com.rameswaram.dryfish.utils.toRupees
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.withTimeoutOrNull
 import org.koin.androidx.compose.koinViewModel
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalFoundationApi::class, ExperimentalAnimationApi::class)
@@ -1145,20 +1145,20 @@ private fun ZoomableImage(
         modifier = Modifier
             .fillMaxSize()
             .pointerInput(Unit) {
-                detectTapGestures(onTap = { onTap() })
-            }
-            .pointerInput(Unit) {
                 detectTransformGestures { centroid, pan, zoom, _ ->
                     val newScale = (scale * zoom).coerceIn(1f, 4f)
-                    if (newScale != scale) {
-                        val scaleChange = newScale / scale
-                        scale = newScale
-                        offsetX = (offsetX - centroid.x) * scaleChange + centroid.x
-                        offsetY = (offsetY - centroid.y) * scaleChange + centroid.y
-                    }
-                    if (scale > 1f) {
-                        offsetX += pan.x
-                        offsetY += pan.y
+                    val scaleChange = newScale / scale
+                    scale = newScale
+                    offsetX = (offsetX - centroid.x) * scaleChange + centroid.x + pan.x
+                    offsetY = (offsetY - centroid.y) * scaleChange + centroid.y + pan.y
+                }
+            }
+            .pointerInput(Unit) {
+                awaitEachGesture {
+                    awaitFirstDown()
+                    val up = withTimeoutOrNull(300L) { waitForUpOrCancellation() }
+                    if (up != null && scale == 1f) {
+                        onTap()
                     }
                 }
             },
