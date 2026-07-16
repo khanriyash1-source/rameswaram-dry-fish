@@ -6,11 +6,20 @@ const fs = require('fs');
 const cloudinary = require('cloudinary').v2;
 const multer = require('multer');
 require('dotenv').config({ path: __dirname + '/.env' });
+
+// Force live key — if RAZORPAY_KEY_ID is a test key, override to live
+const RAZORPAY_KEY_ID = process.env.RAZORPAY_KEY_ID && process.env.RAZORPAY_KEY_ID.startsWith('rzp_live_')
+  ? process.env.RAZORPAY_KEY_ID
+  : 'rzp_live_T8bhteVcV2wDtv';
+const RAZORPAY_KEY_SECRET = process.env.RAZORPAY_KEY_SECRET && process.env.RAZORPAY_KEY_ID.startsWith('rzp_live_')
+  ? process.env.RAZORPAY_KEY_SECRET
+  : 'IP4ds1n7GNGWB6YK6lGWsETk';
+
 const Razorpay = require('razorpay');
 
 const razorpay = new Razorpay({
-  key_id: process.env.RAZORPAY_KEY_ID,
-  key_secret: process.env.RAZORPAY_KEY_SECRET,
+  key_id: RAZORPAY_KEY_ID,
+  key_secret: RAZORPAY_KEY_SECRET,
 });
 
 const app = express();
@@ -411,7 +420,7 @@ app.post('/api/v1/razorpay/create-order', async (req, res) => {
         orderId: order.id,
         amount: order.amount,
         currency: order.currency,
-        keyId: process.env.RAZORPAY_KEY_ID,
+        keyId: RAZORPAY_KEY_ID,
       }
     });
   } catch (error) {
