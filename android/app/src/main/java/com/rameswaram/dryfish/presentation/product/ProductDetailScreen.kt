@@ -50,6 +50,8 @@ import com.rameswaram.dryfish.ui.theme.*
 import com.rameswaram.dryfish.utils.toRupees
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.withTimeoutOrNull
+import androidx.compose.ui.window.Dialog
+import androidx.compose.ui.window.DialogProperties
 import org.koin.androidx.compose.koinViewModel
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalFoundationApi::class, ExperimentalAnimationApi::class)
@@ -91,13 +93,6 @@ fun ProductDetailScreen(
     }
 
     Box(modifier = Modifier.fillMaxSize()) {
-        if (viewerImageIndex >= 0) {
-            ImageZoomViewer(
-                images = uiState.product?.images ?: emptyList(),
-                initialIndex = viewerImageIndex,
-                onDismiss = { viewerImageIndex = -1 }
-            )
-        }
         Scaffold(
             snackbarHost = { SnackbarHost(snackbarHostState) },
             topBar = {
@@ -379,6 +374,19 @@ fun ProductDetailScreen(
             )
         }
     }
+    }
+    
+    if (viewerImageIndex >= 0) {
+        Dialog(
+            onDismissRequest = { viewerImageIndex = -1 },
+            properties = DialogProperties(usePlatformDefaultWidth = false)
+        ) {
+            ImageZoomViewer(
+                images = uiState.product?.images ?: emptyList(),
+                initialIndex = viewerImageIndex,
+                onDismiss = { viewerImageIndex = -1 }
+            )
+        }
     }
 }
 
@@ -954,8 +962,9 @@ private fun ReviewSection(
             }
         )
     }
-}
 
+}
+ 
 @Composable
 private fun RelatedProductCard(product: Product, onClick: () -> Unit) {
     Card(
@@ -1079,30 +1088,28 @@ private fun ImageZoomViewer(
             .background(Color.Black)
             .pointerInput(Unit) {
                 awaitEachGesture {
-                    var pointers = emptyList<PointerInputChange>()
-                    awaitFirstDown(requireUnconsumed = false)
+                    val down = awaitFirstDown()
+                    var lastDist = 0f
                     do {
                         val event = awaitPointerEvent()
-                        pointers = event.changes.filter { it.pressed }
-                        if (pointers.size >= 2) {
-                            val c0 = pointers[0]
-                            val c1 = pointers[1]
-                            val prevDist = (c0.previousPosition - c1.previousPosition).getDistance()
-                            val currDist = (c0.position - c1.position).getDistance()
-                            if (prevDist > 0f) {
-                                val zoom = currDist / prevDist
-                                scale = (scale * zoom).coerceIn(1f, 4f)
+                        val pressed = event.changes.filter { it.pressed }
+                        if (pressed.size >= 2) {
+                            val dist = (pressed[0].position - pressed[1].position).getDistance()
+                            if (lastDist > 0f) {
+                                scale = (scale * dist / lastDist).coerceIn(1f, 4f)
                             }
+                            lastDist = dist
+                        } else if (pressed.size == 1) {
+                            val c = pressed[0]
+                            val delta = c.position - c.previousPosition
                             if (scale > 1f) {
-                                val pan = c0.position - c0.previousPosition
-                                if (pan.getDistance() < 100f) {
-                                    offsetX += pan.x
-                                    offsetY += pan.y
-                                }
+                                offsetX += delta.x
+                                offsetY += delta.y
                             }
-                            event.changes.forEach { it.consume() }
+                        } else {
+                            lastDist = 0f
                         }
-                    } while (pointers.isNotEmpty())
+                    } while (event.changes.any { it.pressed })
                 }
             }
     ) {
