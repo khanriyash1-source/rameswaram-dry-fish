@@ -9,6 +9,8 @@ import android.widget.Toast
 import androidx.compose.animation.*
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.*
+import androidx.compose.foundation.gestures.detectTapGestures
+import androidx.compose.foundation.gestures.detectTransformGestures
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
@@ -33,6 +35,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
@@ -62,6 +65,7 @@ fun ProductDetailScreen(
     val snackbarHostState = remember { SnackbarHostState() }
     val haptic = LocalHapticFeedback.current
     val scrollState = rememberScrollState()
+    var viewerImageIndex by remember { mutableIntStateOf(-1) }
 
     LaunchedEffect(slug) {
         viewModel.loadProduct(slug)
@@ -87,6 +91,13 @@ fun ProductDetailScreen(
     }
 
     Box(modifier = Modifier.fillMaxSize()) {
+        if (viewerImageIndex >= 0) {
+            ImageZoomViewer(
+                images = uiState.product?.images ?: emptyList(),
+                initialIndex = viewerImageIndex,
+                onDismiss = { viewerImageIndex = -1 }
+            )
+        }
         Scaffold(
             snackbarHost = { SnackbarHost(snackbarHostState) },
             topBar = {
@@ -150,7 +161,8 @@ fun ProductDetailScreen(
                         // Ken Burns Hero Image
                         KenBurnsHero(
                             images = product.images,
-                            productName = product.name
+                            productName = product.name,
+                            onImageClick = { index -> viewerImageIndex = index }
                         )
                     
                         // Content Card overlapping image
@@ -375,7 +387,8 @@ fun ProductDetailScreen(
 @Composable
 private fun KenBurnsHero(
     images: List<String>,
-    productName: String
+    productName: String,
+    onImageClick: (Int) -> Unit = {}
 ) {
     val pagerState = rememberPagerState(pageCount = { images.size.coerceAtLeast(1) })
     
@@ -391,7 +404,8 @@ private fun KenBurnsHero(
             ) { page ->
                 KenBurnsImage(
                     imageUrl = images[page],
-                    contentDescription = "$productName - Image ${page + 1}"
+                    contentDescription = "$productName - Image ${page + 1}",
+                    onClick = { onImageClick(page) }
                 )
             }
         } else {
@@ -463,7 +477,8 @@ private fun KenBurnsHero(
 @Composable
 private fun KenBurnsImage(
     imageUrl: String,
-    contentDescription: String
+    contentDescription: String,
+    onClick: () -> Unit = {}
 ) {
     val infiniteTransition = rememberInfiniteTransition(label = "kenburns")
     
@@ -492,7 +507,8 @@ private fun KenBurnsImage(
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(MaterialTheme.colorScheme.surfaceVariant),
+            .background(MaterialTheme.colorScheme.surfaceVariant)
+            .clickable(onClick = onClick),
         contentAlignment = Alignment.Center
     ) {
         SubcomposeAsyncImage(
@@ -1043,5 +1059,123 @@ private fun ErrorProductDetail(
                 Text("Retry")
             }
         }
+    }
+}
+
+@OptIn(ExperimentalFoundationApi::class)
+@Composable
+private fun ImageZoomViewer(
+    images: List<String>,
+    initialIndex: Int,
+    onDismiss: () -> Unit
+) {
+    val pagerState = rememberPagerState(pageCount = { images.size })
+    LaunchedEffect(initialIndex) {
+        pagerState.scrollToPage(initialIndex)
+    }
+
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color.Black)
+    ) {
+        HorizontalPager(
+            state = pagerState,
+            modifier = Modifier.fillMaxSize()
+        ) { page ->
+            key(page) {
+                ZoomableImage(
+                    imageUrl = images[page],
+                    onTap = {
+                        if (page == pagerState.currentPage) onDismiss()
+                    }
+                )
+            }
+        }
+
+        // Close button
+        IconButton(
+            onClick = onDismiss,
+            modifier = Modifier
+                .align(Alignment.TopStart)
+                .padding(16.dp)
+                .background(Color.Black.copy(alpha = 0.5f), CircleShape)
+        ) {
+            Icon(
+                imageVector = Icons.Default.Close,
+                contentDescription = "Close",
+                tint = Color.White
+            )
+        }
+
+        // Page indicator
+        if (images.size > 1) {
+            Row(
+                modifier = Modifier
+                    .align(Alignment.BottomCenter)
+                    .padding(bottom = 40.dp),
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                repeat(images.size) { index ->
+                    Box(
+                        modifier = Modifier
+                            .size(if (pagerState.currentPage == index) 10.dp else 8.dp)
+                            .clip(CircleShape)
+                            .background(
+                                if (pagerState.currentPage == index) Color.White
+                                else Color.White.copy(alpha = 0.4f)
+                            )
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun ZoomableImage(
+    imageUrl: String,
+    onTap: () -> Unit
+) {
+    var scale by remember { mutableFloatStateOf(1f) }
+    var offsetX by remember { mutableFloatStateOf(0f) }
+    var offsetY by remember { mutableFloatStateOf(0f) }
+
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .pointerInput(Unit) {
+                detectTapGestures(onTap = { onTap() })
+            }
+            .pointerInput(Unit) {
+                detectTransformGestures { centroid, pan, zoom, _ ->
+                    val newScale = (scale * zoom).coerceIn(1f, 4f)
+                    if (newScale != scale) {
+                        val scaleChange = newScale / scale
+                        scale = newScale
+                        offsetX = (offsetX - centroid.x) * scaleChange + centroid.x
+                        offsetY = (offsetY - centroid.y) * scaleChange + centroid.y
+                    }
+                    if (scale > 1f) {
+                        offsetX += pan.x
+                        offsetY += pan.y
+                    }
+                }
+            },
+        contentAlignment = Alignment.Center
+    ) {
+        SubcomposeAsyncImage(
+            model = imageUrl.replace("http://10.0.2.2:4000/images/", "file:///android_asset/images/"),
+            contentDescription = null,
+            contentScale = ContentScale.Fit,
+            modifier = Modifier
+                .fillMaxSize()
+                .graphicsLayer {
+                    scaleX = scale
+                    scaleY = scale
+                    translationX = offsetX
+                    translationY = offsetY
+                }
+        )
     }
 }
