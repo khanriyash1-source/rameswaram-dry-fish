@@ -1078,20 +1078,14 @@ private fun ImageZoomViewer(
             .fillMaxSize()
             .background(Color.Black)
             .pointerInput(Unit) {
-                detectTransformGestures { centroid, pan, zoom, _ ->
-                    val newScale = (scale * zoom).coerceIn(1f, 4f)
-                    val scaleChange = newScale / scale
-                    scale = newScale
-                    offsetX = (offsetX - centroid.x) * scaleChange + centroid.x + pan.x
-                    offsetY = (offsetY - centroid.y) * scaleChange + centroid.y + pan.y
-                }
-            }
-            .pointerInput(Unit) {
-                awaitEachGesture {
-                    awaitFirstDown()
-                    val up = withTimeoutOrNull(300L) { waitForUpOrCancellation() }
-                    if (up != null && scale == 1f) {
-                        onDismiss()
+                detectTransformGestures { _, pan, zoom, _ ->
+                    scale = (scale * zoom).coerceIn(1f, 4f)
+                    if (scale > 1f) {
+                        offsetX += pan.x
+                        offsetY += pan.y
+                    } else {
+                        offsetX = 0f
+                        offsetY = 0f
                     }
                 }
             }
