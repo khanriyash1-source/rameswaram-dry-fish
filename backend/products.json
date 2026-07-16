@@ -78,9 +78,9 @@
       "shortDesc": "Sun-dried small anchovies - 100% natural",
       "category": "Fish",
       "images": [
-        "podi-nethili-1.png",
-        "podi-nethili-2.png",
-        "podi-nethili-3.png",
+        "podi-nethili-1.jpg",
+        "podi-nethili-2.jpg",
+        "podi-nethili-3.jpg",
         "podi-nethili-4.jpg"
       ],
       "skus": [
@@ -147,7 +147,7 @@
       "shortDesc": "Cleaned dried fish chunks",
       "category": "Fish",
       "images": [
-        "kilicha-6.png",
+        "kilicha-6.jpg",
         "kilicha-1.jpg",
         "kilicha-2.jpg",
         "kilicha-3.jpg",
@@ -218,7 +218,7 @@
       "shortDesc": "Dried shrimp - authentic coastal",
       "category": "Prawns",
       "images": [
-        "senna-kuni-1.png",
+        "senna-kuni-1.jpg",
         "senna-kuni-2.jpg",
         "senna-kuni-3.jpg",
         "senna-kuni-4.jpg"
@@ -287,8 +287,8 @@
       "shortDesc": "Sun-dried ribbon fish - 100% natural",
       "category": "Fish",
       "images": [
-        "vaalai-2.png",
-        "vaalai-1.png",
+        "vaalai-2.jpg",
+        "vaalai-1.jpg",
         "vaalai-3.jpg",
         "vaalai-4.jpg"
       ],
@@ -425,9 +425,9 @@
       "shortDesc": "Premium sun-dried prawns - authentic coastal flavor",
       "category": "Prawns",
       "images": [
-        "kaintha-iraal-1.png",
-        "kaintha-iraal-2.png",
-        "kaintha-iraal-3.png"
+        "kaintha-iraal-1.jpg",
+        "kaintha-iraal-2.jpg",
+        "kaintha-iraal-3.jpg"
       ],
       "skus": [
         {
@@ -493,8 +493,8 @@
       "shortDesc": "Premium sun-dried seer fish - 100% natural",
       "category": "Fish",
       "images": [
-        "vanjiram-1.png",
-        "vanjiram-2.png"
+        "vanjiram-1.jpg",
+        "vanjiram-2.jpg"
       ],
       "skus": [
         {
@@ -560,9 +560,9 @@
       "shortDesc": "Salted dried fish chunks - ready to cook",
       "category": "Fish",
       "images": [
-        "thundu-1.png",
-        "thundu-2.png",
-        "thundu-3.png"
+        "thundu-1.jpg",
+        "thundu-2.jpg",
+        "thundu-3.jpg"
       ],
       "skus": [
         {
