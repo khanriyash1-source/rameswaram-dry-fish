@@ -1078,15 +1078,31 @@ private fun ImageZoomViewer(
             .fillMaxSize()
             .background(Color.Black)
             .pointerInput(Unit) {
-                detectTransformGestures { _, pan, zoom, _ ->
-                    scale = (scale * zoom).coerceIn(1f, 4f)
-                    if (scale > 1f) {
-                        offsetX += pan.x
-                        offsetY += pan.y
-                    } else {
-                        offsetX = 0f
-                        offsetY = 0f
-                    }
+                awaitEachGesture {
+                    var pointers = emptyList<PointerInputChange>()
+                    awaitFirstDown(requireUnconsumed = false)
+                    do {
+                        val event = awaitPointerEvent()
+                        pointers = event.changes.filter { it.pressed }
+                        if (pointers.size >= 2) {
+                            val c0 = pointers[0]
+                            val c1 = pointers[1]
+                            val prevDist = (c0.previousPosition - c1.previousPosition).getDistance()
+                            val currDist = (c0.position - c1.position).getDistance()
+                            if (prevDist > 0f) {
+                                val zoom = currDist / prevDist
+                                scale = (scale * zoom).coerceIn(1f, 4f)
+                            }
+                            if (scale > 1f) {
+                                val pan = c0.position - c0.previousPosition
+                                if (pan.getDistance() < 100f) {
+                                    offsetX += pan.x
+                                    offsetY += pan.y
+                                }
+                            }
+                            event.changes.forEach { it.consume() }
+                        }
+                    } while (pointers.isNotEmpty())
                 }
             }
     ) {
