@@ -1062,36 +1062,55 @@ private fun ErrorProductDetail(
     }
 }
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 private fun ImageZoomViewer(
     images: List<String>,
     initialIndex: Int,
     onDismiss: () -> Unit
 ) {
-    val pagerState = rememberPagerState(pageCount = { images.size })
-    LaunchedEffect(initialIndex) {
-        pagerState.scrollToPage(initialIndex)
-    }
+    var currentIndex by remember { mutableIntStateOf(initialIndex) }
+    var scale by remember { mutableFloatStateOf(1f) }
+    var offsetX by remember { mutableFloatStateOf(0f) }
+    var offsetY by remember { mutableFloatStateOf(0f) }
 
     Box(
         modifier = Modifier
             .fillMaxSize()
             .background(Color.Black)
-    ) {
-        HorizontalPager(
-            state = pagerState,
-            modifier = Modifier.fillMaxSize()
-        ) { page ->
-            key(page) {
-                ZoomableImage(
-                    imageUrl = images[page],
-                    onTap = {
-                        if (page == pagerState.currentPage) onDismiss()
-                    }
-                )
+            .pointerInput(Unit) {
+                detectTransformGestures { centroid, pan, zoom, _ ->
+                    val newScale = (scale * zoom).coerceIn(1f, 4f)
+                    val scaleChange = newScale / scale
+                    scale = newScale
+                    offsetX = (offsetX - centroid.x) * scaleChange + centroid.x + pan.x
+                    offsetY = (offsetY - centroid.y) * scaleChange + centroid.y + pan.y
+                }
             }
-        }
+            .pointerInput(Unit) {
+                awaitEachGesture {
+                    awaitFirstDown()
+                    val up = withTimeoutOrNull(300L) { waitForUpOrCancellation() }
+                    if (up != null && scale == 1f) {
+                        onDismiss()
+                    }
+                }
+            }
+    ) {
+        SubcomposeAsyncImage(
+            model = images.getOrNull(currentIndex)
+                ?.replace("http://10.0.2.2:4000/images/", "file:///android_asset/images/")
+                ?: "",
+            contentDescription = null,
+            contentScale = ContentScale.Fit,
+            modifier = Modifier
+                .fillMaxSize()
+                .graphicsLayer {
+                    scaleX = scale
+                    scaleY = scale
+                    translationX = offsetX
+                    translationY = offsetY
+                }
+        )
 
         // Close button
         IconButton(
@@ -1108,6 +1127,42 @@ private fun ImageZoomViewer(
             )
         }
 
+        // Navigation arrows
+        if (images.size > 1 && scale == 1f) {
+            if (currentIndex > 0) {
+                IconButton(
+                    onClick = { currentIndex--; scale = 1f; offsetX = 0f; offsetY = 0f },
+                    modifier = Modifier
+                        .align(Alignment.CenterStart)
+                        .padding(start = 8.dp)
+                        .size(44.dp)
+                        .background(Color.Black.copy(alpha = 0.5f), CircleShape)
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.ChevronLeft,
+                        contentDescription = "Previous",
+                        tint = Color.White
+                    )
+                }
+            }
+            if (currentIndex < images.size - 1) {
+                IconButton(
+                    onClick = { currentIndex++; scale = 1f; offsetX = 0f; offsetY = 0f },
+                    modifier = Modifier
+                        .align(Alignment.CenterEnd)
+                        .padding(end = 8.dp)
+                        .size(44.dp)
+                        .background(Color.Black.copy(alpha = 0.5f), CircleShape)
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.ChevronRight,
+                        contentDescription = "Next",
+                        tint = Color.White
+                    )
+                }
+            }
+        }
+
         // Page indicator
         if (images.size > 1) {
             Row(
@@ -1119,63 +1174,15 @@ private fun ImageZoomViewer(
                 repeat(images.size) { index ->
                     Box(
                         modifier = Modifier
-                            .size(if (pagerState.currentPage == index) 10.dp else 8.dp)
+                            .size(if (currentIndex == index) 10.dp else 8.dp)
                             .clip(CircleShape)
                             .background(
-                                if (pagerState.currentPage == index) Color.White
+                                if (currentIndex == index) Color.White
                                 else Color.White.copy(alpha = 0.4f)
                             )
                     )
                 }
             }
         }
-    }
-}
-
-@Composable
-private fun ZoomableImage(
-    imageUrl: String,
-    onTap: () -> Unit
-) {
-    var scale by remember { mutableFloatStateOf(1f) }
-    var offsetX by remember { mutableFloatStateOf(0f) }
-    var offsetY by remember { mutableFloatStateOf(0f) }
-
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .pointerInput(Unit) {
-                detectTransformGestures { centroid, pan, zoom, _ ->
-                    val newScale = (scale * zoom).coerceIn(1f, 4f)
-                    val scaleChange = newScale / scale
-                    scale = newScale
-                    offsetX = (offsetX - centroid.x) * scaleChange + centroid.x + pan.x
-                    offsetY = (offsetY - centroid.y) * scaleChange + centroid.y + pan.y
-                }
-            }
-            .pointerInput(Unit) {
-                awaitEachGesture {
-                    awaitFirstDown()
-                    val up = withTimeoutOrNull(300L) { waitForUpOrCancellation() }
-                    if (up != null && scale == 1f) {
-                        onTap()
-                    }
-                }
-            },
-        contentAlignment = Alignment.Center
-    ) {
-        SubcomposeAsyncImage(
-            model = imageUrl.replace("http://10.0.2.2:4000/images/", "file:///android_asset/images/"),
-            contentDescription = null,
-            contentScale = ContentScale.Fit,
-            modifier = Modifier
-                .fillMaxSize()
-                .graphicsLayer {
-                    scaleX = scale
-                    scaleY = scale
-                    translationX = offsetX
-                    translationY = offsetY
-                }
-        )
     }
 }
