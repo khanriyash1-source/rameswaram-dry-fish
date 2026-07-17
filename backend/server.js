@@ -73,6 +73,11 @@ app.get('/privacy-policy', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'privacy-policy.html'));
 });
 
+// Delete account page
+app.get('/delete-account', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'delete-account.html'));
+});
+
 // Upload endpoint — receives image, uploads to Cloudinary, returns URL
 app.post('/api/v1/upload', upload.single('image'), async (req, res) => {
   try {
