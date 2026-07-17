@@ -20,5 +20,4 @@
 -keep class * extends com.razorpay.** { *; }
 -keep class * implements com.razorpay.** { *; }
 -keepattributes *Annotation*, Signature, InnerClasses, EnclosingMethod
--optimizations !class/merging/*,!code/allocation/variable
 -dontwarn com.razorpay.**
