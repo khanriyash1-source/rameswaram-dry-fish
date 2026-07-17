@@ -8,12 +8,12 @@ plugins {
 
 android {
     namespace = "com.rameswaram.dryfish"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.rameswaram.dryfish"
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0.0"
 
@@ -30,11 +30,17 @@ android {
             keyAlias = "androiddebugkey"
             keyPassword = "android"
         }
+        create("releaseSigning") {
+            storeFile = file("release/release.keystore")
+            storePassword = "qbBLOLaw7MIkYdwZ"
+            keyAlias = "release"
+            keyPassword = "qbBLOLaw7MIkYdwZ"
+        }
     }
 
     buildTypes {
         release {
-            signingConfig = signingConfigs.getByName("debugSigning")
+            signingConfig = signingConfigs.getByName("releaseSigning")
             isMinifyEnabled = true
             isShrinkResources = true
             proguardFiles(
