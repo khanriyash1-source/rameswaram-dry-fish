@@ -20,6 +20,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.pointer.PointerEventPass
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalDensity
@@ -62,7 +63,10 @@ fun CustomDrawerLayout(
                 Modifier
                     .fillMaxSize()
                     .background(Color.Black.copy(alpha = progress * 0.5f))
-                    .clickable { onOpenChanged(false) }
+                    .then(
+                        if (progress >= 1f) Modifier.clickable { onOpenChanged(false) }
+                        else Modifier
+                    )
             )
         }
 
@@ -72,6 +76,7 @@ fun CustomDrawerLayout(
                 .width(280.dp)
                 .fillMaxHeight()
                 .offset { IntOffset(((progress - 1f) * drawerWidthPx).roundToInt(), 0) }
+                .graphicsLayer { clip = true }
                 .pointerInput(gesturesEnabled) {
                     if (gesturesEnabled) {
                         detectHorizontalDragGestures(

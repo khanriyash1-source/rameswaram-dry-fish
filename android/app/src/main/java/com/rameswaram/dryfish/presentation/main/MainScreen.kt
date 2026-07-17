@@ -243,7 +243,7 @@ private fun MainAppContent(
                             navController.navigate(NavRoutes.CART)
                         },
                         onMenuClick = {
-                            scope.launch { isDrawerOpen = true }
+                            isDrawerOpen = true
                         },
                         cartItemCount = cartItemCount
                     )
@@ -259,7 +259,7 @@ private fun MainAppContent(
                             }
                         },
                         onMenuClick = {
-                            scope.launch { isDrawerOpen = true }
+                            isDrawerOpen = true
                         }
                     )
                 }
@@ -300,7 +300,7 @@ private fun MainAppContent(
                             navController.navigate(NavRoutes.productRoute(slug))
                         },
                         onMenuClick = {
-                            scope.launch { isDrawerOpen = true }
+                            isDrawerOpen = true
                         }
                     )
                 }
@@ -312,7 +312,7 @@ private fun MainAppContent(
                         },
                         onBack = { navController.popBackStack() },
                         onMenuClick = {
-                            scope.launch { isDrawerOpen = true }
+                            isDrawerOpen = true
                         }
                     )
                 }
@@ -340,7 +340,7 @@ private fun MainAppContent(
                             authRepository.logout()
                         },
                         onMenuClick = {
-                            scope.launch { isDrawerOpen = true }
+                            isDrawerOpen = true
                         }
                     )
                 }
