@@ -4,6 +4,9 @@ import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.gestures.awaitEachGesture
+import androidx.compose.foundation.gestures.awaitFirstDown
+import androidx.compose.foundation.gestures.awaitTouchSlopOrCancellation
 import androidx.compose.foundation.gestures.detectHorizontalDragGestures
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -17,6 +20,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.pointer.PointerEventPass
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.IntOffset
@@ -90,25 +94,41 @@ fun CustomDrawerLayout(
         }
 
         // Left edge swipe zone — wider, always active for opening/continuing drag
+        // Uses awaitTouchSlopOrCancellation so taps pass through to content below
         if (gesturesEnabled) {
             Box(
                 Modifier
                     .width(40.dp)
                     .fillMaxHeight()
                     .pointerInput(Unit) {
-                        detectHorizontalDragGestures(
-                            onDragEnd = {
+                        awaitEachGesture {
+                            val down = awaitFirstDown(requireUnconsumed = false)
+                            val drag = awaitTouchSlopOrCancellation(down.id) { change, _ ->
+                                change.consume()
+                            }
+                            if (drag != null) {
+                                var lastX = drag.position.x
+                                while (true) {
+                                    val event = awaitPointerEvent(PointerEventPass.Main)
+                                    val change = event.changes.firstOrNull() ?: break
+                                    if (!change.pressed) {
+                                        change.consume()
+                                        break
+                                    }
+                                    change.consume()
+                                    val curX = change.position.x
+                                    val delta = curX - lastX
+                                    lastX = curX
+                                    val newPos = (anim.value + delta / drawerWidthPx).coerceIn(0f, 1f)
+                                    scope.launch { anim.snapTo(newPos) }
+                                }
                                 if (anim.value > 0.4f) {
                                     scope.launch { anim.animateTo(1f); onOpenChanged(true) }
                                 } else {
                                     scope.launch { anim.animateTo(0f); onOpenChanged(false) }
                                 }
-                            },
-                            onHorizontalDrag = { _, dragAmount ->
-                                val newPos = (anim.value + dragAmount / drawerWidthPx).coerceIn(0f, 1f)
-                                scope.launch { anim.snapTo(newPos) }
                             }
-                        )
+                        }
                     }
             )
         }
