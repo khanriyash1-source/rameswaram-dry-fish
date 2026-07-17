@@ -433,7 +433,7 @@ private fun SwipeableCartItem(
                         .clip(RoundedCornerShape(12.dp))
                 ) {
                     SubcomposeAsyncImage(
-                        model = item.productImage.replace("http://10.0.2.2:4000/images/", "file:///android_asset/images/"),
+                        model = item.productImage.replace("http://10.0.2.2:4000/images/", "file:///android_asset/images/").replace(".png", ".jpg"),
                         contentDescription = item.productName,
                         contentScale = ContentScale.Crop,
                         modifier = Modifier.fillMaxSize(),

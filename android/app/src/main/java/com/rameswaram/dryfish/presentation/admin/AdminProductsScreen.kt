@@ -416,7 +416,7 @@ private fun ProductFormDialog(
 
 @Composable
 private fun ImageThumbnail(url: String) {
-    val model = url.replace("http://10.0.2.2:4000/images/", "file:///android_asset/images/")
+    val model = url.replace("http://10.0.2.2:4000/images/", "file:///android_asset/images/").replace(".png", ".jpg")
     SubcomposeAsyncImage(
         model = model,
         contentDescription = null,

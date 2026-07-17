@@ -284,7 +284,7 @@ private fun ProductCard(
             ) {
                 if (product.images.isNotEmpty()) {
                     SubcomposeAsyncImage(
-                        model = product.images.first().replace("http://10.0.2.2:4000/images/", "file:///android_asset/images/"),
+                        model = product.images.first().replace("http://10.0.2.2:4000/images/", "file:///android_asset/images/").replace(".png", ".jpg"),
                         contentDescription = product.nameEn,
                         contentScale = ContentScale.Fit,
                         modifier = Modifier.fillMaxSize(),

@@ -520,7 +520,7 @@ private fun KenBurnsImage(
         contentAlignment = Alignment.Center
     ) {
         SubcomposeAsyncImage(
-            model = imageUrl.replace("http://10.0.2.2:4000/images/", "file:///android_asset/images/"),
+            model = imageUrl.replace("http://10.0.2.2:4000/images/", "file:///android_asset/images/").replace(".png", ".jpg"),
             contentDescription = contentDescription,
             contentScale = ContentScale.Fit,
             modifier = Modifier
