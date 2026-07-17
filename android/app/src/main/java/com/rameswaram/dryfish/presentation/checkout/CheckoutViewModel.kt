@@ -118,6 +118,19 @@ class CheckoutViewModel(
         _uiState.value = _uiState.value.copy(showAddAddressSheet = false)
     }
 
+    fun updateAddress(address: Address) {
+        val updatedList = _uiState.value.addresses.map { if (it.id == address.id) address else it }
+        _uiState.value = _uiState.value.copy(
+            addresses = updatedList,
+            selectedAddress = address,
+            showAddAddressSheet = false
+        )
+        viewModelScope.launch {
+            val uid = authRepository.getSavedUid() ?: return@launch
+            firestoreRepository.saveAddresses(uid, updatedList)
+        }
+    }
+
     fun addAddress(address: Address) {
         val updatedList = _uiState.value.addresses + address
         _uiState.value = _uiState.value.copy(

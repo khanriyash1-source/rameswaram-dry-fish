@@ -60,6 +60,7 @@ fun CheckoutScreen(
 
     // Guard against opening Razorpay twice (e.g. after config change / rotation)
     var razorpayOpened by rememberSaveable { mutableStateOf(false) }
+    var editingAddress by remember { mutableStateOf<Address?>(null) }
 
     // Reset flag when a new payment flow begins (dialog shown)
     LaunchedEffect(uiState.showPaymentDialog) {
@@ -111,8 +112,14 @@ fun CheckoutScreen(
                         item {
                             AddressSection(
                                 address = uiState.selectedAddress,
-                                onAddAddress = { viewModel.showAddAddress() },
-                                onChangeAddress = { viewModel.showAddAddress() }
+                                onAddAddress = {
+                                    editingAddress = null
+                                    viewModel.showAddAddress()
+                                },
+                                onChangeAddress = {
+                                    editingAddress = uiState.selectedAddress
+                                    viewModel.showAddAddress()
+                                }
                             )
                         }
 
@@ -173,11 +180,16 @@ fun CheckoutScreen(
         }
     }
 
-    // Add Address Bottom Sheet
+    // Add/Edit Address Bottom Sheet
     if (uiState.showAddAddressSheet) {
         AddAddressBottomSheet(
+            initialAddress = editingAddress,
             onDismiss = { viewModel.hideAddAddress() },
-            onSave = { address -> viewModel.addAddress(address) }
+            onSave = { address ->
+                if (editingAddress != null) viewModel.updateAddress(address)
+                else viewModel.addAddress(address)
+                editingAddress = null
+            }
         )
     }
 
@@ -798,15 +810,17 @@ private fun SlideToPaySection(
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun AddAddressBottomSheet(
+    initialAddress: Address? = null,
     onDismiss: () -> Unit,
     onSave: (Address) -> Unit
 ) {
-    var name by remember { mutableStateOf("") }
-    var phone by remember { mutableStateOf("") }
-    var street by remember { mutableStateOf("") }
-    var city by remember { mutableStateOf("") }
-    var state by remember { mutableStateOf("") }
-    var pincode by remember { mutableStateOf("") }
+    val isEditing = initialAddress != null
+    var name by remember { mutableStateOf(initialAddress?.name ?: "") }
+    var phone by remember { mutableStateOf(initialAddress?.phone ?: "") }
+    var street by remember { mutableStateOf(initialAddress?.street ?: "") }
+    var city by remember { mutableStateOf(initialAddress?.city ?: "") }
+    var state by remember { mutableStateOf(initialAddress?.state ?: "") }
+    var pincode by remember { mutableStateOf(initialAddress?.pincode ?: "") }
 
     val sheetState = rememberModalBottomSheetState()
     ModalBottomSheet(
@@ -820,7 +834,7 @@ private fun AddAddressBottomSheet(
                 .padding(24.dp)
         ) {
             Text(
-                "Add Delivery Address",
+                if (isEditing) "Edit Delivery Address" else "Add Delivery Address",
                 fontSize = 24.sp,
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier.padding(bottom = 20.dp)
@@ -901,13 +915,14 @@ private fun AddAddressBottomSheet(
             Button(
                 onClick = {
                     val address = Address(
-                        id = System.currentTimeMillis().toString(),
+                        id = initialAddress?.id ?: System.currentTimeMillis().toString(),
                         name = name,
                         phone = phone,
                         street = street,
                         city = city,
                         state = state,
-                        pincode = pincode
+                        pincode = pincode,
+                        isDefault = initialAddress?.isDefault ?: false
                     )
                     onSave(address)
                 },
@@ -918,7 +933,7 @@ private fun AddAddressBottomSheet(
                 colors = ButtonDefaults.buttonColors(containerColor = OceanBlue),
                 enabled = name.isNotBlank() && phone.isNotBlank() && street.isNotBlank()
             ) {
-                Text("Save Address", fontSize = 16.sp, fontWeight = FontWeight.Medium)
+                Text(if (isEditing) "Update Address" else "Save Address", fontSize = 16.sp, fontWeight = FontWeight.Medium)
             }
 
             Spacer(modifier = Modifier.height(16.dp))
