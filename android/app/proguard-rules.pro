@@ -9,7 +9,7 @@
 # Keep Gson
 -keep class com.rameswaram.dryfish.domain.model.** { *; }
 -keep class com.rameswaram.dryfish.data.local.** { *; }
--keep class com.google.gson.reflect.TypeToken { *; }
+-keep class com.google.gson.** { *; }
 -keep class * extends com.google.gson.reflect.TypeToken
 
 # Keep Firebase
@@ -18,5 +18,7 @@
 # Keep Razorpay
 -keep class com.razorpay.** { *; }
 -keep class * extends com.razorpay.** { *; }
--keepattributes InnerClasses, EnclosingMethod
+-keep class * implements com.razorpay.** { *; }
+-keepattributes *Annotation*, Signature, InnerClasses, EnclosingMethod
+-optimizations !class/merging/*,!code/allocation/variable
 -dontwarn com.razorpay.**
