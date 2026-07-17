@@ -47,3 +47,6 @@
 -keep class com.google.android.gms.auth.** { *; }
 -keep class com.google.android.gms.common.api.** { *; }
 -keep class com.google.android.gms.signin.** { *; }
+
+# Keep utils (Resource sealed class used in when branches)
+-keep class com.rameswaram.dryfish.utils.** { *; }
