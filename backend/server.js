@@ -68,6 +68,11 @@ function toRupees(paise) {
 
 app.use('/images', express.static(path.join(__dirname, 'public/images')));
 
+// Privacy policy page
+app.get('/privacy-policy', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'privacy-policy.html'));
+});
+
 // Upload endpoint — receives image, uploads to Cloudinary, returns URL
 app.post('/api/v1/upload', upload.single('image'), async (req, res) => {
   try {
