@@ -17,4 +17,6 @@
 
 # Keep Razorpay
 -keep class com.razorpay.** { *; }
+-keep class * extends com.razorpay.** { *; }
+-keepattributes InnerClasses, EnclosingMethod
 -dontwarn com.razorpay.**
