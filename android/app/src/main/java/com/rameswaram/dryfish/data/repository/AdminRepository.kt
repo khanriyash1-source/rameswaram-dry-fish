@@ -44,39 +44,44 @@ class AdminRepository(
                 p.copy(images = p.images.map { "file:///android_asset/images/$it" })
             }
 
-            // 2. Load Firestore products
-            val docs = firestore.collection("admin_products").get().await()
-            val firestoreProducts = docs.mapNotNull { doc ->
-                val d = doc.data
-                val rawSkus = d["skus"] as? List<Map<String, Any>> ?: emptyList()
-                val skus = rawSkus.map { s ->
-                    SKU(
-                        id = s["id"] as? String ?: "",
-                        weight = s["weight"] as? String ?: "",
-                        price = (s["price"] as? Number)?.toDouble() ?: 0.0,
-                        stock = (s["stock"] as? Number)?.toInt() ?: 0,
-                        weightInGrams = (s["weightInGrams"] as? Number)?.toInt() ?: 0,
-                        isAvailable = s["isAvailable"] as? Boolean ?: false,
-                        mrp = (s["mrp"] as? Number)?.toDouble() ?: 0.0
+            // 2. Load Firestore products (isolated: failure doesn't block local products)
+            val firestoreProducts = try {
+                val docs = firestore.collection("admin_products").get().await()
+                docs.mapNotNull { doc ->
+                    val d = doc.data
+                    val rawSkus = d["skus"] as? List<Map<String, Any>> ?: emptyList()
+                    val skus = rawSkus.map { s ->
+                        SKU(
+                            id = s["id"] as? String ?: "",
+                            weight = s["weight"] as? String ?: "",
+                            price = (s["price"] as? Number)?.toDouble() ?: 0.0,
+                            stock = (s["stock"] as? Number)?.toInt() ?: 0,
+                            weightInGrams = (s["weightInGrams"] as? Number)?.toInt() ?: 0,
+                            isAvailable = s["isAvailable"] as? Boolean ?: false,
+                            mrp = (s["mrp"] as? Number)?.toDouble() ?: 0.0
+                        )
+                    }
+                    Product(
+                        id = d["id"] as? String ?: doc.id,
+                        name = d["name"] as? String ?: "",
+                        nameTamil = d["nameTamil"] as? String,
+                        slug = d["slug"] as? String ?: "",
+                        description = d["description"] as? String,
+                        shortDesc = d["shortDesc"] as? String,
+                        category = d["category"] as? String ?: "",
+                        images = (d["images"] as? List<String>) ?: emptyList(),
+                        skus = skus,
+                        tags = (d["tags"] as? List<String>) ?: emptyList(),
+                        isFeatured = d["isFeatured"] as? Boolean ?: false,
+                        isBestseller = d["isBestseller"] as? Boolean ?: false,
+                        rating = (d["rating"] as? Number)?.toDouble() ?: 0.0,
+                        reviewCount = (d["reviewCount"] as? Number)?.toInt() ?: 0,
+                        isEnabled = (d["isEnabled"] as? Boolean) ?: (d["enabled"] as? Boolean) ?: true
                     )
                 }
-                Product(
-                    id = d["id"] as? String ?: doc.id,
-                    name = d["name"] as? String ?: "",
-                    nameTamil = d["nameTamil"] as? String,
-                    slug = d["slug"] as? String ?: "",
-                    description = d["description"] as? String,
-                    shortDesc = d["shortDesc"] as? String,
-                    category = d["category"] as? String ?: "",
-                    images = (d["images"] as? List<String>) ?: emptyList(),
-                    skus = skus,
-                    tags = (d["tags"] as? List<String>) ?: emptyList(),
-                    isFeatured = d["isFeatured"] as? Boolean ?: false,
-                    isBestseller = d["isBestseller"] as? Boolean ?: false,
-                    rating = (d["rating"] as? Number)?.toDouble() ?: 0.0,
-                    reviewCount = (d["reviewCount"] as? Number)?.toInt() ?: 0,
-                    isEnabled = (d["isEnabled"] as? Boolean) ?: (d["enabled"] as? Boolean) ?: true
-                )
+            } catch (e: Exception) {
+                Log.e(TAG, "getProducts: Firestore failed, using local only: ${e.message}", e)
+                emptyList()
             }
 
             // 3. Merge: Firestore overrides local by product ID

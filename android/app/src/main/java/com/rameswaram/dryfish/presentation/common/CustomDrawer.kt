@@ -77,65 +77,11 @@ fun CustomDrawerLayout(
                 .fillMaxHeight()
                 .offset { IntOffset(((progress - 1f) * drawerWidthPx).roundToInt(), 0) }
                 .graphicsLayer { clip = true }
-                .pointerInput(gesturesEnabled) {
-                    if (gesturesEnabled) {
-                        detectHorizontalDragGestures(
-                            onDragEnd = {
-                                if (anim.value > 0.4f) {
-                                    scope.launch { anim.animateTo(1f); onOpenChanged(true) }
-                                } else {
-                                    scope.launch { anim.animateTo(0f); onOpenChanged(false) }
-                                }
-                            },
-                            onHorizontalDrag = { _, dragAmount ->
-                                val newPos = (anim.value + dragAmount / drawerWidthPx).coerceIn(0f, 1f)
-                                scope.launch { anim.snapTo(newPos) }
-                            }
-                        )
-                    }
-                }
         ) {
             drawerContent()
         }
 
-        // Left edge swipe zone — wider, always active for opening/continuing drag
-        // Uses awaitTouchSlopOrCancellation so taps pass through to content below
-        if (gesturesEnabled) {
-            Box(
-                Modifier
-                    .width(40.dp)
-                    .fillMaxHeight()
-                    .pointerInput(Unit) {
-                        awaitEachGesture {
-                            val down = awaitFirstDown(requireUnconsumed = false)
-                            val drag = awaitTouchSlopOrCancellation(down.id) { change, _ ->
-                                change.consume()
-                            }
-                            if (drag != null) {
-                                var lastX = drag.position.x
-                                while (true) {
-                                    val event = awaitPointerEvent(PointerEventPass.Main)
-                                    val change = event.changes.firstOrNull() ?: break
-                                    if (!change.pressed) {
-                                        change.consume()
-                                        break
-                                    }
-                                    change.consume()
-                                    val curX = change.position.x
-                                    val delta = curX - lastX
-                                    lastX = curX
-                                    val newPos = (anim.value + delta / drawerWidthPx).coerceIn(0f, 1f)
-                                    scope.launch { anim.snapTo(newPos) }
-                                }
-                                if (anim.value > 0.4f) {
-                                    scope.launch { anim.animateTo(1f); onOpenChanged(true) }
-                                } else {
-                                    scope.launch { anim.animateTo(0f); onOpenChanged(false) }
-                                }
-                            }
-                        }
-                    }
-            )
-        }
+        // Left edge swipe zone disabled — was intercepting taps on menu button
+        // (empty)
     }
 }
