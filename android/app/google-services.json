@@ -22,6 +22,14 @@
           }
         },
         {
+          "client_id": "646532651867-gfvaaog0cnsfmpucvouisvnr2v70gh0j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rameswaram.dryfish",
+            "certificate_hash": "80552df96003e07851896b83b39207223c19abdc"
+          }
+        },
+        {
           "client_id": "646532651867-5se97kjtrqj2r3kfc38n7nfgoihp7lkk.apps.googleusercontent.com",
           "client_type": 3
         }
