@@ -1,6 +1,7 @@
 package com.rameswaram.dryfish.presentation.admin
 
 import android.net.Uri
+
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
@@ -121,7 +122,18 @@ fun AdminProductsScreen(
                     shape = RoundedCornerShape(12.dp)
                 )
 
-                if (uiState.isLoading && uiState.products.isEmpty()) {
+                if (uiState.error != null) {
+                    Column(
+                        modifier = Modifier.padding(32.dp),
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
+                        Text(uiState.error!!, color = Color.Red, style = MaterialTheme.typography.bodyLarge)
+                        Spacer(Modifier.height(8.dp))
+                        TextButton(onClick = { viewModel.loadProducts() }) {
+                            Text("Retry")
+                        }
+                    }
+                } else if (uiState.isLoading && uiState.products.isEmpty()) {
                     CircularProgressIndicator(modifier = Modifier.align(Alignment.CenterHorizontally).padding(32.dp))
                 } else if (filteredProducts.isEmpty()) {
                     Text(
